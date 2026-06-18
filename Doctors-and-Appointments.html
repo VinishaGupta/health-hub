@@ -21,6 +21,10 @@
           "opsz" 24;
         vertical-align: middle;
       }
+      html,
+      body {
+        overflow-x: hidden;
+      }
       .glass-effect {
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
@@ -51,7 +55,8 @@
       .carousel-container {
         display: none;
         perspective: 2000px;
-        overflow: visible;
+        overflow-x: clip;
+        overflow-y: visible;
         width: 100%;
         margin: 0 auto;
       }
