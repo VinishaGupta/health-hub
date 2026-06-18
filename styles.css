@@ -1,0 +1,9 @@
+body{
+    background:#111;
+}
+
+.box{
+    height:100px;
+    width:100px;
+    background:hotpink;
+}
