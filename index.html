@@ -1,17 +1,786 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>GSAP Practice</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<!doctype html>
 
-<body>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Health Hub — Your Health, Our Priority</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-panel {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+      @keyframes pulse-red {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(181, 18, 32, 0.7);
+        }
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 10px rgba(181, 18, 32, 0);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(181, 18, 32, 0);
+        }
+      }
+      .emergency-pulse {
+        animation: pulse-red 2s infinite;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "tertiary-container": "#b51220",
+              "surface-bright": "#f8f9ff",
+              "error-container": "#ffdad6",
+              secondary: "#00687a",
+              "on-surface-variant": "#434654",
+              outline: "#737685",
+              "on-tertiary-fixed-variant": "#930014",
+              "inverse-on-surface": "#eaf1ff",
+              "primary-fixed": "#dae2ff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#410004",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#b2c5ff",
+              "on-secondary-fixed": "#001f26",
+              "surface-dim": "#cbdbf5",
+              "on-error": "#ffffff",
+              "secondary-container": "#6ae1ff",
+              "surface-variant": "#d3e4fe",
+              "tertiary-fixed-dim": "#ffb3ae",
+              "inverse-surface": "#213145",
+              "on-background": "#0b1c30",
+              "outline-variant": "#c3c6d6",
+              "on-primary-fixed-variant": "#0040a2",
+              surface: "#f8f9ff",
+              "on-secondary-container": "#006374",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffc5c0",
+              "surface-container-highest": "#d3e4fe",
+              "secondary-fixed-dim": "#5dd6f3",
+              "surface-tint": "#0c56d0",
+              "tertiary-fixed": "#ffdad7",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed": "#001848",
+              error: "#ba1a1a",
+              "on-primary-container": "#c4d2ff",
+              "surface-container": "#e5eeff",
+              background: "#f8f9ff",
+              "surface-container-high": "#dce9ff",
+              "on-secondary-fixed-variant": "#004e5d",
+              primary: "#003d9b",
+              tertiary: "#8c0013",
+              "surface-container-low": "#eff4ff",
+              "on-surface": "#0b1c30",
+              "primary-fixed-dim": "#b2c5ff",
+              "secondary-fixed": "#adecff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              base: "8px",
+              "margin-desktop": "40px",
+              "container-max": "1280px",
+              gutter: "24px",
+              "margin-mobile": "16px",
+            },
+            fontFamily: {
+              "headline-lg": ["Inter"],
+              "body-lg": ["Inter"],
+              "body-md": ["Inter"],
+              "display-lg": ["Inter"],
+              "label-md": ["Inter"],
+              "headline-md": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "label-sm": ["Inter"],
+            },
+            fontSize: {
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+    <!-- Top Navigation Bar -->
+    <header
+      class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50"
+    >
+      <nav
+        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto"
+      >
+        <div
+          class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2"
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >medical_services</span
+          >
+          <span>Health Hub</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors duration-200 py-1"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200"
+            href="Doctors-and-Appointments.html"
+            >Doctors</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200"
+            href="#"
+            >Services</a
+          >
+        </div>
+        <button
+          class="bg-tertiary-container text-on-tertiary px-6 py-2 rounded-full font-label-md emergency-pulse hover:brightness-110 active:scale-95 duration-150"
+        >
+          EMERGENCY
+        </button>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero Section -->
+      <section
+        class="relative min-h-[751px] flex items-center px-margin-mobile md:px-margin-desktop py-12 overflow-hidden"
+      >
+        <!-- Animated Background Gradient -->
+        <div
+          class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"
+        ></div>
+        <div
+          class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+        >
+          <div class="space-y-8 text-center lg:text-left">
+            <div
+              class="inline-flex items-center gap-2 bg-secondary-container/30 text-on-secondary-container px-4 py-1.5 rounded-full border border-secondary/20 font-label-sm"
+            >
+              <span class="material-symbols-outlined text-[18px]"
+                >verified_user</span
+              >
+              <span>Trusted by 50,000+ Patients</span>
+            </div>
+            <h1
+              class="font-display-lg text-display-lg md:text-[56px] text-on-surface leading-tight"
+            >
+              Health Hub — <br /><span class="text-primary"
+                >Your Health, Our Priority</span
+              >
+            </h1>
+            <p
+              class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto lg:mx-0"
+            >
+              Complete healthcare solutions at your fingertips. From routine
+              checkups to specialized emergency care, we provide excellence in
+              every heartbeat.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+            >
+              <button
+                class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all shadow-lg shadow-primary/20 active:scale-95 duration-150"
+              >
+                Book Appointment
+                <span class="material-symbols-outlined">calendar_today</span>
+              </button>
+              <button
+                class="bg-white border-2 border-tertiary text-tertiary px-8 py-4 rounded-full font-label-md flex items-center justify-center gap-2 hover:bg-tertiary hover:text-on-tertiary transition-all active:scale-95 duration-150"
+              >
+                Emergency Help
+                <span class="material-symbols-outlined">call</span>
+              </button>
+            </div>
+          </div>
+          <div class="relative group">
+            <div
+              class="absolute -inset-4 bg-primary/5 rounded-[40px] blur-3xl group-hover:bg-primary/10 transition-colors duration-500"
+            ></div>
+            <img
+              alt="Doctor using digital hub"
+              class="relative rounded-[32px] w-full shadow-2xl object-cover h-[500px]"
+              data-alt="A professional female doctor in a crisp white lab coat smiling while holding a digital tablet. She is standing in a brightly lit, high-tech hospital corridor with soft blue accents and clean white walls. The lighting is sterile yet warm, suggesting a high-trust healthcare environment. The overall aesthetic is medical minimalist with glass surfaces and blurred background lights creating depth."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Cn-xSHuGZR6zQoAR6vICMFtaopD2ET7pa40mmEA2xFZal23xsFql8u8k_craGiTHJsRJeUQLlMpZ7pPT5sDz86_582v3NTvBfPUgv3u94KhUzPmE7jDnmLRauKKw9muKVzmvYPqwKoxm3uzWbBUDZJ729M0NA6PlLzG0FZnEfhEICW4ERuMStl6O0HT-SNQH5sQXV00MQTjCzGrrDC6RD9_Gut_uh7TCr99doLJfeDgWrqBr9Bfr4cSlIH8susATi-YcrnZPQss"
+            />
+            <!-- Emergency Badge Overlay -->
+            <div
+              class="absolute -bottom-6 -left-6 md:bottom-12 md:-left-12 glass-panel bg-white/70 p-6 rounded-2xl shadow-xl border border-white/40 flex items-center gap-4 animate-bounce"
+            >
+              <div
+                class="bg-tertiary rounded-full p-3 text-on-tertiary flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined">support_agent</span>
+              </div>
+              <div>
+                <p class="font-label-sm text-tertiary">24/7 SUPPORT</p>
+                <p class="font-headline-md text-headline-md text-on-surface">
+                  Emergency Care
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Stats Section -->
+      <section
+        class="bg-surface-container-low py-20 px-margin-mobile md:px-margin-desktop"
+      >
+        <div class="max-w-container-max mx-auto">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+            <div class="text-center group">
+              <div
+                class="text-primary font-display-lg text-display-lg mb-2"
+                id="stat-doctors"
+              >
+                0
+              </div>
+              <p class="text-on-surface-variant font-label-md">
+                Expert Doctors
+              </p>
+              <div
+                class="h-1 w-0 bg-primary mx-auto mt-4 group-hover:w-12 transition-all duration-300"
+              ></div>
+            </div>
+            <div class="text-center group">
+              <div
+                class="text-primary font-display-lg text-display-lg mb-2"
+                id="stat-patients"
+              >
+                0
+              </div>
+              <p class="text-on-surface-variant font-label-md">
+                Happy Patients
+              </p>
+              <div
+                class="h-1 w-0 bg-primary mx-auto mt-4 group-hover:w-12 transition-all duration-300"
+              ></div>
+            </div>
+            <div class="text-center group">
+              <div
+                class="text-primary font-display-lg text-display-lg mb-2"
+                id="stat-beds"
+              >
+                0
+              </div>
+              <p class="text-on-surface-variant font-label-md">Hospital Beds</p>
+              <div
+                class="h-1 w-0 bg-primary mx-auto mt-4 group-hover:w-12 transition-all duration-300"
+              ></div>
+            </div>
+            <div class="text-center group">
+              <div class="text-primary font-display-lg text-display-lg mb-2">
+                24/7
+              </div>
+              <p class="text-on-surface-variant font-label-md">
+                Emergency Care
+              </p>
+              <div
+                class="h-1 w-0 bg-primary mx-auto mt-4 group-hover:w-12 transition-all duration-300"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Facilities Bento Grid -->
+      <section class="py-24 px-margin-mobile md:px-margin-desktop">
+        <div class="max-w-container-max mx-auto">
+          <div class="text-center mb-16 space-y-4">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">
+              World-Class Facilities
+            </h2>
+            <p class="text-on-surface-variant max-w-2xl mx-auto">
+              Equipped with the latest medical technology to ensure the best
+              possible care for our patients.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Advanced ICU -->
+            <div
+              class="md:col-span-2 group relative overflow-hidden rounded-[24px] bg-white shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/30"
+            >
+              <div
+                class="p-8 flex flex-col justify-between h-full relative z-10"
+              >
+                <span
+                  class="material-symbols-outlined text-primary text-[48px] mb-6"
+                  >respiratory_rate</span
+                >
+                <a href="OPD-Booking.html">
+                    <div>
+                  <h3
+                    class="font-headline-md text-headline-md text-on-surface mb-2"
+                  >
+                    OPD Services
+                  </h3>
+                  <p class="text-on-surface-variant">
+                    24/7 outpatient consultations with expert doctors and
+                    personalized healthcare support.
+                  </p>
+                </div>
+                </a>
+              </div>
+              <div
+                class="absolute top-0 right-0 w-1/2 h-full opacity-10 group-hover:opacity-20 transition-opacity"
+              >
+                <span
+                  class="material-symbols-outlined text-[200px] absolute -right-10 -top-10 rotate-12"
+                  >vital_signs</span
+                >
+              </div>
+            </div>
+            <!-- Modern OTs -->
+            <div
+              class="group bg-primary text-on-primary rounded-[24px] p-8 hover:shadow-2xl hover:shadow-primary/30 transition-all duration-500"
+            >
+              <span class="material-symbols-outlined text-[48px] mb-6"
+                >medical_mask</span
+              >
+              <h3 class="font-headline-md text-headline-md mb-2">Modern OTs</h3>
+              <p class="text-on-primary/80">
+                Laminar airflow surgery suites with robotic assistance
+                capabilities.
+              </p>
+            </div>
+            <!-- Patient Rooms -->
+            <div
+              class="group bg-secondary-container text-on-secondary-container rounded-[24px] p-8 hover:shadow-xl transition-all duration-500"
+            >
+              <span class="material-symbols-outlined text-[48px] mb-6"
+                >bedroom_parent</span
+              >
+              <h3 class="font-headline-md text-headline-md mb-2">
+                Patient Rooms
+              </h3>
+              <p class="text-on-secondary-container/80">
+                Private, comfortable recovery spaces designed for holistic
+                healing.
+              </p>
+            </div>
+            <!-- Diagnostics -->
+            <div
+              class="md:col-span-2 group relative overflow-hidden rounded-[24px] bg-white shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/30"
+            >
+              <div class="p-8 flex items-center gap-8 h-full relative z-10">
+                <div class="bg-surface-container p-6 rounded-2xl text-primary">
+                  <span class="material-symbols-outlined text-[48px]"
+                    >biotech</span
+                  >
+                </div>
+                <div>
+                  <h3
+                    class="font-headline-md text-headline-md text-on-surface mb-2"
+                  >
+                    Smart Diagnostics
+                  </h3>
+                  <p class="text-on-surface-variant">
+                    AI-powered imaging and rapid laboratory testing for accurate
+                    results.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Services Preview Section -->
+      <section
+        class="py-24 bg-surface px-margin-mobile md:px-margin-desktop overflow-hidden"
+      >
+        <div class="max-w-container-max mx-auto">
+          <div
+            class="flex flex-col lg:flex-row items-end justify-between mb-12 gap-6"
+          >
+            <div class="max-w-xl">
+              <h2
+                class="font-headline-lg text-headline-lg text-on-surface mb-4"
+              >
+                Our Specialized Services
+              </h2>
+              <p class="text-on-surface-variant">
+                We bring together top-tier medical expertise and compassionate
+                care across dozens of departments.
+              </p>
+            </div>
+            <button
+              class="text-primary font-label-md flex items-center gap-2 hover:underline"
+            >
+              View All Departments
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Service Card -->
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/20 hover:border-primary/40 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4"
+              >
+                <span class="material-symbols-outlined">cardiology</span>
+              </div>
+              <h4 class="font-headline-md text-[20px] mb-2">Cardiology</h4>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Advanced heart care including non-invasive diagnostics and
+                surgery.
+              </p>
+              <a
+                class="text-primary font-label-sm inline-flex items-center gap-1 group"
+                href="#"
+                >Learn more
+                <span
+                  class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform"
+                  >chevron_right</span
+                ></a
+              >
+            </div>
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/20 hover:border-primary/40 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center text-secondary mb-4"
+              >
+                <span class="material-symbols-outlined">neurology</span>
+              </div>
+              <h4 class="font-headline-md text-[20px] mb-2">Neurology</h4>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Comprehensive treatment for complex brain and nervous system
+                disorders.
+              </p>
+              <a
+                class="text-primary font-label-sm inline-flex items-center gap-1 group"
+                href="#"
+                >Learn more
+                <span
+                  class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform"
+                  >chevron_right</span
+                ></a
+              >
+            </div>
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/20 hover:border-primary/40 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-tertiary/10 rounded-xl flex items-center justify-center text-tertiary mb-4"
+              >
+                <span class="material-symbols-outlined">done</span>
+              </div>
+              <h4 class="font-headline-md text-[20px] mb-2">Orthopedics</h4>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Specialized joint replacement and sports medicine services.
+              </p>
+              <a
+                class="text-primary font-label-sm inline-flex items-center gap-1 group"
+                href="#"
+                >Learn more
+                <span
+                  class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform"
+                  >chevron_right</span
+                ></a
+              >
+            </div>
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/20 hover:border-primary/40 transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 bg-on-secondary-fixed-variant/10 rounded-xl flex items-center justify-center text-on-secondary-fixed-variant mb-4"
+              >
+                <span class="material-symbols-outlined">child_care</span>
+              </div>
+              <h4 class="font-headline-md text-[20px] mb-2">Pediatrics</h4>
+              <p class="text-on-surface-variant text-sm mb-4">
+                Dedicated pediatric care from infancy through adolescence.
+              </p>
+              <a
+                class="text-primary font-label-sm inline-flex items-center gap-1 group"
+                href="#"
+                >Learn more
+                <span
+                  class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform"
+                  >chevron_right</span
+                ></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant/30"
+    >
+      <div
+        class="w-full px-margin-mobile md:px-margin-desktop py-12 flex flex-col gap-8 max-w-container-max mx-auto"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
+          <div class="col-span-1 lg:col-span-2">
+            <div
+              class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-4"
+            >
+              Health Hub
+            </div>
+            <p class="text-on-surface-variant max-w-sm mb-6">
+              Bringing together innovation and compassion to redefine healthcare
+              standards. Available whenever you need us, wherever you are.
+            </p>
+            <div class="flex gap-4">
+              <a
+                class="bg-primary/5 p-2 rounded-full hover:bg-primary/10 transition-colors"
+                href="#"
+                ><span class="material-symbols-outlined text-primary"
+                  >face_nod</span
+                ></a
+              >
+              <a
+                class="bg-primary/5 p-2 rounded-full hover:bg-primary/10 transition-colors"
+                href="#"
+                ><span class="material-symbols-outlined text-primary"
+                  >share</span
+                ></a
+              >
+              <a
+                class="bg-primary/5 p-2 rounded-full hover:bg-primary/10 transition-colors"
+                href="#"
+                ><span class="material-symbols-outlined text-primary"
+                  >local_hospital</span
+                ></a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 class="font-label-md text-on-surface mb-6">Quick Links</h4>
+            <ul class="space-y-4">
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#"
+                  >Sitemap</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-label-md text-on-surface mb-6">Contact</h4>
+            <ul class="space-y-4 text-on-surface-variant">
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[20px]"
+                  >location_on</span
+                >
+                123 Health Ave, Medical District
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[20px]"
+                  >phone</span
+                >
+                +1 (555) 000-HEALTH
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[20px]"
+                  >mail</span
+                >
+                support@healthhub.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant font-body-md"
+        >
+          © 2024 Health Hub. Making healthcare simple and accessible.
+        </div>
+      </div>
+    </footer>
+    <!-- Mobile Navigation Bar -->
+    <div
+      class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface dark:bg-on-background shadow-lg rounded-t-xl"
+    >
+      <a
+        class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-full px-4 py-1 transition-transform active:scale-90"
+        href="#"
+      >
+        <span class="material-symbols-outlined">home</span>
+        <span class="font-label-sm text-label-sm">Home</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant transition-transform active:scale-90"
+        href="#"
+      >
+        <span class="material-symbols-outlined">account_tree</span>
+        <span class="font-label-sm text-label-sm">Depts</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant transition-transform active:scale-90"
+        href="#"
+      >
+        <span class="material-symbols-outlined">medical_information</span>
+        <span class="font-label-sm text-label-sm">Doctors</span>
+      </a>
+      <a
+        class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:bg-surface-variant transition-transform active:scale-90"
+        href="#"
+      >
+        <span class="material-symbols-outlined">event</span>
+        <span class="font-label-sm text-label-sm">Appts</span>
+      </a>
+    </div>
+    <script>
+      // Statistic Counter Animation
+      function animateValue(id, start, end, duration, suffix = "") {
+        const obj = document.getElementById(id);
+        if (!obj) return;
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          const currentVal = Math.floor(progress * (end - start) + start);
+          obj.innerHTML = currentVal.toLocaleString() + suffix;
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
 
-    <div class="box"></div>
+      // Intersection Observer for stats
+      const observerOptions = {
+        threshold: 0.5,
+      };
 
-    <!-- GSAP CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateValue("stat-doctors", 0, 100, 2000, "+");
+            animateValue("stat-patients", 0, 50000, 2500, "+");
+            animateValue("stat-beds", 0, 500, 2000, "+");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
 
-    <script src="script.js"></script>
-</body>
+      const statsSection =
+        document.getElementById("stat-doctors").parentElement.parentElement
+          .parentElement;
+      observer.observe(statsSection);
+
+      // Simple smooth entrance for cards
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("opacity-100", "translate-y-0");
+              entry.target.classList.remove("opacity-0", "translate-y-10");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(
+          ".group.bg-white, .group.bg-primary, .group.bg-secondary-container",
+        )
+        .forEach((card) => {
+          card.classList.add(
+            "transition-all",
+            "duration-700",
+            "opacity-0",
+            "translate-y-10",
+          );
+          fadeObserver.observe(card);
+        });
+    </script>
+  </body>
 </html>

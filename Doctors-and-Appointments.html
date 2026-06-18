@@ -1,0 +1,653 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar {
+            scrollbar-width: thin;
+        }
+        .doctor-card:hover .doctor-image {
+            transform: scale(1.05);
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 18, 32, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(181, 18, 32, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(181, 18, 32, 0); }
+        }
+        .emergency-pulse {
+            animation: pulse-red 2s infinite;
+        }
+        .carousel-container {
+            display: none;
+            perspective: 2000px;
+            overflow: visible;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .carousel-active .carousel-container {
+            display: block;
+        }
+        .carousel-active .grid-container {
+            display: none;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+            transform-style: preserve-3d;
+            align-items: center;
+            padding: 40px 0;
+        }
+        .carousel-item {
+            flex: 0 0 100%;
+            padding: 0;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            opacity: 0.2;
+            transform: scale(0.7) rotateY(0deg);
+            filter: blur(2px);
+        }
+        @media (min-width: 768px) {
+            .carousel-item {
+                flex: 0 0 60%;
+            }
+        }
+        @media (min-width: 1024px) {
+            .carousel-item {
+                flex: 0 0 50%;
+            }
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            transform: scale(1.2) translateZ(150px);
+            z-index: 10;
+            filter: blur(0);
+        }
+        .carousel-item.prev-item {
+            opacity: 0.5;
+            transform: scale(0.85) rotateY(35deg) translateX(25%);
+            z-index: 5;
+            filter: blur(1px);
+        }
+        .carousel-item.next-item {
+            opacity: 0.5;
+            transform: scale(0.85) rotateY(-35deg) translateX(-25%);
+            z-index: 5;
+            filter: blur(1px);
+        }
+        .carousel-item.far-item {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "background": "#f8f9ff",
+                        "primary": "#003d9b",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#001848",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-tertiary-fixed": "#410004",
+                        "on-secondary-fixed": "#001f26",
+                        "surface-dim": "#cbdbf5",
+                        "tertiary": "#8c0013",
+                        "primary-container": "#0052cc",
+                        "on-tertiary-container": "#ffc5c0",
+                        "secondary-container": "#6ae1ff",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "on-background": "#0b1c30",
+                        "secondary-fixed-dim": "#5dd6f3",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-container": "#b51220",
+                        "outline-variant": "#c3c6d6",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#adecff",
+                        "on-surface-variant": "#434654",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container": "#e5eeff",
+                        "on-secondary": "#ffffff",
+                        "outline": "#737685",
+                        "secondary": "#00687a",
+                        "inverse-surface": "#213145",
+                        "surface-tint": "#0c56d0",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#dae2ff",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-container-high": "#dce9ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-secondary-container": "#006374",
+                        "on-primary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#004e5d",
+                        "surface-variant": "#d3e4fe",
+                        "tertiary-fixed": "#ffdad7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50">
+<nav class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+<span>Health Hub</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="index.html">Home</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors duration-200 py-1" href="#">Doctors</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="#">Services</a>
+</div>
+<button class="bg-tertiary-container text-on-tertiary px-6 py-2 rounded-full font-label-md emergency-pulse hover:brightness-110 active:scale-95 duration-150">
+                EMERGENCY
+            </button>
+</nav>
+</header>
+<main class="pb-20 max-w-container-max mx-auto px-margin-desktop">
+<!-- Hero Section / Title -->
+<header class="mb-12">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight mb-2">Our Specialists</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Connect with our world-class medical professionals. Expert care across over 40 medical specialties, focused on your long-term health and wellbeing.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter carousel-active" id="specialists-section">
+<!-- Doctor Directory -->
+<section class="space-y-6 lg:col-span-12">
+<div class="flex justify-between items-center bg-surface-container-low p-4 rounded-xl">
+<div class="flex gap-4 items-center">
+<select class="bg-white border-outline-variant rounded-lg text-label-md px-4 py-2 outline-none focus:border-primary">
+<option>All Specialities</option>
+<option>Cardiology</option>
+<option>Neurology</option>
+<option>Pediatrics</option>
+</select>
+<select class="bg-white border-outline-variant rounded-lg text-label-md px-4 py-2 outline-none focus:border-primary">
+<option>Availability</option>
+<option>Today</option>
+<option>This Week</option>
+</select>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex bg-white rounded-lg p-1 border border-outline-variant/30">
+<button class="p-1.5 rounded-md flex items-center justify-center transition-colors text-on-surface-variant hover:bg-surface-container" id="toggle-grid" title="Grid View">
+<span class="material-symbols-outlined !text-[20px]">grid_view</span>
+</button>
+<button class="p-1.5 rounded-md flex items-center justify-center transition-colors text-primary bg-primary-container" id="toggle-carousel" title="Carousel View">
+<span class="material-symbols-outlined !text-[20px]">view_carousel</span>
+</button>
+</div>
+</div>
+<span class="text-label-sm text-on-surface-variant hidden sm:inline">Showing 24 Specialists</span>
+</div>
+<!-- Grid Container -->
+<div class="grid-container grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Doctor Card 1 -->
+<div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. Sarah Mitchell" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of a female doctor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHp69AkhZhbLTTUwbvudF7OGlQI0aXhssENnkYFFvYTAz4AzwUk1T8Jo-hgSu3DskpmnjZOmUqaq0fR5fmKXDn9OQH81ama0Et5U_4GMs4JnhW1CiIBzcVNGEJDRbtkJSilyEtvTUpQFN5Qx0QQ9sSl34DA4wUwvZYhzpYCIx5d8OwhojTxM41tMb5bDols2CRUQ3CLJXDlkTkneblkjE5jQzdeMLv6d-EkBVzVRFXBbvJye19AaUMaUGkrFuwwIK_eJ9V616qDuo">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Cardiology</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">4.9</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. Sarah Mitchell</h3>
+<p class="text-label-sm text-on-surface-variant">MD, FACC • 12 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Tomorrow, 9:00 AM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Doctor Card 2 -->
+<div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. James Wilson" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A professional male doctor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRHz0vBFerctmRhjwgHZK06IJdje1579-l4ddD3bPpqRI5CgjnaXdNeUGC_5Vduq4hYHsgDgZmIS59jdxCnqP969ydbsRaT8UK0pDXin-kqfsaF_wlNsSP0DOHWNUBUz2aRDjGvouqlzRliKY8WABISOyij0Yf-aCYf0gu7cS3MrSlxMShPnhD2sxpbv57yi6wHegNk65oX_CCK8IAZs1HDfPcT2zuOuwZfWuPtu0u322LZNzjzgVKmw3Lb_NDx9X3-QDCcQMGjCs">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Neurology</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">4.8</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. James Wilson</h3>
+<p class="text-label-sm text-on-surface-variant">PhD, Neurology • 15 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Today, 2:30 PM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Doctor Card 3 -->
+<div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. Elena Rodriguez" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A portrait of a senior female medical expert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_zwcuMnoCl8XNQQq95TnHvacXPxHr4p-grVbvNc6WAxuW63cr7yKqIFkw33jzR-SVDBLphpVnq4WyBxhtII6p5j_l6jBhwOKQAABNaf_ICg2WCbPKunQM0H9Y0WNMzw6hyliD5DlutuOIvoohTmo51g1RqlPGdIb8b11-faGITvjQmks51mBAgsmm6RkYet4ooamgoGEeLGiZWshRyxuKPup3_k5vf1tTnxzXzY3Tt7IYskIYRTqAJfbG-A7Nn8pAdYsW-FHEgoM">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Pediatrics</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">5.0</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. Elena Rodriguez</h3>
+<p class="text-label-sm text-on-surface-variant">MD, Pediatrics • 18 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Wednesday, 10:00 AM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Doctor Card 4 -->
+<div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. Michael Chang" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A focused male doctor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpv5I5ZMIdC_z61UUUyk8QaCM17JAOOeL_qzQlqa9ZQRgq4UhR6vJYa1FkbD7C7E5zHv-ecUsWKhtls6nvI-LiB5fmhZEw4ZkVc43XQ7y179tp6g5Ln_6Vh5PjiEHh7g0zlmbOuytnB7jJUE_0wjFTS86qSjrs8aeHqWt736tyiNBsLd1mR-zijXBvm_Bw2pb_H6J3eUxp5NfDIGhrRUvhFDNTXDnvDuBp7xfkeSU8cfGoYUCYeMptYsPd3REr7QcOvgFW5MZBkHI">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Orthopedics</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">4.7</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. Michael Chang</h3>
+<p class="text-label-sm text-on-surface-variant">MS, Orthopedics • 9 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Today, 4:15 PM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Carousel Container -->
+<div class="carousel-container relative py-12">
+<div class="mx-auto w-full max-w-container-max">
+<div class="carousel-track" id="carousel-track" style="transform: translateX(-900px);"><div class="carousel-item far-item"><div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative" style="transform: none;">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. Sarah Mitchell" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A professional headshot of a female doctor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHp69AkhZhbLTTUwbvudF7OGlQI0aXhssENnkYFFvYTAz4AzwUk1T8Jo-hgSu3DskpmnjZOmUqaq0fR5fmKXDn9OQH81ama0Et5U_4GMs4JnhW1CiIBzcVNGEJDRbtkJSilyEtvTUpQFN5Qx0QQ9sSl34DA4wUwvZYhzpYCIx5d8OwhojTxM41tMb5bDols2CRUQ3CLJXDlkTkneblkjE5jQzdeMLv6d-EkBVzVRFXBbvJye19AaUMaUGkrFuwwIK_eJ9V616qDuo">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Cardiology</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">4.9</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. Sarah Mitchell</h3>
+<p class="text-label-sm text-on-surface-variant">MD, FACC • 12 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Tomorrow, 9:00 AM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div></div><div class="carousel-item far-item"><div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative" style="transform: none;">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. James Wilson" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A professional male doctor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRHz0vBFerctmRhjwgHZK06IJdje1579-l4ddD3bPpqRI5CgjnaXdNeUGC_5Vduq4hYHsgDgZmIS59jdxCnqP969ydbsRaT8UK0pDXin-kqfsaF_wlNsSP0DOHWNUBUz2aRDjGvouqlzRliKY8WABISOyij0Yf-aCYf0gu7cS3MrSlxMShPnhD2sxpbv57yi6wHegNk65oX_CCK8IAZs1HDfPcT2zuOuwZfWuPtu0u322LZNzjzgVKmw3Lb_NDx9X3-QDCcQMGjCs">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Neurology</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">4.8</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. James Wilson</h3>
+<p class="text-label-sm text-on-surface-variant">PhD, Neurology • 15 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Today, 2:30 PM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div></div><div class="carousel-item prev-item"><div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative" style="transform: none;">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. Elena Rodriguez" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A portrait of a senior female medical expert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_zwcuMnoCl8XNQQq95TnHvacXPxHr4p-grVbvNc6WAxuW63cr7yKqIFkw33jzR-SVDBLphpVnq4WyBxhtII6p5j_l6jBhwOKQAABNaf_ICg2WCbPKunQM0H9Y0WNMzw6hyliD5DlutuOIvoohTmo51g1RqlPGdIb8b11-faGITvjQmks51mBAgsmm6RkYet4ooamgoGEeLGiZWshRyxuKPup3_k5vf1tTnxzXzY3Tt7IYskIYRTqAJfbG-A7Nn8pAdYsW-FHEgoM">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Pediatrics</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">5.0</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. Elena Rodriguez</h3>
+<p class="text-label-sm text-on-surface-variant">MD, Pediatrics • 18 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Wednesday, 10:00 AM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div></div><div class="carousel-item active"><div class="doctor-card bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group overflow-hidden relative" style="transform: none;">
+<div class="flex gap-5">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img alt="Dr. Michael Chang" class="doctor-image w-full h-full object-cover transition-transform duration-500" data-alt="A focused male doctor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpv5I5ZMIdC_z61UUUyk8QaCM17JAOOeL_qzQlqa9ZQRgq4UhR6vJYa1FkbD7C7E5zHv-ecUsWKhtls6nvI-LiB5fmhZEw4ZkVc43XQ7y179tp6g5Ln_6Vh5PjiEHh7g0zlmbOuytnB7jJUE_0wjFTS86qSjrs8aeHqWt736tyiNBsLd1mR-zijXBvm_Bw2pb_H6J3eUxp5NfDIGhrRUvhFDNTXDnvDuBp7xfkeSU8cfGoYUCYeMptYsPd3REr7QcOvgFW5MZBkHI">
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<span class="bg-secondary-fixed text-on-secondary-fixed text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full">Orthopedics</span>
+<div class="flex items-center text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm ml-1">4.7</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md mt-1">Dr. Michael Chang</h3>
+<p class="text-label-sm text-on-surface-variant">MS, Orthopedics • 9 Years Exp.</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<p class="text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">event_available</span>
+                                Next: Today, 4:15 PM
+                            </p>
+<button class="text-primary font-label-md flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                View Profile <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div></div></div>
+</div>
+<!-- Navigation Arrows -->
+<div class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none px-8">
+<button class="w-14 h-14 flex items-center justify-center bg-white/90 backdrop-blur border border-outline-variant/30 rounded-full shadow-lg hover:bg-white transition-all active:scale-95 z-30 text-primary pointer-events-auto" id="carousel-prev" style="opacity: 1;">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<button class="w-14 h-14 flex items-center justify-center bg-white/90 backdrop-blur border border-outline-variant/30 rounded-full shadow-lg hover:bg-white transition-all active:scale-95 z-30 text-primary pointer-events-auto" id="carousel-next" disabled="" style="opacity: 0.3;">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+<!-- Load More / Pagination -->
+<div class="flex justify-center mt-8 hidden" id="load-more-btn">
+<button class="bg-surface-container text-on-surface-variant px-8 py-3 rounded-xl font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+                        Load More Specialists
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Appointment Success Modal Overlay -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-on-surface/40 backdrop-blur-sm hidden" id="success-modal">
+<div class="bg-white rounded-3xl p-10 max-w-md w-full text-center shadow-2xl scale-95 transition-transform">
+<div class="w-20 h-20 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-4xl text-on-primary-container" style="font-variation-settings: 'wght' 700;">check</span>
+</div>
+<h2 class="font-display-lg text-headline-lg text-on-surface mb-2">Request Received!</h2>
+<p class="text-body-md text-on-surface-variant mb-8">Your appointment request has been sent to Dr. Mitchell's team. We'll confirm via SMS within 2 hours.</p>
+<button class="w-full bg-primary text-white py-4 rounded-2xl font-bold text-label-md" onclick="document.getElementById('success-modal').classList.add('hidden')">Return to Doctors</button>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-highest w-full rounded-t-xl border-t border-outline-variant mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 w-full max-w-container-max mx-auto">
+<div class="col-span-1 md:col-span-1">
+<h2 class="text-headline-sm font-black text-on-surface mb-4">Health Hub</h2>
+<p class="text-body-md text-on-surface-variant mb-6">Premium healthcare systems designed for precision medicine and patient-first experiences.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">public</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">mail</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80">call</span>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-label-md font-bold text-on-surface">Quick Links</h3>
+<nav class="flex flex-col gap-2">
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Find a Doctor</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Specialties</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Health Library</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Patient Portal</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h3 class="text-label-md font-bold text-on-surface">Legal</h3>
+<nav class="flex flex-col gap-2">
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Cookie Policy</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary transition-all" href="#">Accessibility</a>
+</nav>
+</div>
+<div class="bg-white/50 p-6 rounded-2xl border border-outline-variant/30">
+<h3 class="text-label-md font-bold text-on-surface mb-2">Patient Support</h3>
+<p class="text-label-sm text-on-surface-variant mb-4">Available 24/7 for urgent clinical queries.</p>
+<a class="text-headline-sm font-bold text-primary block mb-1" href="tel:1800-HEALTH">1-800-HEALTH</a>
+<span class="text-label-sm text-on-surface-variant">Toll-free Assistance</span>
+</div>
+</div>
+<div class="px-margin-desktop py-6 border-t border-outline-variant/20 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-label-sm text-on-surface-variant">© 2024 Health Hub Medical Systems. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">HIPAA Compliance</a>
+<a class="text-label-sm text-on-surface-variant hover:text-primary underline transition-all" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // --- View Toggle Logic ---
+        const btnGrid = document.getElementById('toggle-grid');
+        const btnCarousel = document.getElementById('toggle-carousel');
+        const section = document.getElementById('specialists-section');
+        const carouselTrack = document.getElementById('carousel-track');
+        const gridContainer = document.querySelector('.grid-container');
+        const loadMoreBtn = document.getElementById('load-more-btn');
+
+        let currentIndex = 0;
+
+        // Initialize Carousel Items from Grid
+        function populateCarousel() {
+            carouselTrack.innerHTML = '';
+            const cards = gridContainer.querySelectorAll('.doctor-card');
+            cards.forEach((card, index) => {
+                const item = document.createElement('div');
+                item.className = 'carousel-item';
+                const clone = card.cloneNode(true);
+                // Remove hover transform from clones to not interfere with 3D transition
+                clone.style.transform = 'none';
+                item.appendChild(clone);
+                item.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+                carouselTrack.appendChild(item);
+            });
+            updateCarousel();
+        }
+
+        btnGrid.addEventListener('click', () => {
+            section.classList.remove('carousel-active');
+            btnGrid.classList.add('text-primary', 'bg-primary-container');
+            btnGrid.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+            btnCarousel.classList.remove('text-primary', 'bg-primary-container');
+            btnCarousel.classList.add('text-on-surface-variant', 'hover:bg-surface-container');
+            loadMoreBtn.classList.remove('hidden');
+        });
+
+        btnCarousel.addEventListener('click', () => {
+            section.classList.add('carousel-active');
+            btnCarousel.classList.add('text-primary', 'bg-primary-container');
+            btnCarousel.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+            btnGrid.classList.remove('text-primary', 'bg-primary-container');
+            btnGrid.classList.add('text-on-surface-variant', 'hover:bg-surface-container');
+            loadMoreBtn.classList.add('hidden');
+            currentIndex = 0;
+            updateCarousel();
+        });
+
+        // --- 3D Carousel Slider Logic ---
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+
+        function updateCarousel() {
+            const items = Array.from(carouselTrack.children);
+            if (items.length === 0) return;
+
+            items.forEach((item, index) => {
+                item.classList.remove('active', 'prev-item', 'next-item', 'far-item');
+                
+                if (index === currentIndex) {
+                    item.classList.add('active');
+                } else if (index === currentIndex - 1) {
+                    item.classList.add('prev-item');
+                } else if (index === currentIndex + 1) {
+                    item.classList.add('next-item');
+                } else {
+                    item.classList.add('far-item');
+                }
+            });
+
+            // Adjust track position to center active item
+            const itemWidth = items[0].offsetWidth;
+            const containerWidth = carouselTrack.parentElement.offsetWidth;
+            const offset = (containerWidth / 2) - (itemWidth / 2) - (currentIndex * itemWidth);
+            
+            carouselTrack.style.transform = `translateX(${offset}px)`;
+
+            // Navigation button state
+            prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+            nextBtn.style.opacity = currentIndex === items.length - 1 ? '0.3' : '1';
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === items.length - 1;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const items = carouselTrack.children;
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        // Initialize
+        populateCarousel();
+        window.addEventListener('resize', updateCarousel);
+
+        // --- Card Interactions ---
+        document.querySelectorAll('.grid-container .doctor-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+
+</body></html>

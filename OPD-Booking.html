@@ -1,0 +1,903 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>OPD Booking - Health Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-header {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #d3e4fe;
+        border-radius: 10px;
+      }
+      @keyframes pulse-soft {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+      }
+      .animate-pulse-soft {
+        animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#434654",
+              "surface-bright": "#f8f9ff",
+              "surface-tint": "#0c56d0",
+              "primary-fixed": "#dae2ff",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#ffc5c0",
+              "surface-container-high": "#dce9ff",
+              tertiary: "#8c0013",
+              "inverse-primary": "#b2c5ff",
+              "surface-container-low": "#eff4ff",
+              "tertiary-fixed-dim": "#ffb3ae",
+              "on-secondary": "#ffffff",
+              outline: "#737685",
+              "on-secondary-fixed-variant": "#004e5d",
+              "on-background": "#0b1c30",
+              "tertiary-container": "#b51220",
+              "tertiary-fixed": "#ffdad7",
+              "surface-dim": "#cbdbf5",
+              "surface-container-highest": "#d3e4fe",
+              "surface-container": "#e5eeff",
+              surface: "#f8f9ff",
+              "on-primary-container": "#c4d2ff",
+              "on-primary-fixed-variant": "#0040a2",
+              secondary: "#00687a",
+              "primary-fixed-dim": "#b2c5ff",
+              "on-tertiary-fixed": "#410004",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed": "#adecff",
+              "inverse-surface": "#213145",
+              primary: "#003d9b",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#eaf1ff",
+              error: "#ba1a1a",
+              background: "#f8f9ff",
+              "secondary-container": "#6ae1ff",
+              "on-surface": "#0b1c30",
+              "on-primary": "#ffffff",
+              "primary-container": "#0052cc",
+              "on-secondary-container": "#006374",
+              "on-primary-fixed": "#001848",
+              "surface-variant": "#d3e4fe",
+              "outline-variant": "#c3c6d6",
+              "on-secondary-fixed": "#001f26",
+              "secondary-fixed-dim": "#5dd6f3",
+              "on-tertiary-fixed-variant": "#930014",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-mobile": "16px",
+              "margin-desktop": "40px",
+              base: "8px",
+              gutter: "24px",
+              "container-max": "1280px",
+            },
+            fontFamily: {
+              "headline-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "label-md": ["Inter"],
+              "display-lg": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "headline-lg": ["Inter"],
+              "body-md": ["Inter"],
+              "body-lg": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "20px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background font-body-md text-on-surface min-h-screen flex flex-col"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-8">
+          <span class="font-headline-md text-headline-md font-bold text-primary"
+            >Health Hub</span
+          >
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors duration-200 py-1"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200"
+            href="Doctors-and-Appointments.html"
+            >Doctors</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200"
+            href="#"
+            >Services</a
+          >
+        </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div
+            class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2 gap-2 border border-outline-variant focus-within:border-primary transition-all"
+          >
+            <span class="material-symbols-outlined text-outline">search</span>
+            <input
+              class="bg-transparent border-none focus:ring-0 text-label-md w-48"
+              placeholder="Search doctor or patient..."
+              type="text"
+            />
+          </div>
+          <button
+            class="bg-tertiary text-on-tertiary px-6 py-2 rounded-full font-label-md hover:opacity-90 transition-all shadow-md flex items-center gap-2 animate-pulse-soft"
+          >
+            <span class="material-symbols-outlined text-[18px]">emergency</span>
+            Emergency SOS
+          </button>
+          <div class="flex gap-2">
+            <button
+              class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors"
+            >
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button
+              class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors"
+            >
+              <span class="material-symbols-outlined">settings</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main
+      class="mt-24 px-margin-desktop max-w-container-max mx-auto w-full pb-12 flex flex-col gap-8"
+    >
+      <!-- Page Header & Dr. Profile Card -->
+      <header
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+      >
+        <div class="flex flex-col gap-1">
+          <h1 class="font-headline-lg text-headline-lg text-on-background">
+            OPD Booking - Dr. Karan Agrawal
+          </h1>
+          <p class="text-on-surface-variant font-label-md">
+            Schedule clinical appointments with precision and ease.
+          </p>
+        </div>
+        <div
+          class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant flex flex-col sm:flex-row items-center gap-6 max-w-2xl w-full md:w-auto"
+        >
+          <div
+            class="w-20 h-20 rounded-xl overflow-hidden shadow-inner flex-shrink-0"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="Close up portrait of Dr. Karan Agrawal, a senior General Surgeon with professional glasses and a calm demeanor. He is in a brightly lit medical setting with teal accents. The photograph has soft studio lighting, sharp focus, and a professional medical SaaS aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAhgTQPYCMsZUn8GQbZRb5-BefMx3od0v-F_cFTHVrJ4E65WHdeDk7RXhVu1I47TDiPcey86HauJC-pXfkJadewnFB0HiZ-aZbVIzworTYPrQs2dkrtc8Ji0csMUSOzjo5T16nCXdP5jqQU7JXp-VmhzUkvxeJ6Ix69nS8ocZMtYHhPU8Hg1_7J6ISm9f_8z7uoLrTszkEmBR1xUGkQquStFez5tYL5zyqlqVw2Rvlyzuxn_hmaWR568X6RZLJD14VnDMtaQ6tl1I"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <span class="font-headline-md text-primary"
+                >Dr. Karan Agrawal</span
+              >
+              <span
+                class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider"
+                >General Surgeon</span
+              >
+            </div>
+            <div
+              class="grid grid-cols-2 gap-x-8 gap-y-1 mt-2 text-label-md text-on-surface-variant"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-secondary"
+                  >calendar_today</span
+                >
+                <span data-selected-date>17 May 2026</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span
+                  class="material-symbols-outlined text-[18px] text-secondary"
+                  >schedule</span
+                >
+                <span>13:00 - 17:00</span>
+              </div>
+              <div class="flex items-center gap-2 col-span-2">
+                <span class="material-symbols-outlined text-[18px] text-primary"
+                  >groups</span
+                >
+                <span class="text-primary font-bold">12 Slots Available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Filters & Navigation -->
+      <section
+        class="flex flex-col lg:flex-row items-center justify-between gap-4 bg-surface-container-low p-4 rounded-xl border border-outline-variant/30"
+      >
+        <div class="flex flex-wrap gap-4 w-full lg:w-auto">
+          <div class="relative flex-1 min-w-[240px]">
+            <span
+              class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline"
+              >person_search</span
+            >
+            <input
+              class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border-outline-variant rounded-lg focus:ring-primary focus:border-primary text-label-md"
+              placeholder="Search doctor..."
+              type="text"
+            />
+          </div>
+          <div class="relative flex-1 min-w-[200px]">
+            <select
+              class="w-full pl-4 pr-10 py-3 bg-surface-container-lowest border-outline-variant rounded-lg focus:ring-primary focus:border-primary appearance-none text-label-md"
+            >
+              <option>General Surgery</option>
+              <option>Cardiology</option>
+              <option>Orthopedics</option>
+              <option>Neurology</option>
+            </select>
+            <span
+              class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined pointer-events-none text-outline"
+              >expand_more</span
+            >
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <div
+            class="flex items-center gap-6 bg-surface-container-lowest p-2 rounded-lg border border-outline-variant"
+          >
+            <button
+              class="p-2 hover:bg-surface-container rounded-md transition-colors"
+              id="previousDateButton"
+              type="button"
+              aria-label="Previous date"
+            >
+              <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <div class="flex flex-col items-center min-w-[120px]">
+              <span
+                class="text-label-sm text-outline uppercase font-bold"
+                id="selectedDateLabel"
+                >Today</span
+              >
+              <span
+                class="text-label-md font-bold text-on-surface"
+                data-selected-date
+                >17 May 2026</span
+              >
+            </div>
+            <button
+              class="p-2 hover:bg-surface-container rounded-md transition-colors"
+              id="nextDateButton"
+              type="button"
+              aria-label="Next date"
+            >
+              <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+          <label
+            class="flex items-center gap-3 bg-surface-container-lowest p-2 pl-4 rounded-lg border border-outline-variant text-label-md text-on-surface-variant"
+          >
+            <span class="material-symbols-outlined text-primary"
+              >calendar_today</span
+            >
+            <input
+              class="border-0 bg-transparent p-0 text-label-md font-bold text-on-surface focus:ring-0"
+              id="appointmentDateInput"
+              type="date"
+            />
+          </label>
+        </div>
+      </section>
+      <!-- Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Slot Booking Table -->
+        <div class="lg:col-span-8 flex flex-col gap-4">
+          <div
+            class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden"
+          >
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr
+                  class="bg-surface-container border-b border-outline-variant"
+                >
+                  <th class="px-6 py-4 font-label-md text-on-surface">
+                    Time Slot
+                  </th>
+                  <th class="px-6 py-4 font-label-md text-on-surface">
+                    Status
+                  </th>
+                  <th
+                    class="px-6 py-4 font-label-md text-on-surface text-right"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant/30">
+                <!-- 13:00 Available -->
+                <tr
+                  class="hover:bg-surface-container-low transition-colors group"
+                >
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-2 h-2 rounded-full bg-primary"></div>
+                      <span class="font-bold text-on-surface">13:00</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200"
+                    >
+                      Available
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-primary text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+                      onclick="openBookingModal('13:00')"
+                    >
+                      Book Slot
+                    </button>
+                  </td>
+                </tr>
+                <!-- 13:10 Checked -->
+                <tr class="bg-surface-container-lowest/50 opacity-70">
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-2 h-2 rounded-full bg-outline"></div>
+                      <span class="font-medium text-on-surface-variant"
+                        >13:10</span
+                      >
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200"
+                    >
+                      Checked
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-outline-variant text-on-surface-variant/50 px-5 py-2 rounded-lg text-label-sm cursor-not-allowed"
+                      disabled=""
+                    >
+                      Unavailable
+                    </button>
+                  </td>
+                </tr>
+                <!-- 13:20 Available -->
+                <tr
+                  class="hover:bg-surface-container-low transition-colors group"
+                >
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-2 h-2 rounded-full bg-primary"></div>
+                      <span class="font-bold text-on-surface">13:20</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200"
+                    >
+                      Available
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-primary text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+                      onclick="openBookingModal('13:20')"
+                    >
+                      Book Slot
+                    </button>
+                  </td>
+                </tr>
+                <!-- 13:30 Booked -->
+                <tr class="bg-surface-container-low/30">
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-2 h-2 rounded-full bg-error"></div>
+                      <span class="font-medium text-on-surface-variant"
+                        >13:30</span
+                      >
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200"
+                    >
+                      Booked
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-outline-variant text-on-surface-variant/50 px-5 py-2 rounded-lg text-label-sm cursor-not-allowed"
+                      disabled=""
+                    >
+                      Unavailable
+                    </button>
+                  </td>
+                </tr>
+                <!-- 13:40 Available -->
+                <tr
+                  class="hover:bg-surface-container-low transition-colors group"
+                >
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-2 h-2 rounded-full bg-primary"></div>
+                      <span class="font-bold text-on-surface">13:40</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200"
+                    >
+                      Available
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-primary text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+                      onclick="openBookingModal('13:40')"
+                    >
+                      Book Slot
+                    </button>
+                  </td>
+                </tr>
+                <!-- 13:50 Available -->
+                <tr
+                  class="hover:bg-surface-container-low transition-colors group"
+                >
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-3">
+                      <div class="w-2 h-2 rounded-full bg-primary"></div>
+                      <span class="font-bold text-on-surface">13:50</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200"
+                    >
+                      Available
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-primary text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+                      onclick="openBookingModal('13:50')"
+                    >
+                      Book Slot
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex justify-center mt-4">
+            <button
+              class="text-primary font-bold hover:underline flex items-center gap-2"
+            >
+              View all 10-minute intervals
+              <span class="material-symbols-outlined">expand_more</span>
+            </button>
+          </div>
+        </div>
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4 flex flex-col gap-6">
+          <!-- Patient Appointments Card -->
+          <div
+            class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-6"
+          >
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="font-headline-md text-on-surface">
+                Upcoming Appointments
+              </h3>
+              <span class="text-primary material-symbols-outlined"
+                >event_note</span
+              >
+            </div>
+            <div class="flex flex-col gap-4">
+              <div
+                class="p-4 rounded-lg bg-surface-container-low border-l-4 border-secondary flex flex-col gap-2"
+              >
+                <div class="flex justify-between">
+                  <span class="text-label-md font-bold text-secondary"
+                    >Consultation</span
+                  >
+                  <span class="text-label-sm text-outline"
+                    >Tomorrow, 10:00</span
+                  >
+                </div>
+                <span class="font-medium">Dr. Amrita Singh</span>
+                <span class="text-label-sm text-on-surface-variant"
+                  >Cardiology Department</span
+                >
+              </div>
+              <div
+                class="p-4 rounded-lg bg-surface-container-low border-l-4 border-outline flex flex-col gap-2"
+              >
+                <div class="flex justify-between">
+                  <span class="text-label-md font-bold text-on-surface-variant"
+                    >Follow-up</span
+                  >
+                  <span class="text-label-sm text-outline">22 May, 15:30</span>
+                </div>
+                <span class="font-medium">Dr. Rahul Mehta</span>
+                <span class="text-label-sm text-on-surface-variant"
+                  >Orthopedics</span
+                >
+              </div>
+            </div>
+            <button
+              class="w-full mt-6 py-3 border border-primary text-primary rounded-lg font-label-md hover:bg-primary-container hover:text-on-primary transition-all"
+            >
+              View Full History
+            </button>
+          </div>
+          <!-- Queue Status Card -->
+
+        </aside>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-lowest py-12 mt-auto border-t border-outline-variant"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-margin-desktop max-w-container-max mx-auto gap-8"
+      >
+        <div class="flex flex-col gap-2 items-center md:items-start">
+          <span class="font-headline-md text-primary font-bold"
+            >Health Hub</span
+          >
+          <p class="text-on-surface-variant font-label-md">
+            Empowering healthcare through clinical precision.
+          </p>
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md"
+            href="#"
+            >Terms of Service</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md"
+            href="#"
+            >Support</a
+          >
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md"
+            href="#"
+            >Compliance</a
+          >
+        </div>
+        <p class="text-on-surface-variant font-label-md">
+          © 2024 Health Hub Medical Systems. All rights reserved.
+        </p>
+      </div>
+    </footer>
+    <!-- Modals Overlay -->
+    <div
+      class="fixed inset-0 bg-on-background/60 backdrop-blur-sm z-[60] flex items-center justify-center hidden opacity-0 transition-opacity duration-300"
+      id="modalOverlay"
+    >
+      <!-- Confirm Booking Modal -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl p-8 max-w-md w-full shadow-2xl scale-95 transition-transform duration-300 hidden"
+        id="confirmModal"
+      >
+        <div class="flex flex-col items-center text-center gap-4">
+          <div
+            class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2"
+          >
+            <span class="material-symbols-outlined text-primary text-4xl"
+              >book_online</span
+            >
+          </div>
+          <h2 class="font-headline-md text-on-surface">Confirm OPD Booking</h2>
+          <p class="text-body-md text-on-surface-variant">
+            Do you want to book this OPD slot for the following details?
+          </p>
+          <div
+            class="w-full bg-surface-container-low rounded-xl p-4 mt-2 flex flex-col gap-2 text-left"
+          >
+            <div class="flex justify-between">
+              <span class="text-label-sm text-outline">Doctor</span>
+              <span class="text-label-md font-bold text-on-surface"
+                >Dr. Karan Agrawal</span
+              >
+            </div>
+            <div class="flex justify-between">
+              <span class="text-label-sm text-outline">Date</span>
+              <span
+                class="text-label-md font-bold text-on-surface"
+                data-selected-date
+                >17 May 2026</span
+              >
+            </div>
+            <div class="flex justify-between">
+              <span class="text-label-sm text-outline">Time</span>
+              <span
+                class="text-label-md font-bold text-primary"
+                id="selectedTimeDisplay"
+                >13:00</span
+              >
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 w-full mt-6">
+            <button
+              class="py-3 rounded-xl bg-surface-container-highest text-on-surface font-bold hover:bg-outline-variant transition-colors"
+              onclick="closeModals()"
+            >
+              Cancel
+            </button>
+            <button
+              class="py-3 rounded-xl bg-green-600 text-white font-bold hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20"
+              onclick="showSuccessModal()"
+            >
+              Confirm Booking
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Success Modal -->
+      <div
+        class="bg-surface-container-lowest rounded-2xl p-8 max-w-md w-full shadow-2xl scale-95 transition-transform duration-300 hidden"
+        id="successModal"
+      >
+        <div class="flex flex-col items-center text-center gap-4">
+          <div
+            class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-2"
+          >
+            <span
+              class="material-symbols-outlined text-green-600 text-5xl font-bold"
+              >check_circle</span
+            >
+          </div>
+          <h2 class="font-headline-md text-on-surface">Booking Successful!</h2>
+          <p class="text-body-md text-on-surface-variant">
+            Your appointment has been confirmed. A confirmation SMS and Email
+            have been sent to your registered contact.
+          </p>
+          <div class="w-full flex flex-col gap-1 text-center mt-2">
+            <span class="text-label-sm text-outline">Reference ID</span>
+            <span class="font-mono text-primary font-bold">#HH-OPD-99201</span>
+          </div>
+          <button
+            class="w-full mt-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:bg-primary-container transition-colors"
+            onclick="closeModals()"
+          >
+            OK, Great!
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Toast Notification -->
+    <div
+      class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] px-6 py-3 bg-inverse-surface text-inverse-on-surface rounded-full shadow-xl flex items-center gap-3 translate-y-20 opacity-0 transition-all duration-300"
+      id="toast"
+    >
+      <span class="material-symbols-outlined text-error">error</span>
+      <span class="text-label-md font-medium"
+        >Booking cancelled. Slot remains available.</span
+      >
+    </div>
+    <script>
+      const overlay = document.getElementById("modalOverlay");
+      const confirmModal = document.getElementById("confirmModal");
+      const successModal = document.getElementById("successModal");
+      const timeDisplay = document.getElementById("selectedTimeDisplay");
+      const toast = document.getElementById("toast");
+      const selectedDateElements = document.querySelectorAll(
+        "[data-selected-date]",
+      );
+      const selectedDateLabel = document.getElementById("selectedDateLabel");
+      const appointmentDateInput = document.getElementById(
+        "appointmentDateInput",
+      );
+      const previousDateButton = document.getElementById("previousDateButton");
+      const nextDateButton = document.getElementById("nextDateButton");
+      const startingDate = new Date(2026, 4, 17);
+      let selectedDate = new Date(startingDate);
+
+      function formatDisplayDate(date) {
+        return date.toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+      }
+
+      function formatInputDate(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+      }
+
+      function isSameDate(firstDate, secondDate) {
+        return (
+          firstDate.getFullYear() === secondDate.getFullYear() &&
+          firstDate.getMonth() === secondDate.getMonth() &&
+          firstDate.getDate() === secondDate.getDate()
+        );
+      }
+
+      function setSelectedDate(date) {
+        selectedDate = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate(),
+        );
+        selectedDateElements.forEach((element) => {
+          element.innerText = formatDisplayDate(selectedDate);
+        });
+        selectedDateLabel.innerText = isSameDate(selectedDate, startingDate)
+          ? "Today"
+          : "Selected Date";
+        appointmentDateInput.value = formatInputDate(selectedDate);
+      }
+
+      function moveSelectedDate(dayOffset) {
+        const nextDate = new Date(selectedDate);
+        nextDate.setDate(nextDate.getDate() + dayOffset);
+        setSelectedDate(nextDate);
+      }
+
+      previousDateButton.addEventListener("click", () => moveSelectedDate(-1));
+      nextDateButton.addEventListener("click", () => moveSelectedDate(1));
+      appointmentDateInput.addEventListener("change", (event) => {
+        if (!event.target.value) {
+          return;
+        }
+
+        setSelectedDate(new Date(`${event.target.value}T00:00:00`));
+      });
+
+      setSelectedDate(selectedDate);
+
+      function openBookingModal(time) {
+        timeDisplay.innerText = time;
+        overlay.classList.remove("hidden");
+        setTimeout(() => {
+          overlay.classList.remove("opacity-0");
+          confirmModal.classList.remove("hidden");
+          setTimeout(() => confirmModal.classList.remove("scale-95"), 10);
+        }, 10);
+      }
+
+      function closeModals() {
+        // If we are closing from confirm modal, show a "cancelled" toast
+        if (
+          !confirmModal.classList.contains("hidden") &&
+          successModal.classList.contains("hidden")
+        ) {
+          showToast();
+        }
+
+        confirmModal.classList.add("scale-95");
+        successModal.classList.add("scale-95");
+        overlay.classList.add("opacity-0");
+
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          confirmModal.classList.add("hidden");
+          successModal.classList.add("hidden");
+        }, 300);
+      }
+
+      function showSuccessModal() {
+        confirmModal.classList.add("scale-95");
+        setTimeout(() => {
+          confirmModal.classList.add("hidden");
+          successModal.classList.remove("hidden");
+          setTimeout(() => successModal.classList.remove("scale-95"), 10);
+        }, 300);
+      }
+
+      function showToast() {
+        toast.classList.remove("translate-y-20", "opacity-0");
+        setTimeout(() => {
+          toast.classList.add("translate-y-20", "opacity-0");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
