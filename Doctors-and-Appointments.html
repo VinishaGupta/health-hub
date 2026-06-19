@@ -239,7 +239,7 @@
       class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50"
     >
       <nav
-        class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto"
+        class="relative flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto"
       >
         <div
           class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2"
@@ -251,7 +251,7 @@
           >
           <span>Health Hub</span>
         </div>
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
           <a
             class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200"
             href="index.html"
@@ -268,11 +268,7 @@
             >Services</a
           >
         </div>
-        <button
-          class="bg-tertiary-container text-on-tertiary px-6 py-2 rounded-full font-label-md emergency-pulse hover:brightness-110 active:scale-95 duration-150"
-        >
-          EMERGENCY
-        </button>
+
       </nav>
     </header>
     <main class="pb-20 max-w-container-max mx-auto px-margin-desktop">
