@@ -1060,6 +1060,7 @@
 
       btnGrid.addEventListener("click", () => {
         section.classList.remove("carousel-active");
+        stopAutoPlay();
         btnGrid.classList.add("text-primary", "bg-primary-container");
         btnGrid.classList.remove(
           "text-on-surface-variant",
@@ -1088,11 +1089,15 @@
         loadMoreBtn.classList.add("hidden");
         currentIndex = 0;
         updateCarousel();
+        startAutoPlay();
       });
 
       // --- 3D Carousel Slider Logic ---
       const prevBtn = document.getElementById("carousel-prev");
       const nextBtn = document.getElementById("carousel-next");
+      const carouselContainer = document.querySelector(".carousel-container");
+      const AUTO_PLAY_DELAY = 3500;
+      let autoPlayInterval = null;
 
       function updateCarousel() {
         const items = Array.from(carouselTrack.children);
@@ -1120,31 +1125,49 @@
 
         carouselTrack.style.transform = `translateX(${offset}px)`;
 
-        // Navigation button state
-        prevBtn.style.opacity = currentIndex === 0 ? "0.3" : "1";
-        nextBtn.style.opacity = currentIndex === items.length - 1 ? "0.3" : "1";
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === items.length - 1;
+        prevBtn.style.opacity = "1";
+        nextBtn.style.opacity = "1";
+        prevBtn.disabled = false;
+        nextBtn.disabled = false;
       }
 
-      nextBtn.addEventListener("click", () => {
+      function nextSlide() {
         const items = carouselTrack.children;
-        if (currentIndex < items.length - 1) {
-          currentIndex++;
-          updateCarousel();
-        }
-      });
+        if (items.length === 0) return;
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+      }
 
-      prevBtn.addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
+      function prevSlide() {
+        const items = carouselTrack.children;
+        if (items.length === 0) return;
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        if (!section.classList.contains("carousel-active")) return;
+        autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_DELAY);
+      }
+
+      function stopAutoPlay() {
+        if (autoPlayInterval) {
+          clearInterval(autoPlayInterval);
+          autoPlayInterval = null;
         }
-      });
+      }
+
+      nextBtn.addEventListener("click", nextSlide);
+      prevBtn.addEventListener("click", prevSlide);
+
+      carouselContainer.addEventListener("mouseenter", stopAutoPlay);
+      carouselContainer.addEventListener("mouseleave", startAutoPlay);
 
       // Initialize
       populateCarousel();
       window.addEventListener("resize", updateCarousel);
+      startAutoPlay();
 
       // --- Card Interactions ---
       document
