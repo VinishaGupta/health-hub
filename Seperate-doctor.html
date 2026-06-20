@@ -1,0 +1,373 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dr. A. Mashankar | Senior Cardiologist - Health Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "inverse-surface": "#213145",
+                        "surface-dim": "#cbdbf5",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#0c56d0",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "tertiary-container": "#b51220",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary-container": "#006374",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "inverse-primary": "#b2c5ff",
+                        "surface-variant": "#d3e4fe",
+                        "primary-fixed": "#dae2ff",
+                        "on-primary-fixed": "#001848",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-secondary-fixed": "#001f26",
+                        "on-primary": "#ffffff",
+                        "primary": "#003d9b",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline-variant": "#c3c6d6",
+                        "secondary": "#00687a",
+                        "tertiary-fixed": "#ffdad7",
+                        "outline": "#737685",
+                        "secondary-fixed-dim": "#5dd6f3",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-container": "#6ae1ff",
+                        "on-surface-variant": "#434654",
+                        "on-tertiary-container": "#ffc5c0",
+                        "tertiary": "#8c0013",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#adecff",
+                        "surface-container-low": "#eff4ff",
+                        "primary-container": "#0052cc",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-container": "#e5eeff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-secondary-fixed-variant": "#004e5d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .medical-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 82, 204, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-sm">
+<nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">Health Hub</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">Home</a>
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#">Doctors</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors pb-1" href="#">Services</a>
+
+</div>
+<div class="flex items-center gap-4">
+
+
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-12 max-w-container-max mx-auto px-margin-desktop">
+<!-- Hero Section & Doctor Profile Header -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-12">
+<!-- Left Side: Profile Photo & Basic Info -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 medical-shadow flex flex-col md:flex-row gap-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<div class="flex items-center gap-1 bg-secondary-container/20 text-on-secondary-container px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm fill-icon">verified</span>
+<span class="text-label-sm font-label-sm">Verified Professional</span>
+</div>
+</div>
+<div class="w-full md:w-64 h-80 flex-shrink-0">
+<img class="w-full h-full object-cover rounded-xl shadow-md" data-alt="A professional studio portrait of a senior male cardiologist named Dr. Mashankar. He has a warm, confident expression and is wearing a crisp white medical coat with a stethoscope around his neck. The background is a clean, softly lit clinical setting with cool blue tones, reflecting a high-trust healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgB3v7SrhmrlXlBMRczvs2BR_aV_GXBHaHPdS8l9GkGVG9UJgOXnycJxVTTI5zsw8OBSWnJXLxcMOK8tdWFH8_zMdPta7rMxObFVUcit-IEYO8k-w1RmbzZt5Sjd6jUBE0Z5H-vsi5MVyIczMQFV1eiC_ms_A4Lgi_hmNOjTC6UjtwF7rJrXH_ujKlJwbsc5TxE1clx7ocjNKG2iKvfENqwH8Ch7Ew-5J8ACetbxAoebpIeQNl5PK4bDQtDYoCdWpLuQvkHATlA-o">
+</div>
+<div class="flex flex-col justify-center space-y-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-1">Dr. A. Mashankar</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Senior Cardiologist, Heart Surgery Specialist</p>
+</div>
+<div class="flex flex-wrap gap-6 items-center">
+<div class="flex items-center gap-2">
+
+
+
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">work_history</span>
+<span class="font-bold text-on-surface">15+ Yrs Exp</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label-md text-label-md shadow-md hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">event_available</span>
+                            Book OPD Appointment
+                        </button>
+<button class="border-2 border-primary text-primary px-8 py-3 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-all active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span>
+                            Contact Hospital
+                        </button>
+</div>
+</div>
+</div>
+<!-- Right Side: Availability Quick Look -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 medical-shadow border-t-4 border-secondary">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md">OPD Availability</h3>
+<span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                            Available Today
+                        </span>
+</div>
+<div class="space-y-4 mb-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-variant mt-1">schedule</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Morning Session</p>
+<p class="text-body-md font-body-md font-semibold">10:00 AM - 01:00 PM</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-variant mt-1">schedule</span>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Evening Session</p>
+<p class="text-body-md font-body-md font-semibold">05:00 PM - 08:00 PM</p>
+</div>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-4 rounded-xl font-label-md text-label-md hover:opacity-90 transition-opacity">
+                        View Available Slots
+                    </button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-primary/5 rounded-xl p-4 text-center">
+<p class="text-headline-md font-bold text-primary">5000+</p>
+<p class="text-label-sm text-on-surface-variant">Patients Treated</p>
+</div>
+<div class="bg-secondary/5 rounded-xl p-4 text-center">
+<p class="text-headline-md font-bold text-secondary">98%</p>
+<p class="text-label-sm text-on-surface-variant">Success Rating</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Details -->
+<div class="lg:col-span-8 space-y-gutter">
+<!-- Overview Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 medical-shadow">
+<h2 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                        Doctor Overview
+                    </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="space-y-4">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Medical System</p>
+<p class="text-body-md font-semibold">Allopathy (Modern Medicine)</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Specialization</p>
+<p class="text-body-md font-semibold">Interventional Cardiology</p>
+</div>
+</div>
+
+</div>
+</div>
+<!-- Expertise Tags -->
+<div class="bg-surface-container-lowest rounded-xl p-8 medical-shadow">
+<h2 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">psychology</span>
+                        Expertise &amp; Treatments
+                    </h2>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 rounded-lg bg-primary-container/10 border border-primary/20 text-primary font-label-md">Heart Disease</span>
+<span class="px-4 py-2 rounded-lg bg-primary-container/10 border border-primary/20 text-primary font-label-md">Blood Pressure</span>
+<span class="px-4 py-2 rounded-lg bg-primary-container/10 border border-primary/20 text-primary font-label-md">Heart Surgery</span>
+<span class="px-4 py-2 rounded-lg bg-primary-container/10 border border-primary/20 text-primary font-label-md">Angioplasty</span>
+<span class="px-4 py-2 rounded-lg bg-primary-container/10 border border-primary/20 text-primary font-label-md">ECG Management</span>
+<span class="px-4 py-2 rounded-lg bg-primary-container/10 border border-primary/20 text-primary font-label-md">Cardiac Rehabilitation</span>
+</div>
+</div>
+<!-- Timeline Section (Education & Experience) -->
+
+<!-- Patient Reviews -->
+
+</div>
+<!-- Right Column: Associations & Contact -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Medical Firms -->
+<div class="bg-surface-container-lowest rounded-xl p-6 medical-shadow">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-6 tracking-widest">Medical Affiliations</h3>
+<div class="space-y-4">
+<div class="p-4 rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<h4 class="font-bold text-body-lg mb-1 group-hover:text-primary">Health Hub Hospital</h4>
+<p class="text-label-md text-on-surface-variant mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Nagpur, Maharashtra
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-tertiary-container/10 text-tertiary">ICU Available</span>
+<span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-tertiary-container/10 text-tertiary">Emergency 24/7</span>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-outline-variant hover:border-primary transition-colors cursor-pointer group">
+<h4 class="font-bold text-body-lg mb-1 group-hover:text-primary">Heart Care Clinic</h4>
+<p class="text-label-md text-on-surface-variant mb-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                Civil Lines, Nagpur
+                            </p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-secondary-container/10 text-secondary">OPD Services</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact & Map -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden medical-shadow">
+<div class="p-6">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase mb-6 tracking-widest">Hospital Location</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary">pin_drop</span>
+<p class="text-body-md text-on-surface-variant">Plot 42, Central Avenue, Health Hub Hospital Tower B, Nagpur - 440010</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">phone</span>
+<p class="text-body-md font-semibold">+91 712 245 6789</p>
+</div>
+</div>
+</div>
+<!-- Map Placeholder -->
+
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low mt-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary mb-4">Health Hub</div>
+<p class="text-on-surface-variant text-body-md">Your trusted partner in cardiac care and holistic wellness.</p>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Quick Links</h4>
+<ul class="space-y-2 text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Support</h4>
+<ul class="space-y-2 text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="#">Emergency Protocol</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li class=""><a class="hover:text-primary transition-colors" href="#">FAQs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-4">Follow Us</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">share</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">mail</span>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant px-margin-desktop py-6 max-w-container-max mx-auto text-center text-on-surface-variant text-label-sm">
+            © 2024 Health Hub Medical Group. All rights reserved.
+        </div>
+</footer>
+<!-- Emergency Floating FAB (Injected via logic) -->
+<button class="fixed bottom-8 right-8 bg-tertiary text-on-tertiary p-4 rounded-full shadow-xl flex items-center gap-2 hover:scale-105 active:scale-95 transition-all z-40 group animate-pulse hover:animate-none">
+
+
+</button>
+<script>
+        // Micro-interactions and subtle scroll effects
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+
+</body></html>
