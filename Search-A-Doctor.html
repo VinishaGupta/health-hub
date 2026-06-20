@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Find Your Doctor | Health Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#b51220",
+                        "on-tertiary-fixed-variant": "#930014",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e5eeff",
+                        "background": "#f8f9ff",
+                        "outline": "#737685",
+                        "surface-container-low": "#eff4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#5dd6f3",
+                        "surface": "#f8f9ff",
+                        "secondary-container": "#6ae1ff",
+                        "on-secondary-fixed": "#001f26",
+                        "on-secondary-container": "#006374",
+                        "on-secondary-fixed-variant": "#004e5d",
+                        "tertiary-fixed": "#ffdad7",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-fixed": "#dae2ff",
+                        "surface-variant": "#d3e4fe",
+                        "primary-container": "#0052cc",
+                        "surface-bright": "#f8f9ff",
+                        "primary": "#003d9b",
+                        "inverse-surface": "#213145",
+                        "on-surface-variant": "#434654",
+                        "outline-variant": "#c3c6d6",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "surface-dim": "#cbdbf5",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-primary-fixed": "#001848",
+                        "surface-tint": "#0c56d0",
+                        "surface-container-high": "#dce9ff",
+                        "secondary": "#00687a",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffc5c0",
+                        "tertiary": "#8c0013",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#d3e4fe",
+                        "inverse-primary": "#b2c5ff",
+                        "secondary-fixed": "#adecff",
+                        "on-tertiary-fixed": "#410004",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#0b1c30",
+                        "on-primary-container": "#c4d2ff",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c3c6d6;
+            border-radius: 10px;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 82, 204, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white">
+    <!-- TopNavBar -->
+    <header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-container/70 backdrop-blur-xl shadow-sm h-20">
+        <div class="max-w-container-max mx-auto px-margin-desktop h-full flex items-center justify-between">
+            <div class="flex items-center">
+                <a class="font-headline-md text-headline-md text-primary font-bold tracking-tight" href="#">Health
+                    Hub</a>
+
+            </div>
+            <nav class="hidden md:flex gap-8 items-center">
+                <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Home</a>
+                <a class="text-primary border-b-2 border-primary pb-1 font-semibold font-body-md" href="#">Doctors</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md"
+                    href="#">Services</a>
+            </nav>
+            <div class="flex items-center gap-6">
+
+                <div
+                    class="flex items-center gap-2 text-on-surface-variant hover:bg-primary/5 p-2 rounded-full transition-all cursor-pointer">
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="pt-20 pb-20">
+        <!-- Hero Section -->
+        <section class="relative py-16 overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-10">
+                <div
+                    class="absolute top-0 left-0 w-96 h-96 bg-primary-container rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 right-0 w-96 h-96 bg-secondary-container rounded-full blur-[100px] translate-x-1/2 translate-y-1/2">
+                </div>
+            </div>
+            <div class="max-w-container-max mx-auto px-margin-desktop relative z-10 text-center">
+                <h1 class="font-display-lg text-display-lg text-primary mb-4">Find Your Doctor</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Search trusted healthcare
+                    professionals near you with ease. Access specialized care and book appointments instantly.</p>
+            </div>
+        </section>
+        <!-- Main Content Area -->
+        <div
+            class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+            <!-- Left Sidebar: Advanced Filters -->
+            <aside class="md:col-span-4 space-y-6">
+                <div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/30 sticky top-28">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="font-headline-md text-on-surface">Filters</h2>
+                    </div>
+                    <form class="space-y-5">
+                        <!-- Location Section -->
+                        <div class="space-y-3">
+                            <label class="font-label-md text-on-surface-variant block">Location Details</label>
+                            <select
+                                class="w-full bg-white border-outline-variant/50 rounded-lg py-2.5 px-4 focus:ring-primary focus:border-primary transition-all font-body-md text-sm">
+                                <option>Maharashtra (State)</option>
+                            </select>
+                            <select
+                                class="w-full bg-white border-outline-variant/50 rounded-lg py-2.5 px-4 focus:ring-primary focus:border-primary transition-all font-body-md text-sm">
+                                <option>Nagpur (District)</option>
+                            </select>
+                            <select
+                                class="w-full bg-white border-outline-variant/50 rounded-lg py-2.5 px-4 focus:ring-primary focus:border-primary transition-all font-body-md text-sm">
+                                <option>Taluka/City</option>
+                            </select>
+                            <select
+                                class="w-full bg-white border-outline-variant/50 rounded-lg py-2.5 px-4 focus:ring-primary focus:border-primary transition-all font-body-md text-sm">
+                                <option>Village/Area</option>
+                            </select>
+                        </div>
+                        <!-- Doctor Type -->
+                        <div class="space-y-2">
+                            <label class="font-label-md text-on-surface-variant block">Doctor Type</label>
+                            <select
+                                class="w-full bg-white border-outline-variant/50 rounded-lg py-2.5 px-4 focus:ring-primary focus:border-primary transition-all font-body-md text-sm">
+                                <option>General Physician</option>
+                                <option>Specialist</option>
+                                <option>Surgeon</option>
+                                <option>Consultant</option>
+                                <option>Emergency</option>
+                                <option>Visiting</option>
+                            </select>
+                        </div>
+                        <!-- Specialization -->
+                        <div class="space-y-2">
+                            <label class="font-label-md text-on-surface-variant block">Specialization</label>
+                            <div class="relative">
+                                <select
+                                    class="w-full bg-white border-outline-variant/50 rounded-lg py-2.5 px-4 focus:ring-primary focus:border-primary transition-all font-body-md text-sm appearance-none">
+                                    <option>Cardiology</option>
+                                    <option>Neurology</option>
+                                    <option>Orthopedics</option>
+                                    <option>Pediatrics</option>
+                                    <option>Gynecology</option>
+                                    <option>Dermatology</option>
+                                    <option>ENT</option>
+                                    <option>Dental</option>
+                                    <option>Oncology</option>
+                                    <option>Physiotherapy</option>
+                                </select>
+                                <span
+                                    class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none">search</span>
+                            </div>
+                        </div>
+                        <!-- Consultation Type -->
+                        <div class="space-y-2">
+                            <label class="font-label-md text-on-surface-variant block">Consultation Type</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input
+                                        class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4"
+                                        type="checkbox">
+                                    <span class="text-sm font-body-md text-on-surface">OPD Visit</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input
+                                        class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4"
+                                        type="checkbox">
+                                    <span class="text-sm font-body-md text-on-surface">Online Consultation</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input
+                                        class="rounded border-outline-variant text-primary focus:ring-primary h-4 w-4"
+                                        type="checkbox">
+                                    <span class="text-sm font-body-md text-on-surface">Emergency</span>
+                                </label>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-primary text-on-primary py-3 rounded-xl font-label-md shadow-sm active:scale-95 transition-all hover:bg-primary/90 mt-6"
+                            type="submit">Search Doctors</button>
+                    </form>
+                </div>
+            </aside>
+            <!-- Right Column: Search Results -->
+            <section class="md:col-span-8 space-y-8">
+                <!-- Search Bar -->
+                <div class="relative group">
+                    <input
+                        class="w-full h-16 pl-14 pr-6 bg-surface-container-lowest border-outline-variant/50 rounded-2xl shadow-sm focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body-md text-lg"
+                        placeholder="Search by doctor name, post, specialization, disease, or treatment..." type="text">
+                    <span
+                        class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary text-3xl transition-transform group-focus-within:scale-110">search</span>
+                </div>
+                <!-- Results Placeholder -->
+                <div
+                    class="flex flex-col items-center justify-center py-20 text-center space-y-4 bg-surface-container-low/30 rounded-2xl border border-dashed border-outline-variant">
+                    <span class="material-symbols-outlined text-6xl text-outline-variant">person_search</span>
+                    <div class="space-y-1">
+                        <h3 class="font-headline-md text-on-surface">No results yet</h3>
+                        <p class="text-on-surface-variant font-body-md">Adjust your filters or search to find doctors.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant/30 w-full mt-auto">
+        <div
+            class="max-w-container-max mx-auto px-margin-desktop py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-base">
+            <div>
+                <a class="font-headline-md text-headline-md text-on-surface font-bold" href="#">Health Hub</a>
+                <p class="mt-4 text-on-surface-variant font-label-md">© 2024 Health Hub Medical Group. All rights
+                    reserved.</p>
+            </div>
+            <nav class="flex flex-wrap gap-8 items-center">
+                <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200 font-label-md"
+                    href="#">Privacy Policy</a>
+                <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200 font-label-md"
+                    href="#">Terms of Service</a>
+                <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200 font-label-md"
+                    href="#">Contact Us</a>
+                <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200 font-label-md"
+                    href="#">Careers</a>
+                <a class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all duration-200 font-label-md"
+                    href="#">Support</a>
+            </nav>
+        </div>
+    </footer>
+    <!-- Micro-interactions Script -->
+    <script>
+        // Simple search bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        const searchIcon = document.querySelector('[data-icon="search"]');
+
+        searchInput.addEventListener('focus', () => {
+            searchIcon.classList.add('text-secondary');
+        });
+
+        searchInput.addEventListener('blur', () => {
+            searchIcon.classList.remove('text-secondary');
+        });
+
+        // Toggle sticky sidebar shadow on scroll
+        const sidebar = document.querySelector('aside > div');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                sidebar.classList.add('shadow-md');
+            } else {
+                sidebar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
