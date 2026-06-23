@@ -583,35 +583,62 @@ class="inline-block bg-secondary-container text-on-secondary-container border bo
     </footer>
 <script>
 
-    // Arrow scrolling
-    const slider = document.getElementById("hospitalSlider");
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    const cardScrollAmount = 444;
-    let manualOffset = 0;
-    let moveTimer;
+    // Duplicate hospital carousel rows
+    const firstCarousel = document.querySelector(".carousel-wrapper");
+    const firstCarouselRow = firstCarousel?.parentElement;
+    const carouselRows = [];
 
-    function moveHospitalSlider(direction) {
-        if (!slider) return;
-        clearTimeout(moveTimer);
-        slider.classList.add("is-moving");
-        manualOffset += direction * cardScrollAmount;
-        slider.style.setProperty("--manual-offset", `${manualOffset}px`);
-        moveTimer = setTimeout(() => {
-            slider.classList.remove("is-moving");
-        }, 650);
+    if (firstCarousel && firstCarouselRow) {
+        carouselRows.push(firstCarousel);
+
+        let insertAfter = firstCarouselRow;
+
+        for (let i = 2; i <= 3; i++) {
+            const clone = firstCarousel.cloneNode(true);
+            const sliderClone = clone.querySelector("#hospitalSlider");
+            const prevClone = clone.querySelector("#prevBtn");
+            const nextClone = clone.querySelector("#nextBtn");
+
+            clone.classList.add("mt-10");
+            sliderClone.id = `hospitalSlider${i}`;
+            prevClone.id = `prevBtn${i}`;
+            nextClone.id = `nextBtn${i}`;
+
+            insertAfter.insertAdjacentElement("afterend", clone);
+            insertAfter = clone;
+            carouselRows.push(clone);
+        }
     }
 
-    nextBtn?.addEventListener("click", () => {
-        moveHospitalSlider(-1);
+    // Arrow scrolling
+    const cardScrollAmount = 444;
+
+    carouselRows.forEach((row) => {
+        const slider = row.querySelector(".auto-scroll");
+        const nextBtn = row.querySelector(".hospital-arrow-right");
+        const prevBtn = row.querySelector(".hospital-arrow-left");
+        let manualOffset = 0;
+        let moveTimer;
+
+        function moveHospitalSlider(direction) {
+            if (!slider) return;
+            clearTimeout(moveTimer);
+            slider.classList.add("is-moving");
+            manualOffset += direction * cardScrollAmount;
+            slider.style.setProperty("--manual-offset", `${manualOffset}px`);
+            moveTimer = setTimeout(() => {
+                slider.classList.remove("is-moving");
+            }, 650);
+        }
+
+        nextBtn?.addEventListener("click", () => {
+            moveHospitalSlider(-1);
+        });
+
+        prevBtn?.addEventListener("click", () => {
+            moveHospitalSlider(1);
+        });
     });
-
-
-    prevBtn?.addEventListener("click", () => {
-        moveHospitalSlider(1);
-    });
-
-
 
     // Sticky header shadow
     window.addEventListener('scroll', () => {
