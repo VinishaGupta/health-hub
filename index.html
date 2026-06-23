@@ -105,6 +105,12 @@
         position: relative;
     }
 
+    .carousel-wrapper > a {
+
+        display: block;
+
+    }
+
 
     .auto-scroll {
 
@@ -112,12 +118,23 @@
 
         gap: 24px;
 
-        width: max-content;
+        width: 100%;
 
         padding: 15px;
 
-        animation:
-        scrollCards 30s linear infinite;
+        overflow-x: auto;
+
+        scroll-behavior: smooth;
+
+        scrollbar-width: none;
+
+        animation: none;
+
+    }
+
+    .auto-scroll::-webkit-scrollbar {
+
+        display: none;
 
     }
 
@@ -148,7 +165,9 @@
 
   .auto-scroll .hospital-card {
 
-    width: 100%;
+    width: 420px;
+
+    flex: 0 0 420px;
 
     height: 520px;
 
@@ -157,6 +176,66 @@
     flex-direction: column;
 
 }
+
+    .hospital-arrow {
+
+        width: 56px;
+
+        height: 56px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        position: absolute;
+
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        z-index: 20;
+
+        color: #003d9b;
+
+        background: rgba(255, 255, 255, .92);
+
+        border: 1px solid rgba(195, 198, 214, .6);
+
+        border-radius: 9999px;
+
+        box-shadow: 0 12px 28px rgba(11, 28, 48, .16);
+
+        transition: transform .2s ease, background .2s ease;
+
+    }
+
+    .hospital-arrow:hover {
+
+        background: #ffffff;
+
+        transform: translateY(-50%) scale(1.04);
+
+    }
+
+    .hospital-arrow:active {
+
+        transform: translateY(-50%) scale(.96);
+
+    }
+
+    .hospital-arrow-left {
+
+        left: 12px;
+
+    }
+
+    .hospital-arrow-right {
+
+        right: 12px;
+
+    }
 
     /* DON'T TOUCH INSIDE CONTENT */
 
@@ -398,12 +477,17 @@ class="inline-block bg-secondary-container text-on-secondary-container border bo
                         </script>
         </div>
 
-        
     </a>
 
-    
+    <button class="hospital-arrow hospital-arrow-left" id="prevBtn" type="button" aria-label="Previous hospitals">
+        <span class="material-symbols-outlined">arrow_back_ios_new</span>
+    </button>
+    <button class="hospital-arrow hospital-arrow-right" id="nextBtn" type="button" aria-label="Next hospitals">
+        <span class="material-symbols-outlined">arrow_forward_ios</span>
+    </button>
 
-  
+    </div>
+    </div>
 
 
     </main>
@@ -490,14 +574,17 @@ class="inline-block bg-secondary-container text-on-secondary-container border bo
 
     // Arrow scrolling
     const slider = document.getElementById("hospitalSlider");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const cardScrollAmount = 444;
 
-    document.getElementById("nextBtn").addEventListener("click", () => {
-        slider.scrollLeft += 400;
+    nextBtn?.addEventListener("click", () => {
+        slider?.scrollBy({ left: cardScrollAmount, behavior: "smooth" });
     });
 
 
-    document.getElementById("prevBtn").addEventListener("click", () => {
-        slider.scrollLeft -= 400;
+    prevBtn?.addEventListener("click", () => {
+        slider?.scrollBy({ left: -cardScrollAmount, behavior: "smooth" });
     });
 
 
