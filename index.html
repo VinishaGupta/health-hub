@@ -189,7 +189,7 @@
                     data-icon="search">search</span>
                 <input
                     class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary placeholder:text-outline text-body-md transition-all"
-                    placeholder="Search hospitals by name, location, speciality, or services..." type="text">
+                    placeholder="Hospital Name, Location, Speciality, Services, Doctor Name..." type="text">
             </div>
             <div class="flex gap-4 w-full md:w-auto">
                 <select
@@ -215,6 +215,1404 @@
             </div>
         </section>
         <div class="flex gap-gutter">
+            <!-- Sidebar Filters -->
+            <aside class="w-72 hidden lg:block shrink-0 sticky top-28 h-fit">
+                <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 space-y-8">
+                    <div>
+                        <h3 class="text-label-md font-bold text-on-surface mb-4 uppercase tracking-wider">Services</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">OPD
+                                    Services</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">ICU
+                                    Units</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Ambulance</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">Blood
+                                    Bank</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Surgery</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-label-md font-bold text-on-surface mb-4 uppercase tracking-wider">Specialization
+                        </h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Cardiology</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Neurology</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">Dental
+                                    Care</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Orthopedics</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <div class="space-y-2">
+
+
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Main Grid -->
+   <!-- Main Grid -->
+<div class="flex-grow relative carousel-wrapper">
+
+    <!-- Left Arrow -->
+    <button 
+        id="prevBtn"
+        class="absolute left-2 top-1/2 -translate-y-1/2 z-20 
+        bg-white shadow-lg rounded-full w-12 h-12 
+        flex items-center justify-center text-primary text-3xl">
+        ‹
+    </button>
+
+
+    <!-- Cards -->
+    <div id="hospitalSlider" class="auto-scroll">
+                    <!-- Hospital Card 1 -->
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A professional architectural photograph of a modern, multi-story glass hospital building in Nagpur during daylight. The clinical structure features a prominent 'Health Hub' logo, wide manicured lawns at the entrance, and a clear blue sky. The lighting is bright and high-key, emphasizing sterile white surfaces and teal glass panels in a high-end medical SaaS aesthetic."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdbZ582IsuULTu4rhjWTEBGP7WtYdSV2YOE3kK50dsNEkFx9yhy4YIo4x68qJqKWDKz26gQOTtdVbnBCdMchRlV0A4o6I81pWXoI-56rrXNE2jqbUGC3eqdn_iVlvU5Wejb4oZQhdaaQRs1B1g3Nz7XP734lqh-2F-BJhP3nePqKjmvmSxKWZUBgJeMLtIwqEb2LNaXnaVJoUX3FaRsFJyCkgE9sBhYOXzSWZpCpl_mSolTNYoICI8fYQDDc_RKwglSau8yCBzABI">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]" data-icon="star"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.8</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Health
+                                    Hub City Care Hospital</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Dharampeth, Nagpur, Maharashtra
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">ICU</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Ambulance</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">MRI</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">50+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 mt-auto">
+                                <a href="home.html">
+                                    <button
+                                        class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors px-5">Details</button>
+                                </a>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Hospital Card 2 -->
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A clean, minimalist hospital entrance area showing an advanced emergency wing in Mumbai. The scene features high-tech signage, a fleet of clean white ambulances, and a contemporary medical center facade. The lighting is soft and professional, reflecting a high-trust healthcare environment with cool blue tones and white architectural details."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpaeS42Yr2wqMJVvkJkZDD8jo6j8_UVQ7jWtXfR0P9y2L6MKF0z6H_FrTA3EZtxj423FXyIt7k_FlM_0SXyAWyVZ3eSm17SSPONDs3Onhhxpq0fdHIe4u-Adyai6DzNM8HFkwyKuOATaDuYrl_TJAnwA2ojhqK5vSvN-Za1J-ulq_JyCHICm9NF0amkmmvoBlGcIQDIW4dEL4r91Z74L3tqQAvD7RSrGJjnhwot6q3N4JKeq2KBdp1HeF5Yfr--KnNWqDv-9qg-Gw">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]" data-icon="star"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.6</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality • Government</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Metro
+                                    General Hospital</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Andheri East, Mumbai, MH
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Blood
+                                    Bank</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">120+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 mt-auto">
+                                <a href="home.html ">
+                                    <button
+                                        class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors px-5">Details</button>
+                                </a>
+                                <button
+                                class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md
+                                hover:opacity-90 transition-opacity">Book
+                                Appt</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Hospital Card 3 -->
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A modern cardiology-focused medical center in Pune featuring a sleek, horizontal design with large windows. The building is surrounded by lush green landscapes and structured walkways. The style is professional Medical SaaS, using a sophisticated palette of white and deep blue. Bright morning sunlight casts soft, long shadows, emphasizing the calm and reliable atmosphere."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpBUK13d5G5w0vDf5PDUZxG-KAhahOsNNfO2HPqbf8c64gSdjJx41BV8JjHxkq8S7KDb3QpOqsny_aEucwHuyrdQVkuaVPYYSPULYXto0Zazn2n6WsOJZ5s0uLlCGt9lY4umSYFqEuJzXoWD_wjtsgsGtdlHp4ZKvFOjmT5CJfQ7GI0yLPMdnIKoNabRDfX2yio2f_DYKxxcXpRWlXiEnUOEALkihkYxIR-axAQzbdZjAxrxagysX66CAbHBYQYzUL-TOIh7s069U">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]" data-icon="star"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.9</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Cardiac
+                                    Center • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Pulse
+                                    Heart Institute</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Baner, Pune, Maharashtra
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Surgery</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">ICU</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Diagnostics</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">30+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 mt-auto">
+                                <a href="home.html">
+                                    <button
+                                        class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors px-5">Details</button>
+                                </a>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Repeat for 9 cards total (Simplified mapping for placeholder generation) -->
+                    <!-- Cards 4 to 9 with different locations and images -->
+                    <script>
+                        const hospitals = [
+                            { name: "Silver Line Clinics", type: "Clinic • Private", loc: "Sadar, Nagpur", rating: "4.5", doctors: "15+", img: "Modern multi-story clinic building with glass windows and professional branding in Nagpur. High-end healthcare aesthetic with teal accents." },
+                            { name: "Life Care Multi Speciality", type: "Multi Speciality", loc: "Hinjewadi, Pune", rating: "4.7", doctors: "80+", img: "Large suburban multi-speciality hospital complex with a dedicated trauma center in Pune. Professional medical facility with crisp white architecture." },
+                            { name: "NeuroCare Wellness", type: "Neurology • Private", loc: "Colaba, Mumbai", rating: "4.8", doctors: "25+", img: "Boutique neuro-care medical facility with advanced technological facade and high-end materials. Minimalist professional aesthetic." },
+                            { name: "Global Dental Hub", type: "Dental • Private", loc: "Trimurti Nagar, Nagpur", rating: "4.4", doctors: "10+", img: "Contemporary dental surgical center with a bright, friendly entrance and modern dental signage. Clean medical clarity theme." },
+                            { name: "Unity Childrens Hospital", type: "Pediatrics • Private", loc: "Wakad, Pune", rating: "4.9", doctors: "40+", img: "Vibrant and professional pediatric hospital with colorful yet clinical design elements and modern child-safe architecture." },
+                            { name: "Reliance Care Network", type: "Multi Speciality", loc: "Powai, Mumbai", rating: "4.7", doctors: "200+", img: "Massive corporate hospital skyscraper with glass curtain walls and rooftop helipad in Mumbai skyline. Premium clinical design." }
+                        ];
+
+                        hospitals.forEach(h => {
+                            document.write(`
+                            <article class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full">
+                                <div class="relative h-48 w-full bg-surface-dim">
+                                    <img src="placeholder" data-alt="${h.img} The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray." class="w-full h-full object-cover">
+                                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                        <span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                        <span class="text-label-md font-bold text-on-surface">${h.rating}</span>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex-grow flex flex-col">
+                                    <div class="mb-3">
+                                        <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">${h.type}</span>
+                                        <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">${h.name}</h3>
+                                        <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                            <span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                                            ${h.loc}, Maharashtra
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                        <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                        <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                        <div class="flex items-center gap-2">
+                                            <span class="material-symbols-outlined text-primary text-[20px]" data-icon="stethoscope">stethoscope</span>
+                                            <span class="text-label-sm text-on-surface-variant">${h.doctors} Doctors</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="material-symbols-outlined text-primary text-[20px]" data-icon="schedule">schedule</span>
+                                            <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex gap-3 mt-auto">
+                                        <button class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                        <button class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book Appt</button>
+                                    </div>
+                                </div>
+                            </article>
+                            `);
+                        });
+                    </script>
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(-8px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Modern multi-story clinic building with glass windows and professional branding in Nagpur. High-end healthcare aesthetic with teal accents. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.5</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Clinic
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Silver
+                                    Line Clinics</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Sadar, Nagpur, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">15+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Large suburban multi-speciality hospital complex with a dedicated trauma center in Pune. Professional medical facility with crisp white architecture. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.7</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Life
+                                    Care Multi Speciality</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Hinjewadi, Pune, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">80+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Boutique neuro-care medical facility with advanced technological facade and high-end materials. Minimalist professional aesthetic. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.8</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Neurology
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">
+                                    NeuroCare Wellness</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Colaba, Mumbai, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">25+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Contemporary dental surgical center with a bright, friendly entrance and modern dental signage. Clean medical clarity theme. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.4</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Dental
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Global
+                                    Dental Hub</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Trimurti Nagar, Nagpur, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">10+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Vibrant and professional pediatric hospital with colorful yet clinical design elements and modern child-safe architecture. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.9</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Pediatrics
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Unity
+                                    Childrens Hospital</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Wakad, Pune, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">40+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Massive corporate hospital skyscraper with glass curtain walls and rooftop helipad in Mumbai skyline. Premium clinical design. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.7</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">
+                                    Reliance Care Network</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Powai, Mumbai, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">200+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- Pagination -->
+
+
+                
+            </div>
+            
+        </div>
+
+                <div class="flex gap-gutter">
+            <!-- Sidebar Filters -->
+            <aside class="w-72 hidden lg:block shrink-0 sticky top-28 h-fit">
+                <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 space-y-8">
+                    <div>
+                        <h3 class="text-label-md font-bold text-on-surface mb-4 uppercase tracking-wider">Services</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">OPD
+                                    Services</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">ICU
+                                    Units</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Ambulance</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">Blood
+                                    Bank</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Surgery</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-label-md font-bold text-on-surface mb-4 uppercase tracking-wider">Specialization
+                        </h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Cardiology</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Neurology</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span class="text-body-md text-on-surface-variant group-hover:text-primary">Dental
+                                    Care</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input
+                                    class="rounded border-outline-variant text-primary focus:ring-primary transition-all"
+                                    type="checkbox">
+                                <span
+                                    class="text-body-md text-on-surface-variant group-hover:text-primary">Orthopedics</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <div class="space-y-2">
+
+
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- Main Grid -->
+   <!-- Main Grid -->
+<div class="flex-grow carousel-wrapper">
+    <div class="auto-scroll">
+                    <!-- Hospital Card 1 -->
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A professional architectural photograph of a modern, multi-story glass hospital building in Nagpur during daylight. The clinical structure features a prominent 'Health Hub' logo, wide manicured lawns at the entrance, and a clear blue sky. The lighting is bright and high-key, emphasizing sterile white surfaces and teal glass panels in a high-end medical SaaS aesthetic."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdbZ582IsuULTu4rhjWTEBGP7WtYdSV2YOE3kK50dsNEkFx9yhy4YIo4x68qJqKWDKz26gQOTtdVbnBCdMchRlV0A4o6I81pWXoI-56rrXNE2jqbUGC3eqdn_iVlvU5Wejb4oZQhdaaQRs1B1g3Nz7XP734lqh-2F-BJhP3nePqKjmvmSxKWZUBgJeMLtIwqEb2LNaXnaVJoUX3FaRsFJyCkgE9sBhYOXzSWZpCpl_mSolTNYoICI8fYQDDc_RKwglSau8yCBzABI">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]" data-icon="star"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.8</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Health
+                                    Hub City Care Hospital</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Dharampeth, Nagpur, Maharashtra
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">ICU</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Ambulance</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">MRI</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">50+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 mt-auto">
+                                <a href="home.html">
+                                    <button
+                                        class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors px-5">Details</button>
+                                </a>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Hospital Card 2 -->
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A clean, minimalist hospital entrance area showing an advanced emergency wing in Mumbai. The scene features high-tech signage, a fleet of clean white ambulances, and a contemporary medical center facade. The lighting is soft and professional, reflecting a high-trust healthcare environment with cool blue tones and white architectural details."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpaeS42Yr2wqMJVvkJkZDD8jo6j8_UVQ7jWtXfR0P9y2L6MKF0z6H_FrTA3EZtxj423FXyIt7k_FlM_0SXyAWyVZ3eSm17SSPONDs3Onhhxpq0fdHIe4u-Adyai6DzNM8HFkwyKuOATaDuYrl_TJAnwA2ojhqK5vSvN-Za1J-ulq_JyCHICm9NF0amkmmvoBlGcIQDIW4dEL4r91Z74L3tqQAvD7RSrGJjnhwot6q3N4JKeq2KBdp1HeF5Yfr--KnNWqDv-9qg-Gw">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]" data-icon="star"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.6</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality • Government</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Metro
+                                    General Hospital</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Andheri East, Mumbai, MH
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Blood
+                                    Bank</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">120+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 mt-auto">
+                                <a href="home.html ">
+                                    <button
+                                        class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors px-5">Details</button>
+                                </a>
+                                <button
+                                class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md
+                                hover:opacity-90 transition-opacity">Book
+                                Appt</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Hospital Card 3 -->
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img class="w-full h-full object-cover"
+                                data-alt="A modern cardiology-focused medical center in Pune featuring a sleek, horizontal design with large windows. The building is surrounded by lush green landscapes and structured walkways. The style is professional Medical SaaS, using a sophisticated palette of white and deep blue. Bright morning sunlight casts soft, long shadows, emphasizing the calm and reliable atmosphere."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpBUK13d5G5w0vDf5PDUZxG-KAhahOsNNfO2HPqbf8c64gSdjJx41BV8JjHxkq8S7KDb3QpOqsny_aEucwHuyrdQVkuaVPYYSPULYXto0Zazn2n6WsOJZ5s0uLlCGt9lY4umSYFqEuJzXoWD_wjtsgsGtdlHp4ZKvFOjmT5CJfQ7GI0yLPMdnIKoNabRDfX2yio2f_DYKxxcXpRWlXiEnUOEALkihkYxIR-axAQzbdZjAxrxagysX66CAbHBYQYzUL-TOIh7s069U">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]" data-icon="star"
+                                    style="font-variation-settings: 'FILL' 1;">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.9</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Cardiac
+                                    Center • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Pulse
+                                    Heart Institute</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Baner, Pune, Maharashtra
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Surgery</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">ICU</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Diagnostics</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">30+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 mt-auto">
+                                <a href="home.html">
+                                    <button
+                                        class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors px-5">Details</button>
+                                </a>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Repeat for 9 cards total (Simplified mapping for placeholder generation) -->
+                    <!-- Cards 4 to 9 with different locations and images -->
+                    <script>
+                        const hospitals = [
+                            { name: "Silver Line Clinics", type: "Clinic • Private", loc: "Sadar, Nagpur", rating: "4.5", doctors: "15+", img: "Modern multi-story clinic building with glass windows and professional branding in Nagpur. High-end healthcare aesthetic with teal accents." },
+                            { name: "Life Care Multi Speciality", type: "Multi Speciality", loc: "Hinjewadi, Pune", rating: "4.7", doctors: "80+", img: "Large suburban multi-speciality hospital complex with a dedicated trauma center in Pune. Professional medical facility with crisp white architecture." },
+                            { name: "NeuroCare Wellness", type: "Neurology • Private", loc: "Colaba, Mumbai", rating: "4.8", doctors: "25+", img: "Boutique neuro-care medical facility with advanced technological facade and high-end materials. Minimalist professional aesthetic." },
+                            { name: "Global Dental Hub", type: "Dental • Private", loc: "Trimurti Nagar, Nagpur", rating: "4.4", doctors: "10+", img: "Contemporary dental surgical center with a bright, friendly entrance and modern dental signage. Clean medical clarity theme." },
+                            { name: "Unity Childrens Hospital", type: "Pediatrics • Private", loc: "Wakad, Pune", rating: "4.9", doctors: "40+", img: "Vibrant and professional pediatric hospital with colorful yet clinical design elements and modern child-safe architecture." },
+                            { name: "Reliance Care Network", type: "Multi Speciality", loc: "Powai, Mumbai", rating: "4.7", doctors: "200+", img: "Massive corporate hospital skyscraper with glass curtain walls and rooftop helipad in Mumbai skyline. Premium clinical design." }
+                        ];
+
+                        hospitals.forEach(h => {
+                            document.write(`
+                            <article class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full">
+                                <div class="relative h-48 w-full bg-surface-dim">
+                                    <img src="placeholder" data-alt="${h.img} The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray." class="w-full h-full object-cover">
+                                    <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                        <span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                        <span class="text-label-md font-bold text-on-surface">${h.rating}</span>
+                                    </div>
+                                </div>
+                                <div class="p-5 flex-grow flex flex-col">
+                                    <div class="mb-3">
+                                        <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">${h.type}</span>
+                                        <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">${h.name}</h3>
+                                        <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                            <span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                                            ${h.loc}, Maharashtra
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                        <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                        <span class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                        <div class="flex items-center gap-2">
+                                            <span class="material-symbols-outlined text-primary text-[20px]" data-icon="stethoscope">stethoscope</span>
+                                            <span class="text-label-sm text-on-surface-variant">${h.doctors} Doctors</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="material-symbols-outlined text-primary text-[20px]" data-icon="schedule">schedule</span>
+                                            <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex gap-3 mt-auto">
+                                        <button class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                        <button class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book Appt</button>
+                                    </div>
+                                </div>
+                            </article>
+                            `);
+                        });
+                    </script>
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(-8px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Modern multi-story clinic building with glass windows and professional branding in Nagpur. High-end healthcare aesthetic with teal accents. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.5</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Clinic
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Silver
+                                    Line Clinics</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Sadar, Nagpur, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">15+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Large suburban multi-speciality hospital complex with a dedicated trauma center in Pune. Professional medical facility with crisp white architecture. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.7</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Life
+                                    Care Multi Speciality</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Hinjewadi, Pune, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">80+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Boutique neuro-care medical facility with advanced technological facade and high-end materials. Minimalist professional aesthetic. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.8</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Neurology
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">
+                                    NeuroCare Wellness</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Colaba, Mumbai, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">25+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Contemporary dental surgical center with a bright, friendly entrance and modern dental signage. Clean medical clarity theme. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.4</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Dental
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Global
+                                    Dental Hub</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Trimurti Nagar, Nagpur, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">10+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Vibrant and professional pediatric hospital with colorful yet clinical design elements and modern child-safe architecture. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.9</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span
+                                    class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Pediatrics
+                                    • Private</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">Unity
+                                    Childrens Hospital</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Wakad, Pune, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">40+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article
+                        class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
+                        style="transform: translateY(0px);">
+                        <div class="relative h-48 w-full bg-surface-dim">
+                            <img src="placeholder"
+                                data-alt="Massive corporate hospital skyscraper with glass curtain walls and rooftop helipad in Mumbai skyline. Premium clinical design. The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                class="w-full h-full object-cover">
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                                <span class="material-symbols-outlined text-amber-500 text-[18px]"
+                                    style="font-variation-settings: 'FILL' 1;" data-icon="star">star</span>
+                                <span class="text-label-md font-bold text-on-surface">4.7</span>
+                            </div>
+                        </div>
+                        <div class="p-5 flex-grow flex flex-col">
+                            <div class="mb-3">
+                                <span class="text-label-sm font-label-sm text-secondary uppercase tracking-widest">Multi
+                                    Speciality</span>
+                                <h3 class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight">
+                                    Reliance Care Network</h3>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-label-md mt-1">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="location_on">location_on</span>
+                                    Powai, Mumbai, Maharashtra
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">OPD</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Emergency</span>
+                                <span
+                                    class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm">Pharmacy</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-outline-variant/20 mb-6">
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="stethoscope">stethoscope</span>
+                                    <span class="text-label-sm text-on-surface-variant">200+ Doctors</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary text-[20px]"
+                                        data-icon="schedule">schedule</span>
+                                    <span class="text-label-sm text-on-surface-variant">Open 24/7</span>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-3 mt-auto">
+                                <button
+                                    class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">Details</button>
+                                <button
+                                    class="flex-[1.5] py-2 rounded-xl bg-primary text-on-primary font-label-md hover:opacity-90 transition-opacity">Book
+                                    Appt</button>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- Pagination -->
+
+
+                
+            </div>
+            
+        </div>
+
+                <div class="flex gap-gutter">
             <!-- Sidebar Filters -->
             <aside class="w-72 hidden lg:block shrink-0 sticky top-28 h-fit">
                 <div class="bg-white p-6 rounded-2xl border border-outline-variant/30 space-y-8">
