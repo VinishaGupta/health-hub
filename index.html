@@ -118,23 +118,14 @@
 
         gap: 24px;
 
-        width: 100%;
+        width: max-content;
 
         padding: 15px;
 
-        overflow-x: auto;
+        --manual-offset: 0px;
 
-        scroll-behavior: smooth;
-
-        scrollbar-width: none;
-
-        animation: none;
-
-    }
-
-    .auto-scroll::-webkit-scrollbar {
-
-        display: none;
+        animation:
+        scrollCards 30s linear infinite;
 
     }
 
@@ -272,7 +263,7 @@
         from {
 
             transform:
-            translateX(0);
+            translateX(var(--manual-offset));
 
         }
 
@@ -280,7 +271,7 @@
         to {
 
             transform:
-            translateX(-50%);
+            translateX(calc(-50% + var(--manual-offset)));
 
         }
 
@@ -428,6 +419,8 @@ class="inline-block bg-secondary-container text-on-secondary-container border bo
                                 { name: "Unity Childrens Hospital", type: "Pediatrics • Private", loc: "Wakad, Pune", rating: "4.9", doctors: "40+", img: "Vibrant and professional pediatric hospital with colorful yet clinical design elements and modern child-safe architecture." },
                                 { name: "Reliance Care Network", type: "Multi Speciality", loc: "Powai, Mumbai", rating: "4.7", doctors: "200+", img: "Massive corporate hospital skyscraper with glass curtain walls and rooftop helipad in Mumbai skyline. Premium clinical design." }
                             ];
+
+                            hospitals.push(...hospitals);
 
                             hospitals.forEach(h => {
                                 document.write(`
@@ -577,14 +570,21 @@ class="inline-block bg-secondary-container text-on-secondary-container border bo
     const nextBtn = document.getElementById("nextBtn");
     const prevBtn = document.getElementById("prevBtn");
     const cardScrollAmount = 444;
+    let manualOffset = 0;
+
+    function moveHospitalSlider(direction) {
+        if (!slider) return;
+        manualOffset += direction * cardScrollAmount;
+        slider.style.setProperty("--manual-offset", `${manualOffset}px`);
+    }
 
     nextBtn?.addEventListener("click", () => {
-        slider?.scrollBy({ left: cardScrollAmount, behavior: "smooth" });
+        moveHospitalSlider(-1);
     });
 
 
     prevBtn?.addEventListener("click", () => {
-        slider?.scrollBy({ left: -cardScrollAmount, behavior: "smooth" });
+        moveHospitalSlider(1);
     });
 
 
