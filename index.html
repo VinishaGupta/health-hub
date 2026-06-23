@@ -99,6 +99,12 @@
 
     /* ===== CAROUSEL ===== */
 
+    @property --manual-offset {
+        syntax: "<length>";
+        inherits: false;
+        initial-value: 0px;
+    }
+
     .carousel-wrapper {
         width: 100%;
         overflow: hidden;
@@ -124,6 +130,12 @@
 
         --manual-offset: 0px;
 
+        transition:
+        --manual-offset .55s cubic-bezier(.22, 1, .36, 1);
+
+        will-change:
+        transform;
+
         animation:
         scrollCards 30s linear infinite;
 
@@ -133,6 +145,12 @@
     /* pause movement */
 
     .carousel-wrapper:hover .auto-scroll {
+
+        animation-play-state: paused;
+
+    }
+
+    .auto-scroll.is-moving {
 
         animation-play-state: paused;
 
@@ -571,11 +589,17 @@ class="inline-block bg-secondary-container text-on-secondary-container border bo
     const prevBtn = document.getElementById("prevBtn");
     const cardScrollAmount = 444;
     let manualOffset = 0;
+    let moveTimer;
 
     function moveHospitalSlider(direction) {
         if (!slider) return;
+        clearTimeout(moveTimer);
+        slider.classList.add("is-moving");
         manualOffset += direction * cardScrollAmount;
         slider.style.setProperty("--manual-offset", `${manualOffset}px`);
+        moveTimer = setTimeout(() => {
+            slider.classList.remove("is-moving");
+        }, 650);
     }
 
     nextBtn?.addEventListener("click", () => {
