@@ -90,6 +90,16 @@
                         "headline-md": ["Inter"],
                         "label-md": ["Inter"],
                         "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
                     }
                 }
             }
@@ -361,30 +371,72 @@
 
     }
 
+    .leaf-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c0 16.569-13.431 30-30 30 16.569 0 30 13.431 30 30 0-16.569 13.431-30 30-30-16.569 0-30-13.431-30-30z' fill='%2300687a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+
+    .shadow-medical {
+        box-shadow:
+            0 4px 6px -1px rgba(0, 82, 204, 0.05),
+            0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
 </style>
 </head>
 
-<body class="bg-background text-on-background font-body-md overflow-x-hidden">
-    <!-- TopNavBar -->
-    <nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm">
-        <div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
-            <div class="flex items-center gap-8">
-                <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Health
-                    Hub</span>
-
+<body class="bg-background text-on-background font-body-md overflow-x-hidden leaf-pattern">
+    <!-- Top Navigation Bar -->
+    <header class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50">
+        <nav class="relative flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
+            <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">medical_services</span>
+                <span>Health Hub</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+                <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors duration-200 py-1" href="#">Home</a>
+                <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="Search-A-Doctor.html">Find A Doctor</a>
             </div>
-            <div class="flex items-center gap-4">
-
-                <div class="flex items-center gap-3 text-on-surface-variant">
-
-                    <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors"
-                        data-icon="account_circle">account_circle</span>
+            <a href="my-health.html" class="ml-auto border-2 border-[#159F00] text-[#159F00] px-8 py-3 rounded-xl font-bold hover:bg-[#107800] hover:text-white transition-all duration-300">
+                My Health
+            </a>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-[870px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover" alt="A bright and clear hospital lobby with modern architecture and a friendly doctor-patient interaction." src="image.png">
+                <div class="absolute inset-0 bg-gradient-to-r from-surface/40 via-surface/10 to-transparent"></div>
+            </div>
+            <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="max-w-2xl space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container/30 border border-secondary/20 rounded-full text-secondary font-label-sm">
+                        <span class="material-symbols-outlined text-[16px]">eco</span>
+                        A safe healthcare place for every generation
+                    </div>
+                    <h1 class="text-display-lg font-display-lg text-primary tracking-tight">Health Hub -- <br><span class="text-on-surface">Caring For Every Life</span></h1>
+                    <p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg">
+                        Advanced healthcare with compassion, comfort, and trust. Experience a new standard of medical excellence designed around your well-being.
+                    </p>
+                    <div class="flex flex-col gap-4 pt-4 w-fit">
+                        <div class="flex flex-wrap gap-4">
+                            <button class="bg-primary text-on-primary px-8 py-4 rounded-full text-label-md font-bold hover:bg-primary-container transition-all shadow-medical transform hover:-translate-y-1">
+                                Book Appointment
+                            </button>
+                            <button class="bg-tertiary-container text-on-tertiary-container border border-tertiary/20 px-8 py-4 rounded-full text-label-md font-bold hover:bg-tertiary transition-all hover:text-on-tertiary transform hover:-translate-y-1">
+                                Emergency Care
+                            </button>
+                        </div>
+                        <a href="Doctor.html" class="bg-[#006878] text-white border border-[#006878]/20 px-[60px] py-4 rounded-full text-label-md font-bold hover:bg-[#00889b] hover:text-white transition-all shadow-medical transform hover:-translate-y-1 w-fit mr-auto text-center block">
+                            Specialist
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <main class="pt-28 pb-16 px-margin-desktop max-w-container-max mx-auto">
-        <!-- Hero Section -->
+        </section>
+
+        <!-- Hospital Finder Section -->
+        <section class="py-16 px-margin-desktop max-w-container-max mx-auto">
         <header class="mb-12 border-l-4 border-primary pl-6">
             <h1 class="text-headline-lg font-headline-lg text-primary mb-2">Find Hospitals Near You</h1>
             <p class="text-body-lg text-on-surface-variant max-w-2xl">Explore trusted hospitals and healthcare centers
@@ -507,6 +559,7 @@ w-fit mr-auto text-center block my-6">
     </div>
 
 
+        </section>
     </main>
     <!-- Footer -->
     <footer
