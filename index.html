@@ -121,6 +121,21 @@
         position: relative;
     }
 
+    .carousel-wrapper.mt-10 {
+        margin-top: 64px;
+        padding-top: 44px;
+    }
+
+    .carousel-wrapper.mt-10::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 15px;
+        right: 15px;
+        border-top: 2px dashed rgba(0, 61, 155, .28);
+        pointer-events: none;
+    }
+
     .carousel-wrapper > a {
 
         display: block;
