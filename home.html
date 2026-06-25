@@ -256,10 +256,44 @@
       <!-- Hero Section -->
       <section class="relative min-h-[870px] flex items-center overflow-hidden">
 
-        <div class="absolute inset-0 z-0">
-        <img class="w-full h-full object-cover" alt="A bright and clear hospital lobby with modern architecture and a friendly doctor-patient interaction." src="best-hospital-in-bangalore.jpg">
-        
-        <div class="absolute inset-0 bg-gradient-to-r from-surface/40 via-surface/10 to-transparent"></div>
+        <div class="absolute inset-0 z-0 overflow-hidden">
+
+    <!-- images -->
+    <div id="hospitalImages"
+    class="flex h-full transition-transform duration-700">
+
+        <img class="min-w-full h-full object-cover"
+        src="best-hospital-in-bangalore.jpg">
+
+        <img class="min-w-full h-full object-cover"
+        src="hospital2.jpg">
+
+        <img class="min-w-full h-full object-cover"
+        src="hospital3.jpg">
+
+        <img class="min-w-full h-full object-cover"
+        src="hospital4.jpg">
+
+    </div>
+
+
+    <!-- arrows -->
+    <button onclick="prevSlide()"
+    class="absolute left-8 top-1/2 z-20 bg-white/70 rounded-full px-4 py-3 mt-40">
+        ❮
+    </button>
+
+
+    <button onclick="nextSlide()"
+    class="absolute right-8 top-1/2 z-20 bg-white/70 rounded-full px-4 py-3 mt-40">
+        ❯
+    </button>
+
+
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-surface/40 via-surface/10 to-transparent"></div>
+
+</div>
         </div>
         <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop">
         <div class="max-w-2xl space-y-8">
@@ -801,6 +835,63 @@ w-fit mr-auto text-center block">
           }
         });
       });
+
+      
     </script>
+
+    <script>
+let index = 0;
+
+window.addEventListener("load", () => {
+
+    const slider = document.getElementById("hospitalImages");
+    const total = slider.children.length;
+
+
+    function showSlide(){
+
+        slider.style.transform =
+        `translateX(-${index * 100}%)`;
+
+    }
+
+
+    window.nextSlide = function(){
+
+        index++;
+
+        if(index >= total){
+            index = 0;
+        }
+
+        showSlide();
+
+    }
+
+
+    window.prevSlide = function(){
+
+        index--;
+
+        if(index < 0){
+            index = total - 1;
+        }
+
+        showSlide();
+
+    }
+
+
+    // AUTO SCROLL
+    setInterval(()=>{
+
+        nextSlide();
+
+    },3000);
+
+
+});
+
+</script>
   </body>
 </html>
