@@ -147,40 +147,35 @@
 
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
     <!-- TopNavBar -->
-    <header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm">
-        <div class="flex justify-between items-center h-16 px-margin-desktop max-w-container-max mx-auto">
-            <div class="flex items-center gap-8">
-                <span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Health
-                    Hub</span>
-                <nav class="hidden md:flex items-center gap-6">
-                    <a class="font-label-md text-label-md text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1"
-                        href="#">Home</a>
-                    <a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors"
-                        href="#">Doctors</a>
+  <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-sm">
 
+    <div class="relative h-16 max-w-container-max mx-auto px-margin-desktop">
 
-                </nav>
-            </div>
-            <div class="flex items-center gap-4">
-                <div
-                    class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-1.5 gap-2 border border-outline-variant/30">
-
-
-                </div>
-                <div class="flex items-center gap-2">
-                    <button
-                        class="p-2 hover:bg-primary/5 dark:hover:bg-primary-fixed/10 rounded-lg transition-all duration-200 ease-in-out">
-
-                    </button>
-                    <button
-                        class="p-2 hover:bg-primary/5 dark:hover:bg-primary-fixed/10 rounded-lg transition-all duration-200 ease-in-out">
-
-                    </button>
-                </div>
-
-            </div>
+        <!-- Logo -->
+        <div class="absolute left-0 top-1/2 -translate-y-1/2">
+            <span class="font-headline-md text-headline-md font-bold text-primary px-20">
+                Health Hub
+            </span>
         </div>
-    </header>
+
+        <!-- Center Navigation -->
+        <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-10">
+
+            <a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1"
+                href="#">
+                Home
+            </a>
+
+            <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                href="#">
+                Doctors
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
     <main class="pt-24 pb-16 px-margin-desktop max-w-container-max mx-auto">
         <!-- Hero / Header Section -->
         <section class="mb-12">
