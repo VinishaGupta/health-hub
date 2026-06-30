@@ -202,54 +202,56 @@
         <!-- Main Dashboard Bento Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 
-    <!-- Left Side Buttons -->
-    <div class="lg:col-span-3">
+            <!-- Left Side Buttons -->
+            <div class="lg:col-span-3">
 
-        <div class="sticky top-24 space-y-6">
+                <div class="sticky top-24 space-y-6"><button
+class="w-[220px] h-[140px]
+mx-auto
+flex flex-col items-center justify-center
+bg-surface-container
+rounded-[20px]
+border border-primary/10
+hover:shadow-lg transition-all">
 
-            <button
-                class="w-full flex flex-col items-center justify-center p-8 bg-surface-container rounded-[32px] border border-primary/10 group transition-all hover:shadow-lg hover:bg-surface-container-high">
-
-                <div
-                    class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-4">
-
-                    <span class="material-symbols-outlined text-[32px]">
-                        health_and_safety
-                    </span>
-
-                </div>
-
-                <span class="font-headline-md text-headline-md">
-                    Pure Health
-                </span>
-
-            </button>
-
-
-            <button
-                class="w-full flex flex-col items-center justify-center p-8 bg-surface-container rounded-[32px] border border-primary/10 group transition-all hover:shadow-lg hover:bg-surface-container-high">
-
-                <div
-                    class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-4">
-
-                    <span class="material-symbols-outlined text-[32px]">
-                        blood_pressure
-                    </span>
-
-                </div>
-
-                <span class="font-headline-md text-headline-md">
-                    Donor Bank
-                </span>
-
-            </button>
-
-        </div>
-
+    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-3">
+        <span class="material-symbols-outlined text-[24px]">
+            health_and_safety
+        </span>
     </div>
 
-    <!-- Right Side Table -->
-    <div class="lg:col-span-9 space-y-gutter">
+    <span class="text-xl font-semibold">
+        Pure Health
+    </span>
+
+</button>
+
+
+<button
+class="w-[220px] h-[140px]
+mx-auto
+flex flex-col items-center justify-center
+bg-surface-container
+rounded-[20px]
+border border-primary/10
+hover:shadow-lg transition-all">
+
+    <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-3">
+        <span class="material-symbols-outlined text-[24px]">
+            blood_pressure
+        </span>
+    </div>
+
+    <span class="text-xl font-semibold">
+        Donor Bank
+    </span>
+
+</button> </div>
+
+            </div>
+
+            <!-- Right Side Table -->
+            <div class="lg:col-span-9 space-y-gutter">
                 <!-- Image Header Card -->
                 <!-- <div class="relative h-64 rounded-[32px] overflow-hidden group shadow-md">
                     <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -271,7 +273,7 @@
                         class="p-8 border-b border-outline-variant/20 flex flex-col sm:flex-row justify-between items-center gap-4">
                         <h2 class="font-headline-md text-headline-md text-primary">Health Checkup Schedule</h2>
                         <div class="flex gap-2">
-                           
+
                         </div>
                     </div>
                     <div class="overflow-x-auto">
@@ -338,7 +340,7 @@
                         </table>
                     </div>
                 </div>
-              
+
             </div>
         </div>
     </main>
