@@ -147,76 +147,74 @@
 
 <body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
     <!-- TopNavBar -->
-  <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-sm">
+    <header class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-sm">
 
-    <div class="relative h-16 max-w-container-max mx-auto px-margin-desktop">
+        <div class="relative h-16 max-w-container-max mx-auto px-margin-desktop">
 
-        <!-- Logo -->
-        <div class="absolute left-0 top-1/2 -translate-y-1/2">
-            <span class="font-headline-md text-headline-md font-bold text-primary px-20">
-                Health Hub
-            </span>
+            <!-- Logo -->
+            <div class="absolute left-0 top-1/2 -translate-y-1/2">
+                <span class="font-headline-md text-headline-md font-bold text-primary px-20">
+                    Health Hub
+                </span>
+            </div>
+
+            <!-- Center Navigation -->
+            <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-10">
+
+                <a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1" href="#">
+                    Home
+                </a>
+
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
+                    href="#">
+                    Doctors
+                </a>
+
+            </nav>
+
         </div>
 
-        <!-- Center Navigation -->
-        <nav class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-10">
-
-            <a class="font-label-md text-label-md text-primary border-b-2 border-primary pb-1"
-                href="#">
-                Home
-            </a>
-
-            <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors"
-                href="#">
-                Doctors
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
+    </header>
     <main class="pt-24 pb-16 px-margin-desktop max-w-container-max mx-auto">
         <!-- Hero / Header Section -->
-    <section class="mb-12">
+        <section class="mb-12">
 
-    <div class="flex justify-between items-start">
+            <div class="flex justify-between items-start">
 
-        <!-- Left -->
-        <div>
+                <!-- Left -->
+                <div>
 
-            <h1 class="font-display-lg text-display-lg text-primary mb-2">
-                Health Insights
-            </h1>
+                    <h1 class="font-display-lg text-display-lg text-primary mb-2">
+                        Health Insights
+                    </h1>
 
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                Dear Manoj, Monitor your journey towards wellness. View your schedules,
-                upcoming appointments, and deep-dive into your personal health
-                data in real-time.
-            </p>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Dear Manoj, Monitor your journey towards wellness. View your schedules,
+                        upcoming appointments, and deep-dive into your personal health
+                        data in real-time.
+                    </p>
 
-        </div>
+                </div>
 
-        <!-- Right -->
-        <div class="text-right">
+                <!-- Right -->
+                <div class="text-right">
 
-            <h2 class="text-2xl font-bold text-secondary">
-                Hi Manoj,
-            </h2>
+                    <h2 class="text-2xl font-bold text-secondary">
+                        Hi Manoj,
+                    </h2>
 
-        </div>
+                </div>
 
-    </div>
+            </div>
 
-</section>
+        </section>
         <!-- Main Dashboard Bento Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 
             <!-- Left Side Buttons -->
             <div class="lg:col-span-3">
 
-                <div class="sticky top-24 space-y-6"><button
-class="w-[220px] h-[140px]
+                <div class="sticky top-24 space-y-6"><button class="w-[220px] h-[140px]
 mx-auto
 flex flex-col items-center justify-center
 bg-surface-container
@@ -224,21 +222,21 @@ rounded-[20px]
 border border-primary/10
 hover:shadow-lg transition-all">
 
-    <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-3">
-        <span class="material-symbols-outlined text-[24px]">
-            health_and_safety
-        </span>
-    </div>
+                        <div
+                            class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-3">
+                            <span class="material-symbols-outlined text-[24px]">
+                                health_and_safety
+                            </span>
+                        </div>
 
-    <span class="text-xl font-semibold">
-        Pure Health
-    </span>
+                        <span class="text-xl font-semibold">
+                            Pure Health
+                        </span>
 
-</button>
+                    </button>
 
 
-<button
-class="w-[220px] h-[140px]
+                    <button class="w-[220px] h-[140px]
 mx-auto
 flex flex-col items-center justify-center
 bg-surface-container
@@ -246,17 +244,40 @@ rounded-[20px]
 border border-primary/10
 hover:shadow-lg transition-all">
 
-    <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-3">
-        <span class="material-symbols-outlined text-[24px]">
-            blood_pressure
-        </span>
-    </div>
+                        <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-3">
+                            <span class="material-symbols-outlined text-[24px]">
+                                blood_pressure
+                            </span>
+                        </div>
 
-    <span class="text-xl font-semibold">
-        Donor Bank
-    </span>
+                        <span class="text-xl font-semibold">
+                            Donor Bank
+                        </span>
 
-</button> </div>
+                    </button>
+
+                    <button class="w-[220px] h-[140px]
+mx-auto
+flex flex-col items-center justify-center
+bg-surface-container
+rounded-[20px]
+border border-primary/10
+hover:shadow-lg transition-all">
+
+                        <div
+                            class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-3">
+                            <span class="material-symbols-outlined text-[24px]">
+                                health_and_safety
+                            </span>
+                        </div>
+
+                        <span class="text-xl font-semibold">
+                            Health Insurance
+                        </span>
+
+                    </button>
+                    
+                </div>
 
             </div>
 
