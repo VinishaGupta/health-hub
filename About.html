@@ -1757,9 +1757,68 @@ input[type="file"]{
     padding-left:48px;
 
 }
+
+.hospital-identity{
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    padding:30px 60px;
+}
+
+.hospital-header{
+    display:flex;
+    align-items:center;
+    gap:35px;
+}
+
+.hospital-logo-mark{
+    width:130px;
+    height:130px;
+    border:5px solid #16a6d9;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    color:#0F5DA9;
+    font-size:22px;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.hospital-details h1{
+    font-size:43px;
+    color:#0F5DA9;
+    font-weight:700;
+    line-height:1.1;
+    margin:0;
+}
+
+.hospital-details p{
+    margin-top:10px;
+    font-size:20px;
+    color:#006878;
+    font-weight:600;
+}
+
+
     </style>
 </head>
 <body>
+
+ <section class="hospital-identity">
+    <div class="hospital-header">
+
+        <div class="hospital-logo-mark">
+            Logo
+        </div>
+
+        <div class="hospital-details">
+            <h1>Hospital's Name</h1>
+            <p>Location</p>
+        </div>
+
+    </div>
+</section>
     <!-- ==========================================
                 ADDRESS DETAILS
         =========================================== -->
