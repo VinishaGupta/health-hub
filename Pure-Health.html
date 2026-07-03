@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+
+
+<div class="section-card animate-pop-in">
+    
+
+    <!-- ================= MENU ================= -->
+<div id="healthMenuSection" class="health-menu-grid">
+
+    <div class="health-card-option"
+         onclick="openHealthSection('basic')">
+
+        <div class="health-card-icon">
+            <i class="bi bi-heart-pulse-fill"></i>
+        </div>
+
+        <div class="health-card-content">
+            <h3>Basic Health Details</h3>
+            <p>Manage blood group, vitals, BP, and medical history</p>
+        </div>
+
+    </div>
+
+    <div class="health-card-option"
+         onclick="openHealthSection('handicap')">
+
+        <div class="health-card-icon">
+            <i class="bi bi-person-wheelchair"></i>
+        </div>
+
+        <div class="health-card-content">
+            <h3>Handicap Details</h3>
+            <p>Disability types, certifications, and documents</p>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- ===================================================== -->
+    <!-- ================= BASIC HEALTH SECTION ============== -->
+    <!-- ===================================================== -->
+
+    <div id="basicHealthSection" style="display:none;">
+
+        <!-- BACK BUTTON -->
+        <button type="button"
+                class="back-btn"
+                onclick="goBackHealthMenu()">
+
+            ← Back
+
+        </button>
+
+        <div class="section-header-row">
+
+            <h2 class="section-main-title">
+                Medical & Health Details
+            </h2>
+
+            <button type="button"
+                    id="editHealthBtn"
+                    class="edit-toggle-btn"
+                    onclick="toggleHealthEdit()">
+
+                Edit Details
+
+            </button>
+
+        </div>
+
+        <!-- MAIN CARD -->
+        <div class="address-card locked" id="healthCard">
+
+            <!-- BLOOD GROUP -->
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="field-group">
+
+                        <label class="field-label">
+                            Permanent Blood Group
+                        </label>
+
+                        <div class="select-left-wrapper">
+
+                            <i class="bi bi-chevron-down select-left-icon"></i>
+
+                            <select class="form-select left-arrow-select"
+                                    id="bloodGroup"
+                                    disabled>
+
+                                <option value="" selected disabled>
+                                    Select Blood Group
+                                </option>
+
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- CERTIFICATE -->
+                <div class="col-md-6">
+
+                    <div class="field-group">
+
+                        <label class="field-label">
+                            Blood Group Certificate (Optional)
+                        </label>
+
+                        <input type="file"
+                               id="bloodCert"
+                               class="form-control"
+                               accept="image/*"
+                               disabled />
+
+                    </div>
+
+                </div>
+
+            </div>
+                            <!-- BLOOD GROUP SAVE -->
+                <div class="form-footer"
+                    id="bloodGroupSaveFooter"
+                    style="display:none;">
+
+                    <button class="save-btn"
+                            onclick="saveBloodGroupData()">
+
+                        Save Blood Group Details
+
+                    </button>
+
+                </div>
+
+            <hr>
+
+            <!-- VITALS INPUT -->
+            <h4 class="section-main-title" style="font-size:18px;">
+                Log Current Vitals
+            </h4>
+
+            <div class="input-row" style="align-items:end;">
+
+                <div class="field-group" style="flex:1;">
+
+                    <label class="field-label">
+                        Measurement Date
+                    </label>
+
+                    <input type="date"
+                           class="form-control"
+                           id="currentDate"
+                           readonly />
+
+                </div>
+                    <div class="field-group" style="flex:1;">
+
+                        <label class="field-label">
+                            Blood Pressure
+                            <span style="font-size:12px; color:#6b7280;">
+                                (Systolic / Diastolic)
+                            </span>
+                        </label>
+
+                        <div class="bp-wrapper">
+
+                            <input type="number"
+                                id="systolicInput"
+                                class="bp-box"
+                                placeholder="120"
+                                disabled>
+
+                            <span class="bp-separator">/</span>
+
+                            <input type="number"
+                                id="diastolicInput"
+                                class="bp-box"
+                                placeholder="80"
+                                disabled>
+
+                        </div>
+
+                    </div>
+                <div class="field-group" style="flex:1;">
+
+                    <label class="field-label">
+                        Weight (kg)
+                    </label>
+
+                    <input type="number"
+                           class="form-control"
+                           id="weightInput"
+                           placeholder="kg"
+                           disabled />
+
+                </div>
+
+                <div class="field-group" style="flex:1;">
+
+                    <label class="field-label">
+                        Height (cm)
+                    </label>
+
+                    <input type="number"
+                           class="form-control"
+                           id="heightInput"
+                           placeholder="cm"
+                           disabled />
+
+                </div>
+
+                <button type="button"
+                        class="action-btn"
+                        onclick="addVitals()"
+                        id="addVitalsBtn"
+                        disabled>
+
+                    + Add
+
+                </button>
+
+            </div>
+
+            <!-- TABLE -->
+            <h4 class="section-main-title"
+                style="font-size:18px; margin-top:20px;">
+
+                Vitals History
+
+            </h4>
+
+            <div class="table-responsive">
+
+                <table class="vitals-table"
+                       style="width:100%; border-collapse:collapse;">
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Height</th>
+                            <th>Weight</th>
+                            <th>BP</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="vitalsTableBody"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <!-- SAVE -->
+        
+
+    </div>
+
+<!-- ===================================================== -->
+<!-- ================= HANDICAP SECTION ================== -->
+<!-- ===================================================== -->
+
+
+<div id="handicapSection" style="display:none;">
+        <style>
+            /* ONLY Handicap Section Labels */
+            #handicapSection .field-label {
+                font-size: 15px;
+                font-weight: 800;
+                color: #111827;
+                margin-bottom: 8px;
+                display: block;
+                letter-spacing: 0.3px;
+            }
+        </styl>
+
+    <!-- BACK -->
+    <button type="button"
+            class="back-btn"
+            onclick="goBackHealthMenu()">
+        ← Back
+    </button>
+    <div class="field-group" style="max-width:220px;">
+
+    <label class="field-label">
+        Handicap Status
+    </label>
+
+    <input type="text"
+           value="YES"
+           readonly
+           class="form-control"
+           style="
+                width:75px;
+                background:#f3f4f6;
+                font-weight:400;
+                text-align:center;
+                cursor:not-allowed;
+           "/>
+
+</div>
+
+    <div class="section-header-row">
+        <h2 class="section-main-title">Handicap Details</h2>
+    </div>
+
+    <div class="address-card">
+
+        <!-- ================= TYPE SELECT ================= -->
+        <div class="field-group">
+
+            <label class="field-label">
+                Select Handicap Type
+            </label>
+
+            <select id="handicapTypeSelect"
+                    class="form-control"
+                    onchange="addHandicapType()">
+
+                <option value="">Select Type</option>
+                <option value="Visual Impairment">Visual Impairment</option>
+                <option value="Hearing Impairment">Hearing Impairment</option>
+                <option value="Locomotor Disability">Locomotor Disability</option>
+                <option value="Speech Impairment">Speech Impairment</option>
+
+            </select>
+
+        </div>
+
+        <!-- ================= TAGS ================= -->
+        <div id="selectedHandicapTags"
+             style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; color:#374151;">
+        </div>
+
+        <hr>
+
+        <!-- ================= SPLIT HEADER CHECKBOX ================= -->
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-bottom:10px;
+        ">
+
+            <label>
+                <input type="checkbox"
+                       id="stateGovCheck"
+                       onchange="renderCertificateFields()">
+                State Govt Certified
+            </label>
+
+            <div style="width:10px; height:50px; background:white;"></div>
+
+            <label>
+                <input type="checkbox"
+                       id="centralGovCheck"
+                       onchange="renderCertificateFields()">
+                Central Govt Certified
+            </label>
+
+        </div>
+
+        <!-- ================= SPLIT CONTAINER ================= -->
+        <div style="
+            display:flex;
+            gap:20px;
+            margin-top:10px;
+        ">
+
+            <!-- ================= STATE SIDE ================= -->
+            <div style="
+                flex:1;
+                border:1px solid #e5e7eb;
+                border-radius:10px;
+                padding:15px;
+                min-height:200px;
+            ">
+
+                <h4 style="margin-bottom:10px;">State Certificates</h4>
+
+                <div id="stateCertSection"></div>
+
+            </div>
+
+            <!-- VERTICAL DIVIDER -->
+            <div style="
+                width:1px;
+                background:#e5e7eb;
+            "></div>
+
+            <!-- ================= CENTRAL SIDE ================= -->
+            <div style="
+                flex:1;
+                border:1px solid #e5e7eb;
+                border-radius:10px;
+                padding:15px;
+                min-height:200px;
+            ">
+
+                <h4 style="margin-bottom:10px;">Central Certificates</h4>
+
+                <div id="centralCertSection"></div>
+
+            </div>
+
+        </div>
+
+        <!-- ================= SUBMIT ================= -->
+        <div style="margin-top:20px; text-align:right;">
+
+            <button class="save-btn"
+                    onclick="saveHandicapData()">
+
+                Save Handicap Details
+
+            </button>
+                            <hr style="margin:20px 0;">
+
+                <h4 style="font-weight:700;">
+                    Uploaded Certificates
+                </h4>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered">
+
+                        <thead>
+
+                            <tr>
+                                <th>Sr No</th>
+                                <th>Handicap Type</th>
+                                <th>Certificate Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="handicapCertificateTableBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+        </div>
+
+    </div>
+</div>
+
+</div>
+<div id="certificatePreviewModal"
+     style="
+        display:none;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.7);
+        z-index:9999;
+        justify-content:center;
+        align-items:center;
+     ">
+
+    <div style="
+        background:white;
+        padding:20px;
+        border-radius:10px;
+        max-width:800px;
+        max-height:90vh;
+        position:relative;
+    ">
+
+        <button
+            onclick="closeCertificateModal()"
+            style="
+                position:absolute;
+                top:10px;
+                right:10px;
+                border:none;
+                background:red;
+                color:white;
+                border-radius:5px;
+                padding:5px 10px;
+            ">
+            ✕
+        </button>
+
+        <img id="certificatePreviewImage"
+             src=""
+             style="
+                max-width:100%;
+                max-height:80vh;
+             ">
+    </div>
+
+</div>
+
+<!-- JS -->
+<!-- <script>
+    let isEditable = false;
+let uploadedCertificates = [];
+// initial data (EMPTY now — no default vitals)
+let vitalsHistory = [];
+
+let selectedHandicapTypes = [];
+
+// ================= SET CURRENT DATE =================
+function setCurrentDate() {
+
+    const el = document.getElementById("currentDate");
+
+    if (!el) return;
+
+    const today = new Date();
+
+    const formatted =
+        today.getFullYear() + "-" +
+        String(today.getMonth() + 1).padStart(2, "0") + "-" +
+        String(today.getDate()).padStart(2, "0");
+
+    el.value = formatted;
+}
+
+
+// ================= TOGGLE EDIT =================
+function toggleHealthEdit() {
+
+    isEditable = !isEditable;
+
+    const fields = [
+        "bloodGroup",
+        "bloodCert",
+        "heightInput",
+        "weightInput",
+        "systolicInput",
+        "diastolicInput",
+        "addVitalsBtn"
+    ];
+
+    fields.forEach(id => {
+
+        const el = document.getElementById(id);
+
+        if (el) {
+            el.disabled = !isEditable;
+        }
+
+    });
+
+    // SAVE BUTTON
+    document.getElementById("bloodGroupSaveFooter").style.display =
+        isEditable ? "block" : "none";
+
+    // BUTTON TEXT
+    document.getElementById("editHealthBtn").innerHTML =
+        isEditable
+            ? `<i class="bi bi-x-circle"></i> Cancel`
+            : `<i class="bi bi-pencil-square"></i> Edit Details`;
+
+    // ACTIVE CLASS
+    document
+        .getElementById("editHealthBtn")
+        .classList.toggle("active", isEditable);
+
+    // CARD LOCK
+    document
+        .getElementById("healthCard")
+        .classList.toggle("locked", !isEditable);
+}
+
+// ================= ADD VITALS =================
+function addVitals() {
+
+    if (!isEditable) return;
+
+    const systolic =
+        document.getElementById("systolicInput").value;
+
+    const diastolic =
+        document.getElementById("diastolicInput").value;
+
+    const bp =
+        `${systolic}/${diastolic}`;
+
+    const height =
+        document.getElementById("heightInput").value;
+
+    const weight =
+        document.getElementById("weightInput").value;
+
+    const date =
+        document.getElementById("currentDate").value;
+
+    if (
+        !height ||
+        !weight ||
+        !systolic ||
+        !diastolic
+    ) {
+        alert("Please fill all vitals.");
+        return;
+    }
+
+    const newEntry = {
+        id: Date.now(),
+        height,
+        weight,
+        bp,
+        date,
+        source: "OWN"
+    };
+
+    // ADD TO TABLE ARRAY
+    vitalsHistory.unshift(newEntry);
+
+    // SAVE TO BACKEND
+    saveVitalEntry(newEntry);
+
+    // REFRESH TABLE
+    renderTable();
+
+    // CLEAR INPUTS
+    document.getElementById("heightInput").value = "";
+    document.getElementById("weightInput").value = "";
+    document.getElementById("systolicInput").value = "";
+    document.getElementById("diastolicInput").value = "";
+
+    // RESET DATE
+    setCurrentDate();
+}
+
+// ================= DELETE VITAL =================
+function deleteVitals(id) {
+
+    vitalsHistory =
+        vitalsHistory.filter(item => item.id !== id);
+
+    renderTable();
+}
+
+// ================= RENDER TABLE =================
+function renderTable() {
+
+    const tbody =
+        document.getElementById("vitalsTableBody");
+
+                    tbody.innerHTML = "";
+
+                    vitalsHistory.forEach(item => {
+
+                        const row =
+                            document.createElement("tr");
+
+                    row.innerHTML = `
+                    <td>${item.date}</td>
+
+                    <td>${item.height} cm</td>
+
+                    <td>${item.weight} kg</td>
+
+                    <td>${item.bp ? item.bp : '-'}</td>
+
+                    <td>
+                        <span class="status-badge ${item.source === 'DR' ? 'dr-status' : 'own-status'}">
+                            ${item.source || 'OWN'}
+                        </span>
+                    </td>
+
+                    <td>
+                        <button
+                            onclick="deleteVitals(${item.id})"
+                            style="
+                                background:#ef4444;
+                                color:white;
+                                border:none;
+                                padding:5px 10px;
+                                border-radius:6px;
+                                cursor:pointer;
+                            ">
+                            Delete
+                        </button>
+                    </td>
+                `;
+
+        tbody.appendChild(row);
+
+    });
+}
+
+// ================= SAVE =================
+function saveHealthData() {
+
+    const data = {
+        bloodGroup:
+            document.getElementById("bloodGroup").value,
+
+        vitalsHistory: vitalsHistory
+    };
+
+    // send to backend
+    submitHealth(data).then(resp => {
+        if (resp && resp.success) {
+            alert('Health data saved');
+        } else {
+            alert('Failed to save health data');
+        }
+    }).catch(() => alert('Failed to save health data'));
+
+    // ================= LOCK AGAIN AFTER SAVE =================
+
+    isEditable = false;
+
+    const fields = [
+        "bloodGroup",
+        "bloodCert",
+        "heightInput",
+        "weightInput",
+        "systolicInput",
+        "diastolicInput",
+        "addVitalsBtn"
+    ];
+
+    fields.forEach(id => {
+
+        const el = document.getElementById(id);
+
+        if (el) {
+            el.disabled = true;
+        }
+
+    });
+
+    // HIDE SAVE BUTTON
+    document.getElementById("saveFooter").style.display = "none";
+
+    // RESET BUTTON
+    document.getElementById("editHealthBtn").innerHTML =
+        `<i class="bi bi-pencil-square"></i> Edit Details`;
+
+    // REMOVE ACTIVE CLASS
+    document
+        .getElementById("editHealthBtn")
+        .classList.remove("active");
+
+    // LOCK CARD
+    document
+        .getElementById("healthCard")
+        .classList.add("locked");
+}
+
+async function submitHealth(data) {
+    const form = new FormData();
+    form.append('bloodGroup', data.bloodGroup || '');
+    form.append('vitalsHistory', JSON.stringify(data.vitalsHistory || []));
+
+    const fileEl = document.getElementById('bloodCert');
+    if (fileEl && fileEl.files && fileEl.files.length) {
+        form.append('bloodCert', fileEl.files[0]);
+    }
+
+    const res = await fetch(window.profileApiUrl('../../api/profile/save_health.php'), {
+        method: 'POST',
+        body: form,
+        credentials: 'same-origin'
+    });
+
+    return res.json();
+}
+
+async function loadHealth() {
+    try {
+        const res = await fetch(window.profileApiUrl('../../api/profile/get_health.php'), { credentials: 'same-origin' });
+        const json = await res.json();
+        if (!json.success || !json.data) return;
+
+        const d = json.data;
+        if (d.blood_group) document.getElementById('bloodGroup').value = d.blood_group;
+
+        // load vitals history array
+        if (Array.isArray(d.vitalsHistory) && d.vitalsHistory.length) {
+            vitalsHistory = d.vitalsHistory.map((v, idx) => ({
+                id: Date.now() + idx,
+                height: v.height,
+                weight: v.weight,
+                bp: v.bp,
+                date: v.date,
+                source: v.source || "DR"
+            }));
+            renderTable();
+        }
+
+        // TODO: show link to existing certificate if needed (d.blood_group_certificate)
+    } catch (err) {
+        console.warn('Failed to load health data', err);
+    }
+}
+
+// ================= HEALTH SECTION CONTROLLER (SAFE ADDITION) =================
+
+function openHealthSection(type) {
+
+    const menu = document.getElementById("healthMenuSection");
+    const basic = document.getElementById("basicHealthSection");
+    const handicap = document.getElementById("handicapSection");
+
+    // ALWAYS reset everything first (important fix)
+    menu.style.display = "none";
+    basic.style.display = "none";
+    handicap.style.display = "none";
+
+if (type === "basic") {
+    basic.style.display = "block";
+
+    // ALWAYS RESET DATE WHEN OPENING BASIC SECTION
+    setCurrentDate();
+}
+
+        if (type === "handicap") {
+            handicap.style.display = "block";
+
+            // 🔥 SAFE RE-RENDER ON OPEN
+            renderHandicapTags();
+            renderCertificateFields();
+        }
+}
+
+
+// ================= BACK BUTTON FIX =================
+
+function goBackHealthMenu() {
+
+    const menu = document.getElementById("healthMenuSection");
+    const basic = document.getElementById("basicHealthSection");
+    const handicap = document.getElementById("handicapSection");
+
+    basic.style.display = "none";
+    handicap.style.display = "none";
+
+    menu.style.display = "grid"; 
+    // IMPORTANT: keeps card layout intact (not block)
+
+}
+
+// ================= INIT FIX =================
+
+window.addEventListener("DOMContentLoaded", function () {
+
+    const menu = document.getElementById("healthMenuSection");
+    const basic = document.getElementById("basicHealthSection");
+    const handicap = document.getElementById("handicapSection");
+
+    if (menu) menu.style.display = "grid";
+    if (basic) basic.style.display = "none";
+    if (handicap) handicap.style.display = "none";
+
+});
+
+
+// ================= HANDICAP TYPES STORE =================
+
+
+
+
+// ================= ADD TYPE (LIKE LINKEDIN SKILLS) =================
+
+function addHandicapType() {
+
+    const select =
+        document.getElementById("handicapTypeSelect");
+
+    const value = select.value;
+
+    if (!value) return;
+
+    if (selectedHandicapTypes.includes(value)) return;
+
+    selectedHandicapTypes.push(value);
+
+    renderHandicapTags();
+    renderCertificateFields();
+
+    select.value = "";
+}
+
+
+// ================= REMOVE TYPE =================
+
+function removeHandicapType(type) {
+
+    selectedHandicapTypes =
+        selectedHandicapTypes.filter(t => t !== type);
+
+    renderHandicapTags();
+    renderCertificateFields();
+}
+
+
+// ================= RENDER TAGS =================
+
+function renderHandicapTags() {
+
+    const container =
+        document.getElementById("selectedHandicapTags");
+
+    container.innerHTML = "";
+
+    selectedHandicapTypes.forEach(type => {
+
+        const tag = document.createElement("div");
+
+        tag.style.cssText = `
+            background:#2563eb;
+            color:white;
+            padding:5px 10px;
+            border-radius:20px;
+            display:flex;
+            align-items:center;
+            gap:6px;
+            font-size:13px;
+        `;
+
+        tag.innerHTML = `
+            ${type}
+            <span style="cursor:pointer;"
+                  onclick="removeHandicapType('${type}')">
+                ✕
+            </span>
+        `;
+
+        container.appendChild(tag);
+    });
+}
+
+
+// ================= CERTIFICATE SECTION =================
+
+function toggleCertificateSection() {
+    renderCertificateFields();
+}
+
+// ================= RENDER CERTIFICATE UPLOAD FIELDS =================
+function renderCertificateFields() {
+
+    const stateBox =
+        document.getElementById("stateCertSection");
+
+    const centralBox =
+        document.getElementById("centralCertSection");
+
+    stateBox.innerHTML = "";
+    centralBox.innerHTML = "";
+
+    const stateChecked =
+        document.getElementById("stateGovCheck").checked;
+
+    const centralChecked =
+        document.getElementById("centralGovCheck").checked;
+
+    selectedHandicapTypes.forEach(type => {
+
+        if (stateChecked) {
+
+            stateBox.innerHTML += `
+                <div class="field-group">
+                    <label>State Certificate - ${type}</label>
+                    <input type="file" class="form-control"/>
+                </div>
+            `;
+        }
+
+        if (centralChecked) {
+
+            centralBox.innerHTML += `
+                <div class="field-group">
+                    <label>Central Certificate - ${type}</label>
+                    <input type="file" class="form-control"/>
+                </div>
+            `;
+        }
+    });
+}
+/*
+====================================================================
+🧾 BACKEND CONTRACT - HANDICAP MODULE
+====================================================================
+
+📌 API Purpose:
+Save user handicap details including types + certificates
+
+--------------------------------------------------------------------
+📤 REQUEST PAYLOAD (Frontend → Backend)
+--------------------------------------------------------------------
+
+{
+  "is_handicapped": true,
+
+  "types": [
+    "Visual Impairment",
+    "Hearing Impairment"
+  ],
+
+  "certificates": {
+    "state": {
+      "Visual Impairment": File | null,
+      "Hearing Impairment": File | null
+    },
+    "central": {
+      "Visual Impairment": File | null,
+      "Hearing Impairment": File | null
+    }
+  }
+}
+
+--------------------------------------------------------------------
+📌 FIELD MEANING
+--------------------------------------------------------------------
+
+✔ is_handicapped
+- Always true if user enters this section
+
+✔ types
+- Array of selected disability types from UI tags
+
+✔ certificates.state
+- Files uploaded when "State Govt certified" is checked
+- Key = disability type
+- Value = uploaded file
+
+✔ certificates.central
+- Files uploaded when "Central Govt certified" is checked
+- Key = disability type
+- Value = uploaded file
+
+--------------------------------------------------------------------
+📌 IMPORTANT RULES FOR BACKEND DEV
+--------------------------------------------------------------------
+
+1. Each disability type can have multiple certificates
+2. File upload must be handled via FormData (NOT JSON)
+3. Keys must match EXACT strings from frontend
+4. Missing files should be treated as null
+5. Backend should return saved file URLs if successful
+
+--------------------------------------------------------------------
+📤 EXPECTED RESPONSE FORMAT
+
+{
+  "success": true,
+  "message": "Handicap details saved successfully",
+  "data": {
+    "user_id": "...",
+    "saved_types": [...],
+    "certificate_urls": {...}
+  }
+}
+
+====================================================================
+*/
+window.addEventListener("DOMContentLoaded", function () {
+
+    const menu = document.getElementById("healthMenuSection");
+    const basic = document.getElementById("basicHealthSection");
+    const handicap = document.getElementById("handicapSection");
+
+    if (menu) menu.style.display = "grid";
+    if (basic) basic.style.display = "none";
+    if (handicap) handicap.style.display = "none";
+
+    // ✅ IMPORTANT INITIAL RENDERS
+    renderHandicapTags();
+    renderCertificateFields();
+});
+function saveHandicapData() {
+    
+
+    const data = {
+        is_handicapped: true,
+        types: selectedHandicapTypes || [],
+        certificates: {
+            state: {},
+            central: {}
+        }
+    };
+    
+
+    const stateInputs = document.querySelectorAll("#stateCertSection input[type='file']");
+    const centralInputs = document.querySelectorAll("#centralCertSection input[type='file']");
+
+        // collect state files
+        stateInputs.forEach((input, index) => {
+
+            if (input.files.length) {
+
+                const label =
+                    input.closest(".field-group")
+                        ?.querySelector("label")
+                        ?.innerText || `type_${index}`;
+
+                data.certificates.state[label] =
+                    input.files[0];
+
+                    const handicapType =
+                        label.replace("State Certificate - ", "");
+
+                    const exists =
+                        uploadedCertificates.some(item =>
+                            item.handicapType === handicapType &&
+                            item.type === "State Govt"
+                        );
+
+                    if (!exists) {
+
+                        const existingIndex =
+                            uploadedCertificates.findIndex(item =>
+                                item.handicapType === label &&
+                                item.type === "State Govt"
+                            );
+
+                        const newData = {
+                            handicapType: label,
+                            type: "State Govt",
+                            image: URL.createObjectURL(input.files[0])
+                        };
+
+                        if (existingIndex !== -1) {
+
+                            uploadedCertificates[existingIndex] = newData;
+
+                        } else {
+
+                            uploadedCertificates.push(newData);
+
+                        }
+                    }
+            }
+        });
+
+        // collect central files
+        centralInputs.forEach((input, index) => {
+
+            if (input.files.length) {
+
+                const label =
+                    input.closest(".field-group")
+                        ?.querySelector("label")
+                        ?.innerText || `type_${index}`;
+
+                data.certificates.central[label] =
+                    input.files[0];
+                    const handicapType =
+                        label.replace("Central Certificate - ", "");
+
+                    const exists =
+                        uploadedCertificates.some(item =>
+                            item.handicapType === handicapType &&
+                            item.type === "Central Govt"
+                        );
+
+                    if (!exists) {
+
+                            const existingIndex =
+                                uploadedCertificates.findIndex(item =>
+                                    item.handicapType === label &&
+                                    item.type === "Central Govt"
+                                );
+
+                            const newData = {
+                                handicapType: label,
+                                type: "Central Govt",
+                                image: URL.createObjectURL(input.files[0])
+                            };
+
+                            if (existingIndex !== -1) {
+
+                                uploadedCertificates[existingIndex] = newData;
+
+                            } else {
+
+                                uploadedCertificates.push(newData);
+
+                            }
+                    }
+            }
+        });
+
+    // send to backend (placeholder API)
+    const form = new FormData();
+
+    form.append("is_handicapped", data.is_handicapped);
+    form.append("types", JSON.stringify(data.types));
+    form.append("state_certificates", JSON.stringify(Object.keys(data.certificates.state)));
+    form.append("central_certificates", JSON.stringify(Object.keys(data.certificates.central)));
+
+    // append files
+    Object.keys(data.certificates.state).forEach(key => {
+        form.append("state_" + key, data.certificates.state[key]);
+    });
+
+    Object.keys(data.certificates.central).forEach(key => {
+        form.append("central_" + key, data.certificates.central[key]);
+    });
+    renderHandicapTable();
+
+alert("Handicap details saved successfully");
+
+    // fetch("../../api/profile/save_handicap.php", {
+    //     method: "POST",
+    //     body: form,
+    //     credentials: "same-origin"
+    // })
+    // .then(res => res.json())
+    // .then(resp => {
+    //     if (resp.success) {
+
+    //             renderHandicapTable();
+
+    //             alert(
+    //                 "Handicap details saved successfully"
+    //             );
+
+    //         } else {
+    //         alert("Failed to save handicap details");
+    //     }
+    // })
+    // .catch(err => {
+    //     console.error(err);
+    //     alert("Server error while saving handicap data");
+    // });
+}
+
+
+async function saveBloodGroupData() {
+
+    const form = new FormData();
+
+    form.append(
+        "bloodGroup",
+        document.getElementById("bloodGroup").value
+    );
+
+    const file =
+        document.getElementById("bloodCert");
+
+    if (file.files.length) {
+
+        form.append(
+            "bloodCert",
+            file.files[0]
+        );
+    }
+
+    try {
+
+        const response = await fetch(
+            "../../api/profile/save_blood_group.php",
+            {
+                method: "POST",
+                body: form,
+                credentials: "same-origin"
+            }
+        );
+
+        const result =
+            await response.json();
+
+        if (result.success) {
+
+            alert("Blood Group saved");
+
+        } else {
+
+            alert("Failed to save");
+        }
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert("Server error");
+    }
+}
+
+
+
+async function saveVitalEntry(vital) {
+
+    try {
+
+        const response = await fetch(
+            "../../api/profile/save_vital.php",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+                credentials: "same-origin",
+                body: JSON.stringify(vital)
+            }
+        );
+
+        const result =
+            await response.json();
+
+        if (!result.success) {
+
+            console.error(
+                "Vital save failed"
+            );
+        }
+
+    } catch (err) {
+
+        console.error(
+            "Vital save error",
+            err
+        );
+    }
+}
+
+document.addEventListener("input", function (e) {
+
+    if (e.target.id !== "bpInput") return;
+
+    let value = e.target.value.replace(/\D/g, "");
+
+    if (value.length > 3) {
+        value =
+            value.substring(0, 3) +
+            "/" +
+            value.substring(3, 6);
+    }
+
+    e.target.value = value;
+});
+/*
+==================================================
+
+BACKEND DEV NOTE
+
+API:
+save_vital.php
+
+REQUEST
+
+{
+    "height": "170",
+    "weight": "65",
+    "bp": "120/80",
+    "date": "2026-08-07",
+    "source": "OWN"
+}
+
+SOURCE VALUES
+
+OWN = User entered
+
+DR = Doctor entered from Medical Module
+
+Doctor entries will come from Medical System
+and should also be stored in same table.
+
+==================================================
+*/
+// ================= HANDICAP TABLE =================
+
+function renderHandicapTable() {
+
+    const tbody =
+        document.getElementById(
+            "handicapCertificateTableBody"
+        );
+
+    if (!tbody) return;
+
+    tbody.innerHTML = "";
+
+    uploadedCertificates.forEach(
+        (item, index) => {
+
+                tbody.innerHTML += `
+                    <tr>
+
+                        <td>${index + 1}</td>
+
+                        <td>${item.handicapType}</td>
+
+                        <td>${item.type}</td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-sm btn-primary"
+                                onclick="viewCertificate('${item.image}')">
+
+                                View
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+                `;
+        }
+    );
+}
+
+
+// ================= VIEW IMAGE =================
+
+function viewCertificate(imageUrl) {
+
+    document.getElementById(
+        "certificatePreviewImage"
+    ).src = imageUrl;
+
+    document.getElementById(
+        "certificatePreviewModal"
+    ).style.display = "flex";
+}
+
+
+// ================= CLOSE POPUP =================
+
+function closeCertificateModal() {
+
+    document.getElementById(
+        "certificatePreviewModal"
+    ).style.display = "none";
+}
+    </script> -->
+</body>
+</html>
