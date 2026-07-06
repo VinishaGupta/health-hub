@@ -571,14 +571,317 @@
             </tbody>
           </table>
         </div>
-        <div class="flex justify-center mt-4">
+        <!-- <div class="flex justify-center mt-4">
           <button class="text-primary font-bold hover:underline flex items-center gap-2">
             View all 10-minute intervals
             <span class="material-symbols-outlined">expand_more</span>
           </button>
-        </div>
+        </div> -->
       </div>
     </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Slot Booking Table -->
+      <div class="lg:col-span-12 flex flex-col gap-4">
+             <div class="mb-4">
+          <div class="inline-flex items-center px-6 py-3 rounded-xl border-2 border-violet-500 bg-violet-50 shadow-sm">
+              <h2 class="text-lg font-bold text-indigo-700">
+                  OPD - Shift 01 Schedule
+                  <span class="text-pink-500">- 13:00 to 16:00</span>
+              </h2>
+          </div>
+      </div>
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-surface-container border-b border-outline-variant">
+                <th class="px-6 py-4 font-label-md text-on-surface">
+                  Time Slot
+                </th>
+                <th class="px-6 py-4 font-label-md text-on-surface">
+                  Status
+                </th>
+
+<th class="px-6 py-4 font-label-md text-on-surface">
+    Patient<br>
+    <span class="text-xs text-gray-500">Self / Other</span>
+</th>
+
+<th class="px-6 py-4 font-label-md text-on-surface">
+    Patient<br>
+    <span class="text-xs text-gray-500">Freshers / Routine</span>
+</th>
+                <th class="px-6 py-4 font-label-md text-on-surface text-right">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-outline-variant/30">
+              <tbody class="divide-y divide-outline-variant/30">
+
+  <!-- 13:00 Available -->
+  <tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-green-700"></div>
+        <span class="font-bold  text-green-700">13:00</span>
+      </div>
+    </td>
+
+    <td class="px-6 py-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
+        Available
+      </span>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Self</option>
+        <option>Other</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Fresher</option>
+        <option>Routine</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4 text-right">
+      <button
+        class="bg-green-700 text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+        onclick="openBookingModal('13:00')">
+        Book Slot
+      </button>
+    </td>
+  </tr>
+
+  <!-- 13:10 Checked -->
+  <tr class="bg-surface-container-lowest/50 opacity-70">
+    <td class="px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-orange-700"></div>
+        <span class="font-medium  text-orange-700">13:10</span>
+      </div>
+    </td>
+
+    <td class="px-6 py-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200">
+        Checked
+      </span>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+        <option>--</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+        <option>--</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4 text-right">
+      <button
+        class="bg-outline-variant text-on-surface-variant/50 px-5 py-2 rounded-lg text-label-sm cursor-not-allowed"
+        disabled>
+        Unavailable
+      </button>
+    </td>
+  </tr>
+
+  <!-- 13:20 Available -->
+  <tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-green-700"></div>
+        <span class="font-bold text-on-surface text-green-700">13:20</span>
+      </div>
+    </td>
+
+    <td class="px-6 py-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
+        Available
+      </span>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Self</option>
+        <option>Other</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Fresher</option>
+        <option>Routine</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4 text-right">
+      <button
+        class="bg-green-700 text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+        onclick="openBookingModal('13:20')">
+        Book Slot
+      </button>
+    </td>
+  </tr>
+
+  <!-- 13:30 Booked -->
+  <tr class="bg-surface-container-low/30">
+    <td class="px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-error"></div>
+        <span class="font-medium text-on-surface-variant text-red-700">13:30</span>
+      </div>
+    </td>
+
+    <td class="px-6 py-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200">
+        Booked
+      </span>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+        <option>--</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+        <option>--</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4 text-right">
+      <button
+        class="bg-outline-variant text-on-surface-variant/50 px-5 py-2 rounded-lg text-label-sm cursor-not-allowed"
+        disabled>
+        Unavailable
+      </button>
+    </td>
+  </tr>
+
+  <!-- 13:40 Available -->
+  <tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-green-700"></div>
+        <span class="font-bold text-on-surface text-green-700">13:40</span>
+      </div>
+    </td>
+
+    <td class="px-6 py-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
+        Available
+      </span>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Self</option>
+        <option>Other</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Fresher</option>
+        <option>Routine</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4 text-right">
+      <button
+        class="bg-green-700 text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+        onclick="openBookingModal('13:40')">
+        Book Slot
+      </button>
+    </td>
+  </tr>
+
+  <!-- 13:50 Available -->
+  <tr class="hover:bg-surface-container-low transition-colors group">
+    <td class="px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="w-2 h-2 rounded-full bg-green-700"></div>
+        <span class="font-bold text-on-surface text-green-700">13:50</span>
+      </div>
+    </td>
+
+    <td class="px-6 py-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
+        Available
+      </span>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Self</option>
+        <option>Other</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4">
+      <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
+        <option></option>
+        <option>Fresher</option>
+        <option>Routine</option>
+      </select>
+    </td>
+
+    <td class="px-6 py-4 text-right">
+      <button
+        class="bg-green-700 text-on-primary px-5 py-2 rounded-lg text-label-sm hover:bg-primary-container transition-all shadow-sm"
+        onclick="openBookingModal('13:50')">
+        Book Slot
+      </button>
+    </td>
+  </tr>
+
+</tbody>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="flex justify-center mt-4">
+          <button class="text-primary font-bold hover:underline flex items-center gap-2">
+            View all 10-minute intervals
+            <span class="material-symbols-outlined">expand_more</span>
+          </button>
+        </div> -->
+      </div>
+    </div>
+
+
+           <div class="mb-12 pb-[25px]">
+          <div class="inline-flex items-center px-6 py-3 rounded-xl border-2 border-violet-500 bg-violet-50 shadow-sm">
+              <h2 class="text-lg font-bold text-indigo-700">
+                  OPD - Shift 03 Schedule
+                  <span class="text-pink-500">- 13:00 to 16:00</span>
+              </h2>
+          </div>
+      </div>
+
+           <div class="mb-4">
+          <div class="inline-flex items-center px-6 py-3 rounded-xl border-2 border-violet-500 bg-violet-50 shadow-sm">
+              <h2 class="text-lg font-bold text-indigo-700">
+                  OPD - Shift 04 Schedule
+                  <span class="text-pink-500">- 13:00 to 16:00</span>
+              </h2>
+          </div>
+      </div>
   </main>
   <!-- Footer -->
   <footer class="bg-surface-container-lowest py-12 mt-auto border-t border-outline-variant">
