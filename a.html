@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlled By</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body{
+            font-family: 'Inter', sans-serif;
+            background:#f5f7fc;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen px-5 py-5">
+
+    <!-- Back Button -->
+    <a href="home.html"
+       class="inline-flex items-center gap-2
+              bg-blue-600 text-white
+              px-5 py-3
+              rounded-lg
+              font-semibold
+              shadow-md
+              hover:bg-blue-700
+              transition">
+
+        ← Back
+
+    </a>
+
+    <!-- Heading -->
+    <h1 class="text-5xl font-bold text-slate-800 mt-8 mb-8">
+        Controlled By
+    </h1>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Public Healthcare -->
+        <a href="public-healthcare.html"
+           class="bg-white rounded-3xl shadow-sm
+                  p-8 flex items-center gap-6
+                  hover:shadow-lg hover:-translate-y-1
+                  transition duration-300">
+
+            <!-- Icon -->
+            <div class="w-20 h-20 rounded-full
+                        bg-slate-100
+                        flex items-center justify-center">
+
+                <i class="fa-solid fa-building-columns
+                          text-4xl text-slate-700"></i>
+
+            </div>
+
+            <!-- Text -->
+            <div>
+
+                <h2 class="text-4xl font-bold text-slate-800">
+                    Public Healthcare System
+                </h2>
+
+                <p class="text-gray-500 text-xl mt-2">
+                    Manage Public Healthcare
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- Private Healthcare -->
+        <a href="private-healthcare.html"
+           class="bg-white rounded-3xl shadow-sm
+                  p-8 flex items-center gap-6
+                  hover:shadow-lg hover:-translate-y-1
+                  transition duration-300">
+
+            <!-- Icon -->
+            <div class="w-20 h-20 rounded-full
+                        bg-slate-100
+                        flex items-center justify-center">
+
+                <i class="fa-solid fa-hospital
+                          text-4xl text-red-500"></i>
+
+            </div>
+
+            <!-- Text -->
+            <div>
+
+                <h2 class="text-4xl font-bold text-slate-800">
+                    Private Healthcare System
+                </h2>
+
+                <p class="text-gray-500 text-xl mt-2">
+                    Manage Private Healthcare
+                </p>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</body>
+</html>
