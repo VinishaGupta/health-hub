@@ -235,9 +235,10 @@
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6 flex items-center gap-6">
       <div class="hospital-logo-mark">Logo</div>
       <div>
-        <h1 class="text-headline-lg font-headline-lg text-primary leading-tight">
-          Hospital's Name
-        </h1>
+<h1 id="hospitalName"
+    class="text-headline-lg font-headline-lg text-primary leading-tight h-[50px] overflow-hidden p-[5px]">
+    Hospital's Name
+</h1>
         <p class="text-body-md font-bold text-secondary mt-1">
           Location
         </p>
@@ -682,7 +683,50 @@
 
     });
 
-  </script>
+
+
+const hospitalNames = [
+    "City Care Hospital",
+    "सिटी केयर हॉस्पिटल",
+    // "सिटी केयर अस्पताल",
+    "সিটি কেয়ার হাসপাতাল",
+    // "સિટી કેર હોસ્પિટલ",
+    // "சிட்டி கேர் மருத்துவமனை",
+    // "సిటీ కేర్ హాస్పిటల్",
+    // "ಸಿಟಿ ಕೇರ್ ಆಸ್ಪತ್ರೆ",
+    // "സിറ്റി കെയർ ആശുപത്രി",
+    // "ସିଟି କେୟାର ହସ୍ପିଟାଲ"
+];
+
+let languageIndex = 0;
+
+const hospitalNameElement =
+    document.getElementById("hospitalName");
+
+setInterval(() => {
+
+    hospitalNameElement.style.opacity = "0";
+
+    setTimeout(() => {
+
+        languageIndex++;
+
+        if(languageIndex >= hospitalNames.length){
+            languageIndex = 0;
+        }
+
+        hospitalNameElement.innerText =
+            hospitalNames[languageIndex];
+
+        hospitalNameElement.style.opacity = "1";
+
+    }, 400);
+
+}, 2500);
+
+</script>
+
+
 </body>
 
 </html>
