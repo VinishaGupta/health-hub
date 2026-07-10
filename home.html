@@ -196,6 +196,14 @@
       box-shadow: 0 8px 20px rgba(0, 61, 155, 0.1);
     }
 
+    @media (max-width: 640px) {
+    .hospital-logo-mark {
+        width: 80px;
+        height: 80px;
+        font-size: 20px;
+    }
+}
+
   </style>
 </head>
 
@@ -203,41 +211,64 @@
   class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed leaf-pattern">
   <!-- Top Navigation Bar -->
   <header class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50">
-    <nav
-      class="relative flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full max-w-container-max mx-auto">
-      <a href="index.html"
-        class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2">
+<nav class="relative flex items-center justify-between
+            px-4 md:px-margin-desktop
+            h-20 w-full max-w-container-max mx-auto">
+
+    <!-- Logo -->
+    <a href="index.html"
+       class="font-bold text-primary flex items-center gap-2
+              text-xl md:text-headline-md">
+
         <span class="material-symbols-outlined"
-          style="font-variation-settings: &quot;FILL&quot; 1">medical_services</span>
+              style="font-variation-settings:'FILL' 1">
+            medical_services
+        </span>
+
         <span>Health Hub</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-        <a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors duration-200 py-1"
-          href="index.html">Home</a>
-        <a class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200"
-          href="Search-A-Doctor.html">Find A Doctor</a>
-        <!-- <am
-            class="text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200"
-            href="Services.html"
-            >Services</am
-          > -->
-      </div>
 
-      <!-- My Health Button -->
-      <a href="my-health.html"
-        class="ml-auto border-2 border-[#159F00] text-[#159F00] px-8 py-3 rounded-xl font-bold hover:bg-[#107800] hover:text-white transition-all duration-300">
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        <a class="text-primary font-bold border-b-2 border-primary py-1"
+           href="index.html">
+            Home
+        </a>
+
+        <a class="text-on-surface-variant hover:text-primary"
+           href="Search-A-Doctor.html">
+            Find A Doctor
+        </a>
+    </div>
+
+    <!-- Health Insights Button -->
+    <a href="my-health.html"
+       class="border-2 border-[#159F00]
+              text-[#159F00]
+              px-3 py-2 md:px-8 md:py-3
+              rounded-xl
+              font-bold
+              text-sm md:text-base
+              whitespace-nowrap
+              hover:bg-[#107800]
+              hover:text-white
+              transition-all duration-300">
+
         Health Insights
-      </a>
 
-    </nav>
+    </a>
+
+</nav>
   </header>
 <section class="hospital-identity">
 
-    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-6
-                flex items-center justify-between">
+<div class="max-w-container-max mx-auto px-4 md:px-margin-desktop py-6
+            flex flex-col lg:flex-row items-center lg:items-center
+            justify-between gap-6">
 
         <!-- Left Side -->
-        <div class="flex items-center gap-6">
+        <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
 
             <div class="hospital-logo-mark">
                 Logo
@@ -261,8 +292,7 @@
         </div>
 
         <!-- Right Side Buttons -->
-        <div class="flex items-center gap-4">
-
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <!-- Website Button -->
             <a href="https://www.lifeline.com"
                target="_blank"
@@ -420,9 +450,9 @@
 
     <!-- Services Section -->
     <section class="py-24 bg-surface-container-low">
-
-<div class="flex justify-around items-center max-w-7xl mx-auto py-10 pb-[100px]">
-
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
+            justify-items-center items-center
+            gap-6 max-w-7xl mx-auto py-10 pb-[100px] px-4">
     <a href="available-facilities.html"
        class="w-56 h-14 flex items-center justify-center text-center
               border-2 border-sky-500 rounded-xl
