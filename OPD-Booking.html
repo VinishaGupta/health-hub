@@ -1754,23 +1754,24 @@
     }
 
     function toggleShift(id) {
-
       const section = document.getElementById(id);
-
       const icon = document.getElementById("icon-" + id);
+      const shouldOpen = section.classList.contains("hidden");
 
-      section.classList.toggle("hidden");
+      ["shift1", "shift2", "shift3", "shift4"].forEach((shiftId) => {
+        const shiftSection = document.getElementById(shiftId);
+        const shiftIcon = document.getElementById("icon-" + shiftId);
 
-      if (section.classList.contains("hidden")) {
+        shiftSection.classList.add("hidden");
+        shiftIcon.innerHTML = "expand_more";
+      });
 
-        icon.innerHTML = "expand_more";
-
-      } else {
-
+      if (shouldOpen) {
+        section.classList.remove("hidden");
         icon.innerHTML = "expand_less";
-
+      } else {
+        icon.innerHTML = "expand_more";
       }
-
     }
 
 
