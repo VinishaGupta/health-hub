@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Insurance Upload</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            font-family: 'Inter', sans-serif;
+            background:#f8f9ff;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <div class="bg-white shadow-md py-5 px-8">
+        <h1 class="text-4xl font-bold text-blue-700">
+            Health Insurance
+        </h1>
+    </div>
+
+    <div class="max-w-4xl mx-auto py-12 px-6">
+
+        <!-- Main Card -->
+        <div class="bg-white rounded-3xl shadow-lg p-10">
+
+            <!-- Icon -->
+            <div class="flex justify-center mb-6">
+
+                <div class="w-28 h-28 rounded-full bg-blue-100
+                            flex items-center justify-center">
+
+                    <span class="text-5xl">🛡️</span>
+
+                </div>
+
+            </div>
+
+            <!-- Heading -->
+            <h2 class="text-4xl font-bold text-center text-blue-700 mb-4">
+                Upload Insurance Documents
+            </h2>
+
+            <p class="text-center text-gray-600 text-lg mb-10">
+                Upload your insurance card, policy document,
+                claim papers or any supporting files.
+            </p>
+
+            <!-- Upload Area -->
+            <label for="insuranceFile"
+                   class="border-4 border-dashed border-sky-400
+                          rounded-3xl p-12 flex flex-col items-center
+                          justify-center cursor-pointer
+                          hover:bg-sky-50 transition-all">
+
+                <div class="text-6xl mb-4">
+                    📄
+                </div>
+
+                <p class="text-2xl font-bold text-sky-600">
+                    Click to Upload Files
+                </p>
+
+                <p class="text-gray-500 mt-2 text-center">
+                    PDF, Images, DOC, DOCX, XLS, XLSX, ZIP or any file format
+                </p>
+
+                <input
+                    type="file"
+                    id="insuranceFile"
+                    multiple
+                    class="hidden"
+                    accept="*/*">
+
+            </label>
+
+            <!-- File Preview -->
+            <div id="fileList"
+                 class="mt-8 space-y-4">
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mt-10">
+
+                <button
+                    class="flex-1 bg-gray-200 text-gray-700
+                           py-4 rounded-2xl font-bold text-lg
+                           hover:bg-gray-300 transition-all">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    class="flex-1 bg-green-600 text-white
+                           py-4 rounded-2xl font-bold text-lg
+                           hover:bg-green-700 transition-all">
+
+                    Submit Documents
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<script>
+
+const fileInput = document.getElementById("insuranceFile");
+const fileList = document.getElementById("fileList");
+
+fileInput.addEventListener("change", function(){
+
+    fileList.innerHTML = "";
+
+    for(let file of this.files){
+
+        const div = document.createElement("div");
+
+        div.className =
+        "bg-blue-50 border border-blue-200 rounded-2xl p-4 flex justify-between items-center";
+
+        div.innerHTML = `
+            <div>
+                <p class="font-bold text-blue-700">${file.name}</p>
+                <p class="text-gray-500 text-sm">
+                    ${(file.size / 1024 / 1024).toFixed(2)} MB
+                </p>
+            </div>
+
+            <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">
+                Ready
+            </span>
+        `;
+
+        fileList.appendChild(div);
+    }
+
+});
+
+</script>
+
+</body>
+</html>
