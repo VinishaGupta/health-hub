@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Instructions</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    body{
+        font-family:'Inter',sans-serif;
+        background:#f8f9ff;
+    }
+
+    .instruction-content{
+        display:none;
+        animation: slideIn .4s ease;
+    }
+
+    .instruction-content.active{
+        display:block;
+    }
+
+    @keyframes slideIn{
+        from{
+            opacity:0;
+            transform:translateX(30px);
+        }
+        to{
+            opacity:1;
+            transform:translateX(0);
+        }
+    }
+
+    .active-tab{
+        background:#0ea5e9;
+        color:white;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="max-w-6xl mx-auto px-6 py-12">
+
+    <!-- Page Heading -->
+    <div class="text-center mb-10">
+
+        <h1 class="text-5xl font-bold text-blue-700">
+            Hospital Instructions
+        </h1>
+
+        <p class="text-gray-500 text-xl mt-3">
+            Please read the following instructions carefully before your visit.
+        </p>
+
+    </div>
+
+    <!-- Language Navigation -->
+    <div class="flex flex-wrap justify-center gap-4 mb-10">
+
+        <button
+            id="englishBtn"
+            onclick="showInstructions('english')"
+            class="lang-btn active-tab px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all">
+
+            English
+
+        </button>
+
+        <button
+            id="hindiBtn"
+            onclick="showInstructions('hindi')"
+            class="lang-btn bg-white text-sky-500 px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all hover:bg-sky-500 hover:text-white">
+
+            हिंदी
+
+        </button>
+
+        <button
+            id="bengaliBtn"
+            onclick="showInstructions('bengali')"
+            class="lang-btn bg-white text-sky-500 px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all hover:bg-sky-500 hover:text-white">
+
+            বাংলা
+
+        </button>
+
+    </div>
+
+    <!-- Instructions Card -->
+    <div class="bg-white rounded-3xl shadow-lg p-10">
+
+        <!-- English -->
+        <div id="english" class="instruction-content active">
+
+            <h2 class="text-3xl font-bold text-sky-500 mb-8">
+                English Instructions
+            </h2>
+
+            <ul class="space-y-5 text-lg text-gray-700">
+
+                <li>• Please arrive at least 15 minutes before your appointment time.</li>
+
+                <li>• Carry your hospital card and government ID proof.</li>
+
+                <li>• Bring all previous medical reports and prescriptions.</li>
+
+                <li>• Follow the doctor's instructions carefully.</li>
+
+                <li>• Mobile phones should remain on silent mode inside consultation rooms.</li>
+
+                <li>• Smoking and alcohol consumption are strictly prohibited inside hospital premises.</li>
+
+                <li>• In case of emergency, contact the nearest hospital staff member immediately.</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Hindi -->
+        <div id="hindi" class="instruction-content">
+
+            <h2 class="text-3xl font-bold text-green-600 mb-8">
+                हिंदी निर्देश
+            </h2>
+
+            <ul class="space-y-5 text-lg text-gray-700">
+
+                <li>• कृपया अपनी नियुक्ति से कम से कम 15 मिनट पहले अस्पताल पहुँचें।</li>
+
+                <li>• अपना अस्पताल कार्ड और पहचान पत्र साथ लाएँ।</li>
+
+                <li>• अपनी सभी पुरानी रिपोर्ट और दवाइयों की पर्चियाँ साथ रखें।</li>
+
+                <li>• डॉक्टर के निर्देशों का सावधानीपूर्वक पालन करें।</li>
+
+                <li>• परामर्श कक्ष में मोबाइल फोन को साइलेंट मोड पर रखें।</li>
+
+                <li>• अस्पताल परिसर में धूम्रपान और शराब का सेवन पूर्णतः प्रतिबंधित है।</li>
+
+                <li>• आपात स्थिति में तुरंत अस्पताल के कर्मचारियों से संपर्क करें।</li>
+
+            </ul>
+
+        </div>
+
+        <!-- Bengali -->
+        <div id="bengali" class="instruction-content">
+
+            <h2 class="text-3xl font-bold text-purple-600 mb-8">
+                বাংলা নির্দেশিকা
+            </h2>
+
+            <ul class="space-y-5 text-lg text-gray-700">
+
+                <li>• অনুগ্রহ করে আপনার অ্যাপয়েন্টমেন্টের কমপক্ষে ১৫ মিনিট আগে হাসপাতালে পৌঁছান।</li>
+
+                <li>• আপনার হাসপাতালের কার্ড এবং পরিচয়পত্র সঙ্গে আনুন।</li>
+
+                <li>• পূর্ববর্তী সমস্ত রিপোর্ট এবং প্রেসক্রিপশন সঙ্গে আনুন।</li>
+
+                <li>• চিকিৎসকের নির্দেশনা সতর্কতার সাথে অনুসরণ করুন।</li>
+
+                <li>• পরামর্শ কক্ষে মোবাইল ফোন সাইলেন্ট মোডে রাখুন।</li>
+
+                <li>• হাসপাতাল চত্বরে ধূমপান ও মদ্যপান সম্পূর্ণ নিষিদ্ধ।</li>
+
+                <li>• জরুরি অবস্থায় নিকটস্থ হাসপাতাল কর্মীর সাথে অবিলম্বে যোগাযোগ করুন।</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showInstructions(language){
+
+    // Hide all instruction sections
+    document.querySelectorAll('.instruction-content').forEach(section=>{
+        section.classList.remove('active');
+    });
+
+    // Remove active tab styling
+    document.querySelectorAll('.lang-btn').forEach(button=>{
+        button.classList.remove('active-tab');
+        button.classList.add(
+            'bg-white',
+            'text-sky-500'
+        );
+    });
+
+    // Show selected language
+    document.getElementById(language).classList.add('active');
+
+    // Highlight active button
+    document.getElementById(language + 'Btn').classList.add('active-tab');
+    document.getElementById(language + 'Btn').classList.remove(
+        'bg-white',
+        'text-sky-500'
+    );
+}
+
+</script>
+
+</body>
+</html>
