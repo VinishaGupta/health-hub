@@ -86,29 +86,124 @@
                  class="mt-8 space-y-4">
             </div>
 
-            <!-- Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 mt-10">
 
-                <button
-                    class="flex-1 bg-gray-200 text-gray-700
-                           py-4 rounded-2xl font-bold text-lg
-                           hover:bg-gray-300 transition-all">
 
-                    Cancel
+            <!-- Policy Details Form -->
+<div class="mt-10 bg-gray-50 border border-gray-200 rounded-3xl p-8">
 
-                </button>
+    <h3 class="text-2xl font-bold text-blue-700 mb-6">
+        Insurance Policy Details
+    </h3>
 
-                <button
-                    class="flex-1 bg-green-600 text-white
-                           py-4 rounded-2xl font-bold text-lg
-                           hover:bg-green-700 transition-all">
+    <!-- Policy Number -->
+    <div class="mb-6">
+        <label class="block text-gray-700 font-bold mb-2">
+            Policy No.
+        </label>
 
-                    Submit Documents
+        <input
+            type="text"
+            placeholder="123654789654123"
+            class="w-full border-b-2 border-gray-400
+                   bg-transparent py-2
+                   focus:outline-none focus:border-blue-600">
+    </div>
 
-                </button>
+    <!-- Policy Period -->
+    <div class="mb-6">
+        <label class="block text-gray-700 font-bold mb-2">
+            Policy Period
+        </label>
 
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
+            <input
+                type="date"
+                class="border-b-2 border-gray-400
+                       bg-transparent py-2
+                       focus:outline-none focus:border-blue-600">
+
+            <input
+                type="date"
+                class="border-b-2 border-gray-400
+                       bg-transparent py-2
+                       focus:outline-none focus:border-blue-600">
+
+        </div>
+    </div>
+
+    <!-- Product Plan -->
+    <div class="mb-6">
+        <label class="block text-gray-700 font-bold mb-2">
+            Policy Product / Plan Name
+        </label>
+
+        <input
+            type="text"
+            placeholder="Family Health Shield Premium"
+            class="w-full border-b-2 border-gray-400
+                   bg-transparent py-2
+                   focus:outline-none focus:border-blue-600">
+    </div>
+
+    <!-- Insured Members -->
+    <div>
+        <label class="block text-gray-700 font-bold mb-4">
+            Name of Insured Members
+        </label>
+
+        <div class="space-y-4">
+
+            <input
+                type="text"
+                placeholder="1. Name of Member"
+                class="w-full border-b-2 border-gray-400
+                       bg-transparent py-2
+                       focus:outline-none focus:border-blue-600">
+
+            <input
+                type="text"
+                placeholder="2. Name of Member"
+                class="w-full border-b-2 border-gray-400
+                       bg-transparent py-2
+                       focus:outline-none focus:border-blue-600">
+
+            <input
+                type="text"
+                placeholder="3. Name of Member"
+                class="w-full border-b-2 border-gray-400
+                       bg-transparent py-2
+                       focus:outline-none focus:border-blue-600">
+
+ 
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 mt-10">
+
+    <button
+        class="flex-1 bg-gray-200 text-gray-700
+               py-4 rounded-2xl font-bold text-lg
+               hover:bg-gray-300 transition-all">
+
+        Cancel
+
+    </button>
+
+    <button
+        class="flex-1 bg-green-600 text-white
+               py-4 rounded-2xl font-bold text-lg
+               hover:bg-green-700 transition-all">
+
+        Submit Documents
+
+    </button>
+
+</div>
         </div>
 
     </div>
