@@ -217,27 +217,19 @@
       </div>
     </header>
     <main class="pt-24 pb-16 px-margin-desktop max-w-container-max mx-auto">
-
       <!-- Back Button -->
-<a href="home.html">
-  <div class="mb-6">
-    <button
-        onclick="history.back()"
-        class="flex items-center gap-2
-               bg-primary text-white
-               px-5 py-3 rounded-xl
-               shadow-md hover:bg-primary-container
-               transition-all duration-300">
+      <a href="home.html">
+        <div class="mb-6">
+          <button
+            onclick="history.back()"
+            class="flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-xl shadow-md hover:bg-primary-container transition-all duration-300"
+          >
+            <span class="material-symbols-outlined"> arrow_back </span>
 
-        <span class="material-symbols-outlined">
-            arrow_back
-        </span>
-
-        Back
-
-    </button>
-</div>
-</a>
+            Back
+          </button>
+        </div>
+      </a>
       <!-- Hero / Header Section -->
       <section class="mb-12">
         <div class="flex justify-between items-start">
@@ -269,60 +261,80 @@
       <!-- Main Dashboard Bento Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
         <!-- Left Side Buttons -->
-        <div class="lg:col-span-3">
-          <div class="sticky top-24 space-y-6">
-            <a href="health-info.html">
-                <button 
-              class="w-[220px] h-[140px] mx-auto flex flex-col items-center justify-center bg-surface-container rounded-[20px] border border-primary/10 hover:shadow-lg transition-all"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-3"
-              >
+<div class="lg:col-span-3">
+    <div class="sticky top-24 space-y-6">
+
+        <!-- Pure Health -->
+        <a href="health-info.html"
+           class="w-[220px] h-[140px] mx-auto flex flex-col items-center justify-center
+                  bg-surface-container rounded-[20px]
+                  border border-primary/10
+                  hover:shadow-lg hover:-translate-y-1
+                  transition-all duration-300">
+
+            <div class="w-12 h-12 rounded-full bg-secondary-container
+                        flex items-center justify-center mb-3">
+
                 <span class="material-symbols-outlined text-[24px]">
-                  health_and_safety
+                    health_and_safety
                 </span>
-              </div>
 
-              <span class="text-xl font-semibold"> Pure Health </span>
-            </button>
-            </a>
+            </div>
 
-            <button
-              class="w-[220px] h-[140px] mx-auto flex flex-col items-center justify-center bg-surface-container rounded-[20px] border border-primary/10 hover:shadow-lg transition-all"
-            >
-              <div
-                class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center mb-3"
-              >
+            <span class="text-xl font-semibold">
+                Pure Health
+            </span>
+
+        </a>
+
+        <!-- Donor Bank -->
+        <a href="donor.html"
+           class="w-[220px] h-[140px] mx-auto flex flex-col items-center justify-center
+                  bg-surface-container rounded-[20px]
+                  border border-primary/10
+                  hover:shadow-lg hover:-translate-y-1
+                  transition-all duration-300">
+
+            <div class="w-12 h-12 rounded-full bg-secondary-container
+                        flex items-center justify-center mb-3">
+
                 <span class="material-symbols-outlined text-[24px]">
-                  blood_pressure
+                    bloodtype
                 </span>
-              </div>
 
-              <span class="text-xl font-semibold"> Donor Bank </span>
-            </button>
+            </div>
 
-            <a href="health-insurance.html"
-   class="w-[220px] h-[140px] mx-auto flex flex-col items-center justify-center
-          bg-surface-container rounded-[20px]
-          border border-primary/10
-          hover:shadow-lg transition-all">
+            <span class="text-xl font-semibold">
+                Donor Bank
+            </span>
 
-    <div class="w-12 h-12 rounded-full bg-secondary-container
-                flex items-center justify-center mb-3">
+        </a>
 
-        <span class="material-symbols-outlined text-[24px]">
-            health_and_safety
-        </span>
+        <!-- Health Insurance -->
+        <a href="health-insurance.html"
+           class="w-[220px] h-[140px] mx-auto flex flex-col items-center justify-center
+                  bg-surface-container rounded-[20px]
+                  border border-primary/10
+                  hover:shadow-lg hover:-translate-y-1
+                  transition-all duration-300">
+
+            <div class="w-12 h-12 rounded-full bg-secondary-container
+                        flex items-center justify-center mb-3">
+
+                <span class="material-symbols-outlined text-[24px]">
+                    health_and_safety
+                </span>
+
+            </div>
+
+            <span class="text-xl font-semibold">
+                Health Insurance
+            </span>
+
+        </a>
 
     </div>
-
-    <span class="text-xl font-semibold">
-        Health Insurance
-    </span>
-
-</a>
-          </div>
-        </div>
+</div>
 
         <!-- Right Side Table -->
         <div class="lg:col-span-9 space-y-gutter">
