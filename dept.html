@@ -8,6 +8,7 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wg
     <title>Departments</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -141,7 +142,7 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wg
             <div>
 
                 <h1 id="hospitalName"
-                    class="text-headline-lg font-headline-lg text-primary leading-tight h-[50px] overflow-hidden p-[5px]">
+                    class="text-headline-lg font-headline-lg text-primary leading-tight h-[50px] overflow-hidden p-[5px] text-[32px]">
 
                     Hospital's Name
 
@@ -353,6 +354,47 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wg
         </div>
 
     </section>
+
+    <script>
+        const hospitalNames = [
+      "City Care Hospital",
+      "सिटी केयर हॉस्पिटल",
+      // "सिटी केयर अस्पताल",
+      "সিটি কেয়ার হাসপাতাল",
+      // "સિટી કેર હોસ્પિટલ",
+      // "சிட்டி கேர் மருத்துவமனை",
+      // "సిటీ కేర్ హాస్పిటల్",
+      // "ಸಿಟಿ ಕೇರ್ ಆಸ್ಪತ್ರೆ",
+      // "സിറ്റി കെയർ ആശുപത്രി",
+      // "ସିଟି କେୟାର ହସ୍ପିଟାଲ"
+    ];
+
+    let languageIndex = 0;
+
+    const hospitalNameElement =
+      document.getElementById("hospitalName");
+
+    setInterval(() => {
+
+      hospitalNameElement.style.opacity = "0";
+
+      setTimeout(() => {
+
+        languageIndex++;
+
+        if (languageIndex >= hospitalNames.length) {
+          languageIndex = 0;
+        }
+
+        hospitalNameElement.innerText =
+          hospitalNames[languageIndex];
+
+        hospitalNameElement.style.opacity = "1";
+
+      }, 400);
+
+    }, 2500);
+    </script>
 
 </body>
 </html>
