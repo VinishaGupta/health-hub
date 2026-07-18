@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        body{
+        body {
             font-family: 'Inter', sans-serif;
-            background:#f8f9ff;
+            background: #f8f9ff;
         }
     </style>
 </head>
@@ -43,232 +44,209 @@
 
             </div>
 
-            <!-- Heading -->
-            <h2 class="text-4xl font-bold text-center text-blue-700 mb-4">
-                Upload Insurance Documents
-            </h2>
-
-            <p class="text-center text-gray-600 text-lg mb-10">
-                Upload your insurance card, policy document,
-                claim papers or any supporting files.
-            </p>
-
-            <!-- Upload Area -->
-      
 
             <!-- File Preview -->
-            <div id="fileList"
-                 class="mt-8 space-y-4">
+            <div id="fileList" class="mt-8 space-y-4">
             </div>
 
 
 
             <!-- Policy Details Form -->
-<div class="mt-10 bg-gray-50 border border-gray-200 rounded-3xl p-8">
+            <div class="mt-10 bg-gray-50 border border-gray-200 rounded-3xl p-8">
 
-    <h3 class="text-2xl font-bold text-blue-700 mb-6">
-        Insurance Policy Details
-    </h3>
+                <h3 class="text-2xl font-bold text-blue-700 mb-6">
+                    Insurance Policy Details
+                </h3>
 
-    <!-- Policy Number -->
-    <div class="mb-6">
-        <label class="block text-gray-700 font-bold mb-2">
-            Policy No.
-        </label>
+                <!-- Policy Number -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2">
+                        Policy No.
+                    </label>
 
-        <input
-            type="text"
-            placeholder="123654789654123"
-            class="w-full border-b-2 border-gray-400
+                    <input type="text" placeholder="123654789654123" class="w-full border-b-2 border-gray-400
                    bg-transparent py-2
                    focus:outline-none focus:border-blue-600">
-    </div>
-<!-- Policy Period -->
-<div class="mb-6">
+                </div>
+                <!-- Policy Period -->
+                <div class="mb-6">
 
-    <label class="block text-gray-700 font-bold mb-4">
-        Policy Period
-    </label>
+                    <label class="block text-gray-700 font-bold mb-4">
+                        Policy Period
+                    </label>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- From -->
-        <div class="flex items-center gap-3">
+                        <!-- From -->
+                        <div class="flex items-center gap-3">
 
-            <label class="font-semibold text-gray-600 whitespace-nowrap">
-                From :
-            </label>
+                            <label class="font-semibold text-gray-600 whitespace-nowrap">
+                                From :
+                            </label>
 
-            <input
-                type="date"
-                class="flex-1 border-b-2 border-gray-400
+                            <input type="date" class="flex-1 border-b-2 border-gray-400
                        bg-transparent py-2
                        focus:outline-none focus:border-blue-600">
 
-        </div>
+                        </div>
 
-        <!-- To -->
-        <div class="flex items-center gap-3">
+                        <!-- To -->
+                        <div class="flex items-center gap-3">
 
-            <label class="font-semibold text-gray-600 whitespace-nowrap">
-                To :
-            </label>
+                            <label class="font-semibold text-gray-600 whitespace-nowrap">
+                                To :
+                            </label>
 
-            <input
-                type="date"
-                class="flex-1 border-b-2 border-gray-400
+                            <input type="date" class="flex-1 border-b-2 border-gray-400
                        bg-transparent py-2
                        focus:outline-none focus:border-blue-600">
 
-        </div>
+                        </div>
 
-    </div>
+                    </div>
 
-</div>
-    <!-- Product Plan -->
-    <div class="mb-6">
-        <label class="block text-gray-700 font-bold mb-2">
-            Policy Product / Plan Name
-        </label>
+                </div>
+                <!-- Product Plan -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2">
+                        Policy Product / Plan Name
+                    </label>
 
-        <input
-            type="text"
-            placeholder="Family Health Shield Premium"
-            class="w-full border-b-2 border-gray-400
+                    <input type="text" placeholder="Family Health Shield Premium" class="w-full border-b-2 border-gray-400
                    bg-transparent py-2
                    focus:outline-none focus:border-blue-600">
-    </div>
+                </div>
 
-<!-- Insured Members -->
-<div>
+                <!-- Insured Members -->
+                <div>
 
-    <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center justify-between mb-4">
 
-        <label class="text-gray-700 font-bold text-lg">
-            Name of Insured Family Members
-        </label>
+                        <label class="text-gray-700 font-bold text-lg">
+                            Name of Insured Family Members
+                        </label>
 
-        <button
-            type="button"
-            onclick="addMemberField()"
-            class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+                        <button type="button" onclick="addMemberField()"
+                            class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
 
-            + Add
+                            + Add
 
-        </button>
+                        </button>
 
-    </div>
+                    </div>
 
-    <div id="memberContainer">
+                    <div id="memberContainer">
 
-        <input
-            type="text"
-            name="member[]"
-            placeholder="1. Name of Member"
-            class="member-input w-full border-b-2 border-gray-400
+                        <input type="text" name="member[]" placeholder="1. Name of Member" class="member-input w-full border-b-2 border-gray-400
                    bg-transparent py-2 mb-4
                    focus:outline-none focus:border-blue-600">
 
-    </div>
+                    </div>
 
-</div>
+                </div>
 
-          <label for="insuranceFile"
-                   class="border-4 border-dashed border-sky-400
+
+                <!-- Heading -->
+                <h2 class="text-2xl font-bold text-center text-blue-700 mb-4 mt-6">
+                    Upload Insurance Documents
+                </h2>
+
+                <p class="text-center text-gray-600 text-lg mb-10">
+                    Upload your insurance card, policy document,
+                    claim papers or any supporting files.
+                </p>
+
+                <!-- Upload Area -->
+
+
+                <label for="insuranceFile" class="border-4 border-dashed border-sky-400
                           rounded-3xl p-12 flex flex-col items-center
                           justify-center cursor-pointer
                           hover:bg-sky-50 transition-all mt-[70px]">
 
-                <div class="text-6xl mb-4">
-                    📄
-                </div>
+                    <div class="text-6xl mb-4">
+                        📄
+                    </div>
 
-                <p class="text-2xl font-bold text-sky-600">
-                    Click to Upload Files
-                </p>
+                    <p class="text-2xl font-bold text-sky-600">
+                        Click to Upload Files
+                    </p>
 
-                <p class="text-gray-500 mt-2 text-center">
-                    PDF, Images, DOC, DOCX, XLS, XLSX, ZIP or any file format
-                </p>
+                    <p class="text-gray-500 mt-2 text-center">
+                        PDF, Images, DOC, DOCX, XLS, XLSX, ZIP or any file format
+                    </p>
 
-                <input
-                    type="file"
-                    id="insuranceFile"
-                    multiple
-                    class="hidden"
-                    accept="*/*">
+                    <input type="file" id="insuranceFile" multiple class="hidden" accept="*/*">
 
-            </label>
+                </label>
 
-</div>
+            </div>
 
-<!-- Buttons -->
-<div class="flex flex-col sm:flex-row gap-4 mt-10">
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 mt-10">
 
-    <button
-        class="flex-1 bg-gray-200 text-gray-700
+                <button class="flex-1 bg-gray-200 text-gray-700
                py-4 rounded-2xl font-bold text-lg
                hover:bg-gray-300 transition-all">
 
-        Cancel
+                    Cancel
 
-    </button>
+                </button>
 
-    <button
-        class="flex-1 bg-green-600 text-white
+                <button class="flex-1 bg-green-600 text-white
                py-4 rounded-2xl font-bold text-lg
                hover:bg-green-700 transition-all">
 
-        Submit Documents
+                    Submit Documents
 
-    </button>
+                </button>
 
-</div>
+            </div>
         </div>
 
     </div>
 
-<script>
+    <script>
 
 
 
-// function addMemberField(){
+        // function addMemberField(){
 
-//     const container = document.getElementById("memberContainer");
+        //     const container = document.getElementById("memberContainer");
 
-//     const count = container.querySelectorAll(".member-input").length + 1;
+        //     const count = container.querySelectorAll(".member-input").length + 1;
 
-//     const input = document.createElement("input");
+        //     const input = document.createElement("input");
 
-//     input.type = "text";
+        //     input.type = "text";
 
-//     input.name = "member[]";
+        //     input.name = "member[]";
 
-//     input.placeholder = `${count}. Name of Member`;
+        //     input.placeholder = `${count}. Name of Member`;
 
-//     input.className =
-//         "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
+        //     input.className =
+        //         "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
 
-//     container.appendChild(input);
+        //     container.appendChild(input);
 
-// }
+        // }
 
 
-const fileInput = document.getElementById("insuranceFile");
-const fileList = document.getElementById("fileList");
+        const fileInput = document.getElementById("insuranceFile");
+        const fileList = document.getElementById("fileList");
 
-fileInput.addEventListener("change", function(){
+        fileInput.addEventListener("change", function () {
 
-    fileList.innerHTML = "";
+            fileList.innerHTML = "";
 
-    for(let file of this.files){
+            for (let file of this.files) {
 
-        const div = document.createElement("div");
+                const div = document.createElement("div");
 
-        div.className =
-        "bg-blue-50 border border-blue-200 rounded-2xl p-4 flex justify-between items-center";
+                div.className =
+                    "bg-blue-50 border border-blue-200 rounded-2xl p-4 flex justify-between items-center";
 
-        div.innerHTML = `
+                div.innerHTML = `
             <div>
                 <p class="font-bold text-blue-700">${file.name}</p>
                 <p class="text-gray-500 text-sm">
@@ -281,12 +259,13 @@ fileInput.addEventListener("change", function(){
             </span>
         `;
 
-        fileList.appendChild(div);
-    }
+                fileList.appendChild(div);
+            }
 
-});
+        });
 
-</script>
+    </script>
 
 </body>
+
 </html>
