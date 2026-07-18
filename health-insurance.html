@@ -139,39 +139,39 @@
                    focus:outline-none focus:border-blue-600">
     </div>
 
-    <!-- Insured Members -->
-    <div>
-        <label class="block text-gray-700 font-bold mb-4">
-            Name of Insured Members
+<!-- Insured Members -->
+<div>
+
+    <div class="flex items-center justify-between mb-4">
+
+        <label class="text-gray-700 font-bold text-lg">
+            Name of Insured Family Members
         </label>
 
-        <div class="space-y-4">
+        <button
+            type="button"
+            onclick="addMemberField()"
+            class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
 
-            <input
-                type="text"
-                placeholder="1. Name of Member"
-                class="w-full border-b-2 border-gray-400
-                       bg-transparent py-2
-                       focus:outline-none focus:border-blue-600">
+            + Add
 
-            <input
-                type="text"
-                placeholder="2. Name of Member"
-                class="w-full border-b-2 border-gray-400
-                       bg-transparent py-2
-                       focus:outline-none focus:border-blue-600">
+        </button>
 
-            <input
-                type="text"
-                placeholder="3. Name of Member"
-                class="w-full border-b-2 border-gray-400
-                       bg-transparent py-2
-                       focus:outline-none focus:border-blue-600">
-
- 
-
-        </div>
     </div>
+
+    <div id="memberContainer">
+
+        <input
+            type="text"
+            name="member[]"
+            placeholder="1. Name of Member"
+            class="member-input w-full border-b-2 border-gray-400
+                   bg-transparent py-2 mb-4
+                   focus:outline-none focus:border-blue-600">
+
+    </div>
+
+</div>
 
           <label for="insuranceFile"
                    class="border-4 border-dashed border-sky-400
@@ -229,6 +229,30 @@
     </div>
 
 <script>
+
+
+
+// function addMemberField(){
+
+//     const container = document.getElementById("memberContainer");
+
+//     const count = container.querySelectorAll(".member-input").length + 1;
+
+//     const input = document.createElement("input");
+
+//     input.type = "text";
+
+//     input.name = "member[]";
+
+//     input.placeholder = `${count}. Name of Member`;
+
+//     input.className =
+//         "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
+
+//     container.appendChild(input);
+
+// }
+
 
 const fileInput = document.getElementById("insuranceFile");
 const fileList = document.getElementById("fileList");
