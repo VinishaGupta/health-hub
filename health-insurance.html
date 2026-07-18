@@ -83,30 +83,48 @@
                    bg-transparent py-2
                    focus:outline-none focus:border-blue-600">
     </div>
+<!-- Policy Period -->
+<div class="mb-6">
 
-    <!-- Policy Period -->
-    <div class="mb-6">
-        <label class="block text-gray-700 font-bold mb-2">
-            Policy Period
-        </label>
+    <label class="block text-gray-700 font-bold mb-4">
+        Policy Period
+    </label>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- From -->
+        <div class="flex items-center gap-3">
+
+            <label class="font-semibold text-gray-600 whitespace-nowrap">
+                From :
+            </label>
 
             <input
                 type="date"
-                class="border-b-2 border-gray-400
-                       bg-transparent py-2
-                       focus:outline-none focus:border-blue-600">
-
-            <input
-                type="date"
-                class="border-b-2 border-gray-400
+                class="flex-1 border-b-2 border-gray-400
                        bg-transparent py-2
                        focus:outline-none focus:border-blue-600">
 
         </div>
+
+        <!-- To -->
+        <div class="flex items-center gap-3">
+
+            <label class="font-semibold text-gray-600 whitespace-nowrap">
+                To :
+            </label>
+
+            <input
+                type="date"
+                class="flex-1 border-b-2 border-gray-400
+                       bg-transparent py-2
+                       focus:outline-none focus:border-blue-600">
+
+        </div>
+
     </div>
 
+</div>
     <!-- Product Plan -->
     <div class="mb-6">
         <label class="block text-gray-700 font-bold mb-2">
