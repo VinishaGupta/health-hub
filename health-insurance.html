@@ -45,9 +45,6 @@
             </div>
 
 
-            <!-- File Preview -->
-            <div id="fileList" class="mt-8 space-y-4">
-            </div>
 
 
 
@@ -182,6 +179,11 @@
 
             </div>
 
+            
+            <!-- File Preview -->
+            <div id="fileList" class="mt-8 space-y-4">
+            </div>
+
             <!-- Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 mt-10">
 
@@ -210,26 +212,26 @@
 
 
 
-        // function addMemberField(){
+        function addMemberField(){
 
-        //     const container = document.getElementById("memberContainer");
+            const container = document.getElementById("memberContainer");
 
-        //     const count = container.querySelectorAll(".member-input").length + 1;
+            const count = container.querySelectorAll(".member-input").length + 1;
 
-        //     const input = document.createElement("input");
+            const input = document.createElement("input");
 
-        //     input.type = "text";
+            input.type = "text";
 
-        //     input.name = "member[]";
+            input.name = "member[]";
 
-        //     input.placeholder = `${count}. Name of Member`;
+            input.placeholder = `${count}. Name of Member`;
 
-        //     input.className =
-        //         "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
+            input.className =
+                "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
 
-        //     container.appendChild(input);
+            container.appendChild(input);
 
-        // }
+        }
 
 
         const fileInput = document.getElementById("insuranceFile");
