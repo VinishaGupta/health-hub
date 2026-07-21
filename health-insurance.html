@@ -16,6 +16,9 @@
             background: #f8f9ff;
         }
     </style>
+
+    <link rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 </head>
 
 <body class="min-h-screen">
@@ -57,23 +60,50 @@
 
                 <!-- Insurance Company -->
 <!-- Insurance Company -->
-<div class="mb-6">
+<div class="mb-8">
 
-    <label class="block text-gray-900 font-medium mb-2">
+    <label class="block text-gray-800 text-lg font-semibold mb-3">
         Name of Insurance Company
     </label>
 
-    <select
-        class="w-full border-b-2 border-gray-400 bg-transparent py-2 focus:outline-none focus:border-blue-600">
+    <div class="relative">
 
-        <option>Select Insurance Company</option>
-        <option>Star Health Insurance</option>
-        <option>HDFC ERGO Health Insurance</option>
-        <option>ICICI Lombard Health Insurance</option>
-        <option>Care Health Insurance</option>
-        <option>Niva Bupa Health Insurance</option>
+        <!-- Left Icon -->
+        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-blue-600">
+            business
+        </span>
 
-    </select>
+        <select
+            class="w-full h-14 pl-14 pr-12
+                   rounded-xl
+                   border border-blue-200
+                   bg-blue-50/50
+                   text-gray-800 text-lg
+                   shadow-sm
+                   appearance-none
+                   transition-all duration-200
+                   hover:border-blue-400
+                   focus:bg-white
+                   focus:border-blue-600
+                   focus:ring-4 focus:ring-blue-100
+                   focus:outline-none">
+
+            <option selected disabled>Select Insurance Company</option>
+
+            <option>Star Health Insurance</option>
+            <option>HDFC ERGO Health Insurance</option>
+            <option>ICICI Lombard Health Insurance</option>
+            <option>Care Health Insurance</option>
+            <option>Niva Bupa Health Insurance</option>
+
+        </select>
+
+        <!-- Custom Dropdown Arrow -->
+        <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
+            expand_more
+        </span>
+
+    </div>
 
 </div>
 <!-- Advisor Details -->
