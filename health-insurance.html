@@ -301,65 +301,127 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wg
 
     </div>
 
-    <script>
+    <!-- Upload Success Popup -->
+<div
+    id="uploadPopup"
+    class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+    <div class="bg-white rounded-3xl shadow-xl p-8 w-[90%] max-w-md text-center">
+
+        <div class="text-6xl mb-4">
+            ✅
+        </div>
+
+        <h2 class="text-2xl font-bold text-green-700 mb-3">
+            Documents Uploaded
+        </h2>
+
+        <p class="text-gray-600 mb-6">
+            Your insurance documents have been uploaded successfully.
+        </p>
+
+        <button
+            onclick="closePopup()"
+            class="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    // -------------------------
+    // Add Family Member Fields
+    // -------------------------
+
+    function addMemberField() {
+
+        const container = document.getElementById("memberContainer");
+
+        const count =
+            container.querySelectorAll(".member-input").length + 1;
+
+        const input = document.createElement("input");
+
+        input.type = "text";
+        input.name = "member[]";
+        input.placeholder = `${count}. Name of Member`;
+
+        input.className =
+            "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
+
+        container.appendChild(input);
+
+    }
 
 
+    // -------------------------
+    // File Upload Preview
+    // -------------------------
 
-        function addMemberField(){
+    const fileInput = document.getElementById("insuranceFile");
+    const fileList = document.getElementById("fileList");
 
-            const container = document.getElementById("memberContainer");
+    fileInput.addEventListener("change", function () {
 
-            const count = container.querySelectorAll(".member-input").length + 1;
+        fileList.innerHTML = "";
 
-            const input = document.createElement("input");
+        for (let file of this.files) {
 
-            input.type = "text";
+            const div = document.createElement("div");
 
-            input.name = "member[]";
+            div.className =
+                "bg-blue-50 border border-blue-200 rounded-2xl p-4 flex justify-between items-center";
 
-            input.placeholder = `${count}. Name of Member`;
+            div.innerHTML = `
+                <div>
+                    <p class="font-bold text-blue-700">${file.name}</p>
 
-            input.className =
-                "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
+                    <p class="text-gray-500 text-sm">
+                        ${(file.size / 1024 / 1024).toFixed(2)} MB
+                    </p>
+                </div>
 
-            container.appendChild(input);
+                <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">
+                    Ready
+                </span>
+            `;
+
+            fileList.appendChild(div);
 
         }
 
+        // Show Success Popup
+        if (this.files.length > 0) {
 
-        const fileInput = document.getElementById("insuranceFile");
-        const fileList = document.getElementById("fileList");
+            const popup = document.getElementById("uploadPopup");
 
-        fileInput.addEventListener("change", function () {
+            popup.classList.remove("hidden");
+            popup.classList.add("flex");
 
-            fileList.innerHTML = "";
+        }
 
-            for (let file of this.files) {
+    });
 
-                const div = document.createElement("div");
 
-                div.className =
-                    "bg-blue-50 border border-blue-200 rounded-2xl p-4 flex justify-between items-center";
+    // -------------------------
+    // Close Popup
+    // -------------------------
 
-                div.innerHTML = `
-            <div>
-                <p class="font-bold text-blue-700">${file.name}</p>
-                <p class="text-gray-500 text-sm">
-                    ${(file.size / 1024 / 1024).toFixed(2)} MB
-                </p>
-            </div>
+    function closePopup() {
 
-            <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">
-                Ready
-            </span>
-        `;
+        const popup = document.getElementById("uploadPopup");
 
-                fileList.appendChild(div);
-            }
+        popup.classList.remove("flex");
+        popup.classList.add("hidden");
 
-        });
+    }
 
-    </script>
+</script>
 
 </body>
 
