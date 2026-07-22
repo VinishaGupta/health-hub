@@ -621,43 +621,62 @@
 
 
         <!-- Slot Booking Table -->
-        <div class="mb-5">
+<div class="flex flex-col lg:flex-row gap-4 mb-5">
 
-          <div class="mb-5">
-            <button onclick="toggleShift('shift2')"
-              class="w-full border-2 border-violet-500 rounded-xl bg-white hover:bg-violet-50 transition px-6 py-5">
+  <button onclick="toggleShift('shift1')"
+    class="flex-1 border-2 border-violet-500 rounded-xl bg-white hover:bg-violet-50 transition px-6 py-5">
 
-              <div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
+            <div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
 
-                <div class="text-left">
-                  <span class="text-2xl font-bold text-indigo-700">
-                    OPD - Shift 02
-                  </span>
-                </div>
-
-                <div class="justify-self-center">
-                  <span class="text-2xl font-bold text-indigo-700">
-                    Schedule [Only Fresher]
-                  </span>
-                </div>
-
-                <div class="justify-self-end mr-6">
-                  <span class="text-2xl font-bold text-pink-500">
-                    17:00 to 21:00
-                  </span>
-                </div>
-
-                <span id="icon-shift2" class="material-symbols-outlined text-3xl text-violet-600">
-                  expand_more
+              <!-- Left -->
+              <div class="text-left">
+                <span class="text-2xl font-bold text-indigo-700">
+                  OPD - Shift 01
                 </span>
-
               </div>
 
-            </button>
-          </div>
+              <!-- Center -->
+              <div class="justify-self-center">
+                <span class="text-2xl font-bold text-indigo-700">
+                  Schedule [Only Fresher]
+                </span>
+              </div>
 
+              <!-- Right -->
+              <div class="justify-self-end mr-6">
+                <span class="text-2xl font-bold text-pink-500">
+                  17:00 to 21:00
+                </span>
+              </div>
+
+              <!-- Arrow -->
+              <span id="icon-shift1" class="material-symbols-outlined text-3xl text-violet-600">
+                expand_more
+              </span>
+
+            </div>
+
+          </button>
+          <div class="lg:w-80 bg-green-50 border border-green-300 rounded-xl p-5 flex flex-col justify-center">
+
+    <span class="text-xs font-bold uppercase text-green-700">
+        Booking Time
+    </span>
+
+    <span class="text-2xl font-bold text-green-800 mt-2">
+        10:00 AM – 12:30 PM
+    </span>
+
+    <div class="flex items-center gap-2 mt-3">
+        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+        <span class="text-green-700 font-medium">
+            Booking Open
+        </span>
+    </div>
+
+</div>
         </div>
-        <div id="shift2" class="hidden">
+        <div id="shift1" class="hidden">
 
           <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
             <table class="w-full text-left border-collapse">
@@ -940,43 +959,62 @@
 
 
         <!-- Slot Booking Table -->
-        <div class="mb-5">
+<div class="flex flex-col lg:flex-row gap-4 mb-5">
 
-          <div class="mb-5">
-            <button onclick="toggleShift('shift3')"
-              class="w-full border-2 border-violet-500 rounded-xl bg-white hover:bg-violet-50 transition px-6 py-5">
+  <button onclick="toggleShift('shift1')"
+    class="flex-1 border-2 border-violet-500 rounded-xl bg-white hover:bg-violet-50 transition px-6 py-5">
 
-              <div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
+            <div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
 
-                <div class="text-left">
-                  <span class="text-2xl font-bold text-indigo-700">
-                    OPD - Shift 03
-                  </span>
-                </div>
-
-                <div class="justify-self-center">
-                  <span class="text-2xl font-bold text-indigo-700">
-                    Schedule [Only Repeater]
-                  </span>
-                </div>
-
-                <div class="justify-self-end mr-6">
-                  <span class="text-2xl font-bold text-pink-500">
-                    21:00 to 25:00
-                  </span>
-                </div>
-
-                <span id="icon-shift3" class="material-symbols-outlined text-3xl text-violet-600">
-                  expand_more
+              <!-- Left -->
+              <div class="text-left">
+                <span class="text-2xl font-bold text-indigo-700">
+                  OPD - Shift 01
                 </span>
-
               </div>
 
-            </button>
-          </div>
+              <!-- Center -->
+              <div class="justify-self-center">
+                <span class="text-2xl font-bold text-indigo-700">
+                  Schedule [Only Repeater]
+                </span>
+              </div>
 
+              <!-- Right -->
+              <div class="justify-self-end mr-6">
+                <span class="text-2xl font-bold text-pink-500">
+                  21:00 to 23:00
+                </span>
+              </div>
+
+              <!-- Arrow -->
+              <span id="icon-shift1" class="material-symbols-outlined text-3xl text-violet-600">
+                expand_more
+              </span>
+
+            </div>
+
+          </button>
+          <div class="lg:w-80 bg-green-50 border border-green-300 rounded-xl p-5 flex flex-col justify-center">
+
+    <span class="text-xs font-bold uppercase text-green-700">
+        Booking Time
+    </span>
+
+    <span class="text-2xl font-bold text-green-800 mt-2">
+        10:00 AM – 12:30 PM
+    </span>
+
+    <div class="flex items-center gap-2 mt-3">
+        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+        <span class="text-green-700 font-medium">
+            Booking Open
+        </span>
+    </div>
+
+</div>
         </div>
-        <div id="shift3" class="hidden">
+        <div id="shift1" class="hidden">
 
           <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
             <table class="w-full text-left border-collapse">
@@ -1247,6 +1285,7 @@
             </table>
           </div>
         </div>
+
 
 
         <!-- <div class="flex justify-center mt-4">
@@ -1259,42 +1298,62 @@
 
 
         <!-- Slot Booking Table -->
-<div class="mb-5">
+<div class="flex flex-col lg:flex-row gap-4 mb-5">
 
   <button onclick="toggleShift('shift1')"
-    class="w-full border-2 border-violet-500 rounded-xl bg-white hover:bg-violet-50 transition px-6 py-5">
+    class="flex-1 border-2 border-violet-500 rounded-xl bg-white hover:bg-violet-50 transition px-6 py-5">
 
-              <div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
+            <div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
 
-                <div class="text-left">
-                  <span class="text-2xl font-bold text-indigo-700">
-                    OPD - Shift 04
-                  </span>
-                </div>
-
-                <div class="justify-self-center">
-                  <span class="text-2xl font-bold text-indigo-700">
-                    Schedule [Anyone]
-                  </span>
-                </div>
-
-                <div class="justify-self-end mr-6">
-                  <span class="text-2xl font-bold text-pink-500">
-                    17:00 to 21:00
-                  </span>
-                </div>
-
-                <span id="icon-shift4" class="material-symbols-outlined text-3xl text-violet-600">
-                  expand_more
+              <!-- Left -->
+              <div class="text-left">
+                <span class="text-2xl font-bold text-indigo-700">
+                  OPD - Shift 01
                 </span>
-
               </div>
 
-            </button>
-          </div>
+              <!-- Center -->
+              <div class="justify-self-center">
+                <span class="text-2xl font-bold text-indigo-700">
+                  Schedule [Anyone]
+                </span>
+              </div>
 
+              <!-- Right -->
+              <div class="justify-self-end mr-6">
+                <span class="text-2xl font-bold text-pink-500">
+                  16:00 to 19:00
+                </span>
+              </div>
+
+              <!-- Arrow -->
+              <span id="icon-shift1" class="material-symbols-outlined text-3xl text-violet-600">
+                expand_more
+              </span>
+
+            </div>
+
+          </button>
+          <div class="lg:w-80 bg-green-50 border border-green-300 rounded-xl p-5 flex flex-col justify-center">
+
+    <span class="text-xs font-bold uppercase text-green-700">
+        Booking Time
+    </span>
+
+    <span class="text-2xl font-bold text-green-800 mt-2">
+        10:00 AM – 12:30 PM
+    </span>
+
+    <div class="flex items-center gap-2 mt-3">
+        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+        <span class="text-green-700 font-medium">
+            Booking Open
+        </span>
+    </div>
+
+</div>
         </div>
-        <div id="shift4" class="hidden">
+        <div id="shift1" class="hidden">
 
           <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
             <table class="w-full text-left border-collapse">
@@ -1565,6 +1624,7 @@
             </table>
           </div>
         </div>
+
 
 
         <!-- <div class="flex justify-center mt-4">
