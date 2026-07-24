@@ -329,12 +329,23 @@
               10:00 AM – 12:30 PM
             </span>
 
-            <div class="flex items-center gap-2 mt-3">
-              <div class="w-2 h-2 rounded-full bg-green-600"></div>
-              <span class="text-green-700 font-medium">
-                Booking Open
-              </span>
-            </div>
+            <div class="mt-4 flex items-center justify-between">
+
+    <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+
+        <span class="text-green-700 font-medium">
+            Booking Open
+        </span>
+    </div>
+
+    <button
+        onclick="openBookingDetails()"
+        class="text-sm font-semibold text-green-700 hover:text-green-900 hover:underline transition">
+        View Details
+    </button>
+
+</div>
 
           </div>
         </div>
@@ -1759,7 +1770,11 @@
     <span class="material-symbols-outlined text-error">error</span>
     <span class="text-label-md font-medium">Booking cancelled. Slot remains available.</span>
   </div>
+
+  
   <script>
+
+    
 
 
     const overlay = document.getElementById("modalOverlay");
@@ -1913,8 +1928,75 @@
       }
     }
 
+function openBookingDetails() {
+    const modal = document.getElementById("bookingDetailsModal");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+}
 
+function closeBookingDetails() {
+    const modal = document.getElementById("bookingDetailsModal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+}
+
+document.getElementById("bookingDetailsModal").addEventListener("click", function (e) {
+    if (e.target === this) {
+        closeBookingDetails();
+    }
+});
   </script>
+
+
+<!-- Booking Details Modal -->
+<div id="bookingDetailsModal"
+    class="fixed inset-0 hidden bg-black/40 z-[70] items-center justify-center">
+
+    <div class="bg-white rounded-2xl p-6 w-[500px] max-w-[90%] shadow-2xl relative">
+
+        <button
+            onclick="closeBookingDetails()"
+            class="absolute top-4 right-5 text-3xl text-gray-500 hover:text-red-500">
+            &times;
+        </button>
+
+        <h2 class="text-2xl font-bold text-primary mb-5">
+            Booking Details
+        </h2>
+
+        <div class="space-y-4">
+
+            <div class="flex justify-between">
+                <span class="text-gray-500">Booking Time</span>
+                <span class="font-semibold">10:00 AM – 12:30 PM</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span class="text-gray-500">Status</span>
+                <span class="text-green-600 font-semibold">Booking Open</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span class="text-gray-500">Doctor</span>
+                <span>Dr. Karan Agrawal</span>
+            </div>
+
+            <div class="flex justify-between">
+                <span class="text-gray-500">Hospital</span>
+                <span>Parashree Hospital</span>
+            </div>
+
+            <!-- <div class="flex justify-between">
+                <span class="text-gray-500">Available Slots</span>
+                <span>12</span>
+            </div> -->
+
+        </div>
+
+    </div>
+
+</div>
+
 </body>
 
 </html>
