@@ -340,7 +340,7 @@
     </div>
 
     <button
-        onclick="openBookingDetails()"
+        onclick="openBookingDetails(1)"
         class="text-sm font-semibold text-green-700 hover:text-green-900 hover:underline transition">
         View Details
     </button>
@@ -678,12 +678,23 @@
               10:00 AM – 12:30 PM
             </span>
 
-            <div class="flex items-center gap-2 mt-3">
-              <div class="w-2 h-2 rounded-full bg-red-600"></div>
-              <span class="text-red-700 font-medium">
-                Booking Closed
-              </span>
-            </div>
+  <div class="mt-4 flex items-center justify-between">
+
+    <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-red-600"></div>
+
+        <span class="text-red-700 font-medium">
+            Booking Closed
+        </span>
+    </div>
+
+    <button
+        onclick="openBookingDetails(2)"
+        class="text-sm font-semibold text-red-700 hover:text-red-900 hover:underline transition">
+        View Details
+    </button>
+
+</div>
 
           </div>
         </div>
@@ -1016,12 +1027,23 @@
               10:00 AM – 12:30 PM
             </span>
 
-            <div class="flex items-center gap-2 mt-3">
-              <div class="w-2 h-2 rounded-full bg-slate-600"></div>
-              <span class="text-slate-700 font-medium">
-                Booking Full
-              </span>
-            </div>
+          <div class="mt-4 flex items-center justify-between">
+
+    <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-slate-600"></div>
+
+        <span class="text-slate-700 font-medium">
+            Booking Full
+        </span>
+    </div>
+
+    <button
+        onclick="openBookingDetails(3)"
+        class="text-sm font-semibold text-slate-700 hover:text-slate-900 hover:underline transition">
+        View Details
+    </button>
+
+</div>
 
           </div>
         </div>
@@ -1355,12 +1377,23 @@
               10:00 AM – 12:30 PM
             </span>
 
-            <div class="flex items-center gap-2 mt-3">
-              <div class="w-2 h-2 rounded-full bg-green-600"></div>
-              <span class="text-green-700 font-medium">
-                Booking Open
-              </span>
-            </div>
+         <div class="mt-4 flex items-center justify-between">
+
+    <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+
+        <span class="text-green-700 font-medium">
+            Booking Open
+        </span>
+    </div>
+
+    <button
+        onclick="openBookingDetails(4)"
+        class="text-sm font-semibold text-green-700 hover:text-green-900 hover:underline transition">
+        View Details
+    </button>
+
+</div>
 
           </div>
         </div>
@@ -1928,7 +1961,35 @@
       }
     }
 
-function openBookingDetails() {
+function openBookingDetails(shift) {
+
+    const bookingTime = document.getElementById("bookingTime");
+    const status = document.getElementById("bookingStatus");
+
+    if (shift === 1) {
+        bookingTime.innerHTML = "10:00 AM – 12:30 PM – Today";
+        status.innerHTML = "Booking Open";
+        status.className = "text-green-600 font-semibold";
+    }
+
+    else if (shift === 2) {
+        bookingTime.innerHTML = "10:00 AM – 12:30 PM – On dates 23/07/2026, 24/07/2026, 25/07/2026...";
+        status.innerHTML = "Booking Closed";
+        status.className = "text-red-600 font-semibold";
+    }
+
+    else if (shift === 3) {
+        bookingTime.innerHTML = "24 Hours – All day";
+        status.innerHTML = "Booking Full";
+        status.className = "text-slate-600 font-semibold";
+    }
+
+    else if (shift === 4) {
+        bookingTime.innerHTML = "10:00 AM – 12:30 PM – All day";
+        status.innerHTML = "Booking Open";
+        status.className = "text-green-600 font-semibold";
+    }
+
     const modal = document.getElementById("bookingDetailsModal");
     modal.classList.remove("hidden");
     modal.classList.add("flex");
@@ -1968,12 +2029,16 @@ document.getElementById("bookingDetailsModal").addEventListener("click", functio
 
             <div class="flex justify-between">
                 <span class="text-gray-500">Booking Time</span>
-                <span class="font-semibold">10:00 AM – 12:30 PM</span>
+                <span id="bookingTime" class="font-semibold">
+    10:00 AM – 12:30 PM
+</span>
             </div>
 
             <div class="flex justify-between">
                 <span class="text-gray-500">Status</span>
-                <span class="text-green-600 font-semibold">Booking Open</span>
+               <span id="bookingStatus" class="text-green-600 font-semibold">
+    Booking Open
+</span>
             </div>
 
             <div class="flex justify-between">
