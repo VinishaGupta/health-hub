@@ -15,14 +15,114 @@
             font-family: 'Inter', sans-serif;
             background: #f8f9ff;
         }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: #fff;
+        }
+
+        .hospital-logo {
+            width: 95px;
+            height: 95px;
+            border: 4px solid #14a5d8;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #0B4DA2;
+            background: #fff;
+            flex-shrink: 0;
+        }
+
+        #hospitalName {
+            transition: opacity .35s ease;
+        }
+
+        @media (max-width:768px) {
+
+            .header {
+                padding: 16px;
+            }
+
+            .hospital-logo {
+                width: 70px;
+                height: 70px;
+                font-size: 18px;
+            }
+
+            #hospitalName {
+                font-size: 26px !important;
+            }
+
+            .location {
+                font-size: 16px !important;
+            }
+
+        }
     </style>
+
+
 </head>
 
 <body>
 
-    <iframe src="hospital-header.html" class="w-full h-[130px] border-0" scrolling="no">
-    </iframe>
+<section class="border-b shadow-sm bg-white">
 
+    <div class="max-w-7xl mx-auto px-8 py-6">
+
+        <div class="flex items-center gap-6">
+
+            <!-- Logo -->
+            <div class="hospital-logo">
+                Logo
+            </div>
+
+            <!-- Hospital Details -->
+            <div class="flex flex-col">
+
+                <!-- Short Name -->
+                <p class="text-sm font-semibold text-indigo-600 tracking-wide uppercase">
+                    Short Name
+                </p>
+
+                <!-- Hospital Name -->
+                <h1 id="hospitalName"
+                    class="text-4xl font-bold text-[#0B4DA2] leading-tight mt-1">
+
+                    City Care Hospital
+
+                </h1>
+
+                <!-- Managed By -->
+                <div class="mt-1 inline-flex items-center gap-2 flex-wrap">
+
+                    <span class="text-sm font-semibold text-gray-700">
+                        Managed by
+                    </span>
+
+                    <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
+                        India Youth Old Welfare Society, New Delhi
+                    </span>
+
+                </div>
+
+                <!-- Location -->
+                <p class="text-xl font-semibold text-[#006878] mt-1">
+
+                    Location
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
     <div class="max-w-6xl mx-auto px-8 py-12">
 
         <header class="mb-12">
@@ -211,7 +311,38 @@
 
                  <a href="management.html"><button class="border-2 p-4 text-2xl">Management</button></a>
 
+                 
+<script>
+    
 
+        const hospitalNames = [
+            "City Care Hospital",
+            "सिटी केयर हॉस्पिटल",
+            "সিটি কেয়ার হাসপাতাল"
+        ];
+
+        let current = 0;
+
+        setInterval(() => {
+
+            const title = document.getElementById("hospitalName");
+
+            title.style.opacity = "0";
+
+            setTimeout(() => {
+
+                current = (current + 1) % hospitalNames.length;
+
+                title.textContent = hospitalNames[current];
+
+                title.style.opacity = "1";
+
+            }, 300);
+
+        }, 2500);
+
+    
+</script>
 </body>
 
 </html>
