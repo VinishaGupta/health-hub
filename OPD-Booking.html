@@ -288,36 +288,35 @@
           <button onclick="toggleShift('shift1')"
             class="flex-1 border-2 border-violet-500 rounded-xl bg-white hover:bg-violet-50 transition px-6 py-5">
 
-<div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
+            <div class="grid grid-cols-[1fr_auto_1fr_auto] items-center">
 
-    <!-- Left -->
-    <div class="text-left">
-        <span class="text-xl font-bold text-blue-700">
-            OPD - Shift 01
-        </span>
-    </div>
+              <!-- Left -->
+              <div class="text-left">
+                <span class="text-xl font-bold text-blue-700">
+                  OPD - Shift 01
+                </span>
+              </div>
 
-    <!-- Center -->
-    <div class="justify-self-center">
-        <span class="text-xl font-bold text-emerald-700">
-            Available Schedule [Anyone]
-        </span>
-    </div>
+              <!-- Center -->
+              <div class="justify-self-center">
+                <span class="text-xl font-bold text-emerald-700">
+                  Available Schedule [Anyone]
+                </span>
+              </div>
 
-    <!-- Right -->
-    <div class="justify-self-end mr-6">
-        <span class="text-xl font-bold text-orange-600">
-            13:00 to 16:00
-        </span>
-    </div>
+              <!-- Right -->
+              <div class="justify-self-end mr-6">
+                <span class="text-xl font-bold text-orange-600">
+                  13:00 to 16:00
+                </span>
+              </div>
 
-    <!-- Arrow -->
-    <span id="icon-shift1"
-          class="material-symbols-outlined text-3xl text-purple-600">
-        expand_more
-    </span>
+              <!-- Arrow -->
+              <span id="icon-shift1" class="material-symbols-outlined text-3xl text-purple-600">
+                expand_more
+              </span>
 
-</div>
+            </div>
           </button>
           <div class="lg:w-80 bg-green-50 border border-green-300 rounded-xl p-5 flex flex-col justify-center">
 
@@ -331,29 +330,27 @@
 
             <div class="mt-4 flex items-center justify-between">
 
-    <div class="flex items-center gap-2">
-        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green-600"></div>
 
-        <span class="text-green-700 font-medium">
-            Booking Open
-        </span>
-    </div>
+                <span class="text-green-700 font-medium">
+                  Booking Open
+                </span>
+              </div>
 
-    <button
-        onclick="openBookingDetails(1)"
-        class="text-sm font-semibold text-green-700 hover:text-green-900 hover:underline transition">
-        View Details
-    </button>
+              <button onclick="openBookingDetails(1)"
+                class="text-sm font-semibold text-green-700 hover:text-green-900 hover:underline transition">
+                View Details
+              </button>
 
-</div>
+            </div>
 
           </div>
         </div>
         <div id="shift1" class="hidden">
 
           <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant overflow-hidden">
-            <table class="w-full text-left border-collapse">
-              <thead>
+<table class="w-full table-fixed text-left border-collapse">              <thead>
                 <tr class="bg-surface-container border-b border-outline-variant">
                   <th class="px-6 py-4 font-label-md text-on-surface">
                     Time Slot
@@ -367,12 +364,11 @@
                     <span class="text-xs text-gray-500">Self / Other</span>
                   </th>
 
-                  <th class="px-6 py-4 font-label-md text-on-surface">
+                  <!-- <th class="px-6 py-4 font-label-md text-on-surface">
                     Patient<br>
                     <span class="text-xs text-gray-500">Freshers / Routine</span>
-                  </th>
-                  <th class="px-6 py-4 font-label-md text-on-surface text-right">
-                    Action
+                  </th> -->
+                  <th class="w-44 px-6 py-4 font-label-md text-on-surface text-center"> Action
                   </th>
                 </tr>
               </thead>
@@ -380,35 +376,35 @@
 
                 <!-- 13:00 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold  text-green-700">13:00</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-72 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
-
-                  <td class="px-6 py-4">
+                  <!-- 
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
                       <option>Routine</option>
                     </select>
-                  </td>
+                  </td> -->
 
                   <td class="px-6 py-4 text-right">
                     <button
@@ -421,31 +417,31 @@
 
                 <!-- 13:10 Checked -->
                 <tr class="bg-surface-container-lowest/50 opacity-70">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-orange-700"></div>
                       <span class="font-medium  text-orange-700">13:10</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200">
                       Checked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <!-- <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
-                  </td>
+                  </td> -->
 
                   <td class="px-6 py-4 text-right">
                     <button
@@ -458,35 +454,35 @@
 
                 <!-- 13:20 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:20</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
                       Absent
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-xs px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <!-- <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
                       <option>Routine</option>
                     </select>
-                  </td>
+                  </td> -->
 
                   <td class="px-6 py-4 text-right">
                     <button
@@ -499,31 +495,31 @@
 
                 <!-- 13:30 Booked -->
                 <tr class="bg-surface-container-low/30">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-error"></div>
                       <span class="font-medium text-on-surface-variant text-red-700">13:30</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200">
                       Booked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <!-- <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
-                  </td>
+                  </td> -->
 
                   <td class="px-6 py-4 text-right">
                     <button
@@ -536,35 +532,35 @@
 
                 <!-- 13:40 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:40</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-xs px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <!-- <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
                       <option>Routine</option>
                     </select>
-                  </td>
+                  </td> -->
 
                   <td class="px-6 py-4 text-right">
                     <button
@@ -577,35 +573,35 @@
 
                 <!-- 13:50 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:50</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-xs px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <!-- <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
                       <option>Routine</option>
                     </select>
-                  </td>
+                  </td> -->
 
                   <td class="px-6 py-4 text-right">
                     <button
@@ -678,23 +674,22 @@
               10:00 AM – 12:30 PM
             </span>
 
-  <div class="mt-4 flex items-center justify-between">
+            <div class="mt-4 flex items-center justify-between">
 
-    <div class="flex items-center gap-2">
-        <div class="w-2 h-2 rounded-full bg-red-600"></div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-red-600"></div>
 
-        <span class="text-red-700 font-medium">
-            Booking Closed
-        </span>
-    </div>
+                <span class="text-red-700 font-medium">
+                  Booking Closed
+                </span>
+              </div>
 
-    <button
-        onclick="openBookingDetails(2)"
-        class="text-sm font-semibold text-red-700 hover:text-red-900 hover:underline transition">
-        View Details
-    </button>
+              <button onclick="openBookingDetails(2)"
+                class="text-sm font-semibold text-red-700 hover:text-red-900 hover:underline transition">
+                View Details
+              </button>
 
-</div>
+            </div>
 
           </div>
         </div>
@@ -720,8 +715,7 @@
                     Patient<br>
                     <span class="text-xs text-gray-500">Freshers / Routine</span>
                   </th>
-                  <th class="px-6 py-4 font-label-md text-on-surface text-right">
-                    Action
+                  <th class="w-44 px-6 py-4 font-label-md text-on-surface text-center"> Action
                   </th>
                 </tr>
               </thead>
@@ -729,29 +723,29 @@
 
                 <!-- 13:00 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold  text-green-700">13:00</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -770,27 +764,27 @@
 
                 <!-- 13:10 Checked -->
                 <tr class="bg-surface-container-lowest/50 opacity-70">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-orange-700"></div>
                       <span class="font-medium  text-orange-700">13:10</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200">
                       Checked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
@@ -807,29 +801,29 @@
 
                 <!-- 13:20 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:20</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
                       Absent
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -848,27 +842,27 @@
 
                 <!-- 13:30 Booked -->
                 <tr class="bg-surface-container-low/30">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-error"></div>
                       <span class="font-medium text-on-surface-variant text-red-700">13:30</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200">
                       Booked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
@@ -885,29 +879,29 @@
 
                 <!-- 13:40 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:40</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -926,29 +920,29 @@
 
                 <!-- 13:50 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:50</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1027,23 +1021,22 @@
               10:00 AM – 12:30 PM
             </span>
 
-          <div class="mt-4 flex items-center justify-between">
+            <div class="mt-4 flex items-center justify-between">
 
-    <div class="flex items-center gap-2">
-        <div class="w-2 h-2 rounded-full bg-slate-600"></div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-slate-600"></div>
 
-        <span class="text-slate-700 font-medium">
-            Booking Full
-        </span>
-    </div>
+                <span class="text-slate-700 font-medium">
+                  Booking Full
+                </span>
+              </div>
 
-    <button
-        onclick="openBookingDetails(3)"
-        class="text-sm font-semibold text-slate-700 hover:text-slate-900 hover:underline transition">
-        View Details
-    </button>
+              <button onclick="openBookingDetails(3)"
+                class="text-sm font-semibold text-slate-700 hover:text-slate-900 hover:underline transition">
+                View Details
+              </button>
 
-</div>
+            </div>
 
           </div>
         </div>
@@ -1069,8 +1062,7 @@
                     Patient<br>
                     <span class="text-xs text-gray-500">Freshers / Routine</span>
                   </th>
-                  <th class="px-6 py-4 font-label-md text-on-surface text-right">
-                    Action
+                  <th class="w-44 px-6 py-4 font-label-md text-on-surface text-center"> Action
                   </th>
                 </tr>
               </thead>
@@ -1078,29 +1070,29 @@
 
                 <!-- 13:00 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold  text-green-700">13:00</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1119,27 +1111,27 @@
 
                 <!-- 13:10 Checked -->
                 <tr class="bg-surface-container-lowest/50 opacity-70">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-orange-700"></div>
                       <span class="font-medium  text-orange-700">13:10</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200">
                       Checked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
@@ -1156,29 +1148,29 @@
 
                 <!-- 13:20 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:20</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
                       Absent
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1197,27 +1189,27 @@
 
                 <!-- 13:30 Booked -->
                 <tr class="bg-surface-container-low/30">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-error"></div>
                       <span class="font-medium text-on-surface-variant text-red-700">13:30</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200">
                       Booked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
@@ -1234,29 +1226,29 @@
 
                 <!-- 13:40 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:40</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1275,29 +1267,29 @@
 
                 <!-- 13:50 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:50</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1377,23 +1369,22 @@
               10:00 AM – 12:30 PM
             </span>
 
-         <div class="mt-4 flex items-center justify-between">
+            <div class="mt-4 flex items-center justify-between">
 
-    <div class="flex items-center gap-2">
-        <div class="w-2 h-2 rounded-full bg-green-600"></div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-green-600"></div>
 
-        <span class="text-green-700 font-medium">
-            Booking Open
-        </span>
-    </div>
+                <span class="text-green-700 font-medium">
+                  Booking Open
+                </span>
+              </div>
 
-    <button
-        onclick="openBookingDetails(4)"
-        class="text-sm font-semibold text-green-700 hover:text-green-900 hover:underline transition">
-        View Details
-    </button>
+              <button onclick="openBookingDetails(4)"
+                class="text-sm font-semibold text-green-700 hover:text-green-900 hover:underline transition">
+                View Details
+              </button>
 
-</div>
+            </div>
 
           </div>
         </div>
@@ -1419,8 +1410,7 @@
                     Patient<br>
                     <span class="text-xs text-gray-500">Freshers / Routine</span>
                   </th>
-                  <th class="px-6 py-4 font-label-md text-on-surface text-right">
-                    Action
+                  <th class="w-44 px-6 py-4 font-label-md text-on-surface text-center"> Action
                   </th>
                 </tr>
               </thead>
@@ -1428,29 +1418,29 @@
 
                 <!-- 13:00 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold  text-green-700">13:00</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1469,27 +1459,27 @@
 
                 <!-- 13:10 Checked -->
                 <tr class="bg-surface-container-lowest/50 opacity-70">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-orange-700"></div>
                       <span class="font-medium  text-orange-700">13:10</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-700 border border-orange-200">
                       Checked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
@@ -1506,29 +1496,29 @@
 
                 <!-- 13:20 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:20</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
                       Absent
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1547,27 +1537,27 @@
 
                 <!-- 13:30 Booked -->
                 <tr class="bg-surface-container-low/30">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-error"></div>
                       <span class="font-medium text-on-surface-variant text-red-700">13:30</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700 border border-red-200">
                       Booked
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg" disabled>
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option>--</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg" disabled>
                       <option>--</option>
                     </select>
@@ -1584,29 +1574,29 @@
 
                 <!-- 13:40 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:40</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
@@ -1625,35 +1615,35 @@
 
                 <!-- 13:50 Available -->
                 <tr class="hover:bg-surface-container-low transition-colors group">
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <div class="flex items-center gap-3">
                       <div class="w-2 h-2 rounded-full bg-green-700"></div>
                       <span class="font-bold text-on-surface text-green-700">13:50</span>
                     </div>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <td class="px-6 py-4 text-left">
                     <span
                       class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700 border border-green-200">
                       Available
                     </span>
                   </td>
 
-                  <td class="px-6 py-4">
-                    <select class="w-44 px-3 py-2 border border-outline-variant rounded-lg">
+                  <td class="px-6 py-4 text-left">
+                    <select class="w-full max-w-[300px] px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Self</option>
                       <option>Other</option>
                     </select>
                   </td>
 
-                  <td class="px-6 py-4">
+                  <!-- <td class="px-6 py-4 text-left">
                     <select class="w-52 px-3 py-2 border border-outline-variant rounded-lg">
                       <option></option>
                       <option>Fresher</option>
                       <option>Routine</option>
                     </select>
-                  </td>
+                  </td> -->
 
                   <td class="px-6 py-4 text-right">
                     <button
@@ -1804,10 +1794,10 @@
     <span class="text-label-md font-medium">Booking cancelled. Slot remains available.</span>
   </div>
 
-  
+
   <script>
 
-    
+
 
 
     const overlay = document.getElementById("modalOverlay");
@@ -1961,106 +1951,103 @@
       }
     }
 
-function openBookingDetails(shift) {
+    function openBookingDetails(shift) {
 
-    const bookingTime = document.getElementById("bookingTime");
-    const status = document.getElementById("bookingStatus");
+      const bookingTime = document.getElementById("bookingTime");
+      const status = document.getElementById("bookingStatus");
 
-    if (shift === 1) {
+      if (shift === 1) {
         bookingTime.innerHTML = "10:00 AM – 12:30 PM – Today";
         status.innerHTML = "Booking Open";
         status.className = "text-green-600 font-semibold";
-    }
+      }
 
-    else if (shift === 2) {
+      else if (shift === 2) {
         bookingTime.innerHTML = "10:00 AM – 12:30 PM – On dates 23/07/2026, 24/07/2026, 25/07/2026...";
         status.innerHTML = "Booking Closed";
         status.className = "text-red-600 font-semibold";
-    }
+      }
 
-    else if (shift === 3) {
+      else if (shift === 3) {
         bookingTime.innerHTML = "24 Hours – All day";
         status.innerHTML = "Booking Full";
         status.className = "text-slate-600 font-semibold";
-    }
+      }
 
-    else if (shift === 4) {
+      else if (shift === 4) {
         bookingTime.innerHTML = "10:00 AM – 12:30 PM – All day";
         status.innerHTML = "Booking Open";
         status.className = "text-green-600 font-semibold";
+      }
+
+      const modal = document.getElementById("bookingDetailsModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
     }
 
-    const modal = document.getElementById("bookingDetailsModal");
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-}
+    function closeBookingDetails() {
+      const modal = document.getElementById("bookingDetailsModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
 
-function closeBookingDetails() {
-    const modal = document.getElementById("bookingDetailsModal");
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-}
-
-document.getElementById("bookingDetailsModal").addEventListener("click", function (e) {
-    if (e.target === this) {
+    document.getElementById("bookingDetailsModal").addEventListener("click", function (e) {
+      if (e.target === this) {
         closeBookingDetails();
-    }
-});
+      }
+    });
   </script>
 
 
-<!-- Booking Details Modal -->
-<div id="bookingDetailsModal"
-    class="fixed inset-0 hidden bg-black/40 z-[70] items-center justify-center">
+  <!-- Booking Details Modal -->
+  <div id="bookingDetailsModal" class="fixed inset-0 hidden bg-black/40 z-[70] items-center justify-center">
 
     <div class="bg-white rounded-2xl p-6 w-[500px] max-w-[90%] shadow-2xl relative">
 
-        <button
-            onclick="closeBookingDetails()"
-            class="absolute top-4 right-5 text-3xl text-gray-500 hover:text-red-500">
-            &times;
-        </button>
+      <button onclick="closeBookingDetails()" class="absolute top-4 right-5 text-3xl text-gray-500 hover:text-red-500">
+        &times;
+      </button>
 
-        <h2 class="text-2xl font-bold text-primary mb-5">
-            Booking Details
-        </h2>
+      <h2 class="text-2xl font-bold text-primary mb-5">
+        Booking Details
+      </h2>
 
-        <div class="space-y-4">
+      <div class="space-y-4">
 
-            <div class="flex justify-between">
-                <span class="text-gray-500">Booking Time</span>
-                <span id="bookingTime" class="font-semibold">
-    10:00 AM – 12:30 PM
-</span>
-            </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Booking Time</span>
+          <span id="bookingTime" class="font-semibold">
+            10:00 AM – 12:30 PM
+          </span>
+        </div>
 
-            <div class="flex justify-between">
-                <span class="text-gray-500">Status</span>
-               <span id="bookingStatus" class="text-green-600 font-semibold">
-    Booking Open
-</span>
-            </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Status</span>
+          <span id="bookingStatus" class="text-green-600 font-semibold">
+            Booking Open
+          </span>
+        </div>
 
-            <div class="flex justify-between">
-                <span class="text-gray-500">Doctor</span>
-                <span>Dr. Karan Agrawal</span>
-            </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Doctor</span>
+          <span>Dr. Karan Agrawal</span>
+        </div>
 
-            <div class="flex justify-between">
-                <span class="text-gray-500">Hospital</span>
-                <span>Parashree Hospital</span>
-            </div>
+        <div class="flex justify-between">
+          <span class="text-gray-500">Hospital</span>
+          <span>Parashree Hospital</span>
+        </div>
 
-            <!-- <div class="flex justify-between">
+        <!-- <div class="flex justify-between">
                 <span class="text-gray-500">Available Slots</span>
                 <span>12</span>
             </div> -->
 
-        </div>
+      </div>
 
     </div>
 
-</div>
+  </div>
 
 </body>
 
