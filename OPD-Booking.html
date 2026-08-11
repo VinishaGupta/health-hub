@@ -1152,27 +1152,20 @@
       }, 3000);
     }
 
-    function toggleShift(id) {
-      const section = document.getElementById(id);
-      const icon = document.getElementById("icon-" + id);
-      const shouldOpen = section.classList.contains("hidden");
+function toggleShift(id) {
+  const section = document.getElementById(id);
+  const icon = document.getElementById("icon-" + id);
 
-      ["shift1", "shift2", "shift3", "shift4"].forEach((shiftId) => {
-        const shiftSection = document.getElementById(shiftId);
-        const shiftIcon = document.getElementById("icon-" + shiftId);
+  if (!section || !icon) return;
 
-        shiftSection.classList.add("hidden");
-        shiftIcon.innerHTML = "expand_more";
-      });
+  section.classList.toggle("hidden");
 
-      if (shouldOpen) {
-        section.classList.remove("hidden");
-        icon.innerHTML = "expand_less";
-      } else {
-        icon.innerHTML = "expand_more";
-      }
-    }
-
+  if (section.classList.contains("hidden")) {
+    icon.innerHTML = "expand_more";
+  } else {
+    icon.innerHTML = "expand_less";
+  }
+}
     function openBookingDetails(shift) {
 
       const bookingTime = document.getElementById("bookingTime");
