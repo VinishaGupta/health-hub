@@ -203,6 +203,46 @@
         font-size: 20px;
       }
     }
+
+    @keyframes constant-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(16, 185, 129, 0.6),
+      0 0 16px rgba(16, 185, 129, 0.4);
+  }
+
+  50% {
+    box-shadow:
+      0 0 16px rgba(16, 185, 129, 0.9),
+      0 0 32px rgba(16, 185, 129, 0.7),
+      0 0 48px rgba(16, 185, 129, 0.4);
+  }
+
+  
+}
+
+.pulse-dot {
+  animation: constant-glow 1.5s ease-in-out infinite;
+}
+
+.status-circle {
+  animation: circle-glow 2s ease-in-out infinite;
+}
+
+@keyframes circle-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(16, 185, 129, 0.25),
+      0 0 25px rgba(16, 185, 129, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 20px rgba(16, 185, 129, 0.5),
+      0 0 45px rgba(16, 185, 129, 0.35),
+      0 0 70px rgba(16, 185, 129, 0.2);
+  }
+}
   </style>
 </head>
 
@@ -439,8 +479,31 @@
 
 
 
+
+
     <!-- Services Section -->
     <section class="py-24 bg-surface-container-low">
+
+<div class="status-circle bg-white/70 backdrop-blur-md border border-white/40 shadow-sm rounded-full w-56 h-56 flex flex-col items-center justify-center text-center mb-8 mx-auto">
+
+    <!-- Pulsing Indicator -->
+    <div
+      aria-label="Status: Online"
+      class="w-[16px] h-[16px] bg-emerald-500 rounded-full pulse-dot mb-3">
+    </div>
+
+    <!-- Status -->
+    <h2 class="text-[24px] leading-[32px] font-semibold text-primary tracking-tight m-0">
+      Open 24 Hours
+    </h2>
+
+    <!-- Subtitle -->
+    <p class="text-[14px] leading-[20px] text-on-surface-variant font-normal m-0 mt-2">
+      Hospital available 24/7
+    </p>
+
+  </div>
+
 
       <div class="max-w-7xl mx-auto px-4">
 
