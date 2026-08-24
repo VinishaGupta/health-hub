@@ -814,6 +814,85 @@ SUCCESS MODAL
     font-weight:700;
     margin:0 8px;
 }
+.health-menu-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+    margin-top:10px;
+}
+
+.health-card-option{
+    height:145px;
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:26px;
+
+    background:#e5eeff;
+    border:1px solid #c3d7ff;
+
+    cursor:pointer;
+    text-align:center;
+
+    transition:all 0.3s ease;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.health-card-option:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 22px rgba(0,0,0,0.10);
+}
+
+/* BLUE/CYAN CIRCLE */
+.health-card-icon{
+    width:56px;
+    height:56px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#55d3f2;
+
+    margin-bottom:8px;
+
+    font-size:25px;
+    color:#075985;
+}
+
+/* ICON ITSELF */
+.health-card-icon i{
+    color:#075985;
+    font-size:25px;
+}
+
+/* TEXT */
+.health-card-content h3{
+    margin:0;
+
+    font-size:20px;
+    line-height:1.2;
+
+    font-weight:700;
+
+    color:#0b1c30;
+}
+
+.health-card-content p{
+    margin:4px 0 0;
+
+    font-size:13px;
+    line-height:18px;
+
+    color:#64748b;
+}
+
     </style>
 </head>
 <body>
