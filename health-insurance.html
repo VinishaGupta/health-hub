@@ -4,44 +4,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Insurance Upload</title>
 
+    <title>Health Insurance | Health Hub</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Inter Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet">
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: #f8f9ff;
+            color: #0b1c30;
         }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                "FILL" 0,
+                "wght" 500,
+                "GRAD" 0,
+                "opsz" 24;
+        }
+
+        .insurance-card {
+            box-shadow:
+                0 8px 30px rgba(15, 61, 120, 0.07);
+        }
+
+        .soft-shadow {
+            box-shadow:
+                0 5px 20px rgba(0, 61, 155, 0.08);
+        }
+
+        .company-modal {
+            animation: modalIn 0.25s ease-out;
+        }
+
+        @keyframes modalIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        .upload-area {
+            transition: all 0.25s ease;
+        }
+
+        .upload-area:hover {
+            transform: translateY(-2px);
+            background: #f0f9ff;
+        }
+
+        .company-item {
+            transition: all 0.2s ease;
+        }
+
+        .company-item:hover {
+            transform: translateX(4px);
+            background: #eff6ff;
+        }
+
     </style>
 
-    <link rel="stylesheet"
-href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 </head>
+
 
 <body class="min-h-screen">
 
-    <!-- Header -->
-    <div class="bg-white shadow-md py-5 px-8">
-        <h1 class="text-4xl font-bold text-blue-700">
-            Health Insurance
-        </h1>
-    </div>
 
-    <div class="max-w-4xl mx-auto py-12 px-6">
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-        <!-- Main Card -->
-        <div class="bg-white rounded-3xl shadow-lg p-10">
+    <header class="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-40">
 
-            <!-- Icon -->
-            <div class="flex justify-center mb-6">
+        <div class="max-w-6xl mx-auto px-5 md:px-8">
 
-                <div class="w-28 h-28 rounded-full bg-blue-100
-                            flex items-center justify-center">
+            <div class="h-[76px] flex items-center justify-between">
 
-                    <span class="text-5xl">🛡️</span>
+                <!-- Logo -->
+                <a
+                    href="index.html"
+                    class="flex items-center gap-3 text-[#0B4DA2]">
+
+                    <span
+                        class="material-symbols-outlined text-[30px]">
+                        medical_services
+                    </span>
+
+                    <span class="text-2xl font-bold">
+                        Health Hub
+                    </span>
+
+                </a>
+
+
+                <!-- Navigation -->
+                <div class="flex items-center gap-4">
+
+                    <a
+                        href="index.html"
+                        class="hidden sm:block text-gray-600 font-medium hover:text-[#0B4DA2] transition">
+
+                        Home
+
+                    </a>
+
+                    <a
+                        href="my-health.html"
+                        class="border-2 border-[#159F00]
+                               text-[#159F00]
+                               px-5 py-2.5
+                               rounded-xl
+                               font-semibold
+                               hover:bg-[#159F00]
+                               hover:text-white
+                               transition-all">
+
+                        Health Insights
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="max-w-5xl mx-auto px-5 md:px-8 py-10 md:py-14">
+
+
+        <!-- =====================================================
+             TOP INTRODUCTION
+        ====================================================== -->
+
+        <section class="relative bg-white rounded-[28px] insurance-card
+                        px-6 md:px-10 py-8 mb-8">
+
+            <div class="flex flex-col md:flex-row
+                        items-center justify-between gap-7">
+
+
+                <!-- Insurance Icon -->
+
+                <div class="flex flex-col items-center text-center">
+
+                    <div
+                        class="w-[92px] h-[92px]
+                               rounded-full
+                               bg-[#dbeafe]
+                               flex items-center justify-center
+                               shadow-sm">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-[#0B4DA2]
+                                   text-[50px]">
+
+                            shield
+
+                        </span>
+
+                    </div>
+
+                    <h1
+                        class="mt-4 text-2xl md:text-3xl
+                               font-bold text-[#0B4DA2]">
+
+                        Health Insurance
+
+                    </h1>
+
+                    <p class="text-sm text-gray-500 mt-1">
+
+                        Manage your insurance policy details
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Company List Button -->
+
+                <button
+                    type="button"
+                    onclick="openCompanyList()"
+                    class="group w-full md:w-[270px]
+                           rounded-2xl
+                           border-2 border-[#12A4D9]
+                           bg-white
+                           px-6 py-5
+                           text-left
+                           hover:bg-[#f0f9ff]
+                           hover:shadow-lg
+                           transition-all duration-300">
+
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-12 h-12
+                                   rounded-xl
+                                   bg-[#e0f2fe]
+                                   flex items-center justify-center
+                                   group-hover:bg-[#12A4D9]
+                                   transition">
+
+                            <span
+                                class="material-symbols-outlined
+                                       text-[#0797cc]
+                                       group-hover:text-white">
+
+                                business
+
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+            
+
+                            <p
+                                class="text-gray-900
+                                       font-bold text-lg">
+
+                                List of All
+                                <br class="hidden md:block">
+                                Insurance Companies
+
+                            </p>
+
+                        </div>
+
+
+                        <span
+                            class="material-symbols-outlined
+                                   ml-auto text-gray-400
+                                   group-hover:text-[#0797cc]
+                                   transition">
+
+                            arrow_forward_ios
+
+                        </span>
+
+                    </div>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             POLICY FORM
+        ====================================================== -->
+
+        <section
+            class="bg-white rounded-[28px]
+                   border border-gray-200
+                   insurance-card
+                   p-6 md:p-10">
+
+
+            <!-- Section Header -->
+
+            <div
+                class="flex items-start gap-4
+                       pb-7 mb-8
+                       border-b border-gray-200">
+
+                <div
+                    class="w-11 h-11
+                           rounded-xl
+                           bg-blue-50
+                           flex items-center justify-center
+                           flex-shrink-0">
+
+                    <span
+                        class="material-symbols-outlined
+                               text-[#0B4DA2]">
+
+                        description
+
+                    </span>
+
+                </div>
+
+                <div>
+
+                    <h2
+                        class="text-2xl md:text-3xl
+                               font-bold text-[#0B4DA2]">
+
+                        Insurance Policy Details
+
+                    </h2>
+
+                    <p
+                        class="text-gray-500 mt-1 text-sm md:text-base">
+
+                        Enter the details of your active health insurance policy.
+
+                    </p>
 
                 </div>
 
@@ -49,379 +347,1652 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wg
 
 
 
+            <!-- =================================================
+                 INSURANCE COMPANY
+            ================================================== -->
 
+            <div class="mb-8">
 
-            <!-- Policy Details Form -->
-            <div class="mt-10 bg-gray-50 border border-gray-200 rounded-3xl p-8">
+                <label
+                    class="block text-gray-800
+                           font-semibold text-base
+                           mb-3">
 
-                <h3 class="text-2xl font-bold text-blue-700 mb-6">
-                    Health Insurance policy which you have insuared.
-                </h3>
-
-                <!-- Insurance Company -->
-<!-- Insurance Company -->
-<div class="mb-8">
-
-    <label class="block text-gray-800 text-lg font-semibold mb-3">
-        Name of Insurance Company
-    </label>
-
-    <div class="relative">
-
-        <!-- Left Icon -->
-        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-blue-600">
-            business
-        </span>
-
-        <select
-            class="w-full h-14 pl-14 pr-12
-                   rounded-xl
-                   border border-blue-200
-                   bg-blue-50/50
-                   text-gray-800 text-lg
-                   shadow-sm
-                   appearance-none
-                   transition-all duration-200
-                   hover:border-blue-400
-                   focus:bg-white
-                   focus:border-blue-600
-                   focus:ring-4 focus:ring-blue-100
-                   focus:outline-none">
-
-            <option selected disabled>Select Insurance Company</option>
-
-            <option>Star Health Insurance</option>
-            <option>HDFC ERGO Health Insurance</option>
-            <option>ICICI Lombard Health Insurance</option>
-            <option>Care Health Insurance</option>
-            <option>Niva Bupa Health Insurance</option>
-
-        </select>
-
-        <!-- Custom Dropdown Arrow -->
-        <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
-            expand_more
-        </span>
-
-    </div>
-
-</div>
-<!-- Advisor Details -->
-<div class="mb-8">
-
-    <h4 class="text-gray-900 font-medium mb-4 font-medium">
-        Policy Advisor / Agent
-    </h4>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-        <!-- Agent Name -->
-        <div>
-
-            <label class="block text-gray-600 mb-2">
-                Name
-            </label>
-
-            <input
-                type="text"
-                placeholder="Enter Advisor Name"
-                class="w-full border-b-2 border-gray-400 bg-transparent py-2 focus:outline-none focus:border-blue-600">
-
-        </div>
-
-        <!-- Mobile -->
-        <div>
-
-            <label class="block text-gray-600 mb-2">
-                Mobile No.
-            </label>
-
-            <input
-                type="tel"
-                maxlength="10"
-                placeholder="10 Digit Mobile Number"
-                class="w-full border-b-2 border-gray-400 bg-transparent py-2 focus:outline-none focus:border-blue-600">
-
-        </div>
-
-    </div>
-
-</div>
-
-                <!-- Policy Number -->
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2">
-                        Policy No.
-                    </label>
-
-                    <input type="text" placeholder="123654789654123" class="w-full border-b-2 border-gray-400
-                   bg-transparent py-2
-                   focus:outline-none focus:border-blue-600">
-                </div>
-                <!-- Policy Period -->
-                <div class="mb-6">
-
-                    <label class="block text-gray-700 font-bold mb-4">
-                        Policy Period
-                    </label>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                        <!-- From -->
-                        <div class="flex items-center gap-3">
-
-                            <label class="font-semibold text-gray-600 whitespace-nowrap">
-                                From :
-                            </label>
-
-                            <input type="date" class="flex-1 border-b-2 border-gray-400
-                       bg-transparent py-2
-                       focus:outline-none focus:border-blue-600">
-
-                        </div>
-
-                        <!-- To -->
-                        <div class="flex items-center gap-3">
-
-                            <label class="font-semibold text-gray-600 whitespace-nowrap">
-                                To :
-                            </label>
-
-                            <input type="date" class="flex-1 border-b-2 border-gray-400
-                       bg-transparent py-2
-                       focus:outline-none focus:border-blue-600">
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- Product Plan -->
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-bold mb-2">
-                        Policy Product / Plan Name
-                    </label>
-
-                    <input type="text" placeholder="Family Health Shield Premium" class="w-full border-b-2 border-gray-400
-                   bg-transparent py-2
-                   focus:outline-none focus:border-blue-600">
-                </div>
-
-                <!-- Insured Members -->
-                <div>
-
-                    <div class="flex items-center justify-between mb-4">
-
-                        <label class="text-gray-700 font-bold text-lg">
-                            Name of Insured Family Members
-                        </label>
-
-                        <button type="button" onclick="addMemberField()"
-                            class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-
-                            + Add
-
-                        </button>
-
-                    </div>
-
-                    <div id="memberContainer">
-
-                        <input type="text" name="member[]" placeholder="1. Name of Member" class="member-input w-full border-b-2 border-gray-400
-                   bg-transparent py-2 mb-4
-                   focus:outline-none focus:border-blue-600">
-
-                    </div>
-
-                </div>
-
-
-                <!-- Heading -->
-                <h2 class="text-2xl font-bold text-center text-blue-700 mb-4 mt-6">
-                    Upload Insurance Documents
-                </h2>
-
-                <p class="text-center text-gray-600 text-lg mb-10">
-                    Upload your insurance card, policy document,
-                    claim papers or any supporting files.
-                </p>
-
-                <!-- Upload Area -->
-
-
-                <label for="insuranceFile" class="border-4 border-dashed border-sky-400
-                          rounded-3xl p-12 flex flex-col items-center
-                          justify-center cursor-pointer
-                          hover:bg-sky-50 transition-all mt-[70px]">
-
-                    <div class="text-6xl mb-4">
-                        📄
-                    </div>
-
-                    <p class="text-2xl font-bold text-sky-600">
-                        Click to Upload Files
-                    </p>
-
-                    <p class="text-gray-500 mt-2 text-center">
-                        PDF, Images, DOC, DOCX, XLS, XLSX, ZIP or any file format
-                    </p>
-
-                    <input type="file" id="insuranceFile" multiple class="hidden" accept="*/*">
+                    Name of Insurance Company
 
                 </label>
 
-            </div>
 
-            
-            <!-- File Preview -->
-            <div id="fileList" class="mt-8 space-y-4">
-            </div>
+                <div class="relative">
 
-            <!-- Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 mt-10">
+                    <span
+                        class="material-symbols-outlined
+                               absolute left-4 top-1/2
+                               -translate-y-1/2
+                               text-[#0B4DA2]
+                               pointer-events-none">
 
-                <button class="flex-1 bg-gray-200 text-gray-700
-               py-4 rounded-2xl font-bold text-lg
-               hover:bg-gray-300 transition-all">
+                        business
 
-                    Cancel
-
-                </button>
-
-                <button class="flex-1 bg-green-600 text-white
-               py-4 rounded-2xl font-bold text-lg
-               hover:bg-green-700 transition-all">
-
-                    Submit Documents
-
-                </button>
-
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Upload Success Popup -->
-<div
-    id="uploadPopup"
-    class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
-
-    <div class="bg-white rounded-3xl shadow-xl p-8 w-[90%] max-w-md text-center">
-
-        <div class="text-6xl mb-4">
-            ✅
-        </div>
-
-        <h2 class="text-2xl font-bold text-green-700 mb-3">
-            Documents Uploaded
-        </h2>
-
-        <p class="text-gray-600 mb-6">
-            Your insurance documents have been uploaded successfully.
-        </p>
-
-        <button
-            onclick="closePopup()"
-            class="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700">
-
-            OK
-
-        </button>
-
-    </div>
-
-</div>
-
-<script>
-
-    // -------------------------
-    // Add Family Member Fields
-    // -------------------------
-
-    function addMemberField() {
-
-        const container = document.getElementById("memberContainer");
-
-        const count =
-            container.querySelectorAll(".member-input").length + 1;
-
-        const input = document.createElement("input");
-
-        input.type = "text";
-        input.name = "member[]";
-        input.placeholder = `${count}. Name of Member`;
-
-        input.className =
-            "member-input w-full border-b-2 border-gray-400 bg-transparent py-2 mb-4 focus:outline-none focus:border-blue-600";
-
-        container.appendChild(input);
-
-    }
+                    </span>
 
 
-    // -------------------------
-    // File Upload Preview
-    // -------------------------
+                    <select
+                        id="insuranceCompany"
+                        name="insurance_company"
+                        class="w-full h-14
+                               pl-12 pr-12
+                               rounded-xl
+                               border border-blue-200
+                               bg-blue-50/40
+                               text-gray-800
+                               appearance-none
+                               outline-none
+                               transition
+                               hover:border-blue-400
+                               focus:border-blue-600
+                               focus:ring-4
+                               focus:ring-blue-100">
 
-    const fileInput = document.getElementById("insuranceFile");
-    const fileList = document.getElementById("fileList");
+                        <option value="" selected disabled>
+                            Select Insurance Company
+                        </option>
 
-    fileInput.addEventListener("change", function () {
+                        <option>
+                            Star Health Insurance
+                        </option>
 
-        fileList.innerHTML = "";
+                        <option>
+                            HDFC ERGO Health Insurance
+                        </option>
 
-        for (let file of this.files) {
+                        <option>
+                            ICICI Lombard Health Insurance
+                        </option>
 
-            const div = document.createElement("div");
+                        <option>
+                            Care Health Insurance
+                        </option>
 
-            div.className =
-                "bg-blue-50 border border-blue-200 rounded-2xl p-4 flex justify-between items-center";
+                        <option>
+                            Niva Bupa Health Insurance
+                        </option>
 
-            div.innerHTML = `
-                <div>
-                    <p class="font-bold text-blue-700">${file.name}</p>
+                    </select>
 
-                    <p class="text-gray-500 text-sm">
-                        ${(file.size / 1024 / 1024).toFixed(2)} MB
-                    </p>
+
+                    <span
+                        class="material-symbols-outlined
+                               absolute right-4 top-1/2
+                               -translate-y-1/2
+                               text-gray-500
+                               pointer-events-none">
+
+                        expand_more
+
+                    </span>
+
                 </div>
 
-                <span class="bg-green-100 text-green-700 px-4 py-2 rounded-full font-semibold">
-                    Ready
-                </span>
-            `;
+                <p
+                    class="text-xs text-gray-500 mt-2">
 
-            fileList.appendChild(div);
+                    Select the insurance company that issued your policy.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 POLICY ADVISOR
+            ================================================== -->
+
+            <div class="mb-8">
+
+                <h3
+                    class="text-lg font-semibold
+                           text-gray-800 mb-5">
+
+                    Policy Advisor / Agent
+
+                </h3>
+
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2
+                           gap-6">
+
+
+                    <!-- Advisor Name -->
+
+                    <div>
+
+                        <label
+                            class="block text-sm
+                                   font-medium
+                                   text-gray-600 mb-2">
+
+                            Name
+
+                        </label>
+
+                        <div class="relative">
+
+                            <span
+                                class="material-symbols-outlined
+                                       absolute left-0 top-1/2
+                                       -translate-y-1/2
+                                       text-gray-400">
+
+                                person
+
+                            </span>
+
+                            <input
+                                type="text"
+                                name="advisor_name"
+                                placeholder="Enter Advisor Name"
+                                class="w-full
+                                       pl-8 py-3
+                                       border-b-2
+                                       border-gray-300
+                                       bg-transparent
+                                       outline-none
+                                       focus:border-blue-600
+                                       transition">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Mobile Number -->
+
+                    <div>
+
+                        <label
+                            class="block text-sm
+                                   font-medium
+                                   text-gray-600 mb-2">
+
+                            Mobile No.
+
+                        </label>
+
+                        <div class="relative">
+
+                            <span
+                                class="material-symbols-outlined
+                                       absolute left-0 top-1/2
+                                       -translate-y-1/2
+                                       text-gray-400">
+
+                                phone
+
+                            </span>
+
+                            <input
+                                type="tel"
+                                id="advisorMobile"
+                                name="advisor_mobile"
+                                maxlength="10"
+                                inputmode="numeric"
+                                placeholder="10 Digit Mobile Number"
+                                class="w-full
+                                       pl-8 py-3
+                                       border-b-2
+                                       border-gray-300
+                                       bg-transparent
+                                       outline-none
+                                       focus:border-blue-600
+                                       transition">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 POLICY NUMBER
+            ================================================== -->
+
+            <div class="mb-8">
+
+                <label
+                    class="block text-gray-800
+                           font-semibold mb-2">
+
+                    Policy No.
+
+                </label>
+
+                <div class="relative">
+
+                    <span
+                        class="material-symbols-outlined
+                               absolute left-0 top-1/2
+                               -translate-y-1/2
+                               text-gray-400">
+
+                        badge
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="policy_number"
+                        placeholder="Enter Policy Number"
+                        class="w-full
+                               pl-8 py-3
+                               border-b-2
+                               border-gray-300
+                               bg-transparent
+                               outline-none
+                               focus:border-blue-600
+                               transition">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 POLICY PERIOD
+            ================================================== -->
+
+            <div class="mb-8">
+
+                <label
+                    class="block text-gray-800
+                           font-semibold mb-4">
+
+                    Policy Period
+
+                </label>
+
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2
+                           gap-6">
+
+
+                    <!-- From -->
+
+                    <div>
+
+                        <label
+                            class="block text-sm
+                                   text-gray-600 mb-2">
+
+                            From
+
+                        </label>
+
+                        <div class="relative">
+
+                            <span
+                                class="material-symbols-outlined
+                                       absolute left-0 top-1/2
+                                       -translate-y-1/2
+                                       text-blue-500">
+
+                                calendar_today
+
+                            </span>
+
+                            <input
+                                type="date"
+                                name="policy_from"
+                                class="w-full
+                                       pl-8 py-3
+                                       border-b-2
+                                       border-gray-300
+                                       bg-transparent
+                                       outline-none
+                                       focus:border-blue-600
+                                       transition">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- To -->
+
+                    <div>
+
+                        <label
+                            class="block text-sm
+                                   text-gray-600 mb-2">
+
+                            To
+
+                        </label>
+
+                        <div class="relative">
+
+                            <span
+                                class="material-symbols-outlined
+                                       absolute left-0 top-1/2
+                                       -translate-y-1/2
+                                       text-blue-500">
+
+                                event
+
+                            </span>
+
+                            <input
+                                type="date"
+                                name="policy_to"
+                                class="w-full
+                                       pl-8 py-3
+                                       border-b-2
+                                       border-gray-300
+                                       bg-transparent
+                                       outline-none
+                                       focus:border-blue-600
+                                       transition">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 POLICY PLAN
+            ================================================== -->
+
+            <div class="mb-8">
+
+                <label
+                    class="block text-gray-800
+                           font-semibold mb-2">
+
+                    Policy Product / Plan Name
+
+                </label>
+
+                <div class="relative">
+
+                    <span
+                        class="material-symbols-outlined
+                               absolute left-0 top-1/2
+                               -translate-y-1/2
+                               text-gray-400">
+
+                        verified
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="policy_plan"
+                        placeholder="Family Health Shield Premium"
+                        class="w-full
+                               pl-8 py-3
+                               border-b-2
+                               border-gray-300
+                               bg-transparent
+                               outline-none
+                               focus:border-blue-600
+                               transition">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INSURED FAMILY MEMBERS
+            ================================================== -->
+
+            <div class="mb-10">
+
+                <div
+                    class="flex flex-col sm:flex-row
+                           sm:items-center
+                           justify-between gap-3 mb-4">
+
+                    <div>
+
+                        <h3
+                            class="text-lg font-semibold
+                                   text-gray-800">
+
+                            Name of Insured Family Members
+
+                        </h3>
+
+                        <p class="text-sm text-gray-500 mt-1">
+
+                            Add all family members covered under this policy.
+
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        onclick="addMemberField()"
+                        class="w-fit
+                               bg-blue-600
+                               text-white
+                               px-5 py-2.5
+                               rounded-xl
+                               font-semibold
+                               hover:bg-blue-700
+                               transition
+                               flex items-center gap-2">
+
+                        <span
+                            class="material-symbols-outlined text-[20px]">
+
+                            add
+
+                        </span>
+
+                        Add Member
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="memberContainer"
+                    class="space-y-3">
+
+
+                    <!-- First Member -->
+
+                    <div class="member-row flex items-center gap-3">
+
+                        <span
+                            class="member-number
+                                   w-8 h-8
+                                   rounded-full
+                                   bg-blue-50
+                                   text-blue-600
+                                   flex items-center
+                                   justify-center
+                                   text-sm font-bold
+                                   flex-shrink-0">
+
+                            1
+
+                        </span>
+
+                        <input
+                            type="text"
+                            name="member[]"
+                            placeholder="Name of Member"
+                            class="member-input flex-1
+                                   border-b-2
+                                   border-gray-300
+                                   bg-transparent
+                                   py-2
+                                   outline-none
+                                   focus:border-blue-600
+                                   transition">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DOCUMENT UPLOAD
+            ================================================== -->
+
+            <div
+                class="border-t border-gray-200
+                       pt-9">
+
+
+                <div class="text-center mb-7">
+
+                    <div
+                        class="w-12 h-12
+                               rounded-xl
+                               bg-blue-50
+                               mx-auto mb-3
+                               flex items-center
+                               justify-center">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-blue-600
+                                   text-[27px]">
+
+                            cloud_upload
+
+                        </span>
+
+                    </div>
+
+
+                    <h2
+                        class="text-2xl font-bold
+                               text-[#0B4DA2]">
+
+                        Upload Insurance Documents
+
+                    </h2>
+
+                    <p
+                        class="text-gray-500
+                               text-sm mt-2">
+
+                        Upload your insurance card, policy document,
+                        claim papers or any supporting files.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Upload Area -->
+
+                <label
+                    for="insuranceFile"
+                    class="upload-area
+                           border-2
+                           border-dashed
+                           border-sky-400
+                           bg-sky-50/30
+                           rounded-2xl
+                           px-6 py-10
+                           flex flex-col
+                           items-center
+                           justify-center
+                           cursor-pointer">
+
+                    <div
+                        class="w-16 h-16
+                               rounded-full
+                               bg-white
+                               flex items-center
+                               justify-center
+                               shadow-sm mb-4">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-sky-500
+                                   text-[34px]">
+
+                            upload_file
+
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        class="text-lg
+                               font-bold
+                               text-sky-600">
+
+                        Click to Upload Files
+
+                    </p>
+
+
+                    <p
+                        class="text-gray-500
+                               text-sm mt-2
+                               text-center">
+
+                        PDF, Images, DOC, DOCX, XLS, XLSX, ZIP
+                        or any file format
+
+                    </p>
+
+
+                    <input
+                        type="file"
+                        id="insuranceFile"
+                        name="insurance_files[]"
+                        multiple
+                        class="hidden"
+                        accept="*/*">
+
+                </label>
+
+
+
+                <!-- File Preview -->
+
+                <div
+                    id="fileList"
+                    class="mt-6 space-y-3">
+                </div>
+
+
+
+                <!-- Buttons -->
+
+                <div
+                    class="flex flex-col sm:flex-row
+                           gap-4 mt-8">
+
+
+                    <button
+                        type="button"
+                        onclick="resetForm()"
+                        class="flex-1
+                               border-2
+                               border-gray-300
+                               bg-gray-100
+                               text-gray-700
+                               py-3.5
+                               rounded-xl
+                               font-semibold
+                               hover:bg-gray-200
+                               transition">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="submitDocuments()"
+                        class="flex-1
+                               bg-green-600
+                               text-white
+                               py-3.5
+                               rounded-xl
+                               font-semibold
+                               hover:bg-green-700
+                               transition
+                               shadow-sm">
+
+                        Submit Documents
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         INSURANCE COMPANY LIST MODAL
+    ========================================================== -->
+
+    <div
+        id="companyModal"
+        class="fixed inset-0
+               bg-black/50
+               backdrop-blur-sm
+               hidden
+               items-center
+               justify-center
+               z-50
+               px-4">
+
+
+        <div
+            class="company-modal
+                   bg-white
+                   rounded-3xl
+                   shadow-2xl
+                   w-full
+                   max-w-lg
+                   max-h-[85vh]
+                   overflow-hidden">
+
+
+            <!-- Modal Header -->
+
+            <div
+                class="bg-[#eff6ff]
+                       px-6 py-5
+                       border-b border-blue-100
+                       flex items-center
+                       justify-between">
+
+                <div class="flex items-center gap-3">
+
+                    <div
+                        class="w-11 h-11
+                               rounded-xl
+                               bg-white
+                               flex items-center
+                               justify-center
+                               shadow-sm">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-[#0B4DA2]">
+
+                            business
+
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2
+                            class="text-lg
+                                   font-bold
+                                   text-[#0B4DA2]">
+
+                            Insurance Companies
+
+                        </h2>
+
+                        <p
+                            class="text-xs
+                                   text-gray-500">
+
+                            Select from available providers
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="closeCompanyList()"
+                    class="w-9 h-9
+                           rounded-full
+                           flex items-center
+                           justify-center
+                           hover:bg-white
+                           text-gray-500
+                           transition">
+
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Company List -->
+
+            <div
+                class="p-5 overflow-y-auto
+                       max-h-[60vh]
+                       space-y-2">
+
+
+                <button
+                    type="button"
+                    onclick="selectCompany('Star Health Insurance')"
+                    class="company-item w-full
+                           flex items-center gap-4
+                           p-4 rounded-xl
+                           text-left
+                           border border-gray-100">
+
+                    <div
+                        class="w-10 h-10
+                               rounded-lg
+                               bg-blue-50
+                               flex items-center
+                               justify-center">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-blue-600">
+
+                            shield
+
+                        </span>
+
+                    </div>
+
+                    <div class="flex-1">
+
+                        <p class="font-semibold text-gray-800">
+                            Star Health Insurance
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            Health Insurance Provider
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined
+                               text-gray-400">
+
+                        chevron_right
+
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="selectCompany('HDFC ERGO Health Insurance')"
+                    class="company-item w-full
+                           flex items-center gap-4
+                           p-4 rounded-xl
+                           text-left
+                           border border-gray-100">
+
+                    <div
+                        class="w-10 h-10
+                               rounded-lg
+                               bg-blue-50
+                               flex items-center
+                               justify-center">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-blue-600">
+
+                            shield
+
+                        </span>
+
+                    </div>
+
+                    <div class="flex-1">
+
+                        <p class="font-semibold text-gray-800">
+                            HDFC ERGO Health Insurance
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            Health Insurance Provider
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined
+                               text-gray-400">
+
+                        chevron_right
+
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="selectCompany('ICICI Lombard Health Insurance')"
+                    class="company-item w-full
+                           flex items-center gap-4
+                           p-4 rounded-xl
+                           text-left
+                           border border-gray-100">
+
+                    <div
+                        class="w-10 h-10
+                               rounded-lg
+                               bg-blue-50
+                               flex items-center
+                               justify-center">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-blue-600">
+
+                            shield
+
+                        </span>
+
+                    </div>
+
+                    <div class="flex-1">
+
+                        <p class="font-semibold text-gray-800">
+                            ICICI Lombard Health Insurance
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            Health Insurance Provider
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined
+                               text-gray-400">
+
+                        chevron_right
+
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="selectCompany('Care Health Insurance')"
+                    class="company-item w-full
+                           flex items-center gap-4
+                           p-4 rounded-xl
+                           text-left
+                           border border-gray-100">
+
+                    <div
+                        class="w-10 h-10
+                               rounded-lg
+                               bg-blue-50
+                               flex items-center
+                               justify-center">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-blue-600">
+
+                            shield
+
+                        </span>
+
+                    </div>
+
+                    <div class="flex-1">
+
+                        <p class="font-semibold text-gray-800">
+                            Care Health Insurance
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            Health Insurance Provider
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined
+                               text-gray-400">
+
+                        chevron_right
+
+                    </span>
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="selectCompany('Niva Bupa Health Insurance')"
+                    class="company-item w-full
+                           flex items-center gap-4
+                           p-4 rounded-xl
+                           text-left
+                           border border-gray-100">
+
+                    <div
+                        class="w-10 h-10
+                               rounded-lg
+                               bg-blue-50
+                               flex items-center
+                               justify-center">
+
+                        <span
+                            class="material-symbols-outlined
+                                   text-blue-600">
+
+                            shield
+
+                        </span>
+
+                    </div>
+
+                    <div class="flex-1">
+
+                        <p class="font-semibold text-gray-800">
+                            Niva Bupa Health Insurance
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            Health Insurance Provider
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="material-symbols-outlined
+                               text-gray-400">
+
+                        chevron_right
+
+                    </span>
+
+                </button>
+
+            </div>
+
+
+
+            <!-- Modal Footer -->
+
+            <div
+                class="px-6 py-4
+                       bg-gray-50
+                       border-t border-gray-200">
+
+                <button
+                    type="button"
+                    onclick="closeCompanyList()"
+                    class="w-full
+                           py-3
+                           rounded-xl
+                           border border-gray-300
+                           bg-white
+                           text-gray-700
+                           font-semibold
+                           hover:bg-gray-100
+                           transition">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         SUCCESS POPUP
+    ========================================================== -->
+
+    <div
+        id="uploadPopup"
+        class="fixed inset-0
+               bg-black/50
+               backdrop-blur-sm
+               hidden
+               items-center
+               justify-center
+               z-50
+               px-4">
+
+
+        <div
+            class="bg-white
+                   rounded-3xl
+                   shadow-xl
+                   p-8
+                   w-full
+                   max-w-md
+                   text-center">
+
+
+            <div
+                class="w-20 h-20
+                       rounded-full
+                       bg-green-100
+                       flex items-center
+                       justify-center
+                       mx-auto mb-5">
+
+                <span
+                    class="material-symbols-outlined
+                           text-green-600
+                           text-[45px]">
+
+                    check_circle
+
+                </span>
+
+            </div>
+
+
+            <h2
+                class="text-2xl
+                       font-bold
+                       text-green-700
+                       mb-3">
+
+                Documents Uploaded
+
+            </h2>
+
+
+            <p
+                class="text-gray-600
+                       mb-6">
+
+                Your insurance documents have been uploaded successfully.
+
+            </p>
+
+
+            <button
+                onclick="closePopup()"
+                class="bg-blue-600
+                       text-white
+                       px-8 py-3
+                       rounded-xl
+                       font-semibold
+                       hover:bg-blue-700
+                       transition">
+
+                OK
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+
+        /* ============================================
+           COMPANY LIST
+        ============================================ */
+
+        function openCompanyList() {
+
+            const modal =
+                document.getElementById("companyModal");
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+            document.body.style.overflow = "hidden";
 
         }
 
-        // Show Success Popup
-        // if (this.files.length > 0) {
 
-        //     const popup = document.getElementById("uploadPopup");
+        function closeCompanyList() {
 
-        //     popup.classList.remove("hidden");
-        //     popup.classList.add("flex");
+            const modal =
+                document.getElementById("companyModal");
 
-        // }
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
 
-    });
+            document.body.style.overflow = "";
+
+        }
 
 
-    // -------------------------
-    // Close Popup
-    // -------------------------
+        function selectCompany(companyName) {
 
-    function closePopup() {
+            const select =
+                document.getElementById("insuranceCompany");
 
-        const popup = document.getElementById("uploadPopup");
+            select.value = companyName;
 
-        popup.classList.remove("flex");
-        popup.classList.add("hidden");
+            closeCompanyList();
 
-    }
+            select.classList.add("ring-4", "ring-blue-100");
 
-</script>
+            setTimeout(() => {
+
+                select.classList.remove(
+                    "ring-4",
+                    "ring-blue-100"
+                );
+
+            }, 700);
+
+        }
+
+
+
+        /* ============================================
+           ADD FAMILY MEMBER
+        ============================================ */
+
+        function addMemberField() {
+
+            const container =
+                document.getElementById("memberContainer");
+
+            const count =
+                container.querySelectorAll(".member-row").length + 1;
+
+
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "member-row flex items-center gap-3";
+
+
+            row.innerHTML = `
+
+                <span
+                    class="member-number
+                           w-8 h-8
+                           rounded-full
+                           bg-blue-50
+                           text-blue-600
+                           flex items-center
+                           justify-center
+                           text-sm font-bold
+                           flex-shrink-0">
+
+                    ${count}
+
+                </span>
+
+
+                <input
+                    type="text"
+                    name="member[]"
+                    placeholder="Name of Member"
+                    class="member-input flex-1
+                           border-b-2
+                           border-gray-300
+                           bg-transparent
+                           py-2
+                           outline-none
+                           focus:border-blue-600
+                           transition">
+
+
+                <button
+                    type="button"
+                    onclick="removeMember(this)"
+                    class="w-8 h-8
+                           rounded-full
+                           flex items-center
+                           justify-center
+                           text-red-500
+                           hover:bg-red-50
+                           transition">
+
+                    <span
+                        class="material-symbols-outlined text-[20px]">
+
+                        close
+
+                    </span>
+
+                </button>
+
+            `;
+
+
+            container.appendChild(row);
+
+        }
+
+
+
+        /* ============================================
+           REMOVE FAMILY MEMBER
+        ============================================ */
+
+        function removeMember(button) {
+
+            const row =
+                button.closest(".member-row");
+
+            row.remove();
+
+            updateMemberNumbers();
+
+        }
+
+
+
+        function updateMemberNumbers() {
+
+            const rows =
+                document.querySelectorAll(".member-row");
+
+            rows.forEach((row, index) => {
+
+                const number =
+                    row.querySelector(".member-number");
+
+                number.textContent = index + 1;
+
+            });
+
+        }
+
+
+
+        /* ============================================
+           MOBILE NUMBER
+        ============================================ */
+
+        const advisorMobile =
+            document.getElementById("advisorMobile");
+
+
+        advisorMobile.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value
+                        .replace(/[^0-9]/g, "")
+                        .slice(0, 10);
+
+            }
+        );
+
+
+
+        /* ============================================
+           FILE UPLOAD PREVIEW
+        ============================================ */
+
+        const fileInput =
+            document.getElementById("insuranceFile");
+
+        const fileList =
+            document.getElementById("fileList");
+
+
+        fileInput.addEventListener(
+            "change",
+            function () {
+
+                fileList.innerHTML = "";
+
+
+                for (const file of this.files) {
+
+                    const div =
+                        document.createElement("div");
+
+
+                    div.className =
+                        "bg-blue-50
+                         border border-blue-200
+                         rounded-xl
+                         p-4
+                         flex items-center
+                         justify-between gap-4";
+
+
+                    const size =
+                        file.size < 1024 * 1024
+                            ? (file.size / 1024).toFixed(1) + " KB"
+                            : (file.size / (1024 * 1024)).toFixed(2) + " MB";
+
+
+                    div.innerHTML = `
+
+                        <div class="flex items-center gap-3 min-w-0">
+
+                            <div
+                                class="w-10 h-10
+                                       rounded-lg
+                                       bg-white
+                                       flex items-center
+                                       justify-center
+                                       flex-shrink-0">
+
+                                <span
+                                    class="material-symbols-outlined
+                                           text-blue-600">
+
+                                    description
+
+                                </span>
+
+                            </div>
+
+
+                            <div class="min-w-0">
+
+                                <p
+                                    class="font-semibold
+                                           text-blue-700
+                                           truncate">
+
+                                    ${escapeHtml(file.name)}
+
+                                </p>
+
+                                <p class="text-xs text-gray-500">
+
+                                    ${size}
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <span
+                            class="bg-green-100
+                                   text-green-700
+                                   px-3 py-1
+                                   rounded-full
+                                   text-xs
+                                   font-semibold
+                                   flex-shrink-0">
+
+                            Ready
+
+                        </span>
+
+                    `;
+
+
+                    fileList.appendChild(div);
+
+                }
+
+            }
+        );
+
+
+
+        /* ============================================
+           ESCAPE FILE NAME
+        ============================================ */
+
+        function escapeHtml(value) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent = value;
+
+            return div.innerHTML;
+
+        }
+
+
+
+        /* ============================================
+           RESET FORM
+        ============================================ */
+
+        function resetForm() {
+
+            document
+                .querySelectorAll("input")
+                .forEach(input => {
+
+                    if (input.type !== "file") {
+                        input.value = "";
+                    }
+
+                });
+
+
+            document.getElementById(
+                "insuranceCompany"
+            ).selectedIndex = 0;
+
+
+            fileInput.value = "";
+
+            fileList.innerHTML = "";
+
+
+            const container =
+                document.getElementById("memberContainer");
+
+
+            container.innerHTML = `
+
+                <div class="member-row flex items-center gap-3">
+
+                    <span
+                        class="member-number
+                               w-8 h-8
+                               rounded-full
+                               bg-blue-50
+                               text-blue-600
+                               flex items-center
+                               justify-center
+                               text-sm font-bold
+                               flex-shrink-0">
+
+                        1
+
+                    </span>
+
+                    <input
+                        type="text"
+                        name="member[]"
+                        placeholder="Name of Member"
+                        class="member-input flex-1
+                               border-b-2
+                               border-gray-300
+                               bg-transparent
+                               py-2
+                               outline-none
+                               focus:border-blue-600
+                               transition">
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        /* ============================================
+           SUBMIT
+        ============================================ */
+
+        function submitDocuments() {
+
+            const company =
+                document.getElementById(
+                    "insuranceCompany"
+                ).value;
+
+
+            if (!company) {
+
+                alert(
+                    "Please select an Insurance Company."
+                );
+
+                return;
+
+            }
+
+
+            const popup =
+                document.getElementById(
+                    "uploadPopup"
+                );
+
+
+            popup.classList.remove("hidden");
+            popup.classList.add("flex");
+
+        }
+
+
+
+        /* ============================================
+           CLOSE SUCCESS POPUP
+        ============================================ */
+
+        function closePopup() {
+
+            const popup =
+                document.getElementById(
+                    "uploadPopup"
+                );
+
+            popup.classList.remove("flex");
+            popup.classList.add("hidden");
+
+        }
+
+
+
+        /* ============================================
+           CLOSE MODALS WITH ESC
+        ============================================ */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeCompanyList();
+                    closePopup();
+
+                }
+
+            }
+        );
+
+
+    </script>
 
 </body>
 
