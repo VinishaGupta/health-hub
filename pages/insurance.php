@@ -5,13 +5,12 @@
 | HEALTH INSURANCE - USER MODULE
 |--------------------------------------------------------------------------
 | MOCK DATA ONLY
-| Database will be connected later.
+| No database / API used for now.
 |--------------------------------------------------------------------------
 */
 
-
 /* ==========================================================
-   MOCK DATA
+   MOCK INSURANCE COMPANIES
 ========================================================== */
 
 $insuranceCompanies = [
@@ -36,30 +35,47 @@ $insuranceCompanies = [
 
     [
         'id' => 4,
-        'name' => 'Niva Bupa Health Insurance',
-        'website' => 'https://www.nivabupa.com/'
+        'name' => 'Care Health Insurance',
+        'website' => 'https://www.careinsurance.com/'
     ],
 
     [
         'id' => 5,
-        'name' => 'Care Health Insurance',
-        'website' => 'https://www.careinsurance.com/'
+        'name' => 'Niva Bupa Health Insurance',
+        'website' => 'https://www.nivabupa.com/'
     ],
 
     [
         'id' => 6,
         'name' => 'Aditya Birla Health Insurance',
         'website' => 'https://www.adityabirlacapital.com/healthinsurance'
+    ],
+
+    [
+        'id' => 7,
+        'name' => 'ManipalCigna Health Insurance',
+        'website' => 'https://www.manipalcigna.com/'
+    ],
+
+    [
+        'id' => 8,
+        'name' => 'Tata AIG Health Insurance',
+        'website' => 'https://www.tataaig.com/'
+    ],
+
+    [
+        'id' => 9,
+        'name' => 'Bajaj Allianz Health Insurance',
+        'website' => 'https://www.bajajallianz.com/'
+    ],
+
+    [
+        'id' => 10,
+        'name' => 'Reliance General Insurance',
+        'website' => 'https://www.reliancegeneral.co.in/'
     ]
 
 ];
-
-
-/* ==========================================================
-   MOCK SELECTED COMPANIES
-========================================================== */
-
-$selectedInsurance = [1, 3, 5];
 
 ?>
 
@@ -92,7 +108,7 @@ $selectedInsurance = [1, 3, 5];
     >
 
 
-    <!-- Google Font -->
+    <!-- Inter Font -->
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -100,7 +116,7 @@ $selectedInsurance = [1, 3, 5];
     >
 
 
-    <!-- INSURANCE CSS -->
+    <!-- Insurance CSS -->
 
     <link
         rel="stylesheet"
@@ -117,7 +133,7 @@ $selectedInsurance = [1, 3, 5];
 
 
     <!-- ==================================================
-                    INSURANCE SELECTION
+                    SELECTION PAGE
     =================================================== -->
 
     <div
@@ -131,19 +147,44 @@ $selectedInsurance = [1, 3, 5];
         <div class="section-header">
 
             <h1>
-                Health Insurance
+
+                Health Insurance Company
+
             </h1>
 
             <p>
+
                 Select the health insurance companies
-                accepted by your hospital.
+                accepted by your medical firm.
+
             </p>
 
         </div>
 
 
         <!-- ==================================================
-                        SEARCH
+                    TOP ACTION
+        =================================================== -->
+
+        <div class="insurance-top-actions">
+
+            <button
+                type="button"
+                id="viewInsuranceCompanies"
+                class="secondary-btn"
+            >
+
+                <i class="fa-solid fa-building"></i>
+
+                View Insurance Companies
+
+            </button>
+
+        </div>
+
+
+        <!-- ==================================================
+                    SEARCH
         =================================================== -->
 
         <div class="insurance-search">
@@ -168,7 +209,9 @@ $selectedInsurance = [1, 3, 5];
             Selected :
 
             <span id="insuranceSelectedCount">
-                <?= count($selectedInsurance) ?>
+
+                0
+
             </span>
 
         </div>
@@ -183,49 +226,7 @@ $selectedInsurance = [1, 3, 5];
             id="insuranceList"
         >
 
-
-            <?php foreach ($insuranceCompanies as $company): ?>
-
-                <?php
-
-                $isSelected =
-                    in_array(
-                        $company['id'],
-                        $selectedInsurance
-                    );
-
-                ?>
-
-                <div
-                    class="insurance-card <?= $isSelected ? 'selected' : '' ?>"
-                    data-id="<?= $company['id'] ?>"
-                    data-name="<?= htmlspecialchars($company['name']) ?>"
-                >
-
-                    <!-- CHECK -->
-
-                    <div class="insurance-check">
-
-                        <i class="fa-solid fa-check"></i>
-
-                    </div>
-
-
-                    <!-- COMPANY INFO -->
-
-                    <div class="insurance-company-info">
-
-                        <h3>
-                            <?= htmlspecialchars($company['name']) ?>
-                        </h3>
-
-                    </div>
-
-
-                </div>
-
-            <?php endforeach; ?>
-
+            <!-- Javascript inserts companies here -->
 
         </div>
 
@@ -263,9 +264,10 @@ $selectedInsurance = [1, 3, 5];
     </div>
 
 
+
     <!-- ==================================================
                 INSURANCE COMPANY DIRECTORY
-    =================================================== -->
+    ================================================== -->
 
     <div
         class="section-card"
@@ -274,21 +276,32 @@ $selectedInsurance = [1, 3, 5];
     >
 
 
+        <!-- HEADER -->
+
         <div class="section-header">
 
             <h1>
+
                 Insurance Company Directory
+
             </h1>
 
             <p>
-                View all insurance companies available
-                in the system.
+
+                View all insurance companies registered
+                by Project Admin.
+
+                Click the Website button to visit
+                the official website.
+
             </p>
 
         </div>
 
 
-        <!-- BACK -->
+        <!-- ==================================================
+                    BACK BUTTON
+        =================================================== -->
 
         <div class="insurance-back-row">
 
@@ -307,7 +320,9 @@ $selectedInsurance = [1, 3, 5];
         </div>
 
 
-        <!-- TABLE -->
+        <!-- ==================================================
+                    TABLE
+        =================================================== -->
 
         <div class="table-responsive">
 
@@ -318,15 +333,21 @@ $selectedInsurance = [1, 3, 5];
                     <tr>
 
                         <th>
+
                             Sr. No.
+
                         </th>
 
                         <th>
+
                             Company Name
+
                         </th>
 
                         <th>
+
                             Website
+
                         </th>
 
                     </tr>
@@ -334,45 +355,9 @@ $selectedInsurance = [1, 3, 5];
                 </thead>
 
 
-                <tbody>
+                <tbody id="insuranceCompanyTableBody">
 
-                    <?php
-
-                    $sr = 1;
-
-                    foreach ($insuranceCompanies as $company):
-
-                    ?>
-
-                        <tr>
-
-                            <td>
-                                <?= $sr++ ?>
-                            </td>
-
-                            <td>
-                                <?= htmlspecialchars($company['name']) ?>
-                            </td>
-
-                            <td>
-
-                                <a
-                                    href="<?= htmlspecialchars($company['website']) ?>"
-                                    target="_blank"
-                                    class="website-btn"
-                                >
-
-                                    Visit Website
-
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-                                </a>
-
-                            </td>
-
-                        </tr>
-
-                    <?php endforeach; ?>
+                    <!-- Javascript -->
 
                 </tbody>
 
@@ -387,11 +372,48 @@ $selectedInsurance = [1, 3, 5];
 </div>
 
 
+
+<!-- ==================================================
+                    JAVASCRIPT DATA
+================================================== -->
+
+<script>
+
+const mockInsuranceCompanies =
+<?= json_encode(
+    $insuranceCompanies,
+    JSON_UNESCAPED_UNICODE |
+    JSON_UNESCAPED_SLASHES
+) ?>;
+
+</script>
+
+
 <!-- ==================================================
                     INSURANCE JS
-=================================================== -->
+================================================== -->
 
 <script src="../js/insurance.js"></script>
+
+
+<script>
+
+/*
+|--------------------------------------------------------------------------
+| Initialize
+|--------------------------------------------------------------------------
+*/
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        initializeInsurance();
+
+    }
+);
+
+</script>
 
 
 </body>

@@ -1,0 +1,709 @@
+/* ==========================================================
+                    INSURANCE PAGE
+========================================================== */
+
+.insurance-page {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+/* ==========================================================
+                    SECTION CARD
+========================================================== */
+
+.insurance-page .section-card {
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 8px 30px rgba(15, 23, 42, 0.08);
+
+    border: 1px solid #e5e7eb;
+
+}
+
+
+/* ==========================================================
+                    HEADER
+========================================================== */
+
+.insurance-page .section-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.insurance-page .section-header h1 {
+
+    margin: 0;
+
+    color: #0B4DA2;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+}
+
+
+.insurance-page .section-header p {
+
+    margin-top: 8px;
+
+    color: #6b7280;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================================
+                TOP ACTIONS
+========================================================== */
+
+.insurance-top-actions {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* ==========================================================
+                    BUTTONS
+========================================================== */
+
+.insurance-page .primary-btn,
+.insurance-page .secondary-btn {
+
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 12px 22px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+}
+
+
+.insurance-page .primary-btn {
+
+    background: #0ea5e9;
+
+    color: white;
+
+}
+
+
+.insurance-page .primary-btn:hover {
+
+    background: #0284c7;
+
+    transform: translateY(-1px);
+
+}
+
+
+.insurance-page .secondary-btn {
+
+    background: white;
+
+    color: #0ea5e9;
+
+    border: 2px solid #0ea5e9;
+
+}
+
+
+.insurance-page .secondary-btn:hover {
+
+    background: #0ea5e9;
+
+    color: white;
+
+}
+
+
+/* ==========================================================
+                    SEARCH
+========================================================== */
+
+.insurance-search {
+
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 15px;
+
+}
+
+
+.insurance-search i {
+
+    position: absolute;
+
+    left: 18px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #64748b;
+
+}
+
+
+.insurance-search input {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    height: 52px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    padding:
+        0
+        18px
+        0
+        48px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: .2s;
+
+}
+
+
+.insurance-search input:focus {
+
+    border-color: #0ea5e9;
+
+    box-shadow:
+        0 0 0 4px rgba(14, 165, 233, .12);
+
+}
+
+
+/* ==========================================================
+                SELECTED COUNT
+========================================================== */
+
+.selected-info {
+
+    margin-bottom: 20px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #475569;
+
+}
+
+
+.selected-info span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 28px;
+
+    height: 28px;
+
+    margin-left: 5px;
+
+    padding: 0 8px;
+
+    border-radius: 999px;
+
+    background: #e0f2fe;
+
+    color: #0369a1;
+
+    font-weight: 800;
+
+}
+
+
+/* ==========================================================
+                INSURANCE LIST
+========================================================== */
+
+.insurance-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+/* ==========================================================
+                ITEM
+========================================================== */
+
+.insurance-item {
+
+    width: 100%;
+
+}
+
+
+.insurance-item input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+/* ==========================================================
+                INSURANCE CARD
+========================================================== */
+
+.insurance-card {
+
+    min-height: 78px;
+
+    padding: 14px 18px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    background: white;
+
+    transition: all .25s ease;
+
+}
+
+
+.insurance-card:hover {
+
+    border-color: #7dd3fc;
+
+    background: #f8fdff;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==========================================================
+                LEFT SIDE
+========================================================== */
+
+.insurance-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+/* ==========================================================
+                COMPANY BADGE
+========================================================== */
+
+.insurance-badge {
+
+    width: 48px;
+
+    height: 48px;
+
+    min-width: 48px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e0f2fe;
+
+    color: #0369a1;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+}
+
+
+/* ==========================================================
+                COMPANY INFO
+========================================================== */
+
+.insurance-company-info h4 {
+
+    margin: 0;
+
+    color: #1e293b;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+}
+
+
+.insurance-company-info p {
+
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+}
+
+
+/* ==========================================================
+                CHECK ICON
+========================================================== */
+
+.insurance-check {
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    border: 2px solid #cbd5e1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: transparent;
+
+    transition: all .25s ease;
+
+}
+
+
+.insurance-check i {
+
+    font-size: 14px;
+
+}
+
+
+/* ==========================================================
+                SELECTED CARD
+========================================================== */
+
+.insurance-item input:checked
++ .insurance-card {
+
+    border-color: #0ea5e9;
+
+    background: #f0f9ff;
+
+    box-shadow:
+        0 5px 18px rgba(14, 165, 233, .12);
+
+}
+
+
+.insurance-item input:checked
++ .insurance-card .insurance-check {
+
+    background: #0ea5e9;
+
+    border-color: #0ea5e9;
+
+    color: white;
+
+}
+
+
+/* ==========================================================
+                    NO RESULT
+========================================================== */
+
+.insurance-no-result {
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #64748b;
+
+    border: 2px dashed #d1d5db;
+
+    border-radius: 14px;
+
+}
+
+
+/* ==========================================================
+                    BUTTON ROW
+========================================================== */
+
+.insurance-page .button-row {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+/* ==========================================================
+                DIRECTORY
+========================================================== */
+
+.insurance-back-row {
+
+    margin-bottom: 25px;
+
+}
+
+
+/* ==========================================================
+                TABLE RESPONSIVE
+========================================================== */
+
+.table-responsive {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+/* ==========================================================
+                INSURANCE TABLE
+========================================================== */
+
+.insurance-company-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 650px;
+
+}
+
+
+.insurance-company-table th {
+
+    background: #eff6ff;
+
+    color: #0B4DA2;
+
+    text-align: left;
+
+    padding: 16px;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    border-bottom: 2px solid #dbeafe;
+
+}
+
+
+.insurance-company-table td {
+
+    padding: 16px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #334155;
+
+    font-size: 15px;
+
+}
+
+
+.insurance-company-table tbody tr {
+
+    transition: .2s;
+
+}
+
+
+.insurance-company-table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+/* ==========================================================
+                WEBSITE BUTTON
+========================================================== */
+
+.visit-insurance-btn {
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================================
+                    MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .insurance-page {
+
+        padding: 15px;
+
+    }
+
+
+    .insurance-page .section-card {
+
+        padding: 20px;
+
+        border-radius: 15px;
+
+    }
+
+
+    .insurance-page .section-header h1 {
+
+        font-size: 25px;
+
+    }
+
+
+    .insurance-top-actions {
+
+        justify-content: stretch;
+
+    }
+
+
+    .insurance-top-actions .secondary-btn {
+
+        width: 100%;
+
+    }
+
+
+    .insurance-card {
+
+        padding: 12px;
+
+    }
+
+
+    .insurance-company-info h4 {
+
+        font-size: 15px;
+
+    }
+
+
+    .insurance-company-info p {
+
+        font-size: 12px;
+
+    }
+
+
+    .insurance-badge {
+
+        width: 42px;
+
+        height: 42px;
+
+        min-width: 42px;
+
+    }
+
+
+    .insurance-page .button-row {
+
+        flex-direction: column;
+
+    }
+
+
+    .insurance-page .button-row button {
+
+        width: 100%;
+
+    }
+
+}
