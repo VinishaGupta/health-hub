@@ -2,220 +2,909 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Photo Bank</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        body{
-            background:#f8f9ff;
-            font-family:Arial, Helvetica, sans-serif;
-            margin:0;
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
         }
 
-        .photo-card img{
-            width:100%;
-            height:260px;
-            object-fit:cover;
-            border-radius:12px;
-            cursor:pointer;
-            transition:.3s;
-            box-shadow:0 5px 15px rgba(0,0,0,.12);
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
         }
 
-        .photo-card img:hover{
-            transform:scale(1.04);
+        body {
+            background: #f8f9ff;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        #imagePopup{
-            position:fixed;
-            inset:0;
-            background:rgba(0,0,0,.85);
-            display:none;
-            justify-content:center;
-            align-items:center;
-            z-index:9999;
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .hospital-header {
+            position: relative;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
         }
 
-        #imagePopup img{
-            max-width:90%;
-            max-height:90%;
-            border-radius:12px;
-            box-shadow:0 0 30px rgba(0,0,0,.5);
+
+        .header-container {
+            max-width: 1280px;
+            margin: auto;
+
+            padding: 32px 40px;
+
+            display: flex;
+            align-items: center;
         }
 
-        #closeBtn{
-            position:absolute;
-            top:20px;
-            right:35px;
-            color:white;
-            font-size:55px;
-            cursor:pointer;
-            font-weight:bold;
-            transition:.3s;
-            user-select:none;
+
+        .hospital-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            width: 100%;
         }
 
-        #closeBtn:hover{
-            color:#ff4d4d;
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        .back-button {
+            position: absolute;
+
+            left: 24px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #0B4DA2;
+
+            font-size: 24px;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: .3s;
         }
+
+        .back-button:hover {
+            color: #2563eb;
+            transform: translateY(-50%) translateX(-2px);
+        }
+
+
+        /* =====================================================
+           LOGO
+        ===================================================== */
+
+        .hospital-logo {
+            width: 112px;
+            height: 112px;
+
+            border-radius: 50%;
+
+            border: 4px solid #0ea5e9;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            color: #0B4DA2;
+
+            background: white;
+        }
+
+
+        /* =====================================================
+           HOSPITAL NAME
+        ===================================================== */
+
+        .hospital-details {
+            min-width: 0;
+        }
+
+        .hospital-name {
+            margin: 0;
+
+            font-size: 36px;
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            color: #0B4DA2;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        .hospital-location {
+            margin: 8px 0 0;
+
+            font-size: 20px;
+            line-height: 1.4;
+
+            font-weight: 700;
+
+            color: #006878;
+
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =====================================================
+           PHOTO SECTION
+        ===================================================== */
+
+        .photo-section {
+            max-width: 1280px;
+
+            margin: auto;
+
+            padding: 64px 32px;
+        }
+
+
+        .photo-heading {
+            margin: 0 0 32px;
+
+            font-size: 32px;
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            color: #0B4DA2;
+        }
+
+
+        /* =====================================================
+           PHOTO GRID
+        ===================================================== */
+
+        .photo-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 48px;
+        }
+
+
+        .photo-card {
+            text-align: center;
+
+            min-width: 0;
+        }
+
+
+        .photo-card img {
+            width: 100%;
+            height: 260px;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            transition: transform .3s ease;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .12);
+
+            display: block;
+        }
+
+
+        .photo-card img:hover {
+            transform: scale(1.04);
+        }
+
+
+        .photo-title {
+            margin-top: 20px;
+
+            font-size: 20px;
+            line-height: 1.4;
+
+            font-weight: 600;
+
+            color: #111827;
+        }
+
+
+        /* =====================================================
+           IMAGE POPUP
+        ===================================================== */
+
+        #imagePopup {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, .85);
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            z-index: 9999;
+        }
+
+
+        #imagePopup img {
+            max-width: 90%;
+            max-height: 90%;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+        }
+
+
+        #closeBtn {
+            position: absolute;
+
+            top: 15px;
+            right: 25px;
+
+            color: white;
+
+            font-size: 50px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            line-height: 1;
+
+            transition: .3s;
+
+            user-select: none;
+
+            z-index: 10000;
+        }
+
+
+        #closeBtn:hover {
+            color: #ff4d4d;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 1024px) {
+
+            .back-button {
+                left: 18px;
+                font-size: 21px;
+            }
+
+            .header-container {
+                padding: 28px 30px 28px 100px;
+            }
+
+            .hospital-logo {
+                width: 95px;
+                height: 95px;
+            }
+
+            .hospital-name {
+                font-size: 32px;
+            }
+
+            .hospital-location {
+                font-size: 18px;
+            }
+
+            .photo-section {
+                padding: 50px 24px;
+            }
+
+            .photo-grid {
+                gap: 28px;
+            }
+
+            .photo-card img {
+                height: 230px;
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            /* -----------------------------------------------
+               HEADER
+            ------------------------------------------------ */
+
+            .hospital-header {
+                width: 100%;
+            }
+
+
+            .header-container {
+                padding: 20px 16px;
+
+                display: block;
+            }
+
+
+            /* Back button moves to its own row */
+
+            .back-button {
+                position: static;
+
+                transform: none;
+
+                margin-bottom: 18px;
+
+                font-size: 20px;
+            }
+
+
+            .back-button:hover {
+                transform: translateX(-2px);
+            }
+
+
+            /* Hospital information */
+
+            .hospital-info {
+                display: flex;
+
+                align-items: flex-start;
+
+                gap: 14px;
+
+                width: 100%;
+            }
+
+
+            /* -----------------------------------------------
+               LOGO
+            ------------------------------------------------ */
+
+            .hospital-logo {
+                width: 72px;
+                height: 72px;
+
+                min-width: 72px;
+
+                border-width: 3px;
+
+                font-size: 16px;
+            }
+
+
+            /* -----------------------------------------------
+               HOSPITAL DETAILS
+            ------------------------------------------------ */
+
+            .hospital-details {
+                flex: 1;
+
+                min-width: 0;
+            }
+
+
+            .hospital-name {
+                font-size: 26px;
+
+                line-height: 1.15;
+            }
+
+
+            .hospital-location {
+                font-size: 16px;
+
+                line-height: 1.4;
+
+                margin-top: 6px;
+            }
+
+
+            /* -----------------------------------------------
+               PHOTO SECTION
+            ------------------------------------------------ */
+
+            .photo-section {
+                padding: 32px 16px 45px;
+            }
+
+
+            .photo-heading {
+                font-size: 28px;
+
+                margin-bottom: 24px;
+            }
+
+
+            /* -----------------------------------------------
+               PHOTO GRID
+            ------------------------------------------------ */
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+
+                gap: 28px;
+            }
+
+
+            .photo-card {
+                width: 100%;
+            }
+
+
+            .photo-card img {
+                width: 100%;
+
+                height: 220px;
+
+                border-radius: 12px;
+            }
+
+
+            .photo-title {
+                margin-top: 12px;
+
+                font-size: 18px;
+            }
+
+
+            /* -----------------------------------------------
+               POPUP
+            ------------------------------------------------ */
+
+            #imagePopup {
+                padding: 15px;
+            }
+
+
+            #imagePopup img {
+                max-width: 96%;
+                max-height: 82%;
+            }
+
+
+            #closeBtn {
+                top: 12px;
+                right: 16px;
+
+                font-size: 42px;
+            }
+
+        }
+
+
+        /* =====================================================
+           SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            .header-container {
+                padding: 16px 12px;
+            }
+
+
+            .back-button {
+                font-size: 18px;
+
+                margin-bottom: 14px;
+            }
+
+
+            .hospital-info {
+                gap: 11px;
+            }
+
+
+            .hospital-logo {
+                width: 62px;
+                height: 62px;
+
+                min-width: 62px;
+
+                font-size: 14px;
+            }
+
+
+            .hospital-name {
+                font-size: 22px;
+            }
+
+
+            .hospital-location {
+                font-size: 14px;
+            }
+
+
+            .photo-section {
+                padding: 28px 12px 40px;
+            }
+
+
+            .photo-heading {
+                font-size: 25px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .photo-grid {
+                gap: 24px;
+            }
+
+
+            .photo-card img {
+                height: 200px;
+            }
+
+
+            .photo-title {
+                font-size: 16px;
+            }
+
+
+            #closeBtn {
+                font-size: 38px;
+
+                right: 12px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= Hospital Header ================= -->
 
-<section class=" shadow-sm border-b">
+<!-- =====================================================
+     HOSPITAL HEADER
+===================================================== -->
 
-<div class="absolute top-6 left-6 py-[55px]">
-    <a href="home.html"
-       class="inline-flex items-center gap-2
-              text-[#0B4DA2]
-              text-3xl font-bold
-              hover:text-blue-700
-              transition-all duration-300">
+<section class="hospital-header">
+
+
+    <!-- Back Button -->
+
+    <a
+        href="home.html"
+        class="back-button"
+    >
 
         <span>&larr;</span>
+
         <span>Back</span>
 
     </a>
-</div>
 
-    <div class="max-w-7xl mx-auto px-10 py-8 flex items-center gap-8">
 
-        <!-- Logo -->
-  <div class="max-w-7xl mx-auto  flex items-center gap-6">
+    <!-- Header Content -->
 
-    <div class="w-28 h-28 rounded-full border-4 border-sky-500 flex items-center justify-center text-xl font-bold text-[#0B4DA2]">
+    <div class="header-container">
 
-        Logo
 
-    </div>
+        <div class="hospital-info">
 
-    <div>
 
-        <h1 class="text-4xl font-bold text-[#0B4DA2]">
-            Hospital's Name
-        </h1>
+            <!-- Logo -->
 
-        <p class="text-xl font-bold text-[#006878] mt-2">
-            Location
-        </p>
+            <div class="hospital-logo">
 
-    </div>
+                Logo
 
-</div>
+            </div>
+
+
+            <!-- Hospital Information -->
+
+            <div class="hospital-details">
+
+                <h1 class="hospital-name">
+
+                    Hospital's Name
+
+                </h1>
+
+
+                <p class="hospital-location">
+
+                    Location
+
+                </p>
+
+            </div>
+
+
         </div>
 
+
     </div>
+
 
 </section>
 
-<!-- ================= Photo Bank ================= -->
 
-<section class="max-w-7xl mx-auto py-16 px-8">
 
-<h1 class="text-3xl font-bold text-[#0B4DA2] mb-8">        Photo Bank
+<!-- =====================================================
+     PHOTO BANK
+===================================================== -->
+
+<section class="photo-section">
+
+
+    <h1 class="photo-heading">
+
+        Photo Bank
+
     </h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
 
-        <!-- Photo 1 -->
-        <div class="photo-card text-center">
-            <img src="images/emmy_180711_0097.jpg"
-                 alt="Patient Care"
-                 onclick="openImage(this.src)">
-            <p class="mt-5 text-xl font-semibold">
+    <div class="photo-grid">
+
+
+        <!-- =================================================
+             PHOTO 1
+        ================================================== -->
+
+        <div class="photo-card">
+
+            <img
+                src="images/emmy_180711_0097.jpg"
+                alt="Patient Care"
+                onclick="openImage(this.src)"
+            >
+
+            <p class="photo-title">
+
                 Patient Care
+
             </p>
+
         </div>
 
-        <!-- Photo 2 -->
-        <div class="photo-card text-center">
-            <img src="images/hospital-emergency-room-stockcake.jpg"
-                 alt="Emergency Room"
-                 onclick="openImage(this.src)">
-            <p class="mt-5 text-xl font-semibold">
+
+
+        <!-- =================================================
+             PHOTO 2
+        ================================================== -->
+
+        <div class="photo-card">
+
+            <img
+                src="images/hospital-emergency-room-stockcake.jpg"
+                alt="Emergency Room"
+                onclick="openImage(this.src)"
+            >
+
+            <p class="photo-title">
+
                 Emergency Room
+
             </p>
+
         </div>
 
-        <!-- Photo 3 -->
-        <div class="photo-card text-center">
-            <img src="images/images (9).jpg"
-                 alt="Hospital Ward"
-                 onclick="openImage(this.src)">
-            <p class="mt-5 text-xl font-semibold">
+
+
+        <!-- =================================================
+             PHOTO 3
+        ================================================== -->
+
+        <div class="photo-card">
+
+            <img
+                src="images/images (9).jpg"
+                alt="Hospital Ward"
+                onclick="openImage(this.src)"
+            >
+
+            <p class="photo-title">
+
                 Hospital Ward
+
             </p>
+
         </div>
 
-        <!-- Photo 4 -->
-        <div class="photo-card text-center">
-            <img src="images/images (10).jpg"
-                 alt="Patient Room"
-                 onclick="openImage(this.src)">
-            <p class="mt-5 text-xl font-semibold">
+
+
+        <!-- =================================================
+             PHOTO 4
+        ================================================== -->
+
+        <div class="photo-card">
+
+            <img
+                src="images/images (10).jpg"
+                alt="Patient Room"
+                onclick="openImage(this.src)"
+            >
+
+            <p class="photo-title">
+
                 Patient Room
+
             </p>
+
         </div>
 
-        <!-- Photo 5 -->
-        <div class="photo-card text-center">
-            <img src="images/images (11).jpg"
-                 alt="ICU"
-                 onclick="openImage(this.src)">
-            <p class="mt-5 text-xl font-semibold">
+
+
+        <!-- =================================================
+             PHOTO 5
+        ================================================== -->
+
+        <div class="photo-card">
+
+            <img
+                src="images/images (11).jpg"
+                alt="ICU"
+                onclick="openImage(this.src)"
+            >
+
+            <p class="photo-title">
+
                 ICU
+
             </p>
+
         </div>
 
-        <!-- Photo 6 -->
-        <div class="photo-card text-center">
-            <img src="images/images (12).jpg"
-                 alt="Operation Theatre"
-                 onclick="openImage(this.src)">
-            <p class="mt-5 text-xl font-semibold">
+
+
+        <!-- =================================================
+             PHOTO 6
+        ================================================== -->
+
+        <div class="photo-card">
+
+            <img
+                src="images/images (12).jpg"
+                alt="Operation Theatre"
+                onclick="openImage(this.src)"
+            >
+
+            <p class="photo-title">
+
                 Operation Theatre
+
             </p>
+
         </div>
+
 
     </div>
 
+
 </section>
 
-<!-- ================= Image Popup ================= -->
+
+
+<!-- =====================================================
+     IMAGE POPUP
+===================================================== -->
 
 <div id="imagePopup">
 
-    <span id="closeBtn" onclick="closeImage()">&times;</span>
 
-    <img id="popupImage">
+    <span
+        id="closeBtn"
+        onclick="closeImage()"
+    >
+
+        &times;
+
+    </span>
+
+
+    <img
+        id="popupImage"
+        alt="Enlarged hospital photo"
+    >
+
 
 </div>
 
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-function openImage(src){
 
-    document.getElementById("popupImage").src = src;
-    document.getElementById("imagePopup").style.display = "flex";
+function openImage(src) {
+
+    const popup = document.getElementById("imagePopup");
+
+    const image = document.getElementById("popupImage");
+
+    image.src = src;
+
+    popup.style.display = "flex";
+
+    document.body.style.overflow = "hidden";
 
 }
 
-function closeImage(){
 
-    document.getElementById("imagePopup").style.display = "none";
+function closeImage() {
+
+    const popup = document.getElementById("imagePopup");
+
+    popup.style.display = "none";
+
+    document.body.style.overflow = "";
 
 }
 
-// Close when clicking outside image
-document.getElementById("imagePopup").addEventListener("click",function(e){
 
-    if(e.target.id==="imagePopup"){
+document
+    .getElementById("imagePopup")
+    .addEventListener("click", function(e) {
+
+        if (e.target.id === "imagePopup") {
+
+            closeImage();
+
+        }
+
+    });
+
+
+document.addEventListener("keydown", function(e) {
+
+    if (e.key === "Escape") {
 
         closeImage();
 
@@ -223,18 +912,10 @@ document.getElementById("imagePopup").addEventListener("click",function(e){
 
 });
 
-// Close with ESC key
-document.addEventListener("keydown",function(e){
-
-    if(e.key==="Escape"){
-
-        closeImage();
-
-    }
-
-});
 
 </script>
 
+
 </body>
+
 </html>
