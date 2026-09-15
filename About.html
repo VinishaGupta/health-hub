@@ -21,49 +21,404 @@
 
     <style>
 
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: #f8f9ff;
             margin: 0;
+            width: 100%;
+            overflow-x: hidden;
         }
+
+        /* =========================================================
+           HOSPITAL LOGO
+        ========================================================= */
 
         .hospital-logo {
             width: 95px;
             height: 95px;
             border: 4px solid #14a5d8;
             border-radius: 9999px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 22px;
             font-weight: 700;
             color: #0B4DA2;
             background: #fff;
+
             flex-shrink: 0;
         }
 
+
+        /* =========================================================
+           HOSPITAL NAME
+        ========================================================= */
+
         #hospitalName {
             transition: opacity .35s ease;
+            overflow-wrap: anywhere;
         }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .hospital-header-container {
+            width: 100%;
+        }
+
+        .hospital-header-main {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .hospital-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .hospital-details {
+            min-width: 0;
+            flex: 1;
+        }
+
+
+        /* =========================================================
+           RIGHT BUTTONS
+        ========================================================= */
+
+        .hospital-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            flex-shrink: 0;
+            width: 280px;
+        }
+
+        .hospital-buttons a {
+            width: 100%;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+
+        /* =========================================================
+           MANAGED BY
+        ========================================================= */
+
+        .managed-by {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .managed-by-text {
+            line-height: 1.6;
+        }
+
+        .managed-by-name {
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+
+        /* =========================================================
+           ESTABLISHMENT
+        ========================================================= */
+
+        .established-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
 
         @media (max-width: 768px) {
 
-            .header {
-                padding: 16px;
+            /* Header */
+            .hospital-header-container {
+                padding: 20px 16px !important;
+            }
+
+            .hospital-header-main {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .hospital-info {
+                width: 100%;
+                gap: 16px;
             }
 
             .hospital-logo {
-                width: 70px;
-                height: 70px;
-                font-size: 18px;
+                width: 72px;
+                height: 72px;
+                min-width: 72px;
+                font-size: 17px;
+                border-width: 3px;
+            }
+
+            .hospital-details {
+                width: calc(100% - 88px);
+            }
+
+
+            /* Short name */
+            .short-name {
+                font-size: 12px !important;
+            }
+
+
+            /* Hospital name */
+            #hospitalName {
+                font-size: 27px !important;
+                line-height: 1.15 !important;
+                margin-top: 4px !important;
+            }
+
+
+            /* Managed by */
+            .managed-by {
+                display: block;
+                margin-top: 10px !important;
+            }
+
+            .managed-by-text {
+                display: block;
+                font-size: 14px !important;
+                margin-bottom: 8px;
+            }
+
+            .managed-by-name {
+                display: block;
+                width: 100%;
+                padding: 10px 14px !important;
+                font-size: 14px !important;
+                border-radius: 18px !important;
+            }
+
+
+            /* Established */
+            .established-row {
+                margin-top: 12px !important;
+                gap: 7px;
+            }
+
+            .established-row .material-symbols-outlined {
+                font-size: 19px !important;
+            }
+
+            .established-label {
+                font-size: 14px !important;
+            }
+
+            .established-date {
+                font-size: 14px !important;
+                padding: 7px 12px !important;
+            }
+
+
+            /* Location */
+            .location-row {
+                margin-top: 12px !important;
+            }
+
+            .location-row .material-symbols-outlined {
+                font-size: 21px !important;
+            }
+
+            .location-row p {
+                font-size: 19px !important;
+            }
+
+
+            /* Buttons */
+            .hospital-buttons {
+                width: 100%;
+                margin: 0 !important;
+                gap: 10px;
+            }
+
+            .hospital-buttons a {
+                padding: 13px 16px !important;
+                font-size: 15px !important;
+                border-radius: 14px !important;
+            }
+
+
+            /* Main content */
+            .main-container {
+                padding: 32px 16px !important;
+            }
+
+
+            /* Page heading */
+            .page-heading {
+                margin-bottom: 30px !important;
+            }
+
+            .page-heading h1 {
+                font-size: 34px !important;
+                line-height: 1.15 !important;
+            }
+
+            .page-heading p {
+                font-size: 16px !important;
+                line-height: 1.6 !important;
+                margin-top: 12px !important;
+            }
+
+
+            /* Management button */
+            .management-section {
+                margin-top: -5px !important;
+                margin-bottom: 30px !important;
+            }
+
+            .management-section a {
+                width: 100%;
+                justify-content: center;
+                font-size: 16px !important;
+                padding: 13px 18px !important;
+            }
+
+
+            /* Medical cards */
+            .medical-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+
+            .medical-card {
+                padding: 20px !important;
+                border-radius: 16px !important;
+            }
+
+            .medical-card h3 {
+                font-size: 18px !important;
+                line-height: 1.3;
+            }
+
+            .medical-card-content {
+                font-size: 16px !important;
+                line-height: 1.6;
+            }
+
+
+            /* Insurance card */
+            .insurance-card {
+                grid-column: auto !important;
+            }
+
+
+            /* Address */
+            .address-section {
+                margin-top: 22px !important;
+                padding: 22px 18px !important;
+                border-radius: 16px !important;
+            }
+
+            .address-grid {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+
+            .address-grid h2 {
+                font-size: 21px !important;
+                margin-bottom: 14px !important;
+            }
+
+            .address-text {
+                font-size: 16px !important;
+                line-height: 1.8 !important;
+            }
+
+        }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 400px) {
+
+            .hospital-header-container {
+                padding: 18px 12px !important;
+            }
+
+            .hospital-info {
+                gap: 12px;
+            }
+
+            .hospital-logo {
+                width: 62px;
+                height: 62px;
+                min-width: 62px;
+                font-size: 15px;
+            }
+
+            .hospital-details {
+                width: calc(100% - 74px);
             }
 
             #hospitalName {
-                font-size: 26px !important;
+                font-size: 23px !important;
             }
 
-            .location {
-                font-size: 16px !important;
+            .short-name {
+                font-size: 11px !important;
+            }
+
+            .managed-by-text {
+                font-size: 13px !important;
+            }
+
+            .managed-by-name {
+                font-size: 13px !important;
+            }
+
+            .page-heading h1 {
+                font-size: 30px !important;
+            }
+
+            .page-heading p {
+                font-size: 15px !important;
+            }
+
+            .medical-card {
+                padding: 17px !important;
+            }
+
+            .address-section {
+                padding: 18px 15px !important;
+            }
+
+            .address-text {
+                font-size: 15px !important;
             }
 
         }
@@ -82,12 +437,17 @@
 
 <section class="border-b shadow-sm bg-white">
 
-    <div class="max-w-7xl mx-auto px-8 py-6">
+    <div class="max-w-7xl mx-auto px-8 py-6 hospital-header-container">
 
-        <div class="flex justify-between items-center w-full gap-10">
+        <div class="hospital-header-main">
 
-            <!-- Left -->
-            <div class="flex items-center gap-6 flex-1">
+
+            <!-- ================================================= -->
+            <!-- HOSPITAL INFORMATION -->
+            <!-- ================================================= -->
+
+            <div class="hospital-info">
+
 
                 <!-- Logo -->
                 <div class="hospital-logo">
@@ -96,11 +456,14 @@
 
 
                 <!-- Hospital Details -->
-                <div class="flex flex-col">
+                <div class="hospital-details">
+
 
                     <!-- Short Name -->
-                    <p class="text-sm font-semibold text-indigo-600 tracking-wide uppercase">
+                    <p class="short-name text-sm font-semibold text-indigo-600 tracking-wide uppercase">
+
                         Short Name
+
                     </p>
 
 
@@ -115,13 +478,18 @@
 
 
                     <!-- Managed By -->
-                    <div class="mt-2 inline-flex items-center gap-2 flex-wrap">
+                    <div class="managed-by mt-2">
 
-                        <span class="text-sm font-semibold text-gray-700">
+
+                        <span class="managed-by-text text-sm font-semibold text-gray-700">
+
                             Managed by / Promoted by / Conducted by
+
                         </span>
 
-                        <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
+
+                        <span
+                            class="managed-by-name px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
 
                             India Youth Old Welfare Society, New Delhi
 
@@ -131,62 +499,85 @@
 
 
                     <!-- Establishment Date -->
-                    <div class="mt-3 flex items-center gap-2">
+                    <div class="established-row mt-3">
+
 
                         <span class="material-symbols-outlined text-[#0B4DA2] text-[20px]">
+
                             calendar_month
+
                         </span>
 
-                        <span class="text-sm font-semibold text-gray-700">
+
+                        <span class="established-label text-sm font-semibold text-gray-700">
+
                             Established
+
                         </span>
 
-                        <span class="px-3 py-1 rounded-full bg-blue-50 text-[#0B4DA2] text-sm font-semibold">
+
+                        <span
+                            class="established-date px-3 py-1 rounded-full bg-blue-50 text-[#0B4DA2] text-sm font-semibold">
+
                             05 June 2010
+
                         </span>
 
                     </div>
 
 
                     <!-- Location -->
-                    <div class="mt-3 flex items-center gap-2">
+                    <div class="location-row mt-3 flex items-center gap-2">
+
 
                         <span class="material-symbols-outlined text-[#006878] text-[20px]">
+
                             location_on
+
                         </span>
 
+
                         <p class="text-xl font-semibold text-[#006878]">
+
                             Location
+
                         </p>
 
                     </div>
 
-                </div>
-
-
-                <!-- Right Side Buttons -->
-                <div class="flex flex-col gap-4 ml-auto mr-4">
-
-                    <a
-                        href="https://www.lifeline.com"
-                        class="px-8 py-4 border-4 border-sky-500 rounded-2xl text-lg font-semibold bg-white shadow">
-
-                        www.lifeline.com
-
-                    </a>
-
-
-                    <a
-                        href="https://maps.google.com"
-                        class="px-14 py-4 bg-blue-600 text-white rounded-2xl text-lg font-bold shadow">
-
-                        Google Link
-
-                    </a>
 
                 </div>
 
             </div>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT SIDE BUTTONS -->
+            <!-- ================================================= -->
+
+            <div class="hospital-buttons">
+
+
+                <a
+                    href="https://www.lifeline.com"
+                    class="px-8 py-4 border-4 border-sky-500 rounded-2xl text-lg font-semibold bg-white shadow">
+
+                    www.lifeline.com
+
+                </a>
+
+
+                <a
+                    href="https://maps.google.com"
+                    class="px-14 py-4 bg-blue-600 text-white rounded-2xl text-lg font-bold shadow">
+
+                    Google Link
+
+                </a>
+
+
+            </div>
+
 
         </div>
 
@@ -199,11 +590,15 @@
 <!-- MAIN CONTENT -->
 <!-- ========================================================= -->
 
-<div class="max-w-6xl mx-auto px-8 py-12">
+<div class="max-w-6xl mx-auto px-8 py-12 main-container">
 
 
-    <!-- Page Heading -->
-    <header class="mb-12">
+    <!-- ===================================================== -->
+    <!-- PAGE HEADING -->
+    <!-- ===================================================== -->
+
+    <header class="mb-12 page-heading">
+
 
         <h1 class="text-5xl md:text-5xl font-extrabold text-blue-700 leading-tight">
 
@@ -219,6 +614,7 @@
 
         </p>
 
+
     </header>
 
 
@@ -226,7 +622,8 @@
     <!-- MANAGEMENT BUTTON -->
     <!-- ===================================================== -->
 
-    <div class="mb-12 -mt-6">
+    <div class="mb-12 -mt-6 management-section">
+
 
         <a
             href="management.html"
@@ -239,13 +636,19 @@
                    transition-all duration-200
                    hover:-translate-y-0.5">
 
+
             <span class="material-symbols-outlined text-[24px]">
+
                 business
+
             </span>
+
 
             Management
 
+
         </a>
+
 
     </div>
 
@@ -254,11 +657,15 @@
     <!-- MEDICAL INFORMATION -->
     <!-- ===================================================== -->
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 medical-grid">
 
 
-        <!-- Distinct Medical Systems -->
-        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm">
+        <!-- ================================================= -->
+        <!-- DISTINCT MEDICAL SYSTEMS -->
+        <!-- ================================================= -->
+
+        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm medical-card">
+
 
             <h3 class="text-sky-500 text-xl font-bold border-b-4 border-sky-500 pb-2 inline-block">
 
@@ -267,17 +674,22 @@
             </h3>
 
 
-            <div class="mt-5 space-y-3 text-lg text-slate-700">
+            <div class="mt-5 space-y-3 text-lg text-slate-700 medical-card-content">
 
                 <p>Ayurveda</p>
 
             </div>
 
+
         </div>
 
 
-        <!-- Public Healthcare System -->
-        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm">
+        <!-- ================================================= -->
+        <!-- PUBLIC HEALTHCARE SYSTEM -->
+        <!-- ================================================= -->
+
+        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm medical-card">
+
 
             <h3 class="text-sky-500 text-xl font-bold border-b-4 border-sky-500 pb-2 inline-block">
 
@@ -286,18 +698,24 @@
             </h3>
 
 
-            <div class="mt-5 space-y-3 text-lg text-slate-700">
+            <div class="mt-5 space-y-3 text-lg text-slate-700 medical-card-content">
 
                 <p>Semi-Government Hospital</p>
+
                 <p>Charity Hospital</p>
 
             </div>
 
+
         </div>
 
 
-        <!-- Cure Center -->
-        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm">
+        <!-- ================================================= -->
+        <!-- CURE CENTER -->
+        <!-- ================================================= -->
+
+        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm medical-card">
+
 
             <h3 class="text-sky-500 text-xl font-bold border-b-4 border-sky-500 pb-2 inline-block">
 
@@ -306,19 +724,26 @@
             </h3>
 
 
-            <div class="mt-5 space-y-3 text-lg text-slate-700">
+            <div class="mt-5 space-y-3 text-lg text-slate-700 medical-card-content">
 
                 <p>Cardiology Hospital</p>
+
                 <p>Neurology Hospital</p>
+
                 <p>Dental Hospital</p>
 
             </div>
 
+
         </div>
 
 
-        <!-- Therapy Hub -->
-        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm">
+        <!-- ================================================= -->
+        <!-- THERAPY HUB -->
+        <!-- ================================================= -->
+
+        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm medical-card">
+
 
             <h3 class="text-sky-500 text-xl font-bold border-b-4 border-sky-500 pb-2 inline-block">
 
@@ -327,24 +752,37 @@
             </h3>
 
 
-            <div class="mt-5 space-y-3 text-lg text-slate-700">
+            <div class="mt-5 space-y-3 text-lg text-slate-700 medical-card-content">
 
                 <p>Autism Therapy</p>
+
                 <p>Autologous Immune Enhancement Therapy</p>
+
                 <p>Balneotherapy</p>
+
                 <p>Bioidentical Hormone Replacement Therapy</p>
+
                 <p>Biotherapy</p>
+
                 <p>Blood Irradiation Therapy</p>
+
                 <p>Brachytherapy</p>
+
                 <p>Cardiac Resynchronization Therapy</p>
 
             </div>
 
+
         </div>
 
 
-        <!-- Health Insurance Company -->
-        <div class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm lg:col-span-2">
+        <!-- ================================================= -->
+        <!-- HEALTH INSURANCE -->
+        <!-- ================================================= -->
+
+        <div
+            class="border border-gray-300 rounded-2xl p-6 bg-white shadow-sm lg:col-span-2 medical-card insurance-card">
+
 
             <h3 class="text-sky-500 text-xl font-bold border-b-4 border-sky-500 pb-2 inline-block">
 
@@ -353,15 +791,19 @@
             </h3>
 
 
-            <div class="mt-5 space-y-3 text-lg text-slate-700">
+            <div class="mt-5 space-y-3 text-lg text-slate-700 medical-card-content">
 
                 <p>HDFC Health Insurance</p>
+
                 <p>Star Health Insurance</p>
+
                 <p>ICICI Lombard Health Insurance</p>
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -370,11 +812,10 @@
     <!-- ADDRESS SECTION -->
     <!-- ===================================================== -->
 
-    <div class="bg-blue-50 rounded-2xl border border-blue-100 p-8 mt-[28px]">
+    <div class="bg-blue-50 rounded-2xl border border-blue-100 p-8 mt-[28px] address-section">
 
 
-        <!-- Two Addresses -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 address-grid">
 
 
             <!-- ================================================= -->
@@ -383,6 +824,7 @@
 
             <div>
 
+
                 <h2 class="text-2xl font-bold text-[#0B4DA2] mb-6">
 
                     Main Address
@@ -390,37 +832,49 @@
                 </h2>
 
 
-                <p class="text-xl leading-10 text-gray-800">
+                <p class="text-xl leading-10 text-gray-800 address-text">
+
 
                     <span class="font-bold">
+
                         Lifeline Multispeciality Hospital
+
                     </span>
+
 
                     <br><br>
 
+
                     Plot No. 42, Sunrise Medical Complex,
+
 
                     <br>
 
                     Medical Square Colony, Dhantoli,
 
+
                     <br>
 
                     Behind SBI Main Branch,
+
 
                     <br>
 
                     Opposite Government Medical College,
 
+
                     <br>
 
                     Nagpur Urban, Nagpur - 440010,
+
 
                     <br>
 
                     Maharashtra, India.
 
+
                 </p>
+
 
             </div>
 
@@ -431,6 +885,7 @@
 
             <div>
 
+
                 <h2 class="text-2xl font-bold text-[#0B4DA2] mb-6">
 
                     Second Address
@@ -438,42 +893,55 @@
                 </h2>
 
 
-                <p class="text-xl leading-10 text-gray-800">
+                <p class="text-xl leading-10 text-gray-800 address-text">
+
 
                     <span class="font-bold">
+
                         Lifeline Multispeciality Hospital - Branch
+
                     </span>
+
 
                     <br><br>
 
+
                     Enter second address here,
+
 
                     <br>
 
                     Enter street / road name,
 
+
                     <br>
 
                     Enter area / locality,
+
 
                     <br>
 
                     Enter landmark,
 
+
                     <br>
 
                     Nagpur - 4400XX,
+
 
                     <br>
 
                     Maharashtra, India.
 
+
                 </p>
+
 
             </div>
 
 
         </div>
+
 
     </div>
 
@@ -487,10 +955,13 @@
 
 <script>
 
+
     const hospitalNames = [
 
         "City Care Hospital",
+
         "सिटी केयर हॉस्पिटल",
+
         "সিটি কেয়ার হাসপাতাল"
 
     ];
@@ -501,22 +972,30 @@
 
     setInterval(() => {
 
+
         const title = document.getElementById("hospitalName");
+
 
         title.style.opacity = "0";
 
 
         setTimeout(() => {
 
+
             current = (current + 1) % hospitalNames.length;
+
 
             title.textContent = hospitalNames[current];
 
+
             title.style.opacity = "1";
+
 
         }, 300);
 
+
     }, 2500);
+
 
 </script>
 
