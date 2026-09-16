@@ -1,89 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hospital Instructions</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<style>
-    body{
-        font-family:'Inter',sans-serif;
-        background:#f8f9ff;
-    }
+    <title>Hospital Instructions</title>
 
-    .instruction-content{
-        display:none;
-        animation: slideIn .4s ease;
-    }
 
-    .instruction-content.active{
-        display:block;
-    }
+    <!-- ==========================================================
+                            TAILWIND CSS
+    ========================================================== -->
 
-    @keyframes slideIn{
-        from{
-            opacity:0;
-            transform:translateX(30px);
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- ==========================================================
+                            INTER FONT
+    ========================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==========================================================
+                            CUSTOM CSS
+    ========================================================== -->
+
+    <style>
+
+        /* ==========================================================
+                            BODY
+        ========================================================== */
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9ff;
         }
-        to{
-            opacity:1;
-            transform:translateX(0);
-        }
-    }
 
-    .active-tab{
-        background:#0ea5e9;
-        color:white;
-    }
-</style>
+
+        /* ==========================================================
+                    INSTRUCTION CONTENT
+        ========================================================== */
+
+        .instruction-content {
+            display: none;
+            animation: slideIn .4s ease;
+        }
+
+
+        .instruction-content.active {
+            display: block;
+        }
+
+
+        /* ==========================================================
+                            ANIMATION
+        ========================================================== */
+
+        @keyframes slideIn {
+
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+
+        /* ==========================================================
+                        ACTIVE LANGUAGE TAB
+        ========================================================== */
+
+        .active-tab {
+            background: #0ea5e9;
+            color: white;
+        }
+
+
+        /* ==========================================================
+                        LANGUAGE NAVIGATION
+        ========================================================== */
+
+        .language-navigation {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+        }
+
+
+        /* ==========================================================
+                        LANGUAGE BUTTON
+        ========================================================== */
+
+        .lang-btn {
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap;
+        }
+
+
+        /* ==========================================================
+                            MOBILE
+        ========================================================== */
+
+        @media (max-width: 600px) {
+
+            .language-navigation {
+                gap: 8px;
+            }
+
+
+            .lang-btn {
+                flex: 1;
+                min-width: 0;
+
+                padding-left: 7px !important;
+                padding-right: 7px !important;
+
+                padding-top: 12px !important;
+                padding-bottom: 12px !important;
+
+                font-size: 17px !important;
+
+                white-space: nowrap;
+
+                border-radius: 14px !important;
+            }
+
+
+            /*
+            Reduce page side padding
+            */
+
+            .main-container {
+                padding-left: 14px !important;
+                padding-right: 14px !important;
+            }
+
+
+            /*
+            Make heading responsive
+            */
+
+            .page-title {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+
+
+            .page-description {
+                font-size: 1rem !important;
+                line-height: 1.5;
+            }
+
+
+            /*
+            Reduce instruction card padding
+            */
+
+            .instructions-card {
+                padding: 22px !important;
+            }
+
+
+            /*
+            Make instruction heading smaller
+            */
+
+            .instruction-title {
+                font-size: 1.5rem !important;
+            }
+
+
+            /*
+            Make instruction text comfortable
+            */
+
+            .instruction-list {
+                font-size: 1rem !important;
+                line-height: 1.6;
+            }
+
+        }
+
+
+        /* ==========================================================
+                        VERY SMALL MOBILE
+        ========================================================== */
+
+        @media (max-width: 360px) {
+
+            .language-navigation {
+                gap: 5px;
+            }
+
+
+            .lang-btn {
+
+                padding-left: 4px !important;
+                padding-right: 4px !important;
+
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+
+                font-size: 14px !important;
+
+                border-radius: 12px !important;
+            }
+
+
+            .main-container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+
+            .instructions-card {
+                padding: 18px !important;
+            }
+
+
+            .instruction-list {
+                font-size: 0.95rem !important;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="max-w-6xl mx-auto px-6 py-12">
 
-    <!-- Page Heading -->
+<!-- ==========================================================
+                        MAIN CONTAINER
+========================================================== -->
+
+<div
+    class="max-w-6xl mx-auto px-6 py-12 main-container"
+>
+
+
+    <!-- ======================================================
+                        PAGE HEADING
+    ====================================================== -->
+
     <div class="text-center mb-10">
 
-        <h1 class="text-5xl font-bold text-blue-700">
+        <h1
+            class="text-5xl font-bold text-blue-700 page-title"
+        >
+
             Hospital Instructions
+
         </h1>
 
-        <p class="text-gray-500 text-xl mt-3">
-            Please read the following instructions carefully before your visit.
+
+        <p
+            class="text-gray-500 text-xl mt-3 page-description"
+        >
+
+            Please read the following instructions carefully
+            before your visit.
+
         </p>
 
     </div>
 
-    <!-- Language Navigation -->
-    <div class="flex flex-wrap justify-center gap-4 mb-10">
+
+
+    <!-- ======================================================
+                    LANGUAGE NAVIGATION
+    ====================================================== -->
+
+    <div
+        class="language-navigation mb-10"
+    >
+
+
+        <!-- ==================================================
+                            ENGLISH
+        ================================================== -->
 
         <button
             id="englishBtn"
             onclick="showInstructions('english')"
-            class="lang-btn active-tab px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all">
+            class="lang-btn active-tab px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all"
+        >
 
             English
 
         </button>
 
+
+
+        <!-- ==================================================
+                            HINDI
+        ================================================== -->
+
         <button
             id="hindiBtn"
             onclick="showInstructions('hindi')"
-            class="lang-btn bg-white text-sky-500 px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all hover:bg-sky-500 hover:text-white">
+            class="lang-btn bg-white text-sky-500 px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all hover:bg-sky-500 hover:text-white"
+        >
 
             हिंदी
 
         </button>
 
+
+
+        <!-- ==================================================
+                            BENGALI
+        ================================================== -->
+
         <button
             id="bengaliBtn"
             onclick="showInstructions('bengali')"
-            class="lang-btn bg-white text-sky-500 px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all hover:bg-sky-500 hover:text-white">
+            class="lang-btn bg-white text-sky-500 px-8 py-3 rounded-2xl border-2 border-sky-500 font-bold text-lg transition-all hover:bg-sky-500 hover:text-white"
+        >
 
             বাংলা
 
@@ -91,124 +344,306 @@
 
     </div>
 
-    <!-- Instructions Card -->
-    <div class="bg-white rounded-3xl shadow-lg p-10">
 
-        <!-- English -->
-        <div id="english" class="instruction-content active">
 
-            <h2 class="text-3xl font-bold text-sky-500 mb-8">
+    <!-- ======================================================
+                    INSTRUCTIONS CARD
+    ====================================================== -->
+
+    <div
+        class="bg-white rounded-3xl shadow-lg p-10 instructions-card"
+    >
+
+
+        <!-- ==================================================
+                            ENGLISH
+        ================================================== -->
+
+        <div
+            id="english"
+            class="instruction-content active"
+        >
+
+            <h2
+                class="text-3xl font-bold text-sky-500 mb-8 instruction-title"
+            >
+
                 English Instructions
+
             </h2>
 
-            <ul class="space-y-5 text-lg text-gray-700">
 
-                <li>• Please arrive at least 15 minutes before your appointment time.</li>
+            <ul
+                class="space-y-5 text-lg text-gray-700 instruction-list"
+            >
 
-                <li>• Carry your hospital card and government ID proof.</li>
+                <li>
+                    • Please arrive at least 15 minutes before
+                    your appointment time.
+                </li>
 
-                <li>• Bring all previous medical reports and prescriptions.</li>
 
-                <li>• Follow the doctor's instructions carefully.</li>
+                <li>
+                    • Carry your hospital card and government
+                    ID proof.
+                </li>
 
-                <li>• Mobile phones should remain on silent mode inside consultation rooms.</li>
 
-                <li>• Smoking and alcohol consumption are strictly prohibited inside hospital premises.</li>
+                <li>
+                    • Bring all previous medical reports and
+                    prescriptions.
+                </li>
 
-                <li>• In case of emergency, contact the nearest hospital staff member immediately.</li>
+
+                <li>
+                    • Follow the doctor's instructions carefully.
+                </li>
+
+
+                <li>
+                    • Mobile phones should remain on silent mode
+                    inside consultation rooms.
+                </li>
+
+
+                <li>
+                    • Smoking and alcohol consumption are strictly
+                    prohibited inside hospital premises.
+                </li>
+
+
+                <li>
+                    • In case of emergency, contact the nearest
+                    hospital staff member immediately.
+                </li>
 
             </ul>
 
         </div>
 
-        <!-- Hindi -->
-        <div id="hindi" class="instruction-content">
 
-            <h2 class="text-3xl font-bold text-green-600 mb-8">
+
+        <!-- ==================================================
+                            HINDI
+        ================================================== -->
+
+        <div
+            id="hindi"
+            class="instruction-content"
+        >
+
+            <h2
+                class="text-3xl font-bold text-green-600 mb-8 instruction-title"
+            >
+
                 हिंदी निर्देश
+
             </h2>
 
-            <ul class="space-y-5 text-lg text-gray-700">
 
-                <li>• कृपया अपनी नियुक्ति से कम से कम 15 मिनट पहले अस्पताल पहुँचें।</li>
+            <ul
+                class="space-y-5 text-lg text-gray-700 instruction-list"
+            >
 
-                <li>• अपना अस्पताल कार्ड और पहचान पत्र साथ लाएँ।</li>
+                <li>
+                    • कृपया अपनी नियुक्ति से कम से कम 15 मिनट पहले
+                    अस्पताल पहुँचें।
+                </li>
 
-                <li>• अपनी सभी पुरानी रिपोर्ट और दवाइयों की पर्चियाँ साथ रखें।</li>
 
-                <li>• डॉक्टर के निर्देशों का सावधानीपूर्वक पालन करें।</li>
+                <li>
+                    • अपना अस्पताल कार्ड और पहचान पत्र साथ लाएँ।
+                </li>
 
-                <li>• परामर्श कक्ष में मोबाइल फोन को साइलेंट मोड पर रखें।</li>
 
-                <li>• अस्पताल परिसर में धूम्रपान और शराब का सेवन पूर्णतः प्रतिबंधित है।</li>
+                <li>
+                    • अपनी सभी पुरानी रिपोर्ट और दवाइयों की
+                    पर्चियाँ साथ रखें।
+                </li>
 
-                <li>• आपात स्थिति में तुरंत अस्पताल के कर्मचारियों से संपर्क करें।</li>
+
+                <li>
+                    • डॉक्टर के निर्देशों का सावधानीपूर्वक पालन करें।
+                </li>
+
+
+                <li>
+                    • परामर्श कक्ष में मोबाइल फोन को साइलेंट मोड
+                    पर रखें।
+                </li>
+
+
+                <li>
+                    • अस्पताल परिसर में धूम्रपान और शराब का सेवन
+                    पूर्णतः प्रतिबंधित है।
+                </li>
+
+
+                <li>
+                    • आपात स्थिति में तुरंत अस्पताल के कर्मचारियों
+                    से संपर्क करें।
+                </li>
 
             </ul>
 
         </div>
 
-        <!-- Bengali -->
-        <div id="bengali" class="instruction-content">
 
-            <h2 class="text-3xl font-bold text-purple-600 mb-8">
+
+        <!-- ==================================================
+                            BENGALI
+        ================================================== -->
+
+        <div
+            id="bengali"
+            class="instruction-content"
+        >
+
+            <h2
+                class="text-3xl font-bold text-purple-600 mb-8 instruction-title"
+            >
+
                 বাংলা নির্দেশিকা
+
             </h2>
 
-            <ul class="space-y-5 text-lg text-gray-700">
 
-                <li>• অনুগ্রহ করে আপনার অ্যাপয়েন্টমেন্টের কমপক্ষে ১৫ মিনিট আগে হাসপাতালে পৌঁছান।</li>
+            <ul
+                class="space-y-5 text-lg text-gray-700 instruction-list"
+            >
 
-                <li>• আপনার হাসপাতালের কার্ড এবং পরিচয়পত্র সঙ্গে আনুন।</li>
+                <li>
+                    • অনুগ্রহ করে আপনার অ্যাপয়েন্টমেন্টের কমপক্ষে
+                    ১৫ মিনিট আগে হাসপাতালে পৌঁছান।
+                </li>
 
-                <li>• পূর্ববর্তী সমস্ত রিপোর্ট এবং প্রেসক্রিপশন সঙ্গে আনুন।</li>
 
-                <li>• চিকিৎসকের নির্দেশনা সতর্কতার সাথে অনুসরণ করুন।</li>
+                <li>
+                    • আপনার হাসপাতালের কার্ড এবং পরিচয়পত্র সঙ্গে আনুন।
+                </li>
 
-                <li>• পরামর্শ কক্ষে মোবাইল ফোন সাইলেন্ট মোডে রাখুন।</li>
 
-                <li>• হাসপাতাল চত্বরে ধূমপান ও মদ্যপান সম্পূর্ণ নিষিদ্ধ।</li>
+                <li>
+                    • পূর্ববর্তী সমস্ত রিপোর্ট এবং প্রেসক্রিপশন
+                    সঙ্গে আনুন।
+                </li>
 
-                <li>• জরুরি অবস্থায় নিকটস্থ হাসপাতাল কর্মীর সাথে অবিলম্বে যোগাযোগ করুন।</li>
+
+                <li>
+                    • চিকিৎসকের নির্দেশনা সতর্কতার সাথে অনুসরণ করুন।
+                </li>
+
+
+                <li>
+                    • পরামর্শ কক্ষে মোবাইল ফোন সাইলেন্ট মোডে রাখুন।
+                </li>
+
+
+                <li>
+                    • হাসপাতাল চত্বরে ধূমপান ও মদ্যপান সম্পূর্ণ নিষিদ্ধ।
+                </li>
+
+
+                <li>
+                    • জরুরি অবস্থায় নিকটস্থ হাসপাতাল কর্মীর সাথে
+                    অবিলম্বে যোগাযোগ করুন।
+                </li>
 
             </ul>
 
         </div>
+
 
     </div>
 
 </div>
 
+
+
+<!-- ==========================================================
+                        JAVASCRIPT
+========================================================== -->
+
 <script>
 
-function showInstructions(language){
+function showInstructions(language) {
 
-    // Hide all instruction sections
-    document.querySelectorAll('.instruction-content').forEach(section=>{
-        section.classList.remove('active');
-    });
 
-    // Remove active tab styling
-    document.querySelectorAll('.lang-btn').forEach(button=>{
-        button.classList.remove('active-tab');
-        button.classList.add(
+    /* ======================================================
+                    HIDE ALL INSTRUCTIONS
+    ====================================================== */
+
+    document
+        .querySelectorAll('.instruction-content')
+        .forEach(section => {
+
+            section.classList.remove('active');
+
+        });
+
+
+
+    /* ======================================================
+                    RESET ALL BUTTONS
+    ====================================================== */
+
+    document
+        .querySelectorAll('.lang-btn')
+        .forEach(button => {
+
+            button.classList.remove('active-tab');
+
+            button.classList.add(
+                'bg-white',
+                'text-sky-500'
+            );
+
+        });
+
+
+
+    /* ======================================================
+                    SHOW SELECTED LANGUAGE
+    ====================================================== */
+
+    const selectedSection =
+        document.getElementById(language);
+
+
+    if (selectedSection) {
+
+        selectedSection.classList.add('active');
+
+    }
+
+
+
+    /* ======================================================
+                    ACTIVATE SELECTED BUTTON
+    ====================================================== */
+
+    const selectedButton =
+        document.getElementById(
+            language + 'Btn'
+        );
+
+
+    if (selectedButton) {
+
+        selectedButton.classList.add('active-tab');
+
+        selectedButton.classList.remove(
             'bg-white',
             'text-sky-500'
         );
-    });
 
-    // Show selected language
-    document.getElementById(language).classList.add('active');
+    }
 
-    // Highlight active button
-    document.getElementById(language + 'Btn').classList.add('active-tab');
-    document.getElementById(language + 'Btn').classList.remove(
-        'bg-white',
-        'text-sky-500'
-    );
 }
 
 </script>
 
+
 </body>
+
 </html>
