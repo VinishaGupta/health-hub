@@ -6,7 +6,11 @@
 // Temporary data only.
 // Later these variables will come from the database.
 
-// English
+
+// ==========================================================
+// ENGLISH
+// ==========================================================
+
 $instructionEnglish = '
     <h3>Cardiology Instructions</h3>
 
@@ -26,7 +30,10 @@ $instructionEnglish = '
 ';
 
 
-// Hindi
+// ==========================================================
+// HINDI
+// ==========================================================
+
 $instructionHindi = '
     <h3>हृदय रोग विभाग</h3>
 
@@ -46,7 +53,10 @@ $instructionHindi = '
 ';
 
 
-// Regional
+// ==========================================================
+// REGIONAL
+// ==========================================================
+
 $instructionRegional = '
     <h3>
         हृदयरोग विभाग /
@@ -101,12 +111,16 @@ $instructionRegional = '
     <title>Hospital Instructions</title>
 
 
-    <!-- Tailwind -->
+    <!-- ==========================================================
+                            TAILWIND
+    ========================================================== -->
 
     <script src="https://cdn.tailwindcss.com"></script>
 
 
-    <!-- Google Font -->
+    <!-- ==========================================================
+                            GOOGLE FONT
+    ========================================================== -->
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -114,7 +128,202 @@ $instructionRegional = '
     >
 
 
-<link rel="stylesheet" href="../css/instructions.css"/>
+    <!-- ==========================================================
+                            CUSTOM CSS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/instructions.css"
+    >
+
+
+    <!-- ==========================================================
+                        RESPONSIVE BUTTON CSS
+    ========================================================== -->
+
+    <style>
+
+        /* ==========================================================
+                        LANGUAGE NAVIGATION
+        ========================================================== */
+
+        .language-navigation {
+
+            display: flex;
+
+            flex-wrap: nowrap;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 16px;
+
+            width: 100%;
+
+        }
+
+
+        /* ==========================================================
+                        LANGUAGE BUTTON
+        ========================================================== */
+
+        .lang-btn {
+
+            flex: 1;
+
+            min-width: 0;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+        }
+
+
+        /* ==========================================================
+                            MOBILE
+        ========================================================== */
+
+        @media (max-width: 600px) {
+
+            .language-navigation {
+
+                gap: 8px;
+
+            }
+
+
+            .lang-btn {
+
+                flex: 1;
+
+                min-width: 0;
+
+                padding-left: 6px !important;
+
+                padding-right: 6px !important;
+
+                padding-top: 12px !important;
+
+                padding-bottom: 12px !important;
+
+                font-size: 15px !important;
+
+                white-space: nowrap;
+
+                overflow: hidden;
+
+                text-overflow: ellipsis;
+
+            }
+
+
+            /*
+            Responsive page heading
+            */
+
+            .page-title {
+
+                font-size: 2rem !important;
+
+                line-height: 1.2;
+
+            }
+
+
+            /*
+            Responsive description
+            */
+
+            .page-description {
+
+                font-size: 1rem !important;
+
+                line-height: 1.5;
+
+            }
+
+
+            /*
+            Responsive instruction card
+            */
+
+            .instructions-card {
+
+                padding: 22px !important;
+
+            }
+
+
+            /*
+            Responsive instruction heading
+            */
+
+            .instruction-title {
+
+                font-size: 1.5rem !important;
+
+            }
+
+
+            /*
+            Responsive instruction content
+            */
+
+            .instruction-data {
+
+                font-size: 1rem !important;
+
+                line-height: 1.6;
+
+            }
+
+        }
+
+
+        /* ==========================================================
+                        VERY SMALL MOBILE
+        ========================================================== */
+
+        @media (max-width: 360px) {
+
+            .language-navigation {
+
+                gap: 5px;
+
+            }
+
+
+            .lang-btn {
+
+                padding-left: 3px !important;
+
+                padding-right: 3px !important;
+
+                padding-top: 10px !important;
+
+                padding-bottom: 10px !important;
+
+                font-size: 12px !important;
+
+                border-radius: 12px !important;
+
+            }
+
+
+            .instructions-card {
+
+                padding: 18px !important;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -126,19 +335,23 @@ $instructionRegional = '
 
 
     <!-- ==================================================
-         PAGE HEADING
+                    PAGE HEADING
     ================================================== -->
 
     <div class="text-center mb-10">
 
-        <h1 class="text-5xl font-bold text-blue-700">
+        <h1
+            class="text-5xl font-bold text-blue-700 page-title"
+        >
 
             Hospital Instructions
 
         </h1>
 
 
-        <p class="text-gray-500 text-xl mt-3">
+        <p
+            class="text-gray-500 text-xl mt-3 page-description"
+        >
 
             Please read the following instructions carefully
             before your visit.
@@ -150,13 +363,15 @@ $instructionRegional = '
 
 
     <!-- ==================================================
-         LANGUAGE NAVIGATION
+                    LANGUAGE NAVIGATION
     ================================================== -->
 
-    <div class="flex flex-wrap justify-center gap-4 mb-10">
+    <div class="language-navigation mb-10">
 
 
-        <!-- ENGLISH -->
+        <!-- ==================================================
+                            ENGLISH
+        ================================================== -->
 
         <button
             id="englishBtn"
@@ -169,7 +384,10 @@ $instructionRegional = '
         </button>
 
 
-        <!-- HINDI -->
+
+        <!-- ==================================================
+                            HINDI
+        ================================================== -->
 
         <button
             id="hindiBtn"
@@ -182,7 +400,10 @@ $instructionRegional = '
         </button>
 
 
-        <!-- REGIONAL -->
+
+        <!-- ==================================================
+                        REGIONAL LANGUAGE
+        ================================================== -->
 
         <button
             id="regionalBtn"
@@ -194,19 +415,22 @@ $instructionRegional = '
 
         </button>
 
+
     </div>
 
 
 
     <!-- ==================================================
-         INSTRUCTIONS CARD
+                    INSTRUCTIONS CARD
     ================================================== -->
 
-    <div class="bg-white rounded-3xl shadow-lg p-10">
+    <div
+        class="bg-white rounded-3xl shadow-lg p-10 instructions-card"
+    >
 
 
         <!-- ==================================================
-             ENGLISH
+                        ENGLISH
         ================================================== -->
 
         <div
@@ -214,14 +438,18 @@ $instructionRegional = '
             class="instruction-content active"
         >
 
-            <h2 class="text-3xl font-bold text-sky-500 mb-8">
+            <h2
+                class="text-3xl font-bold text-sky-500 mb-8 instruction-title"
+            >
 
                 English Instructions
 
             </h2>
 
 
-            <div class="instruction-data text-lg text-gray-700">
+            <div
+                class="instruction-data text-lg text-gray-700"
+            >
 
                 <?= $instructionEnglish ?>
 
@@ -232,7 +460,7 @@ $instructionRegional = '
 
 
         <!-- ==================================================
-             HINDI
+                        HINDI
         ================================================== -->
 
         <div
@@ -240,14 +468,18 @@ $instructionRegional = '
             class="instruction-content"
         >
 
-            <h2 class="text-3xl font-bold text-green-600 mb-8">
+            <h2
+                class="text-3xl font-bold text-green-600 mb-8 instruction-title"
+            >
 
                 हिंदी निर्देश
 
             </h2>
 
 
-            <div class="instruction-data text-lg text-gray-700">
+            <div
+                class="instruction-data text-lg text-gray-700"
+            >
 
                 <?= $instructionHindi ?>
 
@@ -258,7 +490,7 @@ $instructionRegional = '
 
 
         <!-- ==================================================
-             REGIONAL
+                    REGIONAL LANGUAGE
         ================================================== -->
 
         <div
@@ -266,14 +498,18 @@ $instructionRegional = '
             class="instruction-content"
         >
 
-            <h2 class="text-3xl font-bold text-purple-600 mb-8">
+            <h2
+                class="text-3xl font-bold text-purple-600 mb-8 instruction-title"
+            >
 
                 Regional Language
 
             </h2>
 
 
-            <div class="instruction-data text-lg text-gray-700">
+            <div
+                class="instruction-data text-lg text-gray-700"
+            >
 
                 <?= $instructionRegional ?>
 
@@ -288,9 +524,9 @@ $instructionRegional = '
 
 
 
-<!-- ==================================================
-     SEPARATE JAVASCRIPT
-================================================== -->
+<!-- ==========================================================
+                    JAVASCRIPT
+========================================================== -->
 
 <script src="../js/instructions.js"></script>
 
