@@ -4,14 +4,13 @@
 |--------------------------------------------------------------------------
 | HOSPITAL ADVICE - USER MODULE
 |--------------------------------------------------------------------------
-| MOCK DATA ONLY
 | Regional language is decided by Hospital Admin.
 |--------------------------------------------------------------------------
 */
 
 
 /* ==========================================================
-   MOCK REGIONAL LANGUAGE
+   REGIONAL LANGUAGE
 ========================================================== */
 
 // This will eventually come from the database.
@@ -133,14 +132,109 @@ $adviceRegional = [
 
     <title>Hospital Advice</title>
 
+
+    <!-- ==========================================================
+                        TAILWIND CSS
+    ========================================================== -->
+
     <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- ==========================================================
+                        INTER FONT
+    ========================================================== -->
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
-<link rel="stylesheet" href="../css/advice.css">
+
+    <!-- ==========================================================
+                        CUSTOM CSS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/advice.css"
+    >
+
+
+    <style>
+
+        /* ==========================================================
+                        LANGUAGE TABS
+        ========================================================== */
+
+        .language-tabs {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+        }
+
+
+        .language-btn {
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap;
+        }
+
+
+        /* ==========================================================
+                            MOBILE
+        ========================================================== */
+
+        @media (max-width: 600px) {
+
+            .language-tabs {
+                gap: 8px;
+            }
+
+
+            .language-btn {
+                flex: 1;
+
+                min-width: 0;
+
+                padding: 12px 7px !important;
+
+                font-size: 16px !important;
+
+                white-space: nowrap;
+
+                border-radius: 14px !important;
+            }
+
+        }
+
+
+        /* ==========================================================
+                        VERY SMALL MOBILE
+        ========================================================== */
+
+        @media (max-width: 360px) {
+
+            .language-tabs {
+                gap: 5px;
+            }
+
+
+            .language-btn {
+
+                padding-left: 4px !important;
+                padding-right: 4px !important;
+
+                font-size: 14px !important;
+
+                border-radius: 12px !important;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -161,12 +255,14 @@ $adviceRegional = [
             Hospital Advice
         </h1>
 
+
         <p>
             Please read the following advice carefully
             before your visit.
         </p>
 
     </div>
+
 
 
     <!-- ==================================================
@@ -176,29 +272,41 @@ $adviceRegional = [
     <div class="language-tabs">
 
 
-        <!-- ENGLISH -->
+        <!-- ==================================================
+                            ENGLISH
+        =================================================== -->
 
         <button
             id="englishBtn"
             class="language-btn active"
             onclick="showAdvice('english')"
         >
+
             English
+
         </button>
 
 
-        <!-- HINDI -->
+
+        <!-- ==================================================
+                            HINDI
+        =================================================== -->
 
         <button
             id="hindiBtn"
             class="language-btn"
             onclick="showAdvice('hindi')"
         >
+
             हिंदी
+
         </button>
 
 
-        <!-- REGIONAL -->
+
+        <!-- ==================================================
+                        REGIONAL LANGUAGE
+        =================================================== -->
 
         <button
             id="regionalBtn"
@@ -212,6 +320,7 @@ $adviceRegional = [
 
 
     </div>
+
 
 
     <!-- ==================================================
@@ -243,6 +352,7 @@ $adviceRegional = [
                         <?= htmlspecialchars($section['heading']) ?>
                     </h3>
 
+
                     <ul>
 
                         <?php foreach ($section['items'] as $item): ?>
@@ -260,6 +370,7 @@ $adviceRegional = [
             <?php endforeach; ?>
 
         </div>
+
 
 
         <!-- ==================================================
@@ -284,6 +395,7 @@ $adviceRegional = [
                         <?= htmlspecialchars($section['heading']) ?>
                     </h3>
 
+
                     <ul>
 
                         <?php foreach ($section['items'] as $item): ?>
@@ -301,6 +413,7 @@ $adviceRegional = [
             <?php endforeach; ?>
 
         </div>
+
 
 
         <!-- ==================================================
@@ -329,6 +442,7 @@ $adviceRegional = [
                         <?= htmlspecialchars($section['heading']) ?>
                     </h3>
 
+
                     <ul>
 
                         <?php foreach ($section['items'] as $item): ?>
@@ -353,7 +467,79 @@ $adviceRegional = [
 </div>
 
 
-<script src="../js/advice.js"></script>
+
+<!-- ==========================================================
+                        JAVASCRIPT
+========================================================== -->
+
+<script>
+
+function showAdvice(language) {
+
+
+    /* ======================================================
+                    HIDE ALL ADVICE
+    ====================================================== */
+
+    document
+        .querySelectorAll('.advice-content')
+        .forEach(section => {
+
+            section.classList.remove('active');
+
+        });
+
+
+
+    /* ======================================================
+                    REMOVE ACTIVE BUTTON
+    ====================================================== */
+
+    document
+        .querySelectorAll('.language-btn')
+        .forEach(button => {
+
+            button.classList.remove('active');
+
+        });
+
+
+
+    /* ======================================================
+                    SHOW SELECTED ADVICE
+    ====================================================== */
+
+    const selectedAdvice =
+        document.getElementById(language);
+
+
+    if (selectedAdvice) {
+
+        selectedAdvice.classList.add('active');
+
+    }
+
+
+
+    /* ======================================================
+                    ACTIVE LANGUAGE BUTTON
+    ====================================================== */
+
+    const selectedButton =
+        document.getElementById(language + 'Btn');
+
+
+    if (selectedButton) {
+
+        selectedButton.classList.add('active');
+
+    }
+
+}
+
+</script>
+
+
 </body>
 
 </html>
