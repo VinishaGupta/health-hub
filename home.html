@@ -315,6 +315,64 @@
         opacity: 0;
     }
 }
+
+/* ==========================================================
+                    DASHBOARD BUTTON
+========================================================== */
+
+.dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #003d9b;
+  color: white;
+
+  padding: 10px 20px;
+
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow: 0 4px 10px rgba(0, 61, 155, 0.15);
+
+  transition: all 0.3s ease;
+
+  margin-bottom: 18px;
+}
+
+.dashboard-btn:hover {
+  background: #0052cc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 61, 155, 0.25);
+}
+
+.dashboard-arrow {
+  font-size: 22px;
+  line-height: 1;
+}
+
+
+/* ==========================================================
+                    MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+  .dashboard-wrapper {
+    width: 100%;
+    padding: 12px 16px 0;
+  }
+
+  .dashboard-btn {
+    font-size: 15px;
+    padding: 9px 16px;
+  }
+
+}
   </style>
 </head>
 
@@ -370,7 +428,28 @@
   </header>
   <section class="hospital-identity">
 
-    <div class="max-w-container-max mx-0 px-4 py-6
+    <!-- ==========================================================
+                        DASHBOARD BUTTON
+    =========================================================== -->
+
+    <div class="dashboard-wrapper max-w-container-max mx-0 ml-6 pt-4">
+
+        <a
+            href="dashboard.html"
+            class="dashboard-btn"
+        >
+            <span class="dashboard-arrow">←</span>
+            <span>Dashboard</span>
+        </a>
+
+    </div>
+
+
+    <!-- ==========================================================
+                        HOSPITAL INFORMATION
+    =========================================================== -->
+
+    <div class="max-w-container-max mx-0 px-4 pb-6
             flex flex-col lg:flex-row items-center gap-6">
       <!-- Left Side -->
       <div class="grid grid-cols-1 md:grid-cols-[104px_minmax(0,1fr)_160px] items-start gap-6 flex-1 min-w-0 text-left">
