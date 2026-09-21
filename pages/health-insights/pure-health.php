@@ -68,7 +68,7 @@
 
     <link
         rel="stylesheet"
-        href="../../css/health-insights/pure-health.css"
+        href="../../css/pure-health.css"
     >
 
 </head>
@@ -1055,7 +1055,7 @@
 ========================================================= -->
 
 <script
-    src="../../js/health-insights/pure-health.js"
+    src="../../js/pure-health.js"
 ></script>
 
 
