@@ -1,0 +1,620 @@
+/* ==========================================================
+                    HOSPITAL SCHEDULE
+                    USER MODULE
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+                    BODY
+========================================================== */
+
+body {
+
+    font-family: "Inter", sans-serif;
+
+    background: #f4f9fc;
+
+    color: #243b53;
+
+}
+
+
+/* ==========================================================
+                    HOSPITAL HEADER
+========================================================== */
+
+.hospital-header {
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e3edf3;
+
+    box-shadow:
+        0 3px 15px rgba(15, 73, 112, 0.05);
+
+}
+
+
+.header-container {
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 22px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+/* ==========================================================
+                    HOSPITAL LOGO
+========================================================== */
+
+.hospital-logo {
+
+    width: 100px;
+
+    height: 100px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    border: 4px solid #16a5d5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #ffffff;
+
+    color: #0b4da2;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+/* ==========================================================
+                    HOSPITAL DETAILS
+========================================================== */
+
+.hospital-details {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.short-name {
+
+    color: #5751a6;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+
+}
+
+
+.hospital-name {
+
+    color: #0b4da2;
+
+    font-size: 40px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+}
+
+
+.hospital-location {
+
+    margin-top: 8px;
+
+    color: #006878;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+
+/* ==========================================================
+                    MAIN
+========================================================== */
+
+.main-container {
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: 34px auto 60px;
+
+    padding: 0 30px;
+
+}
+
+
+/* ==========================================================
+                    BACK BUTTON
+========================================================== */
+
+.back-container {
+
+    margin-bottom: 20px;
+
+}
+
+
+.back-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: #0b4da2;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.25s ease;
+
+}
+
+
+.back-btn:hover {
+
+    color: #0ea5e9;
+
+    transform: translateX(-3px);
+
+}
+
+
+/* ==========================================================
+                    HOSPITAL STATUS
+========================================================== */
+
+.status-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 250px);
+
+    gap: 14px;
+
+    margin-bottom: 21px;
+
+}
+
+
+.status-card {
+
+    min-height: 61px;
+
+    background: #ffffff;
+
+    border: 1px solid #e6eef3;
+
+    border-radius: 12px;
+
+    padding: 13px 15px;
+
+    box-shadow:
+        0 5px 18px rgba(21, 83, 112, 0.06);
+
+}
+
+
+.status-label {
+
+    color: #718096;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+
+}
+
+
+.status-value {
+
+    color: #0b4da2;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.status-value.open {
+
+    color: #159447;
+
+}
+
+
+.status-value.open::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 5px;
+
+    height: 5px;
+
+    background: #159447;
+
+    border-radius: 50%;
+
+    margin-right: 6px;
+
+    vertical-align: middle;
+
+}
+
+
+/* ==========================================================
+                    SECTION
+========================================================== */
+
+.section {
+
+    background: #ffffff;
+
+    border: 1px solid #e5edf2;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(21, 83, 112, 0.05);
+
+}
+
+
+/* ==========================================================
+                    SECTION HEADER
+========================================================== */
+
+.section-header {
+
+    height: 57px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 15px;
+
+    border-bottom: 1px solid #edf2f5;
+
+}
+
+
+.section-icon {
+
+    width: 31px;
+
+    height: 31px;
+
+    border-radius: 8px;
+
+    background: #e8f8fc;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #0b9bc7;
+
+    font-size: 17px;
+
+}
+
+
+.section-header h2 {
+
+    color: #0b4da2;
+
+    font-size: 15px;
+
+    font-weight: 750;
+
+}
+
+
+/* ==========================================================
+                    CONTENT
+========================================================== */
+
+.section-content {
+
+    padding: 16px;
+
+}
+
+
+/* ==========================================================
+                    DOCTOR SCHEDULE
+========================================================== */
+
+.timing-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr);
+
+    gap: 11px;
+
+}
+
+
+.timing-card {
+
+    background: #fbfdff;
+
+    border: 1px solid #e7eef3;
+
+    border-radius: 11px;
+
+    padding: 14px;
+
+    max-width: 100%;
+
+}
+
+
+.timing-card-title {
+
+    color: #0b4da2;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* ==========================================================
+                    TIMING ROW
+========================================================== */
+
+.timing-row {
+
+    min-height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-bottom: 1px solid #edf2f5;
+
+}
+
+
+.timing-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.timing-name {
+
+    color: #52667a;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+}
+
+
+.time-badge {
+
+    flex-shrink: 0;
+
+    background: #e8f7fc;
+
+    color: #0794bd;
+
+    border-radius: 7px;
+
+    padding: 6px 9px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================================
+                    NOTICE
+========================================================== */
+
+.notice {
+
+    margin-top: 12px;
+
+    background: #fff9e9;
+
+    border: 1px solid #f2dfae;
+
+    border-radius: 9px;
+
+    padding: 11px 13px;
+
+    color: #796018;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+}
+
+
+.notice strong {
+
+    color: #66500f;
+
+}
+
+
+/* ==========================================================
+                    TABLET
+========================================================== */
+
+@media (max-width: 800px) {
+
+    .hospital-name {
+
+        font-size: 32px;
+
+    }
+
+}
+
+
+/* ==========================================================
+                    MOBILE
+========================================================== */
+
+@media (max-width: 550px) {
+
+    .header-container {
+
+        padding: 18px;
+
+        gap: 14px;
+
+    }
+
+
+    .hospital-logo {
+
+        width: 75px;
+
+        height: 75px;
+
+        border-width: 3px;
+
+        font-size: 12px;
+
+    }
+
+
+    .hospital-name {
+
+        font-size: 24px;
+
+    }
+
+
+    .short-name {
+
+        font-size: 11px;
+
+    }
+
+
+    .hospital-location {
+
+        font-size: 10px;
+
+    }
+
+
+    .main-container {
+
+        margin-top: 20px;
+
+        padding: 0 15px;
+
+    }
+
+
+    .section-content {
+
+        padding: 12px;
+
+    }
+
+
+    .timing-row {
+
+        min-height: 40px;
+
+    }
+
+
+    .timing-name {
+
+        font-size: 10px;
+
+    }
+
+
+    .time-badge {
+
+        font-size: 9px;
+
+        padding: 6px 8px;
+
+    }
+
+}
