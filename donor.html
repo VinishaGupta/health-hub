@@ -1,227 +1,1135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- ==========================================================
+                            META
+    ========================================================== -->
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Donor Services - Health Hub</title>
 
+
+    <!-- ==========================================================
+                        MATERIAL SYMBOLS
+    ========================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    >
+
+
+    <!-- ==========================================================
+                        TAILWIND CSS
+    ========================================================== -->
+
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+
+    <!-- ==========================================================
+                        INTER FONT
+    ========================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
 
     <style>
-        body{
-            font-family:'Inter',sans-serif;
-            background:#f8f9ff;
+
+        /* ==========================================================
+                            GLOBAL
+        ========================================================== */
+
+        * {
+            box-sizing: border-box;
         }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9ff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+
+        /* ==========================================================
+                            NAVBAR
+        ========================================================== */
+
+        .navbar {
+
+            width: 100%;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.08);
+
+            position: relative;
+
+            z-index: 100;
+
+        }
+
+
+        .navbar-inner {
+
+            min-height: 70px;
+
+            padding: 0 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: relative;
+
+        }
+
+
+        /* ==========================================================
+                            LOGO
+        ========================================================== */
+
+        .navbar-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .navbar-logo-icon {
+
+            font-size: 30px;
+
+            color: #1d4ed8;
+
+        }
+
+
+        .navbar-logo-text {
+
+            margin: 0;
+
+            font-size: 32px;
+
+            line-height: 1;
+
+            font-weight: 700;
+
+            color: #1d4ed8;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* ==========================================================
+                        NAVIGATION
+        ========================================================== */
+
+        .navbar-links {
+
+            position: absolute;
+
+            left: 50%;
+
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 60px;
+
+            white-space: nowrap;
+
+        }
+
+
+        .navbar-links a {
+
+            font-size: 18px;
+
+            text-decoration: none;
+
+            transition: all 0.3s ease;
+
+        }
+
+
+        .navbar-home {
+
+            color: #1d4ed8;
+
+            font-weight: 700;
+
+            border-bottom: 4px solid #1d4ed8;
+
+            padding-bottom: 5px;
+
+        }
+
+
+        .navbar-doctor {
+
+            color: #374151;
+
+            font-weight: 500;
+
+        }
+
+
+        .navbar-doctor:hover {
+
+            color: #1d4ed8;
+
+        }
+
+
+        /* ==========================================================
+                    MOBILE NAVIGATION DIVIDER
+        ========================================================== */
+
+        .mobile-nav-divider {
+
+            display: none;
+
+        }
+
+
+        /* ==========================================================
+                        HERO SECTION
+        ========================================================== */
+
+        .hero-section {
+
+            background:
+                linear-gradient(
+                    to right,
+                    #cffafe,
+                    #e0f2fe
+                );
+
+            padding: 64px 24px;
+
+        }
+
+
+        .hero-container {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+            text-align: center;
+
+        }
+
+
+        .hero-title {
+
+            margin: 0;
+
+            font-size: 48px;
+
+            line-height: 1.15;
+
+            font-weight: 800;
+
+            color: #1e3a8a;
+
+        }
+
+
+        .hero-description {
+
+            margin: 16px 0 0;
+
+            font-size: 20px;
+
+            line-height: 1.5;
+
+            color: #374151;
+
+        }
+
+
+        /* ==========================================================
+                        DONOR SECTION
+        ========================================================== */
+
+        .donor-section {
+
+            padding: 64px 24px;
+
+        }
+
+
+        .donor-container {
+
+            max-width: 1280px;
+
+            margin: 0 auto;
+
+        }
+
+
+        .donor-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 32px;
+
+        }
+
+
+        /* ==========================================================
+                        DONOR CARD
+        ========================================================== */
+
+        .donor-card {
+
+            background: #eef7ff;
+
+            border: 2px solid #0ea5e9;
+
+            border-radius: 25px;
+
+            padding: 32px;
+
+            text-align: center;
+
+            box-shadow:
+                0 2px 6px rgba(0, 0, 0, 0.05);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .donor-card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 30px rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        .donor-icon {
+
+            font-size: 60px;
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .donor-title {
+
+            margin: 0;
+
+            font-size: 24px;
+
+            line-height: 1.3;
+
+            font-weight: 700;
+
+            color: #0284c7;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .donor-divider {
+
+            width: 64px;
+
+            height: 4px;
+
+            margin: 16px auto;
+
+            background: #0ea5e9;
+
+            border-radius: 999px;
+
+        }
+
+
+        .donor-description {
+
+            margin: 0 0 24px;
+
+            color: #4b5563;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* ==========================================================
+                        REGISTER BUTTON
+        ========================================================== */
+
+        .register-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            border: none;
+
+            padding: 12px 24px;
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                background 0.3s ease,
+                transform 0.2s ease;
+
+        }
+
+
+        .register-button:hover {
+
+            background: #1d4ed8;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* ==========================================================
+                            TABLET
+        ========================================================== */
+
+        @media (max-width: 1024px) {
+
+            .navbar-inner {
+
+                padding: 0 28px;
+
+            }
+
+
+            .navbar-links {
+
+                gap: 35px;
+
+            }
+
+
+            .donor-grid {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+
+            }
+
+        }
+
+
+        /* ==========================================================
+                            MOBILE
+        ========================================================== */
+
+        @media (max-width: 767px) {
+
+
+            /* ======================================================
+                            NAVBAR
+            ====================================================== */
+
+            .navbar-inner {
+
+                min-height: 116px;
+
+                padding: 12px 16px;
+
+                display: flex;
+
+                flex-direction: column;
+
+                justify-content: center;
+
+                align-items: center;
+
+                gap: 0;
+
+            }
+
+
+            /* ======================================================
+                            LOGO AREA
+            ====================================================== */
+
+            .navbar-logo {
+
+                width: 100%;
+
+                height: 55px;
+
+                display: flex;
+
+                justify-content: center;
+
+                align-items: center;
+
+            }
+
+
+            .navbar-logo-icon {
+
+                font-size: 27px;
+
+            }
+
+
+            .navbar-logo-text {
+
+                font-size: 25px;
+
+            }
+
+
+            /* ======================================================
+                        DIVIDER LINE
+            ====================================================== */
+
+            .mobile-nav-divider {
+
+                display: block;
+
+                width: 100%;
+
+                height: 1px;
+
+                background: #e5e7eb;
+
+            }
+
+
+            /* ======================================================
+                        MOBILE NAVIGATION
+            ====================================================== */
+
+            .navbar-links {
+
+                position: static;
+
+                transform: none;
+
+                width: 100%;
+
+                height: 48px;
+
+                display: flex;
+
+                justify-content: center;
+
+                align-items: center;
+
+                gap: 30px;
+
+                white-space: nowrap;
+
+            }
+
+
+            .navbar-links a {
+
+                font-size: 15px;
+
+            }
+
+
+            .navbar-home {
+
+                padding-bottom: 3px;
+
+                border-bottom-width: 3px;
+
+            }
+
+
+            /* ======================================================
+                            HERO
+            ====================================================== */
+
+            .hero-section {
+
+                padding: 52px 18px;
+
+            }
+
+
+            .hero-title {
+
+                font-size: 42px;
+
+                line-height: 1.15;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 18px;
+
+                line-height: 1.55;
+
+            }
+
+
+            /* ======================================================
+                        DONOR SECTION
+            ====================================================== */
+
+            .donor-section {
+
+                padding: 48px 16px;
+
+            }
+
+
+            .donor-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 24px;
+
+            }
+
+
+            .donor-card {
+
+                padding: 28px 22px;
+
+            }
+
+
+            .donor-title {
+
+                font-size: 22px;
+
+            }
+
+
+            .donor-description {
+
+                font-size: 16px;
+
+            }
+
+        }
+
+
+        /* ==========================================================
+                        320px MOBILE
+        ========================================================== */
+
+        @media (max-width: 360px) {
+
+
+            .navbar-inner {
+
+                min-height: 112px;
+
+                padding: 8px 10px;
+
+            }
+
+
+            .navbar-logo {
+
+                height: 52px;
+
+            }
+
+
+            .navbar-logo-icon {
+
+                font-size: 25px;
+
+            }
+
+
+            .navbar-logo-text {
+
+                font-size: 23px;
+
+            }
+
+
+            .navbar-links {
+
+                height: 44px;
+
+                gap: 22px;
+
+            }
+
+
+            .navbar-links a {
+
+                font-size: 14px;
+
+            }
+
+
+            .navbar-home {
+
+                padding-bottom: 2px;
+
+            }
+
+
+            /* ======================================================
+                            HERO
+            ====================================================== */
+
+            .hero-section {
+
+                padding: 48px 14px;
+
+            }
+
+
+            .hero-title {
+
+                font-size: 38px;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 17px;
+
+            }
+
+
+            /* ======================================================
+                        DONOR CARDS
+            ====================================================== */
+
+            .donor-section {
+
+                padding: 40px 14px;
+
+            }
+
+
+            .donor-card {
+
+                padding: 24px 18px;
+
+                border-radius: 22px;
+
+            }
+
+
+            .donor-icon {
+
+                font-size: 56px;
+
+            }
+
+
+            .donor-title {
+
+                font-size: 21px;
+
+            }
+
+        }
+
     </style>
 
 </head>
 
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
 
-<nav class="bg-white shadow-sm px-12 py-5 relative flex items-center">
+<!-- ==========================================================
+                            NAVBAR
+========================================================== -->
 
-    <!-- Logo -->
-    <div class="flex items-center gap-2">
+<nav class="navbar">
 
-        <span class="material-symbols-outlined text-blue-700 text-[28px]">
-            add_box
-        </span>
+    <div class="navbar-inner">
 
-        <h1 class="text-[32px] font-bold text-blue-700">
-            Health Hub
-        </h1>
 
-    </div>
+        <!-- ======================================================
+                            LOGO
+        ====================================================== -->
 
-    <!-- Center Navigation -->
-    <div class="absolute left-1/2 -translate-x-1/2 flex gap-16 text-[18px]">
+        <div class="navbar-logo">
 
-        <a href="#"
-           class="text-blue-700 font-bold border-b-4 border-blue-700 pb-1">
-            Home
-        </a>
+            <span class="material-symbols-outlined navbar-logo-icon">
+                add_box
+            </span>
 
-        <a href="#"
-           class="text-gray-700 hover:text-blue-700 transition">
-            Find A Doctor
-        </a>
+
+            <h1 class="navbar-logo-text">
+
+                Health Hub
+
+            </h1>
+
+        </div>
+
+
+        <!-- ======================================================
+                        DIVIDER
+        ====================================================== -->
+
+        <div class="mobile-nav-divider"></div>
+
+
+        <!-- ======================================================
+                        NAVIGATION LINKS
+        ====================================================== -->
+
+        <div class="navbar-links">
+
+
+            <!-- HOME -->
+
+            <a
+                href="#"
+                class="navbar-home"
+            >
+
+                Home
+
+            </a>
+
+
+            <!-- FIND A DOCTOR -->
+
+            <a
+                href="#"
+                class="navbar-doctor"
+            >
+
+                Find A Doctor
+
+            </a>
+
+
+        </div>
 
     </div>
 
 </nav>
 
-<!-- ================= HERO SECTION ================= -->
 
-<section class="bg-gradient-to-r from-cyan-100 to-sky-100 py-16">
 
-    <div class="max-w-7xl mx-auto px-6 text-center">
+<!-- ==========================================================
+                        HERO SECTION
+========================================================== -->
 
-        <h1 class="text-5xl font-extrabold text-blue-900">
+<section class="hero-section">
+
+    <div class="hero-container">
+
+
+        <h1 class="hero-title">
+
             Become a Donor
+
         </h1>
 
-        <p class="text-gray-700 text-xl mt-4">
+
+        <p class="hero-description">
+
             Save lives by contributing to healthcare and humanity.
+
         </p>
+
 
     </div>
 
 </section>
 
-<!-- ================= DONOR CARDS ================= -->
 
-<section class="py-16">
 
-    <div class="max-w-7xl mx-auto px-6">
+<!-- ==========================================================
+                        DONOR CARDS
+========================================================== -->
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<section class="donor-section">
 
-            <!-- Blood Donor -->
-            <div class="bg-[#eef7ff] border-2 border-sky-500 rounded-[25px] p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
+    <div class="donor-container">
 
-                <div class="text-6xl mb-5">
+        <div class="donor-grid">
+
+
+            <!-- ==================================================
+                            BLOOD DONOR
+            ================================================== -->
+
+            <div class="donor-card">
+
+                <div class="donor-icon">
                     🩸
                 </div>
 
-                <h2 class="text-2xl font-bold text-sky-600 uppercase">
+
+                <h2 class="donor-title">
                     Blood Donor
                 </h2>
 
-                <div class="w-16 h-1 bg-sky-500 mx-auto my-4 rounded-full"></div>
 
-                <p class="text-gray-600 mb-6">
-                    Donate blood and help save lives during emergencies and surgeries.
+                <div class="donor-divider"></div>
+
+
+                <p class="donor-description">
+
+                    Donate blood and help save lives during
+                    emergencies and surgeries.
+
                 </p>
 
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+
+                <button class="register-button">
+
                     Register Now
+
                 </button>
 
             </div>
 
-            <!-- Organ Donor -->
-            <div class="bg-[#eef7ff] border-2 border-sky-500 rounded-[25px] p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
 
-                <div class="text-6xl mb-5">
+
+            <!-- ==================================================
+                            ORGAN DONOR
+            ================================================== -->
+
+            <div class="donor-card">
+
+                <div class="donor-icon">
                     ❤️
                 </div>
 
-                <h2 class="text-2xl font-bold text-sky-600 uppercase">
+
+                <h2 class="donor-title">
                     Organ Donor
                 </h2>
 
-                <div class="w-16 h-1 bg-sky-500 mx-auto my-4 rounded-full"></div>
 
-                <p class="text-gray-600 mb-6">
-                    Give the gift of life through organ donation and transplantation.
+                <div class="donor-divider"></div>
+
+
+                <p class="donor-description">
+
+                    Give the gift of life through organ donation
+                    and transplantation.
+
                 </p>
 
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+
+                <button class="register-button">
+
                     Register Now
+
                 </button>
 
             </div>
 
-            <!-- Plasma Donor -->
-            <div class="bg-[#eef7ff] border-2 border-sky-500 rounded-[25px] p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
 
-                <div class="text-6xl mb-5">
+
+            <!-- ==================================================
+                            PLASMA DONOR
+            ================================================== -->
+
+            <div class="donor-card">
+
+                <div class="donor-icon">
                     💉
                 </div>
 
-                <h2 class="text-2xl font-bold text-sky-600 uppercase">
+
+                <h2 class="donor-title">
                     Plasma Donor
                 </h2>
 
-                <div class="w-16 h-1 bg-sky-500 mx-auto my-4 rounded-full"></div>
 
-                <p class="text-gray-600 mb-6">
-                    Plasma donation supports patients with immune disorders and burns.
+                <div class="donor-divider"></div>
+
+
+                <p class="donor-description">
+
+                    Plasma donation supports patients with immune
+                    disorders and burns.
+
                 </p>
 
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+
+                <button class="register-button">
+
                     Register Now
+
                 </button>
 
             </div>
 
-            <!-- Bone Marrow Donor -->
-            <div class="bg-[#eef7ff] border-2 border-sky-500 rounded-[25px] p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
 
-                <div class="text-6xl mb-5">
+
+            <!-- ==================================================
+                        BONE MARROW DONOR
+            ================================================== -->
+
+            <div class="donor-card">
+
+                <div class="donor-icon">
                     🦴
                 </div>
 
-                <h2 class="text-2xl font-bold text-sky-600 uppercase">
+
+                <h2 class="donor-title">
                     Bone Marrow Donor
                 </h2>
 
-                <div class="w-16 h-1 bg-sky-500 mx-auto my-4 rounded-full"></div>
 
-                <p class="text-gray-600 mb-6">
-                    Help patients fighting blood cancers and genetic diseases.
+                <div class="donor-divider"></div>
+
+
+                <p class="donor-description">
+
+                    Help patients fighting blood cancers and
+                    genetic diseases.
+
                 </p>
 
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+
+                <button class="register-button">
+
                     Register Now
+
                 </button>
 
             </div>
 
-            <!-- Eye Donor -->
-            <div class="bg-[#eef7ff] border-2 border-sky-500 rounded-[25px] p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
 
-                <div class="text-6xl mb-5">
+
+            <!-- ==================================================
+                            EYE DONOR
+            ================================================== -->
+
+            <div class="donor-card">
+
+                <div class="donor-icon">
                     👁️
                 </div>
 
-                <h2 class="text-2xl font-bold text-sky-600 uppercase">
+
+                <h2 class="donor-title">
                     Eye Donor
                 </h2>
 
-                <div class="w-16 h-1 bg-sky-500 mx-auto my-4 rounded-full"></div>
 
-                <p class="text-gray-600 mb-6">
-                    Restore sight and transform lives through eye donation.
+                <div class="donor-divider"></div>
+
+
+                <p class="donor-description">
+
+                    Restore sight and transform lives through
+                    eye donation.
+
                 </p>
 
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+
+                <button class="register-button">
+
                     Register Now
+
                 </button>
 
             </div>
 
-            <!-- Tissue Donor -->
-            <div class="bg-[#eef7ff] border-2 border-sky-500 rounded-[25px] p-8 text-center shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all">
 
-                <div class="text-6xl mb-5">
+
+            <!-- ==================================================
+                            TISSUE DONOR
+            ================================================== -->
+
+            <div class="donor-card">
+
+                <div class="donor-icon">
                     🧬
                 </div>
 
-                <h2 class="text-2xl font-bold text-sky-600 uppercase">
+
+                <h2 class="donor-title">
                     Tissue Donor
                 </h2>
 
-                <div class="w-16 h-1 bg-sky-500 mx-auto my-4 rounded-full"></div>
 
-                <p class="text-gray-600 mb-6">
-                    Donate tissues to help reconstruct and heal injured patients.
+                <div class="donor-divider"></div>
+
+
+                <p class="donor-description">
+
+                    Donate tissues to help reconstruct and heal
+                    injured patients.
+
                 </p>
 
-                <button class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+
+                <button class="register-button">
+
                     Register Now
+
                 </button>
 
             </div>
+
 
         </div>
 
@@ -229,5 +1137,7 @@
 
 </section>
 
+
 </body>
+
 </html>
