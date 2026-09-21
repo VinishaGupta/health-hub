@@ -118,10 +118,10 @@ $insuranceCompanies = [
 
     <!-- Insurance CSS -->
 
-    <link
-        rel="stylesheet"
-        href="../css/insurance.css"
-    >
+<link
+    rel="stylesheet"
+    href="../../css/insurance.css"
+>
 
 </head>
 
@@ -393,7 +393,7 @@ const mockInsuranceCompanies =
                     INSURANCE JS
 ================================================== -->
 
-<script src="../js/insurance.js"></script>
+<script src="../../js/insurance.js"></script>
 
 
 <script>
