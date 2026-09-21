@@ -147,10 +147,10 @@ $donorTypes = [
                         PAGE CSS
     ======================================================= -->
 
-    <link
-        rel="stylesheet"
-        href="../css/donor.css"
-    >
+<link
+    rel="stylesheet"
+    href="../../css/donor.css"
+>
 
 
 </head>
@@ -389,8 +389,7 @@ $donorTypes = [
                         JAVASCRIPT
 ========================================================== -->
 
-<script src="../js/donor.js"></script>
-
+<script src="../../js/donor.js"></script>
 
 </body>
 
