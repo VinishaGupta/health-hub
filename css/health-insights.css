@@ -1,0 +1,160 @@
+/* =========================================================
+   HEALTH INSIGHTS
+   ========================================================= */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Emergency Pulse */
+.emergency-pulse {
+    animation: emergencyPulse 2s infinite;
+}
+
+@keyframes emergencyPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* =========================================================
+   HEALTH HERO
+   ========================================================= */
+
+.health-hero {
+    padding-top: 100px;
+}
+
+.health-title {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.health-description {
+    max-width: 760px;
+}
+
+/* =========================================================
+   MOBILE HEADER
+   ========================================================= */
+
+@media (max-width: 767px) {
+    header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    header .desktop-nav {
+        display: none;
+    }
+
+    .health-hero {
+        padding-top: 90px;
+    }
+
+    .health-title {
+        font-size: 2.2rem;
+        line-height: 1.15;
+    }
+
+    .health-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* =========================================================
+   HEALTH INSIGHT CARDS
+   ========================================================= */
+
+.health-insight-card {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.health-insight-card:hover {
+    transform: translateY(-3px);
+}
+
+.health-insight-card:active {
+    transform: scale(0.98);
+}
+
+/* =========================================================
+   CHECKUP TABLE
+   ========================================================= */
+
+.checkup-row {
+    transition:
+        transform 0.15s ease,
+        background-color 0.2s ease;
+}
+
+.checkup-row:hover {
+    background-color: rgba(239, 246, 255, 0.7);
+}
+
+.checkup-row.placeholder-row {
+    opacity: 0.45;
+}
+
+/* =========================================================
+   RESPONSIVE TABLE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .health-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .health-table-wrapper table {
+        min-width: 850px;
+    }
+}
+
+@media (max-width: 767px) {
+    .health-table-wrapper {
+        border-radius: 12px;
+    }
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+@media (max-width: 767px) {
+    footer {
+        text-align: center;
+    }
+
+    footer .footer-links {
+        justify-content: center;
+    }
+}
