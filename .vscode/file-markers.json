@@ -39,7 +39,16 @@
   ],
   "markers": {
     "Services.html": "done",
-    "schedule.html": "done"
+    "schedule.html": "done",
+    "donor.html": "done",
+    "advice.html": "done",
+    "instructions.html": "done",
+    "Photo-Bank.html": "done",
+    "dept.html": "done",
+    "health-insurance.html": "done",
+    "available-facilities.html": "done",
+    "About.html": "done",
+    "management.html": "done"
   },
   "lineHighlightTypes": [
     {
