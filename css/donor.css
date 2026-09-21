@@ -1,0 +1,769 @@
+/* ==========================================================
+                        DONOR SERVICES
+                        USER MODULE
+========================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+                        BODY
+========================================================== */
+
+body {
+    font-family: "Inter", sans-serif;
+
+    background: #f8f9ff;
+
+    margin: 0;
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================================================
+                        NAVBAR
+========================================================== */
+
+.navbar {
+
+    width: 100%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+
+    z-index: 100;
+
+}
+
+
+.navbar-inner {
+
+    min-height: 70px;
+
+    padding: 0 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    position: relative;
+
+}
+
+
+/* ==========================================================
+                        LOGO
+========================================================== */
+
+.navbar-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+
+}
+
+
+.navbar-logo-icon {
+
+    font-size: 30px;
+
+    color: #1d4ed8;
+
+}
+
+
+.navbar-logo-text {
+
+    margin: 0;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: #1d4ed8;
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================================
+                    NAVIGATION
+========================================================== */
+
+.navbar-links {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 60px;
+
+    white-space: nowrap;
+
+}
+
+
+.navbar-links a {
+
+    font-size: 18px;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.navbar-home {
+
+    color: #1d4ed8;
+
+    font-weight: 700;
+
+    border-bottom: 4px solid #1d4ed8;
+
+    padding-bottom: 5px;
+
+}
+
+
+.navbar-doctor {
+
+    color: #374151;
+
+    font-weight: 500;
+
+}
+
+
+.navbar-doctor:hover {
+
+    color: #1d4ed8;
+
+}
+
+
+/* ==========================================================
+                MOBILE NAVIGATION DIVIDER
+========================================================== */
+
+.mobile-nav-divider {
+
+    display: none;
+
+}
+
+
+/* ==========================================================
+                    HERO SECTION
+========================================================== */
+
+.hero-section {
+
+    background:
+        linear-gradient(
+            to right,
+            #cffafe,
+            #e0f2fe
+        );
+
+    padding: 64px 24px;
+
+}
+
+
+.hero-container {
+
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+.hero-title {
+
+    margin: 0;
+
+    font-size: 48px;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    color: #1e3a8a;
+
+}
+
+
+.hero-description {
+
+    margin: 16px 0 0;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    color: #374151;
+
+}
+
+
+/* ==========================================================
+                    DONOR SECTION
+========================================================== */
+
+.donor-section {
+
+    padding: 64px 24px;
+
+}
+
+
+.donor-container {
+
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+}
+
+
+.donor-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 32px;
+
+}
+
+
+/* ==========================================================
+                    DONOR CARD
+========================================================== */
+
+.donor-card {
+
+    background: #eef7ff;
+
+    border: 2px solid #0ea5e9;
+
+    border-radius: 25px;
+
+    padding: 32px;
+
+    text-align: center;
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.donor-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 30px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* ==========================================================
+                    DONOR ICON
+========================================================== */
+
+.donor-icon {
+
+    font-size: 60px;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* ==========================================================
+                    DONOR TITLE
+========================================================== */
+
+.donor-title {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    color: #0284c7;
+
+    text-transform: uppercase;
+
+}
+
+
+/* ==========================================================
+                    DIVIDER
+========================================================== */
+
+.donor-divider {
+
+    width: 64px;
+
+    height: 4px;
+
+    margin: 16px auto;
+
+    background: #0ea5e9;
+
+    border-radius: 999px;
+
+}
+
+
+/* ==========================================================
+                    DESCRIPTION
+========================================================== */
+
+.donor-description {
+
+    margin: 0 0 24px;
+
+    color: #4b5563;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================================
+                    REGISTER BUTTON
+========================================================== */
+
+.register-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease;
+
+}
+
+
+.register-button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+}
+
+
+.register-button:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* ==========================================================
+                    TABLET
+========================================================== */
+
+@media (max-width: 1024px) {
+
+    .navbar-inner {
+
+        padding: 0 28px;
+
+    }
+
+
+    .navbar-links {
+
+        gap: 35px;
+
+    }
+
+
+    .donor-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* ==========================================================
+                    MOBILE
+========================================================== */
+
+@media (max-width: 767px) {
+
+    /* ------------------------------------------------------
+                        NAVBAR
+    ------------------------------------------------------ */
+
+    .navbar-inner {
+
+        min-height: 116px;
+
+        padding: 12px 16px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 0;
+
+    }
+
+
+    /* ------------------------------------------------------
+                        LOGO
+    ------------------------------------------------------ */
+
+    .navbar-logo {
+
+        width: 100%;
+
+        height: 55px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+    }
+
+
+    .navbar-logo-icon {
+
+        font-size: 27px;
+
+    }
+
+
+    .navbar-logo-text {
+
+        font-size: 25px;
+
+    }
+
+
+    /* ------------------------------------------------------
+                    DIVIDER
+    ------------------------------------------------------ */
+
+    .mobile-nav-divider {
+
+        display: block;
+
+        width: 100%;
+
+        height: 1px;
+
+        background: #e5e7eb;
+
+    }
+
+
+    /* ------------------------------------------------------
+                    MOBILE NAVIGATION
+    ------------------------------------------------------ */
+
+    .navbar-links {
+
+        position: static;
+
+        transform: none;
+
+        width: 100%;
+
+        height: 48px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        gap: 30px;
+
+        white-space: nowrap;
+
+    }
+
+
+    .navbar-links a {
+
+        font-size: 15px;
+
+    }
+
+
+    .navbar-home {
+
+        padding-bottom: 3px;
+
+        border-bottom-width: 3px;
+
+    }
+
+
+    /* ------------------------------------------------------
+                        HERO
+    ------------------------------------------------------ */
+
+    .hero-section {
+
+        padding: 52px 18px;
+
+    }
+
+
+    .hero-title {
+
+        font-size: 42px;
+
+        line-height: 1.15;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 18px;
+
+        line-height: 1.55;
+
+    }
+
+
+    /* ------------------------------------------------------
+                    DONOR SECTION
+    ------------------------------------------------------ */
+
+    .donor-section {
+
+        padding: 48px 16px;
+
+    }
+
+
+    .donor-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+
+    }
+
+
+    .donor-card {
+
+        padding: 28px 22px;
+
+    }
+
+
+    .donor-title {
+
+        font-size: 22px;
+
+    }
+
+
+    .donor-description {
+
+        font-size: 16px;
+
+    }
+
+}
+
+
+/* ==========================================================
+                    320px MOBILE
+========================================================== */
+
+@media (max-width: 360px) {
+
+    .navbar-inner {
+
+        min-height: 112px;
+
+        padding: 8px 10px;
+
+    }
+
+
+    .navbar-logo {
+
+        height: 52px;
+
+    }
+
+
+    .navbar-logo-icon {
+
+        font-size: 25px;
+
+    }
+
+
+    .navbar-logo-text {
+
+        font-size: 23px;
+
+    }
+
+
+    .navbar-links {
+
+        height: 44px;
+
+        gap: 22px;
+
+    }
+
+
+    .navbar-links a {
+
+        font-size: 14px;
+
+    }
+
+
+    .navbar-home {
+
+        padding-bottom: 2px;
+
+    }
+
+
+    /* ------------------------------------------------------
+                        HERO
+    ------------------------------------------------------ */
+
+    .hero-section {
+
+        padding: 48px 14px;
+
+    }
+
+
+    .hero-title {
+
+        font-size: 38px;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 17px;
+
+    }
+
+
+    /* ------------------------------------------------------
+                    DONOR CARDS
+    ------------------------------------------------------ */
+
+    .donor-section {
+
+        padding: 40px 14px;
+
+    }
+
+
+    .donor-card {
+
+        padding: 24px 18px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .donor-icon {
+
+        font-size: 56px;
+
+    }
+
+
+    .donor-title {
+
+        font-size: 21px;
+
+    }
+
+}
