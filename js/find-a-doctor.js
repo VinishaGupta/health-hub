@@ -1,19 +1,22 @@
 /* =========================================================
    FIND A DOCTOR
-   Health Hub
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =====================================================
-       SEARCH INPUT FOCUS EFFECT
+       SEARCH BAR FOCUS EFFECT
     ===================================================== */
 
     const searchInput =
-        document.getElementById("doctorSearchInput");
+        document.querySelector(
+            'input[type="text"]'
+        );
 
     const searchIcon =
-        document.getElementById("doctorSearchIcon");
+        document.querySelector(
+            '[data-icon="search"]'
+        );
 
 
     if (searchInput && searchIcon) {
@@ -45,138 +48,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =====================================================
-       STICKY SIDEBAR SHADOW
+       TOGGLE STICKY SIDEBAR SHADOW ON SCROLL
     ===================================================== */
 
     const sidebar =
         document.querySelector(
-            ".filter-sidebar"
+            "aside > div"
         );
 
 
-    function updateSidebarShadow() {
+    if (sidebar) {
 
-        if (!sidebar) {
-            return;
-        }
+        window.addEventListener(
+            "scroll",
+            function () {
 
+                if (window.scrollY > 200) {
 
-        if (window.scrollY > 200) {
+                    sidebar.classList.add(
+                        "shadow-md"
+                    );
 
-            sidebar.classList.add(
-                "shadow-md"
-            );
+                } else {
 
-        } else {
-
-            sidebar.classList.remove(
-                "shadow-md"
-            );
-
-        }
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateSidebarShadow
-    );
-
-
-    updateSidebarShadow();
-
-
-    /* =====================================================
-       DOCTOR CARD CLICK
-    ===================================================== */
-
-    const doctorCards =
-        document.querySelectorAll(
-            ".doctor-card"
-        );
-
-
-    doctorCards.forEach(
-        function (card) {
-
-            card.addEventListener(
-                "click",
-                function (event) {
-
-                    const button =
-                        event.target.closest(
-                            ".view-doctor-btn"
-                        );
-
-
-                    if (!button) {
-                        return;
-                    }
-
-
-                    /*
-                     * Navigation is handled by
-                     * the anchor tag.
-                     */
+                    sidebar.classList.remove(
+                        "shadow-md"
+                    );
 
                 }
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       FILTER FORM
-    ===================================================== */
-
-    const filterForm =
-        document.getElementById(
-            "doctorFilterForm"
-        );
-
-
-    if (filterForm) {
-
-        filterForm.addEventListener(
-            "submit",
-            function () {
-
-                /*
-                 * PHP currently handles the mock
-                 * filtering through GET parameters.
-                 *
-                 * No preventDefault() here.
-                 */
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       SEARCH SUBMIT
-    ===================================================== */
-
-    const searchForm =
-        document.getElementById(
-            "doctorSearchForm"
-        );
-
-
-    if (searchForm) {
-
-        searchForm.addEventListener(
-            "submit",
-            function () {
-
-                /*
-                 * Search is submitted to PHP.
-                 * Later this can be replaced by
-                 * an AJAX/API request.
-                 */
 
             }
         );

@@ -6,18 +6,8 @@
 |--------------------------------------------------------------------------
 | MOCK DATA ONLY
 |
-| Later:
-| Replace the mock arrays with database queries.
-|
-| Current URL example:
-|
-| find-a-doctor.php
-|
-| CSS:
-| ../css/find-a-doctor.css
-|
-| JS:
-| ../js/find-a-doctor.js
+| Later these arrays can be replaced with
+| database queries.
 |--------------------------------------------------------------------------
 */
 
@@ -27,60 +17,19 @@
 ========================================================= */
 
 $states = [
-
-    "Maharashtra",
-
-    "Madhya Pradesh",
-
-    "Gujarat",
-
-    "Rajasthan"
-
+    "Maharashtra"
 ];
-
 
 $districts = [
-
-    "Nagpur",
-
-    "Pune",
-
-    "Mumbai",
-
-    "Nashik",
-
-    "Amravati"
-
+    "Nagpur"
 ];
-
 
 $talukas = [
-
-    "Nagpur City",
-
-    "Hingna",
-
-    "Katol",
-
-    "Kamptee",
-
-    "Ramtek"
-
+    "Taluka/City"
 ];
 
-
 $areas = [
-
-    "Civil Lines",
-
-    "Dharampeth",
-
-    "Manish Nagar",
-
-    "Sadar",
-
-    "Wardha Road"
-
+    "Village/Area"
 ];
 
 
@@ -89,19 +38,12 @@ $areas = [
 ========================================================= */
 
 $doctorTypes = [
-
     "General Physician",
-
     "Specialist",
-
     "Surgeon",
-
     "Consultant",
-
     "Emergency",
-
     "Visiting"
-
 ];
 
 
@@ -110,343 +52,17 @@ $doctorTypes = [
 ========================================================= */
 
 $specializations = [
-
     "Cardiology",
-
     "Neurology",
-
     "Orthopedics",
-
     "Pediatrics",
-
     "Gynecology",
-
     "Dermatology",
-
     "ENT",
-
     "Dental",
-
     "Oncology",
-
     "Physiotherapy"
-
 ];
-
-
-/* =========================================================
-   MOCK DOCTOR DATA
-========================================================= */
-
-$doctors = [
-
-    [
-
-        "id" => 1,
-
-        "name" => "Dr. A. Mashankar",
-
-        "designation" => "Senior Cardiologist",
-
-        "doctor_type" => "Specialist",
-
-        "specialization" => "Cardiology",
-
-        "disease" => "Heart Disease",
-
-        "treatment" => "Angioplasty",
-
-        "state" => "Maharashtra",
-
-        "district" => "Nagpur",
-
-        "taluka" => "Nagpur City",
-
-        "area" => "Civil Lines",
-
-        "experience" => "15+ Years",
-
-        "hospital" => "Health Hub Hospital",
-
-        "location" => "Nagpur, Maharashtra",
-
-        "verified" => true,
-
-        "image" => "https://lh3.googleusercontent.com/aida-public/AB6AXuAgB3v7SrhmrlXlBMRczvs2BR_aV_GXBHaHPdS8l9GkGVG9UJgOXnycJxVTTI5zsw8OBSWnJXLxcMOK8tdWFH8_zMdPta7rMxObFVUcit-IEYO8k-w1RmbzZt5Sjd6jUBE0Z5H-vsi5MVyIczMQFV1eiC_ms_A4Lgi_hmNOjTC6UjtwF7rJrXH_ujKlJwbsc5TxE1clx7ocjNKG2iKvfENqwH8Ch7Ew-5J8ACetbxAoebpIeQNl5PK4bDQtDYoCdWpLuQvkHATlA-o"
-
-    ],
-
-
-    [
-
-        "id" => 2,
-
-        "name" => "Dr. Prafulla Kadu",
-
-        "designation" => "Consultant Neurologist",
-
-        "doctor_type" => "Consultant",
-
-        "specialization" => "Neurology",
-
-        "disease" => "Neurological Disorders",
-
-        "treatment" => "Neurological Treatment",
-
-        "state" => "Maharashtra",
-
-        "district" => "Nagpur",
-
-        "taluka" => "Nagpur City",
-
-        "area" => "Dharampeth",
-
-        "experience" => "12+ Years",
-
-        "hospital" => "RIMS",
-
-        "location" => "Nagpur, Maharashtra",
-
-        "verified" => true,
-
-        "image" => "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80"
-
-    ],
-
-
-    [
-
-        "id" => 3,
-
-        "name" => "Dr. Sneha Patil",
-
-        "designation" => "Orthopedic Surgeon",
-
-        "doctor_type" => "Surgeon",
-
-        "specialization" => "Orthopedics",
-
-        "disease" => "Bone & Joint Problems",
-
-        "treatment" => "Joint Replacement",
-
-        "state" => "Maharashtra",
-
-        "district" => "Nagpur",
-
-        "taluka" => "Hingna",
-
-        "area" => "Manish Nagar",
-
-        "experience" => "10+ Years",
-
-        "hospital" => "City Care Hospital",
-
-        "location" => "Nagpur, Maharashtra",
-
-        "verified" => true,
-
-        "image" => "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=500&q=80"
-
-    ],
-
-
-    [
-
-        "id" => 4,
-
-        "name" => "Dr. Priya Sharma",
-
-        "designation" => "Consultant Gynecologist",
-
-        "doctor_type" => "Specialist",
-
-        "specialization" => "Gynecology",
-
-        "disease" => "Women's Health",
-
-        "treatment" => "Gynecological Consultation",
-
-        "state" => "Maharashtra",
-
-        "district" => "Nagpur",
-
-        "taluka" => "Nagpur City",
-
-        "area" => "Wardha Road",
-
-        "experience" => "9+ Years",
-
-        "hospital" => "Women's Care Hospital",
-
-        "location" => "Nagpur, Maharashtra",
-
-        "verified" => true,
-
-        "image" => "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=500&q=80"
-
-    ]
-
-];
-
-
-/* =========================================================
-   GET FILTER VALUES
-========================================================= */
-
-$selectedState =
-    $_GET["state"] ?? "";
-
-$selectedDistrict =
-    $_GET["district"] ?? "";
-
-$selectedTaluka =
-    $_GET["taluka"] ?? "";
-
-$selectedArea =
-    $_GET["area"] ?? "";
-
-$selectedDoctorType =
-    $_GET["doctor_type"] ?? "";
-
-$selectedSpecialization =
-    $_GET["specialization"] ?? "";
-
-$searchQuery =
-    trim($_GET["search"] ?? "");
-
-
-/* =========================================================
-   FILTER DOCTORS
-========================================================= */
-
-$filteredDoctors = [];
-
-
-foreach ($doctors as $doctor) {
-
-    $matches = true;
-
-
-    /* STATE */
-
-    if (
-        $selectedState !== "" &&
-        $doctor["state"] !== $selectedState
-    ) {
-
-        $matches = false;
-
-    }
-
-
-    /* DISTRICT */
-
-    if (
-        $selectedDistrict !== "" &&
-        $doctor["district"] !== $selectedDistrict
-    ) {
-
-        $matches = false;
-
-    }
-
-
-    /* TALUKA */
-
-    if (
-        $selectedTaluka !== "" &&
-        $doctor["taluka"] !== $selectedTaluka
-    ) {
-
-        $matches = false;
-
-    }
-
-
-    /* AREA */
-
-    if (
-        $selectedArea !== "" &&
-        $doctor["area"] !== $selectedArea
-    ) {
-
-        $matches = false;
-
-    }
-
-
-    /* DOCTOR TYPE */
-
-    if (
-        $selectedDoctorType !== "" &&
-        $doctor["doctor_type"] !== $selectedDoctorType
-    ) {
-
-        $matches = false;
-
-    }
-
-
-    /* SPECIALIZATION */
-
-    if (
-        $selectedSpecialization !== "" &&
-        $doctor["specialization"] !== $selectedSpecialization
-    ) {
-
-        $matches = false;
-
-    }
-
-
-    /* SEARCH */
-
-    if ($searchQuery !== "") {
-
-        $searchText = strtolower(
-
-            $doctor["name"] . " " .
-            $doctor["designation"] . " " .
-            $doctor["doctor_type"] . " " .
-            $doctor["specialization"] . " " .
-            $doctor["disease"] . " " .
-            $doctor["treatment"] . " " .
-            $doctor["hospital"]
-
-        );
-
-
-        if (
-            strpos(
-                $searchText,
-                strtolower($searchQuery)
-            ) === false
-        ) {
-
-            $matches = false;
-
-        }
-
-    }
-
-
-    if ($matches) {
-
-        $filteredDoctors[] =
-            $doctor;
-
-    }
-
-}
-
-
-/* =========================================================
-   RESET URL
-========================================================= */
-
-$resetUrl =
-    basename($_SERVER["PHP_SELF"]);
 
 ?>
 
@@ -461,12 +77,10 @@ $resetUrl =
 
     <meta charset="utf-8">
 
-
     <meta
         content="width=device-width, initial-scale=1.0"
         name="viewport"
     >
-
 
     <title>
         Find Your Doctor | Health Hub
@@ -487,13 +101,13 @@ $resetUrl =
     ====================================================== -->
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet"
     >
 
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
         rel="stylesheet"
     >
 
@@ -515,110 +129,60 @@ $resetUrl =
                     colors: {
 
                         "tertiary-container": "#b51220",
-
                         "on-tertiary-fixed-variant": "#930014",
-
                         "error": "#ba1a1a",
-
                         "surface-container": "#e5eeff",
-
                         "background": "#f8f9ff",
-
                         "outline": "#737685",
-
                         "surface-container-low": "#eff4ff",
-
                         "surface-container-lowest": "#ffffff",
-
                         "secondary-fixed-dim": "#5dd6f3",
-
                         "surface": "#f8f9ff",
-
                         "secondary-container": "#6ae1ff",
-
                         "on-secondary-fixed": "#001f26",
-
                         "on-secondary-container": "#006374",
-
                         "on-secondary-fixed-variant": "#004e5d",
-
                         "tertiary-fixed": "#ffdad7",
-
                         "on-error-container": "#93000a",
-
                         "inverse-on-surface": "#eaf1ff",
-
                         "primary-fixed": "#dae2ff",
-
                         "surface-variant": "#d3e4fe",
-
                         "primary-container": "#0052cc",
-
                         "surface-bright": "#f8f9ff",
-
                         "primary": "#003d9b",
-
                         "inverse-surface": "#213145",
-
                         "on-surface-variant": "#434654",
-
                         "outline-variant": "#c3c6d6",
-
                         "on-tertiary": "#ffffff",
-
                         "on-background": "#0b1c30",
-
                         "primary-fixed-dim": "#b2c5ff",
-
                         "surface-dim": "#cbdbf5",
-
                         "on-primary-fixed-variant": "#0040a2",
-
                         "on-primary-fixed": "#001848",
-
                         "surface-tint": "#0c56d0",
-
                         "surface-container-high": "#dce9ff",
-
                         "secondary": "#00687a",
-
                         "on-secondary": "#ffffff",
-
                         "on-tertiary-container": "#ffc5c0",
-
                         "tertiary": "#8c0013",
-
                         "on-error": "#ffffff",
-
                         "surface-container-highest": "#d3e4fe",
-
                         "inverse-primary": "#b2c5ff",
-
                         "secondary-fixed": "#adecff",
-
                         "on-tertiary-fixed": "#410004",
-
                         "error-container": "#ffdad6",
-
                         "on-surface": "#0b1c30",
-
                         "on-primary-container": "#c4d2ff",
-
                         "tertiary-fixed-dim": "#ffb3ae",
-
                         "on-primary": "#ffffff"
-
                     },
 
 
                     borderRadius: {
 
                         DEFAULT: "0.25rem",
-
                         lg: "0.5rem",
-
                         xl: "0.75rem",
-
                         full: "9999px"
 
                     },
@@ -626,14 +190,10 @@ $resetUrl =
 
                     spacing: {
 
-                        base: "8px",
-
-                        gutter: "24px",
-
+                        "base": "8px",
+                        "gutter": "24px",
                         "margin-mobile": "16px",
-
                         "margin-desktop": "40px",
-
                         "container-max": "1280px"
 
                     },
@@ -642,19 +202,12 @@ $resetUrl =
                     fontFamily: {
 
                         "label-sm": ["Inter"],
-
                         "headline-lg-mobile": ["Inter"],
-
                         "body-lg": ["Inter"],
-
                         "headline-lg": ["Inter"],
-
                         "display-lg": ["Inter"],
-
                         "label-md": ["Inter"],
-
                         "headline-md": ["Inter"],
-
                         "body-md": ["Inter"]
 
                     },
@@ -771,6 +324,7 @@ $resetUrl =
            w-full
            z-50
            bg-surface/70
+           dark:bg-surface-container/70
            backdrop-blur-xl
            shadow-sm
            h-20"
@@ -785,9 +339,6 @@ $resetUrl =
                items-center
                justify-between"
     >
-
-
-        <!-- LOGO -->
 
         <div
             class="flex
@@ -807,8 +358,6 @@ $resetUrl =
 
         </div>
 
-
-        <!-- NAV -->
 
         <nav
             class="hidden
@@ -881,7 +430,8 @@ $resetUrl =
                        blur-[100px]
                        -translate-x-1/2
                        -translate-y-1/2"
-            ></div>
+            >
+            </div>
 
 
             <div
@@ -895,7 +445,8 @@ $resetUrl =
                        blur-[100px]
                        translate-x-1/2
                        translate-y-1/2"
-            ></div>
+            >
+            </div>
 
         </div>
 
@@ -954,7 +505,7 @@ $resetUrl =
 
 
         <!-- =================================================
-             FILTER SIDEBAR
+             LEFT FILTERS
         ================================================== -->
 
         <aside
@@ -963,8 +514,7 @@ $resetUrl =
         >
 
             <div
-                class="filter-sidebar
-                       bg-surface-container-low
+                class="bg-surface-container-low
                        p-6
                        rounded-xl
                        border
@@ -990,14 +540,7 @@ $resetUrl =
                 </div>
 
 
-                <!-- =================================================
-                     FILTER FORM
-                ================================================== -->
-
                 <form
-                    id="doctorFilterForm"
-                    method="GET"
-                    action=""
                     class="space-y-5"
                 >
 
@@ -1020,22 +563,23 @@ $resetUrl =
                         <!-- STATE -->
 
                         <select
-                            name="state"
-                            class="filter-select"
+                            class="w-full
+                                   bg-white
+                                   border-outline-variant/50
+                                   rounded-lg
+                                   py-2.5
+                                   px-4
+                                   focus:ring-primary
+                                   focus:border-primary
+                                   transition-all
+                                   font-body-md
+                                   text-sm"
                         >
-
-                            <option value="">
-                                All States
-                            </option>
-
 
                             <?php foreach ($states as $state): ?>
 
-                                <option
-                                    value="<?= htmlspecialchars($state) ?>"
-                                    <?= $selectedState === $state ? "selected" : "" ?>
-                                >
-                                    <?= htmlspecialchars($state) ?>
+                                <option>
+                                    <?= htmlspecialchars($state) ?> (State)
                                 </option>
 
                             <?php endforeach; ?>
@@ -1046,22 +590,23 @@ $resetUrl =
                         <!-- DISTRICT -->
 
                         <select
-                            name="district"
-                            class="filter-select"
+                            class="w-full
+                                   bg-white
+                                   border-outline-variant/50
+                                   rounded-lg
+                                   py-2.5
+                                   px-4
+                                   focus:ring-primary
+                                   focus:border-primary
+                                   transition-all
+                                   font-body-md
+                                   text-sm"
                         >
-
-                            <option value="">
-                                All Districts
-                            </option>
-
 
                             <?php foreach ($districts as $district): ?>
 
-                                <option
-                                    value="<?= htmlspecialchars($district) ?>"
-                                    <?= $selectedDistrict === $district ? "selected" : "" ?>
-                                >
-                                    <?= htmlspecialchars($district) ?>
+                                <option>
+                                    <?= htmlspecialchars($district) ?> (District)
                                 </option>
 
                             <?php endforeach; ?>
@@ -1072,21 +617,22 @@ $resetUrl =
                         <!-- TALUKA -->
 
                         <select
-                            name="taluka"
-                            class="filter-select"
+                            class="w-full
+                                   bg-white
+                                   border-outline-variant/50
+                                   rounded-lg
+                                   py-2.5
+                                   px-4
+                                   focus:ring-primary
+                                   focus:border-primary
+                                   transition-all
+                                   font-body-md
+                                   text-sm"
                         >
-
-                            <option value="">
-                                Taluka/City
-                            </option>
-
 
                             <?php foreach ($talukas as $taluka): ?>
 
-                                <option
-                                    value="<?= htmlspecialchars($taluka) ?>"
-                                    <?= $selectedTaluka === $taluka ? "selected" : "" ?>
-                                >
+                                <option>
                                     <?= htmlspecialchars($taluka) ?>
                                 </option>
 
@@ -1098,21 +644,22 @@ $resetUrl =
                         <!-- AREA -->
 
                         <select
-                            name="area"
-                            class="filter-select"
+                            class="w-full
+                                   bg-white
+                                   border-outline-variant/50
+                                   rounded-lg
+                                   py-2.5
+                                   px-4
+                                   focus:ring-primary
+                                   focus:border-primary
+                                   transition-all
+                                   font-body-md
+                                   text-sm"
                         >
-
-                            <option value="">
-                                Village/Area
-                            </option>
-
 
                             <?php foreach ($areas as $area): ?>
 
-                                <option
-                                    value="<?= htmlspecialchars($area) ?>"
-                                    <?= $selectedArea === $area ? "selected" : "" ?>
-                                >
+                                <option>
                                     <?= htmlspecialchars($area) ?>
                                 </option>
 
@@ -1124,9 +671,7 @@ $resetUrl =
 
 
 
-                    <!-- =================================================
-                         DOCTOR TYPE
-                    ================================================== -->
+                    <!-- DOCTOR TYPE -->
 
                     <div
                         class="space-y-2"
@@ -1142,21 +687,22 @@ $resetUrl =
 
 
                         <select
-                            name="doctor_type"
-                            class="filter-select"
+                            class="w-full
+                                   bg-white
+                                   border-outline-variant/50
+                                   rounded-lg
+                                   py-2.5
+                                   px-4
+                                   focus:ring-primary
+                                   focus:border-primary
+                                   transition-all
+                                   font-body-md
+                                   text-sm"
                         >
-
-                            <option value="">
-                                All Doctor Types
-                            </option>
-
 
                             <?php foreach ($doctorTypes as $doctorType): ?>
 
-                                <option
-                                    value="<?= htmlspecialchars($doctorType) ?>"
-                                    <?= $selectedDoctorType === $doctorType ? "selected" : "" ?>
-                                >
+                                <option>
                                     <?= htmlspecialchars($doctorType) ?>
                                 </option>
 
@@ -1168,9 +714,7 @@ $resetUrl =
 
 
 
-                    <!-- =================================================
-                         SPECIALIZATION
-                    ================================================== -->
+                    <!-- SPECIALIZATION -->
 
                     <div
                         class="space-y-2"
@@ -1190,22 +734,23 @@ $resetUrl =
                         >
 
                             <select
-                                name="specialization"
-                                class="filter-select
+                                class="w-full
+                                       bg-white
+                                       border-outline-variant/50
+                                       rounded-lg
+                                       py-2.5
+                                       px-4
+                                       focus:ring-primary
+                                       focus:border-primary
+                                       transition-all
+                                       font-body-md
+                                       text-sm
                                        appearance-none"
                             >
 
-                                <option value="">
-                                    All Specializations
-                                </option>
-
-
                                 <?php foreach ($specializations as $specialization): ?>
 
-                                    <option
-                                        value="<?= htmlspecialchars($specialization) ?>"
-                                        <?= $selectedSpecialization === $specialization ? "selected" : "" ?>
-                                    >
+                                    <option>
                                         <?= htmlspecialchars($specialization) ?>
                                     </option>
 
@@ -1215,6 +760,7 @@ $resetUrl =
 
 
                             <span
+                                data-icon="search"
                                 class="material-symbols-outlined
                                        absolute
                                        right-3
@@ -1231,27 +777,24 @@ $resetUrl =
 
 
 
-                    <!-- SEARCH -->
+                    <!-- SEARCH BUTTON -->
 
                     <button
-                        class="search-doctor-btn
+                        class="w-full
+                               bg-primary
+                               text-on-primary
+                               py-3
+                               rounded-xl
+                               font-label-md
+                               shadow-sm
+                               active:scale-95
+                               transition-all
+                               hover:bg-primary/90
                                mt-6"
                         type="submit"
                     >
                         Search Doctors
                     </button>
-
-
-                    <!-- RESET -->
-
-                    <a
-                        href="<?= htmlspecialchars($resetUrl) ?>"
-                        class="reset-filter-btn
-                               block
-                               text-center"
-                    >
-                        Reset Filters
-                    </a>
 
                 </form>
 
@@ -1271,321 +814,100 @@ $resetUrl =
         >
 
 
-            <!-- =================================================
-                 SEARCH BAR
-            ================================================== -->
-
-            <form
-                id="doctorSearchForm"
-                method="GET"
-                action=""
-            >
-
-                <div
-                    class="relative
-                           group
-                           search-wrapper"
-                >
-
-                    <input
-                        id="doctorSearchInput"
-                        name="search"
-                        value="<?= htmlspecialchars($searchQuery) ?>"
-                        class="doctor-search-input"
-                        placeholder="Search by doctor name, post, specialization, disease, or treatment..."
-                        type="text"
-                    >
-
-
-                    <span
-                        id="doctorSearchIcon"
-                        class="material-symbols-outlined
-                               doctor-search-icon
-                               absolute
-                               left-5
-                               top-1/2
-                               -translate-y-1/2
-                               text-primary
-                               text-3xl"
-                    >
-                        search
-                    </span>
-
-                </div>
-
-            </form>
-
-
-
-            <!-- =================================================
-                 RESULT HEADER
-            ================================================== -->
+            <!-- SEARCH BAR -->
 
             <div
-                class="flex
-                       items-center
-                       justify-between"
+                class="relative
+                       group"
             >
 
-                <p
-                    class="result-count"
+                <input
+                    class="w-full
+                           h-16
+                           pl-14
+                           pr-6
+                           bg-surface-container-lowest
+                           border-outline-variant/50
+                           rounded-2xl
+                           shadow-sm
+                           focus:ring-2
+                           focus:ring-primary/20
+                           focus:border-primary
+                           transition-all
+                           font-body-md
+                           text-lg"
+                    placeholder="Search by doctor name, post, specialization, disease, or treatment..."
+                    type="text"
                 >
 
-                    <?php if (count($filteredDoctors) > 0): ?>
 
-                        <?= count($filteredDoctors) ?>
-                        doctor(s) found
-
-                    <?php else: ?>
-
-                        No doctors found
-
-                    <?php endif; ?>
-
-                </p>
+                <span
+                    data-icon="search"
+                    class="material-symbols-outlined
+                           absolute
+                           left-5
+                           top-1/2
+                           -translate-y-1/2
+                           text-primary
+                           text-3xl
+                           transition-transform
+                           group-focus-within:scale-110"
+                >
+                    search
+                </span>
 
             </div>
 
 
 
-            <!-- =================================================
-                 DOCTOR RESULTS
-            ================================================== -->
+            <!-- NO RESULTS -->
 
-            <?php if (count($filteredDoctors) > 0): ?>
+            <div
+                class="flex
+                       flex-col
+                       items-center
+                       justify-center
+                       py-20
+                       text-center
+                       space-y-4
+                       bg-surface-container-low/30
+                       rounded-2xl
+                       border
+                       border-dashed
+                       border-outline-variant"
+            >
+
+                <span
+                    class="material-symbols-outlined
+                           text-6xl
+                           text-outline-variant"
+                >
+                    person_search
+                </span>
 
 
                 <div
-                    class="space-y-5"
+                    class="space-y-1"
                 >
 
-                    <?php foreach ($filteredDoctors as $doctor): ?>
+                    <h3
+                        class="font-headline-md
+                               text-on-surface"
+                    >
+                        No results yet
+                    </h3>
 
 
-                        <article
-                            class="doctor-card
-                                   bg-surface-container-lowest
-                                   rounded-2xl
-                                   border
-                                   border-outline-variant/40
-                                   p-6"
-                        >
-
-
-                            <!-- DOCTOR HEADER -->
-
-                            <div
-                                class="doctor-card-header"
-                            >
-
-
-                                <!-- IMAGE -->
-
-                                <img
-                                    src="<?= htmlspecialchars($doctor["image"]) ?>"
-                                    alt="<?= htmlspecialchars($doctor["name"]) ?>"
-                                    class="doctor-image"
-                                >
-
-
-                                <!-- INFO -->
-
-                                <div
-                                    class="flex-1"
-                                >
-
-                                    <div
-                                        class="flex
-                                               flex-wrap
-                                               items-center
-                                               gap-2"
-                                    >
-
-                                        <h3
-                                            class="doctor-name"
-                                        >
-                                            <?= htmlspecialchars($doctor["name"]) ?>
-                                        </h3>
-
-
-                                        <?php if ($doctor["verified"]): ?>
-
-                                            <span
-                                                class="verified-badge"
-                                            >
-
-                                                <span
-                                                    class="material-symbols-outlined
-                                                           text-sm"
-                                                >
-                                                    verified
-                                                </span>
-
-                                                Verified
-
-                                            </span>
-
-                                        <?php endif; ?>
-
-                                    </div>
-
-
-                                    <p
-                                        class="doctor-designation"
-                                    >
-                                        <?= htmlspecialchars($doctor["designation"]) ?>
-                                    </p>
-
-
-                                    <div
-                                        class="mt-3"
-                                    >
-
-                                        <span
-                                            class="specialization-tag"
-                                        >
-                                            <?= htmlspecialchars($doctor["specialization"]) ?>
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <!-- DOCTOR META -->
-
-                            <div
-                                class="doctor-meta"
-                            >
-
-                                <span
-                                    class="doctor-meta-item"
-                                >
-
-                                    <span
-                                        class="material-symbols-outlined"
-                                    >
-                                        location_on
-                                    </span>
-
-                                    <?= htmlspecialchars($doctor["location"]) ?>
-
-                                </span>
-
-
-                                <span
-                                    class="doctor-meta-item"
-                                >
-
-                                    <span
-                                        class="material-symbols-outlined"
-                                    >
-                                        local_hospital
-                                    </span>
-
-                                    <?= htmlspecialchars($doctor["hospital"]) ?>
-
-                                </span>
-
-
-                                <span
-                                    class="doctor-meta-item"
-                                >
-
-                                    <span
-                                        class="material-symbols-outlined"
-                                    >
-                                        work_history
-                                    </span>
-
-                                    <?= htmlspecialchars($doctor["experience"]) ?>
-
-                                </span>
-
-                            </div>
-
-
-
-                            <!-- DOCTOR ACTIONS -->
-
-                            <div
-                                class="doctor-card-actions"
-                            >
-
-                                <a
-                                    href="doctor.php?id=<?= (int) $doctor["id"] ?>"
-                                    class="view-doctor-btn"
-                                >
-
-                                    View Doctor Profile
-
-                                    <span
-                                        class="material-symbols-outlined
-                                               text-lg"
-                                    >
-                                        arrow_forward
-                                    </span>
-
-                                </a>
-
-                            </div>
-
-                        </article>
-
-
-                    <?php endforeach; ?>
+                    <p
+                        class="text-on-surface-variant
+                               font-body-md"
+                    >
+                        Adjust your filters or search to find doctors.
+                    </p>
 
                 </div>
 
-
-            <?php else: ?>
-
-
-                <!-- =================================================
-                     EMPTY RESULTS
-                ================================================== -->
-
-                <div
-                    class="empty-results"
-                >
-
-                    <span
-                        class="material-symbols-outlined
-                               empty-results-icon"
-                    >
-                        person_search
-                    </span>
-
-
-                    <div
-                        class="space-y-1"
-                    >
-
-                        <h3
-                            class="font-headline-md
-                                   text-on-surface"
-                        >
-                            No results found
-                        </h3>
-
-
-                        <p
-                            class="text-on-surface-variant
-                                   font-body-md"
-                        >
-                            Adjust your filters or search
-                            to find doctors.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            <?php endif; ?>
+            </div>
 
         </section>
 
@@ -1600,8 +922,9 @@ $resetUrl =
 ========================================================= -->
 
 <footer
-    class="doctor-footer
-           bg-surface-container-low
+    class="bg-surface-container-low
+           border-t
+           border-outline-variant/30
            w-full
            mt-auto"
 >
@@ -1740,7 +1063,7 @@ $resetUrl =
 
 
 <!-- =========================================================
-     FIND A DOCTOR JS
+     JAVASCRIPT
 ========================================================= -->
 
 <script
