@@ -479,7 +479,7 @@ $hospital = [
                         </a>
 
                         <!-- Available Facilities -->
-                        <a href="../available-facilities.html" class="w-56 h-14 flex items-center justify-center text-center
+                        <a href="./facilities.php" class="w-56 h-14 flex items-center justify-center text-center
                       border-2 border-sky-500 rounded-xl
                       bg-white text-sky-500
                       text-lg font-bold
@@ -503,7 +503,7 @@ $hospital = [
                         </a>
 
                         <!-- Instructions -->
-                        <a href="../instructions.html" class="w-56 h-14 flex items-center justify-center text-center
+                        <a href="./instructions.php" class="w-56 h-14 flex items-center justify-center text-center
                       border-2 border-sky-500 rounded-xl
                       bg-white text-sky-500
                       text-lg font-bold
