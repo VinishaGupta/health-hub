@@ -427,7 +427,7 @@ $hospital = [
 
               </a>
 
-              <a href=" About.html" class="bg-[#6B7280] text-white border border-[#6B7280]/20
+              <a href="./about.php" class="bg-[#6B7280] text-white border border-[#6B7280]/20
     px-[20px] py-4 rounded-full text-label-md font-bold
     hover:bg-[#4B5563] hover:text-white transition-all
     shadow-medical transform hover:-translate-y-1
