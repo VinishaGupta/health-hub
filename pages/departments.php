@@ -14,36 +14,106 @@
 |--------------------------------------------------------------------------
 */
 
-require_once "../../master-admin/health-hub-admin/api/db.php";
-$departments = [];
 
-$sql = "SELECT id, department_name, department_image
-        FROM departments
-        ORDER BY id DESC";
+/* ==========================================================
+                    MOCK DEPARTMENT DATA
+========================================================== */
 
-$result = $conn->query($sql);
+$selectedDepartments = [
 
-if ($result) {
-    while ($row = $result->fetch_assoc()) {
+    [
+        'id' => 1,
+        'name' => 'Cardiology',
+        'image' => '',
+        'icon' => '❤️',
+        'description' => 'Cardiology specializes in the diagnosis and treatment of heart and blood vessel diseases.',
+        'services' => [
+            'Heart Checkup',
+            'ECG',
+            'Echocardiography',
+            'Cardiac Consultation'
+        ],
+        'selected' => true
+    ],
 
-        $departments[] = [
-            'id' => (int) $row['id'],
-            'name' => $row['department_name'],
-            'image' => $row['department_image'],
+    [
+        'id' => 2,
+        'name' => 'Neurology',
+        'image' => '',
+        'icon' => '🧠',
+        'description' => 'Neurology provides diagnosis and treatment for disorders of the brain, nerves and nervous system.',
+        'services' => [
+            'Neurological Consultation',
+            'Brain Checkup',
+            'Nerve Testing',
+            'Headache Treatment'
+        ],
+        'selected' => true
+    ],
 
-            // Existing HTML/JS साठी
-            'icon' => '🏥',
-            'description' => '',
-            'services' => [],
-            'selected' => true
-        ];
-    }
-}
+    [
+        'id' => 3,
+        'name' => 'Orthopedics',
+        'image' => '',
+        'icon' => '🦴',
+        'description' => 'Orthopedics focuses on the diagnosis and treatment of bones, joints, muscles and related conditions.',
+        'services' => [
+            'Bone Consultation',
+            'Joint Treatment',
+            'Fracture Care',
+            'Physiotherapy'
+        ],
+        'selected' => true
+    ],
 
-$selectedDepartments = $departments;
+    [
+        'id' => 4,
+        'name' => 'Pediatrics',
+        'image' => '',
+        'icon' => '👶',
+        'description' => 'Pediatrics provides healthcare services for infants, children and adolescents.',
+        'services' => [
+            'Child Health Checkup',
+            'Vaccination',
+            'Growth Monitoring',
+            'Pediatric Consultation'
+        ],
+        'selected' => true
+    ],
+
+    [
+        'id' => 5,
+        'name' => 'Gynecology',
+        'image' => '',
+        'icon' => '🌸',
+        'description' => 'Gynecology provides healthcare services related to women’s reproductive health.',
+        'services' => [
+            'Women Health Checkup',
+            'Gynecological Consultation',
+            'Pregnancy Care',
+            'Reproductive Health'
+        ],
+        'selected' => true
+    ],
+
+    [
+        'id' => 6,
+        'name' => 'Dermatology',
+        'image' => '',
+        'icon' => '🩺',
+        'description' => 'Dermatology specializes in the diagnosis and treatment of skin, hair and nail conditions.',
+        'services' => [
+            'Skin Consultation',
+            'Hair Treatment',
+            'Acne Treatment',
+            'Skin Disease Treatment'
+        ],
+        'selected' => true
+    ]
+
+];
+
 ?>
-
-
 <!DOCTYPE html>
 
 <html lang="en">
