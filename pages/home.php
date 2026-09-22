@@ -1,0 +1,747 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| HEALTH HUB - HOSPITAL HOME
+|--------------------------------------------------------------------------
+| MOCK DATA ONLY
+|
+| Later this data will come from database tables.
+|--------------------------------------------------------------------------
+*/
+
+$hospital = [
+    "logo" => "Logo",
+    "short_name" => "Short Name",
+    "name" => "Hospital's Name",
+    "location" => "Location",
+    "awards_by" => "Awards By",
+    "website" => "https://www.lifeline.com",
+    "website_display" => "www.lifeline.com",
+    "google_link" => "https://maps.google.com",
+    "images" => [
+        "../best-hospital-in-bangalore.jpg",
+        "../hospital2.jpg",
+        "../hospital3.jpg",
+        "../hospital4.jpg"
+    ],
+    "hospital_names" => [
+        "City Care Hospital",
+        "सिटी केयर हॉस्पिटल",
+        "সিটি কেয়ার হাসপাতাল"
+    ]
+];
+
+?>
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+<meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Health Hub — Caring For Every Life</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#0052cc",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#930014",
+            "tertiary-fixed": "#ffdad7",
+            "surface-tint": "#0c56d0",
+            "surface-dim": "#cbdbf5",
+            surface: "#f8f9ff",
+            error: "#ba1a1a",
+            "surface-bright": "#f8f9ff",
+            "surface-variant": "#d3e4fe",
+            "primary-fixed-dim": "#b2c5ff",
+            "on-secondary-fixed": "#001f26",
+            "secondary-fixed-dim": "#5dd6f3",
+            "inverse-primary": "#b2c5ff",
+            "secondary-fixed": "#adecff",
+            "secondary-container": "#6ae1ff",
+            "tertiary-fixed-dim": "#ffb3ae",
+            tertiary: "#8c0013",
+            "on-primary-container": "#c4d2ff",
+            "on-error": "#ffffff",
+            "tertiary-container": "#b51220",
+            "on-tertiary-container": "#ffc5c0",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#410004",
+            "on-secondary-container": "#006374",
+            "surface-container-high": "#dce9ff",
+            "surface-container": "#e5eeff",
+            "on-secondary": "#ffffff",
+            "on-surface-variant": "#434654",
+            secondary: "#00687a",
+            "on-background": "#0b1c30",
+            "on-primary-fixed": "#001848",
+            "error-container": "#ffdad6",
+            "outline-variant": "#c3c6d6",
+            "surface-container-low": "#eff4ff",
+            "on-primary-fixed-variant": "#0040a2",
+            "primary-fixed": "#dae2ff",
+            background: "#f8f9ff",
+            outline: "#737685",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eaf1ff",
+            "on-secondary-fixed-variant": "#004e5d",
+            primary: "#003d9b",
+            "on-surface": "#0b1c30",
+            "inverse-surface": "#213145",
+            "surface-container-highest": "#d3e4fe",
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+          spacing: {
+            "margin-mobile": "16px",
+            "container-max": "1280px",
+            "margin-desktop": "40px",
+            base: "8px",
+            gutter: "24px",
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"],
+          },
+          fontSize: {
+            "headline-lg-mobile": [
+              "24px",
+              { lineHeight: "32px", fontWeight: "600" },
+            ],
+            "headline-md": [
+              "24px",
+              { lineHeight: "32px", fontWeight: "600" },
+            ],
+            "display-lg": [
+              "48px",
+              {
+                lineHeight: "56px",
+                letterSpacing: "-0.02em",
+                fontWeight: "700",
+              },
+            ],
+            "label-md": [
+              "14px",
+              {
+                lineHeight: "20px",
+                letterSpacing: "0.01em",
+                fontWeight: "500",
+              },
+            ],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+            "headline-lg": [
+              "32px",
+              {
+                lineHeight: "40px",
+                letterSpacing: "-0.01em",
+                fontWeight: "600",
+              },
+            ],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+          },
+        },
+      },
+    };
+  </script>
+
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body
+  class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed-dim selection:text-on-primary-fixed leaf-pattern">
+  <!-- Top Navigation Bar -->
+  <header class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50">
+
+    <nav class="relative flex items-center justify-between max-md:flex-col max-md:items-center
+            px-4 md:px-margin-desktop
+            h-20 w-full max-w-container-max mx-0">
+
+      <!-- Logo -->
+      <a href="index.php" class="font-bold text-primary flex items-center gap-2
+              text-xl md:text-headline-md">
+
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1">
+          medical_services
+        </span>
+
+        <span>Health Hub</span>
+
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        <a class="text-primary font-bold border-b-2 border-primary py-1" href="index.php">
+          Home
+        </a>
+
+        <a class="text-on-surface-variant hover:text-primary" href="specialists.php">
+          Find A Doctor
+        </a>
+      </div>
+
+      <!-- Health Insights Button -->
+      <a href="myhealth.php" class="border-2 border-[#159F00]
+              text-[#159F00]
+              px-3 py-2 md:px-8 md:py-3
+              rounded-xl
+              font-bold
+              text-sm md:text-base
+              whitespace-nowrap
+              hover:bg-[#107800]
+              hover:text-white
+              transition-all duration-300">
+
+        Health Insights
+
+      </a>
+
+    </nav>
+  </header>
+  <section class="hospital-identity">
+
+    <!-- ==========================================================
+                        DASHBOARD BUTTON
+    =========================================================== -->
+
+    <div class="dashboard-wrapper max-w-container-max mx-0 ml-6 pt-4">
+
+        <a
+            href="../dashboard.php"
+            class="dashboard-btn"
+        >
+            <span class="dashboard-arrow">←</span>
+            <span>Dashboard</span>
+        </a>
+
+    </div>
+
+
+    <!-- ==========================================================
+                        HOSPITAL INFORMATION
+    =========================================================== -->
+
+    <div class="max-w-container-max mx-0 px-4 pb-6
+            flex flex-col lg:flex-row items-center gap-6">
+      <!-- Left Side -->
+      <div class="grid grid-cols-1 md:grid-cols-[104px_minmax(0,1fr)_160px] items-start gap-6 flex-1 min-w-0 text-left">
+        <!-- Hospital Logo -->
+        <div class="hospital-logo-mark w-[120px] h-[120px] flex-shrink-0 mx-auto md:mx-0">
+          Logo
+        </div>
+
+        <!-- Hospital Information -->
+        <div class="min-w-0 max-md:w-full max-md:text-center">
+
+          <p class="text-sm font-semibold text-indigo-600 tracking-wide mb-[12px]">
+            Short Name
+          </p>
+
+          <h1 id="hospitalName"
+            class="text-2xl sm:text-3xl md:text-[42px] font-extrabold text-primary leading-tight min-w-0 overflow-hidden pt-4 pb-4">
+            <?= htmlspecialchars($hospital["name"]) ?>
+          </h1>
+
+          <p class="text-xl font-semibold text-secondary mt-2">
+            Location
+          </p>
+
+          <h3 class="text-xl font-semibold text-secondary mt-2 underline">
+            Awards By
+          </h3>
+
+        </div>
+
+        <!-- 24 Hour Status Circle -->
+        <a href="schedule.php">
+          <div class="status-circle bg-white/70 backdrop-blur-md border border-white/40
+            rounded-full w-36 h-36 flex flex-col items-center justify-center
+            text-center flex-shrink-0 mx-auto md:mx-0">
+
+          <div class="w-3 h-3 bg-emerald-500 rounded-full pulse-dot mt-2"></div>
+
+          <h2 class="text-sm font-semibold text-emerald-800 m-2">
+            Open 24 Hours
+          </h2>
+         <h6 class="text-[13px] text-[#f90680] blink-click">Click</h6>
+
+          <!--
+    <p class="text-lg text-gray-600 mt-2">
+      Hospital available 24/7
+    </p>
+    -->
+
+        </div>
+        </a>
+      </div>
+
+
+      <!-- Right Side Buttons -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto
+         max-md:w-full max-md:items-center">
+
+        <!-- Website Button -->
+        <a href="<?= htmlspecialchars($hospital["website"]) ?>" target="_blank" class="px-6 py-3
+           border-[4px] border-sky-500
+           rounded-[24px]
+           text-gray-500 font-semibold text-lg
+           bg-white
+           shadow-md
+           hover:shadow-lg
+           hover:scale-105
+           transition-all
+           max-md:w-full max-md:max-w-[330px] max-md:text-center">
+          <?= htmlspecialchars($hospital["website_display"]) ?>
+        </a>
+
+        <!-- Google Link Button -->
+        <a href="<?= htmlspecialchars($hospital["google_link"]) ?>" target="_blank" class="px-8 py-4
+           bg-blue-500
+           text-white
+           font-bold
+           rounded-2xl
+           shadow-md
+           hover:bg-blue-600
+           hover:scale-105
+           transition-all
+           max-md:w-full max-md:max-w-[330px] max-md:text-center">
+          Google Link
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[600px] flex items-start pt-40 overflow-hidden"">
+
+<div class=" absolute inset-0 z-0 overflow-hidden rounded-[50px] mx-8">
+      <!-- images -->
+      <div id="hospitalImages" class="flex h-full transition-transform duration-700">
+
+        <?php foreach ($hospital["images"] as $image): ?>
+
+          <img
+            class="min-w-full h-full object-cover"
+            src="<?= htmlspecialchars($image) ?>"
+            alt="Hospital image">
+
+        <?php endforeach; ?>
+
+      </div>
+
+
+      <!-- arrows -->
+      <button onclick="prevSlide()" class="absolute left-8 top-1/2 z-20 bg-white/70 rounded-full px-4 py-3 mt-10">
+        ❮
+      </button>
+
+
+      <button onclick="nextSlide()" class="absolute right-8 top-1/2 z-20 bg-white/70 rounded-full px-4 py-3 mt-10">
+        ❯
+      </button>
+
+
+      <!-- overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-surface/40 via-surface/10 to-transparent"></div>
+
+      </div>
+      </div>
+
+      <a href="photo-bank.php" class="absolute top-10 right-10 z-30
+          bg-white/80 text-[#0B4DA2]
+          px-8 py-3 rounded-xl font-bold
+          border border-white/50
+          backdrop-blur-md
+          hover:bg-white
+          transition-all mr-[20px] mt-[-10px]">
+
+        Photo Bank
+
+      </a>
+      <div class="relative z-10 w-full max-w-container-max mx-0 px-margin-desktop">
+        <div class="max-w-2xl space-y-8">
+          <!-- <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container/30 border border-secondary/20 rounded-full text-secondary font-label-sm"> -->
+          <!-- <span class="material-symbols-outlined text-[16px]">eco</span>
+                                A safe healthcare place for every generation
+                            </div>
+        <h1 class="text-display-lg font-display-lg text-primary tracking-tight"><?= htmlspecialchars($hospital["name"]) ?></h1>
+        <p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg">
+                                Advanced healthcare with compassion, comfort, and trust. Experience a new standard of medical excellence designed around your well-being.
+                            </p> -->
+
+          <div class="mt-[-40px] flex flex-col gap-4 pt-4 w-fit">
+            <div class="flex flex-wrap gap-4">
+
+
+
+
+              <a href="opd-booking.php">
+                <button class="bg-green-700 text-white px-8 py-4 rounded-full text-label-md font-bold 
+           hover:bg-[#0f7333] transition-all shadow-medical transform hover:-translate-y-1 
+           border-[2px] border-white">
+                  Book Appointment
+                </button>
+              </a>
+              <a href="../1.html">
+                <button 
+  class="bg-tertiary-container text-white border border-tertiary/20 px-8 py-4 rounded-full text-label-md font-bold hover:bg-tertiary transition-all hover:text-white transform hover:-translate-y-1 border-[2px] border-white">
+  Emergency Care
+</button>
+              </a>
+            </div>
+            <div class=" flex flex-wrap gap-4">
+
+                <a href="specialists.php" class="bg-[#006878] text-white border border-[#006878]/20
+    px-[60px] py-4 rounded-full text-label-md font-bold
+    hover:bg-[#00889b] hover:text-white transition-all
+    shadow-medical transform hover:-translate-y-1
+    text-center block border-[2.5px] border-white"">
+
+                Specialist
+
+              </a>
+
+              <a href=" About.html" class="bg-[#6B7280] text-white border border-[#6B7280]/20
+    px-[20px] py-4 rounded-full text-label-md font-bold
+    hover:bg-[#4B5563] hover:text-white transition-all
+    shadow-medical transform hover:-translate-y-1
+    text-center block border-[2px] border-white"">
+
+                Health Headquaters
+
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- <iframe 
+    src=" index.html" class="w-full h-screen border-0">
+                  </iframe> -->
+
+
+
+
+
+                  <!-- Services Section -->
+                  <section class="py-24 bg-surface-container-low">
+
+
+
+
+                    <div class="max-w-7xl mx-0 px-4">
+
+                      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5
+                    justify-items-center items-center
+                    gap-6">
+
+                        <!-- Department -->
+                        <a href="../dept.html" class="w-56 h-14 flex items-center justify-center text-center
+                      border-2 border-sky-500 rounded-xl
+                      bg-white text-sky-500
+                      text-lg font-bold
+                      hover:bg-sky-500 hover:text-white
+                      transition duration-300">
+
+                          Department
+
+                        </a>
+
+                        <!-- Available Facilities -->
+                        <a href="../available-facilities.html" class="w-56 h-14 flex items-center justify-center text-center
+                      border-2 border-sky-500 rounded-xl
+                      bg-white text-sky-500
+                      text-lg font-bold
+                      hover:bg-sky-500 hover:text-white
+                      transition duration-300">
+
+                          Available Features
+
+                        </a>
+
+                        <!-- Services -->
+                        <a href="../Services.html" class="w-56 h-14 flex items-center justify-center text-center
+                      border-2 border-sky-500 rounded-xl
+                      bg-white text-sky-500
+                      text-lg font-bold
+                      hover:bg-sky-500 hover:text-white
+                      transition duration-300">
+
+                          Services
+
+                        </a>
+
+                        <!-- Instructions -->
+                        <a href="../instructions.html" class="w-56 h-14 flex items-center justify-center text-center
+                      border-2 border-sky-500 rounded-xl
+                      bg-white text-sky-500
+                      text-lg font-bold
+                      hover:bg-sky-500 hover:text-white
+                      transition duration-300">
+
+                          Instructions
+
+                        </a>
+
+                        <!-- Advice -->
+                        <a href="advice.html" class="w-56 h-14 flex items-center justify-center text-center
+                      border-2 border-sky-500 rounded-xl
+                      bg-white text-sky-500
+                      text-lg font-bold
+                      hover:bg-sky-500 hover:text-white
+                      transition duration-300">
+
+                          Advice
+
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                  </section>
+                  <!-- Why Choose Health Hub Section -->
+                  <section class="py-24 relative overflow-hidden">
+                    <!-- Decorative Leaf Background -->
+                    <div class="absolute -right-20 top-0 opacity-10 pointer-events-none">
+                      <span class="material-symbols-outlined text-[300px] text-secondary transform rotate-45">eco</span>
+                    </div>
+                    <div class="max-w-container-max mx-0 px-margin-desktop">
+                      <div class="flex flex-col lg:flex-row items-center gap-16">
+                        <div class="lg:w-1/2">
+                          <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-4 pt-12">
+                              <div class="rounded-3xl overflow-hidden shadow-medical">
+                                <img class="w-full h-full object-cover aspect-[3/4]"
+                                  data-alt="A warm, professional photograph of a female doctor smiling and holding the hand of an elderly female patient. The setting is a cozy, brightly lit consultation room with a plant in the background. The mood is compassionate and empathetic, showcasing human-centric care."
+                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUiMmlifVGbZgqvF18yaLPH2dtjLLQAOPA0KcbUwZmQ2h2Caxp01zmpzB1jlEnke-7o2MF4Vt-8nY3o6XMZvtxbbk0o_5_FLapRCHPL0byy0wpvkHKr49SDbCmN0KjZkUDMEpEZi81V50kuAWxC6KY4nOKbULY_YnkRh070v8bVmYPgS53qtCQ7HqHDto7LctQwD-izBNTwtc7tZLxazusoyTy2hAq5yTM1ecIFHyV9Mg23R1mmzDaRuN1ygxb-JG8dyHoLEK7gx4" />
+                              </div>
+                              <div class="rounded-3xl overflow-hidden shadow-medical">
+                                <img class="w-full h-full object-cover aspect-square"
+                                  data-alt="A clean, modern hospital room with a large window looking out onto lush green trees. The room is minimalist with high-quality wooden furniture, a modern hospital bed, and a comfortable armchair for visitors. The atmosphere is peaceful and serene, emphasizing healing environments."
+                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYjhqrmwwUcn8qVCzhnrnfZpiVYKu4UnlEbRlQGD3yF-0bNj3Sc9HRKk5sqbPelGLoIaZJPg-Nr27CdyQN5sHJc-F2a_F0Pr-KGulRYStJiymoxkwM14D5Dx59jUkK8ZnHJ9zbcVoKtxHUR5Gh3bj-jFU2BZb9PRCEjWzzWflvovszxzbbtTxYBaqoHUeU3tNa1Hch-EeTWgXLkx91_Tdg62kmvurTj05S11IPJ6OX7FKkE-PJToCNwSD5GovxqIvyUl_gurKov00" />
+                              </div>
+                            </div>
+                            <div class="space-y-4">
+                              <div class="rounded-3xl overflow-hidden shadow-medical">
+                                <img class="w-full h-full object-cover aspect-[3/4]"
+                                  data-alt="A happy elderly couple walking together down a bright, sun-filled hospital hallway lined with plants and floor-to-ceiling windows. They are smiling and holding hands, representing successful multi-generational care and patient satisfaction. The lighting is warm and inviting."
+                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvbyk0bEK7pohaQ1KM7ldnU7ADaGnQ8EPZNeMJ70zu9WT4r7kIzLPHz6rZoL0srjz2tpOIY7hRHM5cocXFeIPfX7dISxIUlPhPc1JrtUf9_xUwoqq6XfjJ6bKCeoxtKf8Vr_b12uUFsSH1LdMfkPLeDP3CP4CioRCSMyZiXTDXARqU57-Gb8whU22TW62d2xywQiVs0gi_gpP0GIbHb0iaCYaIr3xZCzkUI3NklwO2M1JqR94YDNYNWNAkd7tli4qteW_0YL0ZN98" />
+                              </div>
+                              <div
+                                class="bg-primary p-8 rounded-3xl text-on-primary flex flex-col justify-center text-center h-48">
+                                <span class="text-4xl font-black mb-1">99%</span>
+                                <span class="text-label-md">Patient Trust Score</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="lg:w-1/2 space-y-8">
+                          <h2 class="text-headline-lg font-headline-lg text-primary">
+                            Why Choose Health Hub?
+                          </h2>
+
+                          <div class="space-y-6">
+                            <div class="flex gap-6">
+                              <div
+                                class="flex-shrink-0 w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-on-secondary-container">
+                                <span class="material-symbols-outlined">favorite</span>
+                              </div>
+                              <div>
+                                <h4 class="text-headline-md font-headline-md text-on-surface mb-2">
+                                  Human-Centric Design
+                                </h4>
+                                <p class="text-body-md text-on-surface-variant">
+                                  We prioritize the emotional and physical comfort of our
+                                  patients through every touchpoint of the care journey.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="flex gap-6">
+                              <div
+                                class="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+                                <span class="material-symbols-outlined">family_restroom</span>
+                              </div>
+                              <div>
+                                <h4 class="text-headline-md font-headline-md text-on-surface mb-2">
+                                  Multi-Generational Care
+                                </h4>
+                                <p class="text-body-md text-on-surface-variant">
+                                  Specialized units tailored for pediatrics, adult medicine,
+                                  and senior care, ensuring every age group feels at home.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="flex gap-6">
+                              <div
+                                class="flex-shrink-0 w-12 h-12 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+                                <span class="material-symbols-outlined">spa</span>
+                              </div>
+                              <div>
+                                <h4 class="text-headline-md font-headline-md text-on-surface mb-2">
+                                  Healing Environments
+                                </h4>
+                                <p class="text-body-md text-on-surface-variant">
+                                  Our spaces integrate nature, natural light, and quiet
+                                  zones to significantly reduce patient stress and
+                                  accelerate recovery.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <!-- CTA Section -->
+                  <section class="py-16">
+                    <div class="max-w-container-max mx-0 px-margin-desktop">
+                      <div
+                        class="bg-primary-container rounded-[2.5rem] p-12 text-on-primary text-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-10 pointer-events-none">
+                          <div class="absolute top-0 left-0 p-8">
+                            <span class="material-symbols-outlined text-[100px]">vital_signs</span>
+                          </div>
+                          <div class="absolute bottom-0 right-0 p-8">
+                            <span class="material-symbols-outlined text-[100px]">stethoscope</span>
+                          </div>
+                        </div>
+                        <h2 class="text-headline-lg font-headline-lg mb-6">
+                          Ready to prioritize your health?
+                        </h2>
+                        <p class="text-body-lg mb-8 max-w-xl mx-0 opacity-90">
+                          Our specialists are here to guide you toward a healthier, more
+                          vibrant life. Book your physical or virtual consultation today.
+                        </p>
+
+                      </div>
+                    </div>
+                  </section>
+  </main>
+  <!-- Footer -->
+  <footer class="w-full rounded-t-xl bg-surface-container-highest border-t border-outline-variant">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 w-full max-w-container-max mx-0">
+      <div class="space-y-6">
+        <div class="text-headline-sm font-black text-on-surface">
+          Health Hub
+        </div>
+        <p class="text-body-md text-on-surface-variant">
+          A safe healthcare place for every generation. Experience world-class
+          medical excellence with a personal touch.
+        </p>
+        <div class="flex gap-4">
+          <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+          <span
+            class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">alternate_email</span>
+          <span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">call</span>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <h4 class="text-label-md font-bold text-primary uppercase tracking-wider">
+          Services
+        </h4>
+        <ul class="space-y-3">
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Diagnostic Imaging</a>
+          </li>
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Cancer Care</a>
+          </li>
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Heart Institute</a>
+          </li>
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Pediatric Surgery</a>
+          </li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h4 class="text-label-md font-bold text-primary uppercase tracking-wider">
+          Quick Links
+        </h4>
+        <ul class="space-y-3">
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Find a Doctor</a>
+          </li>
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Patient Portal</a>
+          </li>
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">International Patients</a>
+          </li>
+          <li class="">
+            <a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
+          </li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h4 class="text-label-md font-bold text-primary uppercase tracking-wider">
+          Contact Us
+        </h4>
+        <div class="text-body-md text-on-surface-variant">
+          123 Healing Garden Drive,<br />
+          Medical District, Health City<br />
+          <br />
+          <strong>Appointments:</strong> +1 (800) HUB-CARE<br />
+          <strong>Emergency:</strong> 911
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-outline-variant/30 py-6 px-margin-desktop">
+      <div class="max-w-container-max mx-0 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-label-sm text-on-surface-variant">
+          © 2024 Health Hub Medical Systems. All rights reserved.
+        </p>
+        <div class="flex flex-wrap gap-6">
+          <a class="text-label-sm text-on-surface-variant hover:text-primary underline" href="#">Privacy Policy</a>
+          <a class="text-label-sm text-on-surface-variant hover:text-primary underline" href="#">Terms of Service</a>
+          <a class="text-label-sm text-on-surface-variant hover:text-primary underline" href="#">Cookie Policy</a>
+          <a class="text-label-sm text-on-surface-variant hover:text-primary underline" href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Fixed SOS FAB for High Trust UI -->
+
+<script>
+    window.homeData = {
+        hospitalNames: <?= json_encode($hospital["hospital_names"], JSON_UNESCAPED_UNICODE) ?>
+    };
+</script>
+
+<script src="../js/home.js"></script>
+
+</body>
+</html>
+
