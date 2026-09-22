@@ -1,0 +1,260 @@
+/* ==========================================================
+                        INDEX / HOME
+========================================================== */
+
+
+/* =========================================
+   ROW HEADINGS
+========================================= */
+
+.row-heading {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0b3d91;
+    margin: 0 0 18px 15px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.row-heading span {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: #737685;
+    margin-top: 6px;
+    letter-spacing: 0;
+}
+
+
+/* =========================================
+   CAROUSEL
+========================================= */
+
+@property --manual-offset {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+.carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-wrapper.mt-10 {
+    margin-top: 64px;
+    padding-top: 44px;
+}
+
+.carousel-wrapper.mt-10::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15px;
+    right: 15px;
+    border-top: 2px dashed rgba(0, 61, 155, .28);
+    pointer-events: none;
+}
+
+.carousel-wrapper > a {
+    display: block;
+}
+
+.auto-scroll {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    padding: 15px;
+
+    --manual-offset: 0px;
+
+    transition:
+        --manual-offset .55s cubic-bezier(.22, 1, .36, 1);
+
+    will-change: transform;
+
+    animation:
+        scrollCards 30s linear infinite;
+}
+
+.carousel-wrapper:hover .auto-scroll {
+    animation-play-state: paused;
+}
+
+.auto-scroll.is-moving {
+    animation-play-state: paused;
+}
+
+
+/* =========================================
+   CARD SIZE
+========================================= */
+
+.auto-scroll > a {
+    width: 420px;
+    height: 520px;
+    flex: 0 0 420px;
+    display: flex;
+}
+
+.auto-scroll .hospital-card {
+    width: 420px;
+    flex: 0 0 420px;
+    height: 520px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   ARROWS
+========================================= */
+
+.hospital-arrow {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 20;
+
+    color: #003d9b;
+
+    background: rgba(255, 255, 255, .92);
+
+    border: 1px solid rgba(195, 198, 214, .6);
+
+    border-radius: 9999px;
+
+    box-shadow:
+        0 12px 28px rgba(11, 28, 48, .16);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.hospital-arrow:hover {
+    background: #ffffff;
+    transform: translateY(-50%) scale(1.04);
+}
+
+.hospital-arrow:active {
+    transform: translateY(-50%) scale(.96);
+}
+
+.hospital-arrow-left {
+    left: 12px;
+}
+
+.hospital-arrow-right {
+    right: 12px;
+}
+
+
+/* =========================================
+   CARD HOVER
+========================================= */
+
+.auto-scroll:hover .hospital-card {
+    opacity: .45;
+}
+
+.auto-scroll .hospital-card:hover {
+    opacity: 1;
+
+    transform:
+        translateY(-8px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 35px
+        rgba(0, 61, 155, .25);
+}
+
+
+/* =========================================
+   AUTO SCROLL
+========================================= */
+
+@keyframes scrollCards {
+
+    from {
+        transform:
+            translateX(var(--manual-offset));
+    }
+
+    to {
+        transform:
+            translateX(calc(-50% + var(--manual-offset)));
+    }
+
+}
+
+
+/* =========================================
+   ICONS
+========================================= */
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.glass-header {
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c3c6d6;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.leaf-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c0 16.569-13.431 30-30 30 16.569 0 30 13.431 30 30 0-16.569 13.431-30 30-30-16.569 0-30-13.431-30-30z' fill='%2300687a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.shadow-medical {
+    box-shadow:
+        0 4px 6px -1px rgba(0, 82, 204, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
