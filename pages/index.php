@@ -316,8 +316,7 @@ $carouselHospitals = array_merge(
                         HEALTH INSIGHTS
         =================================================== -->
 
-        <a
-            href="./myhealth.php"
+       <a href="health-insights/index.php"
             class="ml-auto border-2 border-[#159F00] text-[#159F00] px-8 py-3 rounded-xl font-bold hover:bg-[#107800] hover:text-white transition-all duration-300"
         >
             Health Insights

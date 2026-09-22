@@ -204,7 +204,7 @@ $hospital = [
       </div>
 
       <!-- Health Insights Button -->
-      <a href="myhealth.php" class="border-2 border-[#159F00]
+      <a href="health-insights/index.php" class="border-2 border-[#159F00]
               text-[#159F00]
               px-3 py-2 md:px-8 md:py-3
               rounded-xl

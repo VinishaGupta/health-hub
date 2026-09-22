@@ -966,7 +966,7 @@ $hospitalNames = [
 
 
         <a
-            href="management.html"
+            href="./management.php"
             class="inline-flex items-center gap-3
                    bg-blue-600 hover:bg-blue-700
                    text-white font-bold text-lg
