@@ -95,5 +95,13 @@
       "label": "Purple Highlight"
     }
   ],
-  "lineHighlights": {}
+  "lineHighlights": {
+    "myhealth.html": [
+      {
+        "startLine": 229,
+        "endLine": 229,
+        "typeId": "highlight-yellow"
+      }
+    ]
+  }
 }

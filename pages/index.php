@@ -2,10 +2,9 @@
 
 /*
 |--------------------------------------------------------------------------
-| HEALTH HUB - HOME PAGE
+| HEALTH HUB - INDEX PAGE
 |--------------------------------------------------------------------------
 | MOCK DATA ONLY
-|
 | Later this data will come from database tables.
 |--------------------------------------------------------------------------
 */
@@ -23,7 +22,7 @@ $hospitals = [
         "location" => "Sadar, Nagpur",
         "rating" => "4.5",
         "doctors" => "15+",
-        "image_alt" => "Modern multi-story clinic building with glass windows and professional branding in Nagpur. High-end healthcare aesthetic with teal accents."
+        "image_alt" => "Modern multi-story clinic building with glass windows and professional branding in Nagpur."
     ],
 
     [
@@ -32,7 +31,7 @@ $hospitals = [
         "location" => "Hinjewadi, Pune",
         "rating" => "4.7",
         "doctors" => "80+",
-        "image_alt" => "Large suburban multi-speciality hospital complex with a dedicated trauma center in Pune. Professional medical facility with crisp white architecture."
+        "image_alt" => "Large suburban multi-speciality hospital complex with a dedicated trauma center in Pune."
     ],
 
     [
@@ -41,7 +40,7 @@ $hospitals = [
         "location" => "Colaba, Mumbai",
         "rating" => "4.8",
         "doctors" => "25+",
-        "image_alt" => "Boutique neuro-care medical facility with advanced technological facade and high-end materials. Minimalist professional aesthetic."
+        "image_alt" => "Boutique neuro-care medical facility with advanced technological facade."
     ],
 
     [
@@ -50,7 +49,7 @@ $hospitals = [
         "location" => "Trimurti Nagar, Nagpur",
         "rating" => "4.4",
         "doctors" => "10+",
-        "image_alt" => "Contemporary dental surgical center with a bright, friendly entrance and modern dental signage. Clean medical clarity theme."
+        "image_alt" => "Contemporary dental surgical center."
     ],
 
     [
@@ -59,7 +58,7 @@ $hospitals = [
         "location" => "Wakad, Pune",
         "rating" => "4.9",
         "doctors" => "40+",
-        "image_alt" => "Vibrant and professional pediatric hospital with colorful yet clinical design elements and modern child-safe architecture."
+        "image_alt" => "Professional pediatric hospital."
     ],
 
     [
@@ -68,7 +67,7 @@ $hospitals = [
         "location" => "Powai, Mumbai",
         "rating" => "4.7",
         "doctors" => "200+",
-        "image_alt" => "Massive corporate hospital skyscraper with glass curtain walls and rooftop helipad in Mumbai skyline. Premium clinical design."
+        "image_alt" => "Corporate multi-speciality hospital."
     ]
 
 ];
@@ -76,17 +75,17 @@ $hospitals = [
 
 /*
 |--------------------------------------------------------------------------
-| Duplicate mock data for continuous carousel
+| Duplicate cards for continuous carousel
 |--------------------------------------------------------------------------
 */
 
-$carouselHospitals =
-    array_merge(
-        $hospitals,
-        $hospitals
-    );
+$carouselHospitals = array_merge(
+    $hospitals,
+    $hospitals
+);
 
 ?>
+
 <!DOCTYPE html>
 
 <html
@@ -98,15 +97,13 @@ $carouselHospitals =
 
     <meta charset="utf-8">
 
-
     <meta
-        content="width=device-width, initial-scale=1.0"
         name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-
     <title>
-        Find Hospitals Near You | Health Hub
+        Health Hub
     </title>
 
 
@@ -127,7 +124,6 @@ $carouselHospitals =
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet"
     >
-
 
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -234,78 +230,6 @@ $carouselHospitals =
                         "label-md": ["Inter"],
                         "headline-lg-mobile": ["Inter"]
 
-                    },
-
-
-                    fontSize: {
-
-                        "headline-lg-mobile": [
-                            "24px",
-                            {
-                                lineHeight: "32px",
-                                fontWeight: "600"
-                            }
-                        ],
-
-                        "headline-md": [
-                            "24px",
-                            {
-                                lineHeight: "32px",
-                                fontWeight: "600"
-                            }
-                        ],
-
-                        "display-lg": [
-                            "48px",
-                            {
-                                lineHeight: "56px",
-                                letterSpacing: "-0.02em",
-                                fontWeight: "700"
-                            }
-                        ],
-
-                        "label-md": [
-                            "14px",
-                            {
-                                lineHeight: "20px",
-                                letterSpacing: "0.01em",
-                                fontWeight: "500"
-                            }
-                        ],
-
-                        "body-lg": [
-                            "18px",
-                            {
-                                lineHeight: "28px",
-                                fontWeight: "400"
-                            }
-                        ],
-
-                        "label-sm": [
-                            "12px",
-                            {
-                                lineHeight: "16px",
-                                fontWeight: "600"
-                            }
-                        ],
-
-                        "headline-lg": [
-                            "32px",
-                            {
-                                lineHeight: "40px",
-                                letterSpacing: "-0.01em",
-                                fontWeight: "600"
-                            }
-                        ],
-
-                        "body-md": [
-                            "16px",
-                            {
-                                lineHeight: "24px",
-                                fontWeight: "400"
-                            }
-                        ]
-
                     }
 
                 }
@@ -323,7 +247,7 @@ $carouselHospitals =
 
     <link
         rel="stylesheet"
-        href="../css/index.css"
+        href="../css/index.css?v=1"
     >
 
 </head>
@@ -339,16 +263,21 @@ $carouselHospitals =
 ========================================================== -->
 
 <header
-    class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50"
+    class="bg-white/70 dark:bg-on-background/70 backdrop-blur-md shadow-sm sticky top-0 z-50"
 >
 
     <nav
         class="relative flex justify-between items-center px-margin-mobile md:px-margin-desktop h-20 w-full"
     >
 
+
+        <!-- ==================================================
+                            HEALTH HUB
+        =================================================== -->
+
         <a
-            href="index.php"
-            class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2"
+            href="./home.php"
+            class="font-headline-md font-bold text-primary dark:text-primary-fixed flex items-center gap-2"
         >
 
             <span
@@ -358,7 +287,6 @@ $carouselHospitals =
                 medical_services
             </span>
 
-
             <span>
                 Health Hub
             </span>
@@ -366,13 +294,17 @@ $carouselHospitals =
         </a>
 
 
+        <!-- ==================================================
+                            HOME
+        =================================================== -->
+
         <div
             class="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2"
         >
 
             <a
+                href="./home.php"
                 class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors duration-200 py-1"
-                href="#"
             >
                 Home
             </a>
@@ -380,8 +312,12 @@ $carouselHospitals =
         </div>
 
 
+        <!-- ==================================================
+                        HEALTH INSIGHTS
+        =================================================== -->
+
         <a
-            href="myhealth.php"
+            href="./myhealth.php"
             class="ml-auto border-2 border-[#159F00] text-[#159F00] px-8 py-3 rounded-xl font-bold hover:bg-[#107800] hover:text-white transition-all duration-300"
         >
             Health Insights
@@ -392,11 +328,15 @@ $carouselHospitals =
 </header>
 
 
+<!-- ==========================================================
+                            MAIN
+========================================================== -->
+
 <main>
 
 
 <!-- ==========================================================
-                        HERO SECTION
+                            HERO
 ========================================================== -->
 
 <section
@@ -409,10 +349,9 @@ $carouselHospitals =
 
         <img
             class="w-full h-full object-cover"
-            alt="A bright and clear hospital lobby with modern architecture and a friendly doctor-patient interaction."
             src="../image.png"
+            alt="Hospital"
         >
-
 
         <div
             class="absolute inset-0 bg-gradient-to-r from-surface/40 via-surface/10 to-transparent"
@@ -439,7 +378,6 @@ $carouselHospitals =
                     eco
                 </span>
 
-
                 A safe healthcare place for every generation
 
             </div>
@@ -463,11 +401,9 @@ $carouselHospitals =
             <p
                 class="text-body-lg font-body-lg text-on-surface-variant max-w-lg"
             >
-
                 Advanced healthcare with compassion, comfort, and trust.
                 Experience a new standard of medical excellence designed
                 around your well-being.
-
             </p>
 
         </div>
@@ -484,6 +420,7 @@ $carouselHospitals =
 <section
     class="py-16 px-margin-mobile md:px-margin-desktop w-full"
 >
+
 
     <header
         class="mb-12 border-l-4 border-primary pl-6"
@@ -506,17 +443,21 @@ $carouselHospitals =
     </header>
 
 
-    <!-- FIND DOCTOR -->
+    <!-- ======================================================
+                        FIND A DOCTOR
+    ======================================================= -->
 
     <a
-        href="specialists.php"
+        href="./specialists.php"
         class="bg-[#006878] text-white border border-[#006878]/20 px-[50px] py-4 rounded-full text-label-md font-bold hover:bg-[#00889b] hover:text-white transition-all shadow-medical transform hover:-translate-y-1 w-fit mr-auto text-center block my-6"
     >
         Find a Doctor
     </a>
 
 
-    <!-- SEARCH BAR -->
+    <!-- ======================================================
+                            SEARCH
+    ======================================================= -->
 
     <section
         class="mb-10 bg-white p-6 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col md:flex-row gap-4 items-center"
@@ -542,32 +483,26 @@ $carouselHospitals =
         </div>
 
 
-        <div
-            class="flex gap-4 w-full md:w-auto"
+        <button
+            class="bg-primary-container text-on-primary-container px-6 py-3 rounded-xl font-label-md flex items-center gap-2 hover:opacity-90 transition-all"
+            type="button"
         >
 
-            <button
-                class="bg-primary-container text-on-primary-container px-6 py-3 rounded-xl font-label-md flex items-center gap-2 hover:opacity-90 transition-all"
-                type="button"
+            <span
+                class="material-symbols-outlined text-[20px]"
             >
+                filter_list
+            </span>
 
-                <span
-                    class="material-symbols-outlined text-[20px]"
-                >
-                    filter_list
-                </span>
+            Search
 
-                Search
-
-            </button>
-
-        </div>
+        </button>
 
     </section>
 
 
     <!-- ======================================================
-                    HOSPITAL CAROUSEL
+                        HOSPITAL CAROUSEL
     ======================================================= -->
 
     <div
@@ -580,25 +515,35 @@ $carouselHospitals =
 
 
             <!-- ==================================================
-                            CARDS
+                        CAROUSEL SLIDER
             =================================================== -->
 
-            <a
-                href="home.html"
+            <div
+                id="hospitalSlider"
+                class="auto-scroll"
             >
 
-                <div
-                    id="hospitalSlider"
-                    class="auto-scroll"
-                >
 
-                    <?php foreach ($carouselHospitals as $hospital): ?>
+                <?php foreach ($carouselHospitals as $hospital): ?>
+
+
+                    <!-- ==================================================
+                                INDIVIDUAL CARD LINK
+                    =================================================== -->
+
+                    <a
+                        href="./home.php"
+                        class="hospital-card-link"
+                    >
 
                         <article
                             class="hospital-card bg-white rounded-2xl overflow-hidden border border-outline-variant/30 shadow-sm transition-all duration-300 flex flex-col h-full"
                         >
 
-                            <!-- IMAGE -->
+
+                            <!-- ==================================================
+                                        IMAGE
+                            =================================================== -->
 
                             <div
                                 class="relative h-48 w-full bg-surface-dim"
@@ -606,8 +551,9 @@ $carouselHospitals =
 
                                 <img
                                     src="placeholder"
-                                    data-alt="<?= htmlspecialchars($hospital["image_alt"]) ?> The lighting is clean and bright, utilizing the medical SaaS color palette of white, primary blue, and soft gray."
+                                    data-alt="<?= htmlspecialchars($hospital["image_alt"]) ?>"
                                     class="w-full h-full object-cover"
+                                    alt="<?= htmlspecialchars($hospital["name"]) ?>"
                                 >
 
 
@@ -636,11 +582,16 @@ $carouselHospitals =
                             </div>
 
 
-                            <!-- CARD CONTENT -->
+                            <!-- ==================================================
+                                    CARD CONTENT
+                            =================================================== -->
 
                             <div
                                 class="p-5 flex-grow flex flex-col"
                             >
+
+
+                                <!-- TYPE -->
 
                                 <div
                                     class="mb-3"
@@ -654,7 +605,7 @@ $carouselHospitals =
 
 
                                     <h3
-                                        class="text-headline-sm font-headline-md text-on-surface mt-1 leading-tight"
+                                        class="text-headline-md font-headline-md text-on-surface mt-1 leading-tight"
                                     >
                                         <?= htmlspecialchars($hospital["name"]) ?>
                                     </h3>
@@ -670,8 +621,8 @@ $carouselHospitals =
                                             location_on
                                         </span>
 
-
-                                        <?= htmlspecialchars($hospital["location"]) ?>, Maharashtra
+                                        <?= htmlspecialchars($hospital["location"]) ?>,
+                                        Maharashtra
 
                                     </div>
 
@@ -756,33 +707,30 @@ $carouselHospitals =
                                 </div>
 
 
-                                <!-- BUTTON -->
+                                <!-- DETAILS BUTTON -->
 
-                                <div
-                                    class="flex gap-3 mt-auto"
+                                <span
+                                    class="w-full py-3 rounded-xl border border-primary text-primary font-label-md text-center block"
                                 >
-
-                                    <button
-                                        class="flex-1 py-2 rounded-xl border border-primary text-primary font-label-md hover:bg-primary/5 transition-colors"
-                                        type="button"
-                                    >
-                                        Details
-                                    </button>
-
-                                </div>
+                                    Details
+                                </span>
 
                             </div>
 
                         </article>
 
-                    <?php endforeach; ?>
-
-                </div>
-
-            </a>
+                    </a>
 
 
-            <!-- LEFT ARROW -->
+                <?php endforeach; ?>
+
+
+            </div>
+
+
+            <!-- ==================================================
+                            PREVIOUS BUTTON
+            =================================================== -->
 
             <button
                 class="hospital-arrow hospital-arrow-left"
@@ -800,7 +748,9 @@ $carouselHospitals =
             </button>
 
 
-            <!-- RIGHT ARROW -->
+            <!-- ==================================================
+                            NEXT BUTTON
+            =================================================== -->
 
             <button
                 class="hospital-arrow hospital-arrow-right"
@@ -831,62 +781,42 @@ $carouselHospitals =
 ========================================================== -->
 
 <footer
-    class="w-full rounded-t-xl bg-surface-container-highest dark:bg-surface-container-lowest border-t border-outline-variant"
+    class="w-full rounded-t-xl bg-surface-container-highest border-t border-outline-variant"
 >
 
     <div
         class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-12 w-full max-w-container-max mx-auto"
     >
 
+
+        <!-- ==================================================
+                            BRAND
+        =================================================== -->
+
         <div
             class="space-y-4"
         >
 
             <span
-                class="text-headline-sm font-headline-sm font-black text-on-surface dark:text-inverse-on-surface"
+                class="text-headline-md font-headline-md font-black text-on-surface"
             >
                 Health Hub
             </span>
 
 
             <p
-                class="text-body-md font-body-md text-on-surface-variant"
+                class="text-body-md text-on-surface-variant"
             >
                 Providing accessible healthcare discovery
                 across India. Your health, our priority.
             </p>
 
-
-            <div
-                class="flex gap-4"
-            >
-
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity"
-                >
-                    face_nod
-                </span>
-
-
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity"
-                >
-                    1k
-                </span>
-
-
-                <span
-                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-80 transition-opacity"
-                >
-                    infrared
-                </span>
-
-            </div>
-
         </div>
 
 
-        <!-- QUICK LINKS -->
+        <!-- ==================================================
+                        QUICK LINKS
+        =================================================== -->
 
         <div>
 
@@ -900,42 +830,26 @@ $carouselHospitals =
             <ul class="space-y-3">
 
                 <li>
+
                     <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all"
-                        href="specialists.php"
+                        href="./specialists.php"
+                        class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Find a Doctor
                     </a>
+
                 </li>
 
 
                 <li>
+
                     <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all"
-                        href="#"
+                        href="./myhealth.php"
+                        class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
-                        Emergency Services
+                        Health Insights
                     </a>
-                </li>
 
-
-                <li>
-                    <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all"
-                        href="#"
-                    >
-                        Medical Blogs
-                    </a>
-                </li>
-
-
-                <li>
-                    <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all"
-                        href="#"
-                    >
-                        Hospital Registry
-                    </a>
                 </li>
 
             </ul>
@@ -943,7 +857,9 @@ $carouselHospitals =
         </div>
 
 
-        <!-- SUPPORT -->
+        <!-- ==================================================
+                            SUPPORT
+        =================================================== -->
 
         <div>
 
@@ -957,42 +873,38 @@ $carouselHospitals =
             <ul class="space-y-3">
 
                 <li>
+
                     <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all"
                         href="#"
+                        class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Contact Support
                     </a>
+
                 </li>
 
 
                 <li>
+
                     <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all"
                         href="#"
+                        class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Privacy Policy
                     </a>
+
                 </li>
 
 
                 <li>
+
                     <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all"
                         href="#"
+                        class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Terms of Service
                     </a>
-                </li>
 
-
-                <li>
-                    <a
-                        class="text-label-sm font-label-sm text-on-surface-variant hover:text-primary underline transition-all"
-                        href="#"
-                    >
-                        Cookie Policy
-                    </a>
                 </li>
 
             </ul>
@@ -1000,7 +912,9 @@ $carouselHospitals =
         </div>
 
 
-        <!-- NEWSLETTER -->
+        <!-- ==================================================
+                            NEWSLETTER
+        =================================================== -->
 
         <div>
 
@@ -1023,7 +937,7 @@ $carouselHospitals =
             >
 
                 <input
-                    class="bg-surface border border-outline-variant rounded-lg px-3 py-2 text-label-sm w-full focus:ring-1 focus:ring-primary outline-none"
+                    class="bg-surface border border-outline-variant rounded-lg px-3 py-2 text-label-sm w-full"
                     placeholder="Email address"
                     type="email"
                 >
@@ -1043,38 +957,20 @@ $carouselHospitals =
     </div>
 
 
-    <!-- COPYRIGHT -->
+    <!-- ==================================================
+                        COPYRIGHT
+    =================================================== -->
 
     <div
-        class="px-margin-desktop py-6 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4"
+        class="px-margin-desktop py-6 border-t border-outline-variant/30"
     >
 
         <span
-            class="text-label-sm font-label-sm text-on-surface-variant"
+            class="text-label-sm text-on-surface-variant"
         >
             © 2024 Health Hub Medical Systems.
             All rights reserved.
         </span>
-
-
-        <div
-            class="flex gap-6"
-        >
-
-            <span
-                class="text-label-sm font-label-sm text-on-surface-variant"
-            >
-                Accessibility
-            </span>
-
-
-            <span
-                class="text-label-sm font-label-sm text-on-surface-variant"
-            >
-                Trust Center
-            </span>
-
-        </div>
 
     </div>
 
@@ -1082,11 +978,11 @@ $carouselHospitals =
 
 
 <!-- ==========================================================
-                            JS
+                            JAVASCRIPT
 ========================================================== -->
 
 <script
-    src="../js/index.js"
+    src="../js/index.js?v=1"
 ></script>
 
 

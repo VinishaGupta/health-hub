@@ -467,7 +467,7 @@ $hospital = [
                     gap-6">
 
                         <!-- Department -->
-                        <a href="../dept.html" class="w-56 h-14 flex items-center justify-center text-center
+                        <a href="./departments.php" class="w-56 h-14 flex items-center justify-center text-center
                       border-2 border-sky-500 rounded-xl
                       bg-white text-sky-500
                       text-lg font-bold

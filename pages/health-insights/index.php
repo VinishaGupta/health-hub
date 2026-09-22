@@ -144,7 +144,7 @@
             <!-- Logo -->
 
             <a
-                href="../../home.html"
+                href="../../home.php"
                 class="flex items-center gap-3"
             >
 
@@ -191,7 +191,7 @@
             >
 
                 <a
-                    href="../../home.html"
+                    href="../../home.php"
                     class="text-sm font-semibold
                            text-slate-600 hover:text-[#0B4DA2]
                            transition-colors"
@@ -1106,7 +1106,7 @@
                     >
 
                         <a
-                            href="../../home.html"
+                            href="../../home.php"
                             class="text-sm
                                    text-slate-500
                                    hover:text-[#0B4DA2]"
