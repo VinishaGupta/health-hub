@@ -391,7 +391,7 @@ $healthCheckups = [
 ========================================================== -->
 
 <iframe
-    src="hospital-header.html"
+    src="../hospital-header.html"
     class="w-full h-[130px] border-0 mt-[60px] mb-[-60px]"
     scrolling="no"
 >
