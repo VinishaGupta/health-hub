@@ -22,6 +22,7 @@ $hospitals = [
         "location" => "Sadar, Nagpur",
         "rating" => "4.5",
         "doctors" => "15+",
+        "image" => "../best-hospital-in-bangalore.jpg",
         "image_alt" => "Modern multi-story clinic building with glass windows and professional branding in Nagpur."
     ],
 
@@ -31,6 +32,7 @@ $hospitals = [
         "location" => "Hinjewadi, Pune",
         "rating" => "4.7",
         "doctors" => "80+",
+        "image" => "../best-hospital-in-bangalore.jpg",
         "image_alt" => "Large suburban multi-speciality hospital complex with a dedicated trauma center in Pune."
     ],
 
@@ -40,6 +42,7 @@ $hospitals = [
         "location" => "Colaba, Mumbai",
         "rating" => "4.8",
         "doctors" => "25+",
+        "image" => "../best-hospital-in-bangalore.jpg",
         "image_alt" => "Boutique neuro-care medical facility with advanced technological facade."
     ],
 
@@ -49,6 +52,7 @@ $hospitals = [
         "location" => "Trimurti Nagar, Nagpur",
         "rating" => "4.4",
         "doctors" => "10+",
+        "image" => "../best-hospital-in-bangalore.jpg",
         "image_alt" => "Contemporary dental surgical center."
     ],
 
@@ -58,6 +62,7 @@ $hospitals = [
         "location" => "Wakad, Pune",
         "rating" => "4.9",
         "doctors" => "40+",
+        "image" => "../best-hospital-in-bangalore.jpg",
         "image_alt" => "Professional pediatric hospital."
     ],
 
@@ -67,6 +72,7 @@ $hospitals = [
         "location" => "Powai, Mumbai",
         "rating" => "4.7",
         "doctors" => "200+",
+        "image" => "../best-hospital-in-bangalore.jpg",
         "image_alt" => "Corporate multi-speciality hospital."
     ]
 
@@ -75,7 +81,7 @@ $hospitals = [
 
 /*
 |--------------------------------------------------------------------------
-| Duplicate cards for continuous carousel
+| DUPLICATE CARDS FOR CONTINUOUS CAROUSEL
 |--------------------------------------------------------------------------
 */
 
@@ -85,6 +91,7 @@ $carouselHospitals = array_merge(
 );
 
 ?>
+
 
 <!DOCTYPE html>
 
@@ -194,16 +201,15 @@ $carouselHospitals = array_merge(
                         "background": "#f8f9ff",
                         "on-primary-container": "#c4d2ff",
                         "inverse-surface": "#213145"
-
                     },
 
 
                     borderRadius: {
 
-                        DEFAULT: "0.25rem",
-                        lg: "0.5rem",
-                        xl: "0.75rem",
-                        full: "9999px"
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
 
                     },
 
@@ -230,6 +236,78 @@ $carouselHospitals = array_merge(
                         "label-md": ["Inter"],
                         "headline-lg-mobile": ["Inter"]
 
+                    },
+
+
+                    fontSize: {
+
+                        "headline-lg-mobile": [
+                            "24px",
+                            {
+                                lineHeight: "32px",
+                                fontWeight: "600"
+                            }
+                        ],
+
+                        "headline-md": [
+                            "24px",
+                            {
+                                lineHeight: "32px",
+                                fontWeight: "600"
+                            }
+                        ],
+
+                        "display-lg": [
+                            "48px",
+                            {
+                                lineHeight: "56px",
+                                letterSpacing: "-0.02em",
+                                fontWeight: "700"
+                            }
+                        ],
+
+                        "label-md": [
+                            "14px",
+                            {
+                                lineHeight: "20px",
+                                letterSpacing: "0.01em",
+                                fontWeight: "500"
+                            }
+                        ],
+
+                        "body-lg": [
+                            "18px",
+                            {
+                                lineHeight: "28px",
+                                fontWeight: "400"
+                            }
+                        ],
+
+                        "label-sm": [
+                            "12px",
+                            {
+                                lineHeight: "16px",
+                                fontWeight: "600"
+                            }
+                        ],
+
+                        "headline-lg": [
+                            "32px",
+                            {
+                                lineHeight: "40px",
+                                letterSpacing: "-0.01em",
+                                fontWeight: "600"
+                            }
+                        ],
+
+                        "body-md": [
+                            "16px",
+                            {
+                                lineHeight: "24px",
+                                fontWeight: "400"
+                            }
+                        ]
+
                     }
 
                 }
@@ -247,7 +325,7 @@ $carouselHospitals = array_merge(
 
     <link
         rel="stylesheet"
-        href="../css/index.css?v=1"
+        href="../css/index.css?v=2"
     >
 
 </head>
@@ -303,7 +381,7 @@ $carouselHospitals = array_merge(
         >
 
             <a
-                href="./home.php"
+                href="#"
                 class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary transition-colors duration-200 py-1"
             >
                 Home
@@ -316,7 +394,8 @@ $carouselHospitals = array_merge(
                         HEALTH INSIGHTS
         =================================================== -->
 
-       <a href="health-insights/index.php"
+        <a
+            href="health-insights/index.php"
             class="ml-auto border-2 border-[#159F00] text-[#159F00] px-8 py-3 rounded-xl font-bold hover:bg-[#107800] hover:text-white transition-all duration-300"
         >
             Health Insights
@@ -326,10 +405,6 @@ $carouselHospitals = array_merge(
 
 </header>
 
-
-<!-- ==========================================================
-                            MAIN
-========================================================== -->
 
 <main>
 
@@ -341,6 +416,8 @@ $carouselHospitals = array_merge(
 <section
     class="relative min-h-[870px] flex items-center overflow-hidden"
 >
+
+    <!-- BACKGROUND IMAGE -->
 
     <div
         class="absolute inset-0 z-0"
@@ -359,6 +436,8 @@ $carouselHospitals = array_merge(
     </div>
 
 
+    <!-- HERO CONTENT -->
+
     <div
         class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
     >
@@ -366,6 +445,9 @@ $carouselHospitals = array_merge(
         <div
             class="max-w-2xl space-y-8"
         >
+
+
+            <!-- BADGE -->
 
             <div
                 class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container/30 border border-secondary/20 rounded-full text-secondary font-label-sm"
@@ -382,6 +464,8 @@ $carouselHospitals = array_merge(
             </div>
 
 
+            <!-- TITLE -->
+
             <h1
                 class="text-display-lg font-display-lg text-primary tracking-tight"
             >
@@ -397,12 +481,16 @@ $carouselHospitals = array_merge(
             </h1>
 
 
+            <!-- DESCRIPTION -->
+
             <p
                 class="text-body-lg font-body-lg text-on-surface-variant max-w-lg"
             >
+
                 Advanced healthcare with compassion, comfort, and trust.
                 Experience a new standard of medical excellence designed
                 around your well-being.
+
             </p>
 
         </div>
@@ -410,6 +498,7 @@ $carouselHospitals = array_merge(
     </div>
 
 </section>
+
 
 
 <!-- ==========================================================
@@ -421,6 +510,8 @@ $carouselHospitals = array_merge(
 >
 
 
+    <!-- SECTION HEADING -->
+
     <header
         class="mb-12 border-l-4 border-primary pl-6"
     >
@@ -431,7 +522,6 @@ $carouselHospitals = array_merge(
             Find Hospitals Near You
         </h1>
 
-
         <p
             class="text-body-lg text-on-surface-variant max-w-2xl"
         >
@@ -440,6 +530,7 @@ $carouselHospitals = array_merge(
         </p>
 
     </header>
+
 
 
     <!-- ======================================================
@@ -452,6 +543,7 @@ $carouselHospitals = array_merge(
     >
         Find a Doctor
     </a>
+
 
 
     <!-- ======================================================
@@ -500,6 +592,7 @@ $carouselHospitals = array_merge(
     </section>
 
 
+
     <!-- ======================================================
                         HOSPITAL CAROUSEL
     ======================================================= -->
@@ -513,9 +606,7 @@ $carouselHospitals = array_merge(
         >
 
 
-            <!-- ==================================================
-                        CAROUSEL SLIDER
-            =================================================== -->
+            <!-- CAROUSEL -->
 
             <div
                 id="hospitalSlider"
@@ -526,9 +617,7 @@ $carouselHospitals = array_merge(
                 <?php foreach ($carouselHospitals as $hospital): ?>
 
 
-                    <!-- ==================================================
-                                INDIVIDUAL CARD LINK
-                    =================================================== -->
+                    <!-- HOSPITAL CARD -->
 
                     <a
                         href="./home.php"
@@ -540,20 +629,13 @@ $carouselHospitals = array_merge(
                         >
 
 
-                            <!-- ==================================================
-                                        IMAGE
-                            =================================================== -->
+                            <!-- IMAGE -->
 
                             <div
                                 class="relative h-48 w-full bg-surface-dim"
                             >
 
-                                <img
-                                    src="placeholder"
-                                    data-alt="<?= htmlspecialchars($hospital["image_alt"]) ?>"
-                                    class="w-full h-full object-cover"
-                                    alt="<?= htmlspecialchars($hospital["name"]) ?>"
-                                >
+                              
 
 
                                 <!-- RATING -->
@@ -569,7 +651,6 @@ $carouselHospitals = array_merge(
                                         star
                                     </span>
 
-
                                     <span
                                         class="text-label-md font-bold text-on-surface"
                                     >
@@ -581,9 +662,8 @@ $carouselHospitals = array_merge(
                             </div>
 
 
-                            <!-- ==================================================
-                                    CARD CONTENT
-                            =================================================== -->
+
+                            <!-- CARD CONTENT -->
 
                             <div
                                 class="p-5 flex-grow flex flex-col"
@@ -628,6 +708,7 @@ $carouselHospitals = array_merge(
                                 </div>
 
 
+
                                 <!-- SERVICES -->
 
                                 <div
@@ -640,13 +721,11 @@ $carouselHospitals = array_merge(
                                         OPD
                                     </span>
 
-
                                     <span
                                         class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm"
                                     >
                                         Emergency
                                     </span>
-
 
                                     <span
                                         class="px-2 py-1 bg-surface-container text-primary rounded-md text-label-sm"
@@ -655,6 +734,7 @@ $carouselHospitals = array_merge(
                                     </span>
 
                                 </div>
+
 
 
                                 <!-- DETAILS -->
@@ -672,7 +752,6 @@ $carouselHospitals = array_merge(
                                         >
                                             stethoscope
                                         </span>
-
 
                                         <span
                                             class="text-label-sm text-on-surface-variant"
@@ -694,7 +773,6 @@ $carouselHospitals = array_merge(
                                             schedule
                                         </span>
 
-
                                         <span
                                             class="text-label-sm text-on-surface-variant"
                                         >
@@ -706,13 +784,15 @@ $carouselHospitals = array_merge(
                                 </div>
 
 
+
                                 <!-- DETAILS BUTTON -->
 
                                 <span
-                                    class="w-full py-3 rounded-xl border border-primary text-primary font-label-md text-center block"
+                                    class="w-full py-3 rounded-xl border border-primary text-primary font-label-md text-center block mt-auto"
                                 >
                                     Details
                                 </span>
+
 
                             </div>
 
@@ -725,6 +805,7 @@ $carouselHospitals = array_merge(
 
 
             </div>
+
 
 
             <!-- ==================================================
@@ -747,6 +828,7 @@ $carouselHospitals = array_merge(
             </button>
 
 
+
             <!-- ==================================================
                             NEXT BUTTON
             =================================================== -->
@@ -766,6 +848,7 @@ $carouselHospitals = array_merge(
 
             </button>
 
+
         </div>
 
     </div>
@@ -773,6 +856,7 @@ $carouselHospitals = array_merge(
 </section>
 
 </main>
+
 
 
 <!-- ==========================================================
@@ -788,9 +872,7 @@ $carouselHospitals = array_merge(
     >
 
 
-        <!-- ==================================================
-                            BRAND
-        =================================================== -->
+        <!-- BRAND -->
 
         <div
             class="space-y-4"
@@ -802,7 +884,6 @@ $carouselHospitals = array_merge(
                 Health Hub
             </span>
 
-
             <p
                 class="text-body-md text-on-surface-variant"
             >
@@ -813,9 +894,8 @@ $carouselHospitals = array_merge(
         </div>
 
 
-        <!-- ==================================================
-                        QUICK LINKS
-        =================================================== -->
+
+        <!-- QUICK LINKS -->
 
         <div>
 
@@ -824,7 +904,6 @@ $carouselHospitals = array_merge(
             >
                 Quick Links
             </h4>
-
 
             <ul class="space-y-3">
 
@@ -839,11 +918,10 @@ $carouselHospitals = array_merge(
 
                 </li>
 
-
                 <li>
 
                     <a
-                        href="./myhealth.php"
+                        href="health-insights/index.php"
                         class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Health Insights
@@ -856,9 +934,8 @@ $carouselHospitals = array_merge(
         </div>
 
 
-        <!-- ==================================================
-                            SUPPORT
-        =================================================== -->
+
+        <!-- SUPPORT -->
 
         <div>
 
@@ -868,42 +945,33 @@ $carouselHospitals = array_merge(
                 Support
             </h4>
 
-
             <ul class="space-y-3">
 
                 <li>
-
                     <a
                         href="#"
                         class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Contact Support
                     </a>
-
                 </li>
 
-
                 <li>
-
                     <a
                         href="#"
                         class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Privacy Policy
                     </a>
-
                 </li>
 
-
                 <li>
-
                     <a
                         href="#"
                         class="text-label-sm text-on-surface-variant hover:text-primary transition-all"
                     >
                         Terms of Service
                     </a>
-
                 </li>
 
             </ul>
@@ -911,9 +979,8 @@ $carouselHospitals = array_merge(
         </div>
 
 
-        <!-- ==================================================
-                            NEWSLETTER
-        =================================================== -->
+
+        <!-- NEWSLETTER -->
 
         <div>
 
@@ -923,13 +990,11 @@ $carouselHospitals = array_merge(
                 Newsletter
             </h4>
 
-
             <p
                 class="text-label-sm text-on-surface-variant mb-4"
             >
                 Stay updated with latest health news.
             </p>
-
 
             <div
                 class="flex gap-2"
@@ -940,7 +1005,6 @@ $carouselHospitals = array_merge(
                     placeholder="Email address"
                     type="email"
                 >
-
 
                 <button
                     class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-bold"
@@ -956,9 +1020,8 @@ $carouselHospitals = array_merge(
     </div>
 
 
-    <!-- ==================================================
-                        COPYRIGHT
-    =================================================== -->
+
+    <!-- COPYRIGHT -->
 
     <div
         class="px-margin-desktop py-6 border-t border-outline-variant/30"
@@ -976,12 +1039,13 @@ $carouselHospitals = array_merge(
 </footer>
 
 
+
 <!-- ==========================================================
-                            JAVASCRIPT
+                        JAVASCRIPT
 ========================================================== -->
 
 <script
-    src="../js/index.js?v=1"
+    src="../js/index.js?v=2"
 ></script>
 
 
