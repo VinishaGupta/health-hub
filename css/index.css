@@ -4,6 +4,21 @@
 
 
 /* =========================================
+   GLOBAL
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
    ROW HEADINGS
 ========================================= */
 
@@ -11,23 +26,41 @@
     font-size: 32px;
     font-weight: 700;
     color: #0b3d91;
+
     margin: 0 0 18px 15px;
+
     line-height: 1.2;
+
     letter-spacing: -0.5px;
+}
+
+.row-heading .underline {
+    display: inline-block;
+
+    text-decoration: underline;
+
+    text-decoration-thickness: 2px;
+
+    text-underline-offset: 5px;
 }
 
 .row-heading span {
     display: block;
+
     font-size: 15px;
+
     font-weight: 400;
+
     color: #737685;
+
     margin-top: 6px;
+
     letter-spacing: 0;
 }
 
 
 /* =========================================
-   CAROUSEL
+   CAROUSEL WRAPPER
 ========================================= */
 
 @property --manual-offset {
@@ -36,51 +69,110 @@
     initial-value: 0px;
 }
 
+
 .carousel-wrapper {
     width: 100%;
+
     overflow: hidden;
+
     position: relative;
 }
 
+
+/* =========================================
+   EXTRA CAROUSEL ROWS
+========================================= */
+
 .carousel-wrapper.mt-10 {
     margin-top: 64px;
+
     padding-top: 44px;
 }
 
+
+/* DASHED DIVIDER */
+
 .carousel-wrapper.mt-10::before {
     content: "";
+
     position: absolute;
+
     top: 0;
+
     left: 15px;
+
     right: 15px;
-    border-top: 2px dashed rgba(0, 61, 155, .28);
+
+    border-top:
+        2px dashed
+        rgba(0, 61, 155, 0.28);
+
     pointer-events: none;
 }
+
+
+/* =========================================
+   HOSPITAL CARD LINKS
+========================================= */
 
 .carousel-wrapper > a {
     display: block;
 }
 
+.hospital-card-link {
+    text-decoration: none;
+
+    color: inherit;
+
+    width: 420px;
+
+    height: 520px;
+
+    flex:
+        0 0 420px;
+
+    display: flex;
+}
+
+.hospital-card-link:hover {
+    text-decoration: none;
+}
+
+
+/* =========================================
+   AUTO SCROLL
+========================================= */
+
 .auto-scroll {
     display: flex;
+
     gap: 24px;
+
     width: max-content;
+
     padding: 15px;
 
     --manual-offset: 0px;
 
     transition:
-        --manual-offset .55s cubic-bezier(.22, 1, .36, 1);
+        --manual-offset
+        0.55s
+        cubic-bezier(.22, 1, .36, 1);
 
     will-change: transform;
 
     animation:
-        scrollCards 30s linear infinite;
+        scrollCards
+        30s
+        linear
+        infinite;
 }
+
 
 .carousel-wrapper:hover .auto-scroll {
     animation-play-state: paused;
 }
+
 
 .auto-scroll.is-moving {
     animation-play-state: paused;
@@ -93,71 +185,44 @@
 
 .auto-scroll > a {
     width: 420px;
+
     height: 520px;
-    flex: 0 0 420px;
+
+    flex:
+        0 0 420px;
+
     display: flex;
 }
 
+
 .auto-scroll .hospital-card {
     width: 420px;
-    flex: 0 0 420px;
+
+    flex:
+        0 0 420px;
+
     height: 520px;
 
     display: flex;
+
     flex-direction: column;
+
+    box-sizing: border-box;
 }
 
 
 /* =========================================
-   ARROWS
+   CARD IMAGE
 ========================================= */
 
-.hospital-arrow {
-    width: 56px;
-    height: 56px;
+.hospital-card img {
+    display: block;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
 
-    position: absolute;
-    top: 50%;
+    height: 100%;
 
-    transform: translateY(-50%);
-
-    z-index: 20;
-
-    color: #003d9b;
-
-    background: rgba(255, 255, 255, .92);
-
-    border: 1px solid rgba(195, 198, 214, .6);
-
-    border-radius: 9999px;
-
-    box-shadow:
-        0 12px 28px rgba(11, 28, 48, .16);
-
-    transition:
-        transform .2s ease,
-        background .2s ease;
-}
-
-.hospital-arrow:hover {
-    background: #ffffff;
-    transform: translateY(-50%) scale(1.04);
-}
-
-.hospital-arrow:active {
-    transform: translateY(-50%) scale(.96);
-}
-
-.hospital-arrow-left {
-    left: 12px;
-}
-
-.hospital-arrow-right {
-    right: 12px;
+    object-fit: cover;
 }
 
 
@@ -166,8 +231,9 @@
 ========================================= */
 
 .auto-scroll:hover .hospital-card {
-    opacity: .45;
+    opacity: 0.45;
 }
+
 
 .auto-scroll .hospital-card:hover {
     opacity: 1;
@@ -178,39 +244,124 @@
 
     box-shadow:
         0 20px 35px
-        rgba(0, 61, 155, .25);
+        rgba(0, 61, 155, 0.25);
 }
 
 
 /* =========================================
-   AUTO SCROLL
+   ARROWS
+========================================= */
+
+.hospital-arrow {
+    width: 56px;
+
+    height: 56px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    z-index: 20;
+
+    color: #003d9b;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    border:
+        1px solid
+        rgba(195, 198, 214, 0.6);
+
+    border-radius: 9999px;
+
+    box-shadow:
+        0 12px 28px
+        rgba(11, 28, 48, 0.16);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+
+    cursor: pointer;
+}
+
+
+.hospital-arrow:hover {
+    background: #ffffff;
+
+    transform:
+        translateY(-50%)
+        scale(1.04);
+}
+
+
+.hospital-arrow:active {
+    transform:
+        translateY(-50%)
+        scale(0.96);
+}
+
+
+.hospital-arrow-left {
+    left: 12px;
+}
+
+
+.hospital-arrow-right {
+    right: 12px;
+}
+
+
+/* =========================================
+   AUTO SCROLL ANIMATION
 ========================================= */
 
 @keyframes scrollCards {
 
     from {
+
         transform:
-            translateX(var(--manual-offset));
+            translateX(
+                var(--manual-offset)
+            );
+
     }
 
     to {
+
         transform:
-            translateX(calc(-50% + var(--manual-offset)));
+            translateX(
+                calc(
+                    -50%
+                    +
+                    var(--manual-offset)
+                )
+            );
+
     }
 
 }
 
 
 /* =========================================
-   ICONS
+   MATERIAL ICONS
 ========================================= */
 
 .material-symbols-outlined {
     font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
 }
 
 
@@ -228,7 +379,46 @@
 
 
 /* =========================================
-   SCROLLBAR
+   HEADER SHADOW
+========================================= */
+
+header {
+    backdrop-filter:
+        blur(16px);
+
+    -webkit-backdrop-filter:
+        blur(16px);
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.leaf-pattern {
+    background-image:
+        url(
+            "data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c0 16.569-13.431 30-30 30 16.569 0 30 13.431 30 30 0-16.569 13.431-30 30-30-16.569 0-30-13.431-30-30z' fill='%2300687a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E"
+        );
+}
+
+
+/* =========================================
+   MEDICAL SHADOW
+========================================= */
+
+.shadow-medical {
+    box-shadow:
+        0 4px 6px -1px
+        rgba(0, 82, 204, 0.05),
+
+        0 2px 4px -1px
+        rgba(0, 0, 0, 0.03);
+}
+
+
+/* =========================================
+   CUSTOM SCROLLBAR
 ========================================= */
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -241,20 +431,137 @@
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background: #c3c6d6;
+
     border-radius: 10px;
 }
 
 
 /* =========================================
-   BACKGROUND
+   HOSPITAL CARD TEXT
 ========================================= */
 
-.leaf-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c0 16.569-13.431 30-30 30 16.569 0 30 13.431 30 30 0-16.569 13.431-30 30-30-16.569 0-30-13.431-30-30z' fill='%2300687a' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+.hospital-card h3 {
+    color: #0b1c30;
 }
 
-.shadow-medical {
-    box-shadow:
-        0 4px 6px -1px rgba(0, 82, 204, 0.05),
-        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+.hospital-card .text-secondary {
+    color: #00687a;
+}
+
+
+.hospital-card .text-primary {
+    color: #003d9b;
+}
+
+
+/* =========================================
+   DETAILS BUTTON
+========================================= */
+
+.hospital-card .details-button {
+    width: 100%;
+
+    padding:
+        12px
+        0;
+
+    border:
+        1px solid
+        #003d9b;
+
+    border-radius: 12px;
+
+    color: #003d9b;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.hospital-card .details-button:hover {
+    background: rgba(0, 61, 155, 0.05);
+}
+
+
+/* =========================================
+   SEARCH AREA
+========================================= */
+
+input::placeholder {
+    opacity: 1;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .row-heading {
+        font-size: 26px;
+
+        margin-left: 8px;
+    }
+
+
+    .hospital-card-link {
+        width: 340px;
+
+        height: 500px;
+
+        flex:
+            0 0 340px;
+    }
+
+
+    .auto-scroll > a {
+        width: 340px;
+
+        height: 500px;
+
+        flex:
+            0 0 340px;
+    }
+
+
+    .auto-scroll .hospital-card {
+        width: 340px;
+
+        height: 500px;
+
+        flex:
+            0 0 340px;
+    }
+
+
+    .hospital-arrow {
+        width: 48px;
+
+        height: 48px;
+    }
+
+
+    .hospital-arrow-left {
+        left: 6px;
+    }
+
+
+    .hospital-arrow-right {
+        right: 6px;
+    }
+
+
+    .hospital-card:hover {
+        transform:
+            translateY(-4px)
+            scale(1.01);
+    }
+
 }
