@@ -132,6 +132,8 @@ $carouselHospitals = array_merge(
         rel="stylesheet"
     >
 
+    <link rel="stylesheet" href="../css/user-instructions.css?v=1">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet"
@@ -334,6 +336,20 @@ $carouselHospitals = array_merge(
 <body
     class="bg-background text-on-background font-body-md overflow-x-hidden leaf-pattern"
 >
+
+<div id="userInstructionsContainer"></div>
+
+<script>
+fetch("user-instructions.php")
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById("userInstructionsContainer").innerHTML = html;
+
+        const script = document.createElement("script");
+        script.src = "../js/user-instructions.js?v=1";
+        document.body.appendChild(script);
+    });
+</script>
 
 
 <!-- ==========================================================

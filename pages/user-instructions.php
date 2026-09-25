@@ -19,9 +19,7 @@
     aria-labelledby="userInstructionsTitle"
 >
 
-    <div
-        class="user-instructions-window"
-    >
+    <div class="user-instructions-window">
 
         <!-- ======================================================
                             LAST UPDATE
@@ -47,19 +45,17 @@
                         INSTRUCTIONS LIST
         ======================================================= -->
 
-        <ol
+        <ul
             id="userInstructionsList"
             class="user-instructions-list"
-        ></ol>
+        ></ul>
 
 
         <!-- ======================================================
                             BOTTOM
         ======================================================= -->
 
-        <div
-            class="user-instructions-bottom"
-        >
+        <div class="user-instructions-bottom">
 
             <!-- PROMISE TEXT -->
 
