@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Copy Protection</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            line-height: 1.6;
+
+            /* Disable text selection */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Allow selection in input fields */
+        input, textarea {
+            user-select: text;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Text Copy Protection</h1>
+
+    <p>
+        This is sample webpage content.
+        Users cannot normally select or copy this text.
+    </p>
+
+    <script>
+        // Disable right-click
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        // Disable Ctrl+C, Ctrl+X and Ctrl+A
+        document.addEventListener("keydown", function(e) {
+            if ((e.ctrlKey || e.metaKey) &&
+                ["c", "x", "a"].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+        });
+
+        // Disable copying
+        document.addEventListener("copy", function(e) {
+            e.preventDefault();
+        });
+
+        // Disable cutting
+        document.addEventListener("cut", function(e) {
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+</html>
